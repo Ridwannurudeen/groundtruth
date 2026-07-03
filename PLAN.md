@@ -185,11 +185,14 @@ Wire thumbs-up/down into the API/UI (Phase 5) and expose `POST /improve`. In the
 
 ## What the owner must provide (Codex: ask for these up front, then start)
 
-| # | Item | Used for | Cost |
-|---|------|----------|------|
-| 1 | **`LLM_API_KEY`** — an OpenAI API key in env / `.env` | All cognee LLM calls (`gpt-5-mini`) + embeddings (`text-embedding-3-large`) + curation & judge calls | ~$5–15 total at this corpus size; set a hard spend limit on the key |
-| 2 | **`CROSSREF_MAILTO`** — any contact email | Polite-pool param for the Retraction Watch CSV download | Free, no signup |
-| 3 | Python 3.10–3.14 on PATH | everything | — |
+| # | Item | Used for | Status |
+|---|------|----------|--------|
+| 1 | **`LLM_API_KEY`** — an OpenAI API key | All cognee LLM calls (`gpt-5-mini`) + embeddings (`text-embedding-3-large`) + curation & judge calls. ~$5–15 at this corpus size; set a hard spend limit on the key. | **MISSING — required before P0.** Codex: do not start until it's in `.env`. |
+| 2 | **`CROSSREF_MAILTO`** — contact email | Polite-pool param for the Retraction Watch CSV download (free, no signup) | Provided (in `.env`) |
+| 3 | `COGNEE_API_KEY` | **Not used in self-hosted mode** (Cognee Cloud only). Kept in `.env` in case a Cloud comparison is wanted later; never commit it. | Provided (in `.env`) |
+| 4 | Python 3.10–3.14 on PATH | everything | — |
 | — | *Nothing else.* No other API keys, no databases, no Docker, no paid services. | | |
+
+Secrets live only in `.env` (gitignored). `.env.example` documents the shape with empty values.
 
 Owner-side items outside Codex's scope (later): GitHub repo publish, VPS deploy + subdomain, demo video recording, Google Form submission (all approval-gated to the owner).

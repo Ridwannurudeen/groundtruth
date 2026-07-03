@@ -36,6 +36,7 @@ class ScientificClaim(DataPoint):
 CLAIM_EXTRACTION_PROMPT = """
 Extract one ScientificClaim from the text. Use the source DOI as doi, the source
 journal as journal, the source year as year, and status as written in the text.
-The made_by source must use the journal name and source_type="journal".
+The made_by source must use the journal name. Use source_type="journal" for
+paper sources and source_type="retraction_notice" for retraction notices.
 Keep the claim text concrete and faithful to the provided claim.
 """

@@ -6,15 +6,29 @@
     "datasets": {
       "groundtruth_memory": {
         "data_id": "033e8c14-5e6e-5dbf-8a50-a7b850015cf2",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+        "retraction_notice_data_id": "4b2daf7b-0340-572d-adde-ce491af50f5d",
+        "retraction_notice_doi": "10.1056/nejme2608684",
+        "status": "retracted_forgotten"
       },
       "naive_memory": {
         "data_id": "033e8c14-5e6e-5dbf-8a50-a7b850015cf2",
-        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+        "retraction_notice_data_id": "4b2daf7b-0340-572d-adde-ce491af50f5d",
+        "retraction_notice_doi": "10.1056/nejme2608684",
+        "status": "retracted_retained"
       }
     },
     "doi": "10.1056/nejmoa2023386",
     "ingestion_mode": "deterministic_graph_fallback",
+    "retraction": {
+      "claim_id": "R001",
+      "nature": "Retraction",
+      "original_doi": "10.1056/nejmoa2023386",
+      "reason": "Investigation by Company/Institution;Manipulation of Results;Upgrade/Update of Prior Notice(s);",
+      "retraction_date": "6/29/2026 0:00",
+      "retraction_doi": "10.1056/nejme2608684"
+    },
     "retraction_doi": "10.1056/nejme2608684",
     "source": {
       "doi": "10.1056/nejmoa2023386",
@@ -23,7 +37,7 @@
       "title": "Avacopan for the Treatment of ANCA-Associated Vasculitis",
       "year": 2021
     },
-    "status": "active"
+    "status": "retracted_forgotten"
   },
   {
     "claim_id": "R002",
@@ -32,15 +46,29 @@
     "datasets": {
       "groundtruth_memory": {
         "data_id": "0d01068c-5f25-56aa-943a-63b1cd4a05ba",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+        "retraction_notice_data_id": "8f967623-fbe5-5104-bad6-53b3f7f6d931",
+        "retraction_notice_doi": "10.1016/j.heliyon.2025.e44253",
+        "status": "retracted_forgotten"
       },
       "naive_memory": {
         "data_id": "0d01068c-5f25-56aa-943a-63b1cd4a05ba",
-        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+        "retraction_notice_data_id": "8f967623-fbe5-5104-bad6-53b3f7f6d931",
+        "retraction_notice_doi": "10.1016/j.heliyon.2025.e44253",
+        "status": "retracted_retained"
       }
     },
     "doi": "10.1016/j.heliyon.2024.e30453",
     "ingestion_mode": "deterministic_graph_fallback",
+    "retraction": {
+      "claim_id": "R002",
+      "nature": "Retraction",
+      "original_doi": "10.1016/j.heliyon.2024.e30453",
+      "reason": "Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
+      "retraction_date": "11/24/2025 0:00",
+      "retraction_doi": "10.1016/j.heliyon.2025.e44253"
+    },
     "retraction_doi": "10.1016/j.heliyon.2025.e44253",
     "source": {
       "doi": "10.1016/j.heliyon.2024.e30453",
@@ -49,7 +77,7 @@
       "title": "Nutritional and bioactive properties and antioxidant potential of Amaranthus tricolor, A. lividus, A viridis, and A. spinosus leafy vegetables",
       "year": 2024
     },
-    "status": "active"
+    "status": "retracted_forgotten"
   },
   {
     "claim_id": "R003",
@@ -58,15 +86,29 @@
     "datasets": {
       "groundtruth_memory": {
         "data_id": "e21ca4ca-0fc0-59bc-a3d4-7025db76c675",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+        "retraction_notice_data_id": "99e5a7e4-1f8d-588b-8317-c7a32aa727ce",
+        "retraction_notice_doi": "10.1002/bcp.70475",
+        "status": "retracted_forgotten"
       },
       "naive_memory": {
         "data_id": "e21ca4ca-0fc0-59bc-a3d4-7025db76c675",
-        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+        "retraction_notice_data_id": "99e5a7e4-1f8d-588b-8317-c7a32aa727ce",
+        "retraction_notice_doi": "10.1002/bcp.70475",
+        "status": "retracted_retained"
       }
     },
     "doi": "10.1002/bcp.70249",
     "ingestion_mode": "deterministic_graph_fallback",
+    "retraction": {
+      "claim_id": "R003",
+      "nature": "Retraction",
+      "original_doi": "10.1002/bcp.70249",
+      "reason": "Concerns/Issues about Human Subject Welfare;Concerns/Issues about Methods;Error in Analyses;Investigation by Journal/Publisher;Investigation by Third Party;Unreliable Results and/or Conclusions;",
+      "retraction_date": "1/22/2026 0:00",
+      "retraction_doi": "10.1002/bcp.70475"
+    },
     "retraction_doi": "10.1002/bcp.70475",
     "source": {
       "doi": "10.1002/bcp.70249",
@@ -75,7 +117,7 @@
       "title": "Effects of different antihypertensive drug classes on central and ambulatory blood pressure in resistant hypertension: A randomized clinical trial",
       "year": 2025
     },
-    "status": "active"
+    "status": "retracted_forgotten"
   },
   {
     "claim_id": "R004",

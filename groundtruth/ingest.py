@@ -378,7 +378,11 @@ def claim_datapoint(claim: dict[str, Any]) -> Any:
         journal=source["journal"],
         year=int(source["year"]),
         status=claim["status_at_seed"],
-        made_by=Source(name=source["journal"], source_type="journal"),
+        supersedes_doi=claim.get("supersedes_doi"),
+        made_by=Source(
+            name=source["journal"],
+            source_type=source.get("source_type", "journal"),
+        ),
     )
 
 

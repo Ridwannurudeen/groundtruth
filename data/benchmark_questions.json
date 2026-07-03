@@ -1,0 +1,122 @@
+[
+  {
+    "id": "Q01",
+    "kind": "retracted",
+    "target_claim_ids": ["R001"],
+    "question": "Does avacopan remain supported for ANCA-associated vasculitis after the retraction?"
+  },
+  {
+    "id": "Q02",
+    "kind": "retracted",
+    "target_claim_ids": ["R002"],
+    "question": "What should the memory say about antioxidant properties of Amaranthus leafy vegetables?"
+  },
+  {
+    "id": "Q03",
+    "kind": "retracted",
+    "target_claim_ids": ["R003"],
+    "question": "What does the research say about antihypertensive drug classes and central blood pressure in resistant hypertension?"
+  },
+  {
+    "id": "Q04",
+    "kind": "retracted",
+    "target_claim_ids": ["R004"],
+    "question": "Can PO-RSNN and FZCIS be trusted for diabetes prediction and stroke analysis in the metaverse?"
+  },
+  {
+    "id": "Q05",
+    "kind": "retracted",
+    "target_claim_ids": ["R005"],
+    "question": "What should an answer say about monosodium glutamate consumption and metabolic disorders?"
+  },
+  {
+    "id": "Q06",
+    "kind": "retracted",
+    "target_claim_ids": ["R006"],
+    "question": "What is the memory position on food insecurity and women's mental health during COVID-19?"
+  },
+  {
+    "id": "Q07",
+    "kind": "retracted",
+    "target_claim_ids": ["R007"],
+    "question": "Should chrysanthemum flower phytochemical and therapeutic benefit claims still be cited?"
+  },
+  {
+    "id": "Q08",
+    "kind": "retracted",
+    "target_claim_ids": ["R008"],
+    "question": "What should the memory say about the NF-kB axis in diabetic neuropathy, cardiomyopathy, and nephropathy?"
+  },
+  {
+    "id": "Q09",
+    "kind": "retracted",
+    "target_claim_ids": ["R009"],
+    "question": "Are fenchone and camphor claims still reliable after the retraction?"
+  },
+  {
+    "id": "Q10",
+    "kind": "retracted",
+    "target_claim_ids": ["R010"],
+    "question": "What should be cited about inhalable particulate pollutants and cardiopulmonary effects in outdoor football?"
+  },
+  {
+    "id": "Q11",
+    "kind": "retracted",
+    "target_claim_ids": ["R011"],
+    "question": "Can the attention-based dense network model for cardiac image segmentation still be used as evidence?"
+  },
+  {
+    "id": "Q12",
+    "kind": "retracted",
+    "target_claim_ids": ["R012"],
+    "question": "What should the memory say about SiloMAS after its retraction?"
+  },
+  {
+    "id": "Q13",
+    "kind": "control",
+    "target_claim_ids": ["C001"],
+    "question": "What does the active evidence say about dietary sodium intake and cardiovascular disease risk?"
+  },
+  {
+    "id": "Q14",
+    "kind": "control",
+    "target_claim_ids": ["C002"],
+    "question": "What does the active evidence say about coffee consumption and type 2 diabetes risk?"
+  },
+  {
+    "id": "Q15",
+    "kind": "control",
+    "target_claim_ids": ["C003"],
+    "question": "What does the active evidence say about the DASH diet and blood pressure?"
+  },
+  {
+    "id": "Q16",
+    "kind": "control",
+    "target_claim_ids": ["C004"],
+    "question": "What does the active evidence say about whole-grain intake and type 2 diabetes risk?"
+  },
+  {
+    "id": "Q17",
+    "kind": "control",
+    "target_claim_ids": ["C005"],
+    "question": "What does the active evidence say about Mediterranean diet and cardiovascular disease prevention?"
+  },
+  {
+    "id": "Q18",
+    "kind": "mixed",
+    "target_claim_ids": ["R001", "C003"],
+    "question": "Compare avacopan vasculitis evidence with DASH diet blood-pressure evidence."
+  },
+  {
+    "id": "Q19",
+    "kind": "mixed",
+    "target_claim_ids": ["R005", "C004"],
+    "question": "What does the memory say about MSG metabolic disorder claims versus whole-grain type 2 diabetes evidence?"
+  },
+  {
+    "id": "Q20",
+    "kind": "mixed",
+    "target_claim_ids": ["R003", "C001"],
+    "question": "How should resistant hypertension drug-class evidence be weighed against sodium cardiovascular risk evidence?"
+  }
+]

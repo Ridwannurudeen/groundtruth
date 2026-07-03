@@ -126,15 +126,29 @@
     "datasets": {
       "groundtruth_memory": {
         "data_id": "ea8722b5-a8b9-57f4-89e0-e18772ff635c",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+        "retraction_notice_data_id": "33d7feae-c703-5a0a-8607-eae01f51ffff",
+        "retraction_notice_doi": "10.1038/s41598-026-55044-4",
+        "status": "retracted_forgotten"
       },
       "naive_memory": {
         "data_id": "ea8722b5-a8b9-57f4-89e0-e18772ff635c",
-        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+        "retraction_notice_data_id": "33d7feae-c703-5a0a-8607-eae01f51ffff",
+        "retraction_notice_doi": "10.1038/s41598-026-55044-4",
+        "status": "retracted_retained"
       }
     },
     "doi": "10.1038/s41598-025-96541-2",
     "ingestion_mode": "deterministic_graph_fallback",
+    "retraction": {
+      "claim_id": "R004",
+      "nature": "Retraction",
+      "original_doi": "10.1038/s41598-025-96541-2",
+      "reason": "Computer-Aided Content or Computer-Generated Content;Concerns/Issues about Data;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
+      "retraction_date": "6/3/2026 0:00",
+      "retraction_doi": "10.1038/s41598-026-55044-4"
+    },
     "retraction_doi": "10.1038/s41598-026-55044-4",
     "source": {
       "doi": "10.1038/s41598-025-96541-2",
@@ -143,7 +157,7 @@
       "title": "An effective PO-RSNN and FZCIS based diabetes prediction and stroke analysis in the metaverse environment",
       "year": 2025
     },
-    "status": "active"
+    "status": "retracted_forgotten"
   },
   {
     "claim_id": "R005",
@@ -152,15 +166,29 @@
     "datasets": {
       "groundtruth_memory": {
         "data_id": "79f37376-cbd9-5566-80dc-1ad63e27bb39",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+        "retraction_notice_data_id": "26a06040-1641-5fb4-b618-aac0a99829ec",
+        "retraction_notice_doi": "10.1016/j.heliyon.2025.e44379",
+        "status": "retracted_forgotten"
       },
       "naive_memory": {
         "data_id": "79f37376-cbd9-5566-80dc-1ad63e27bb39",
-        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+        "retraction_notice_data_id": "26a06040-1641-5fb4-b618-aac0a99829ec",
+        "retraction_notice_doi": "10.1016/j.heliyon.2025.e44379",
+        "status": "retracted_retained"
       }
     },
     "doi": "10.1016/j.heliyon.2023.e19675",
     "ingestion_mode": "deterministic_graph_fallback",
+    "retraction": {
+      "claim_id": "R005",
+      "nature": "Retraction",
+      "original_doi": "10.1016/j.heliyon.2023.e19675",
+      "reason": "Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
+      "retraction_date": "12/16/2025 0:00",
+      "retraction_doi": "10.1016/j.heliyon.2025.e44379"
+    },
     "retraction_doi": "10.1016/j.heliyon.2025.e44379",
     "source": {
       "doi": "10.1016/j.heliyon.2023.e19675",
@@ -169,7 +197,7 @@
       "title": "The interplay between monosodium glutamate (MSG) consumption and metabolic disorders",
       "year": 2023
     },
-    "status": "active"
+    "status": "retracted_forgotten"
   },
   {
     "claim_id": "R006",
@@ -178,15 +206,29 @@
     "datasets": {
       "groundtruth_memory": {
         "data_id": "c37c62bc-a612-58be-af2c-2aab5c468c08",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+        "retraction_notice_data_id": "eddb95b1-729c-5dc0-8905-78d2dbfe26fa",
+        "retraction_notice_doi": "10.1371/journal.pone.0349829",
+        "status": "retracted_forgotten"
       },
       "naive_memory": {
         "data_id": "c37c62bc-a612-58be-af2c-2aab5c468c08",
-        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+        "retraction_notice_data_id": "eddb95b1-729c-5dc0-8905-78d2dbfe26fa",
+        "retraction_notice_doi": "10.1371/journal.pone.0349829",
+        "status": "retracted_retained"
       }
     },
     "doi": "10.1371/journal.pone.0255392",
     "ingestion_mode": "deterministic_graph_fallback",
+    "retraction": {
+      "claim_id": "R006",
+      "nature": "Retraction",
+      "original_doi": "10.1371/journal.pone.0255392",
+      "reason": "Concerns/Issues about Data;Concerns/Issues about Methods;Concerns/Issues about Results and/or Conclusions;Investigation by Journal/Publisher;Investigation by Third Party;Objections by Author(s);Original Data and/or Images not Provided and/or not Available;Unreliable Results and/or Conclusions;",
+      "retraction_date": "5/21/2026 0:00",
+      "retraction_doi": "10.1371/journal.pone.0349829"
+    },
     "retraction_doi": "10.1371/journal.pone.0349829",
     "source": {
       "doi": "10.1371/journal.pone.0255392",
@@ -195,7 +237,7 @@
       "title": "Food insecurity and mental health of women during COVID-19: Evidence from a developing country",
       "year": 2021
     },
-    "status": "active"
+    "status": "retracted_forgotten"
   },
   {
     "claim_id": "R007",
@@ -204,15 +246,29 @@
     "datasets": {
       "groundtruth_memory": {
         "data_id": "2d49a0d2-69a4-50b4-99ca-b13c3f8243a9",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+        "retraction_notice_data_id": "e0b8a838-2d0b-5eb6-b05b-22bbacb7b6a6",
+        "retraction_notice_doi": "10.1016/j.heliyon.2025.e44382",
+        "status": "retracted_forgotten"
       },
       "naive_memory": {
         "data_id": "2d49a0d2-69a4-50b4-99ca-b13c3f8243a9",
-        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+        "retraction_notice_data_id": "e0b8a838-2d0b-5eb6-b05b-22bbacb7b6a6",
+        "retraction_notice_doi": "10.1016/j.heliyon.2025.e44382",
+        "status": "retracted_retained"
       }
     },
     "doi": "10.1016/j.heliyon.2023.e20232",
     "ingestion_mode": "deterministic_graph_fallback",
+    "retraction": {
+      "claim_id": "R007",
+      "nature": "Retraction",
+      "original_doi": "10.1016/j.heliyon.2023.e20232",
+      "reason": "Concerns/Issues about Authorship/Affiliation;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
+      "retraction_date": "12/16/2025 0:00",
+      "retraction_doi": "10.1016/j.heliyon.2025.e44382"
+    },
     "retraction_doi": "10.1016/j.heliyon.2025.e44382",
     "source": {
       "doi": "10.1016/j.heliyon.2023.e20232",
@@ -221,7 +277,7 @@
       "title": "Phytochemicals, therapeutic benefits and applications of chrysanthemum flower: A review",
       "year": 2023
     },
-    "status": "active"
+    "status": "retracted_forgotten"
   },
   {
     "claim_id": "R008",
@@ -230,15 +286,29 @@
     "datasets": {
       "groundtruth_memory": {
         "data_id": "87da7153-d003-5008-8c6a-7e7cfacb7e5c",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+        "retraction_notice_data_id": "7f4d9085-c721-5aa6-b59d-f07faec035f1",
+        "retraction_notice_doi": "10.1016/j.heliyon.2025.e44378",
+        "status": "retracted_forgotten"
       },
       "naive_memory": {
         "data_id": "87da7153-d003-5008-8c6a-7e7cfacb7e5c",
-        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+        "retraction_notice_data_id": "7f4d9085-c721-5aa6-b59d-f07faec035f1",
+        "retraction_notice_doi": "10.1016/j.heliyon.2025.e44378",
+        "status": "retracted_retained"
       }
     },
     "doi": "10.1016/j.heliyon.2024.e29871",
     "ingestion_mode": "deterministic_graph_fallback",
+    "retraction": {
+      "claim_id": "R008",
+      "nature": "Retraction",
+      "original_doi": "10.1016/j.heliyon.2024.e29871",
+      "reason": "Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
+      "retraction_date": "12/16/2025 0:00",
+      "retraction_doi": "10.1016/j.heliyon.2025.e44378"
+    },
     "retraction_doi": "10.1016/j.heliyon.2025.e44378",
     "source": {
       "doi": "10.1016/j.heliyon.2024.e29871",
@@ -247,7 +317,7 @@
       "title": "NF-\u0138B axis in diabetic neuropathy, cardiomyopathy and nephropathy: A roadmap from molecular intervention to therapeutic strategies",
       "year": 2024
     },
-    "status": "active"
+    "status": "retracted_forgotten"
   },
   {
     "claim_id": "R009",
@@ -256,15 +326,29 @@
     "datasets": {
       "groundtruth_memory": {
         "data_id": "36eae4ae-b0f1-519b-8ea1-d50c2e60bd5f",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+        "retraction_notice_data_id": "fd06d41a-718c-5980-aa6d-1c99ee176224",
+        "retraction_notice_doi": "10.1016/j.heliyon.2025.e44400",
+        "status": "retracted_forgotten"
       },
       "naive_memory": {
         "data_id": "36eae4ae-b0f1-519b-8ea1-d50c2e60bd5f",
-        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+        "retraction_notice_data_id": "fd06d41a-718c-5980-aa6d-1c99ee176224",
+        "retraction_notice_doi": "10.1016/j.heliyon.2025.e44400",
+        "status": "retracted_retained"
       }
     },
     "doi": "10.1016/j.heliyon.2023.e21222",
     "ingestion_mode": "deterministic_graph_fallback",
+    "retraction": {
+      "claim_id": "R009",
+      "nature": "Retraction",
+      "original_doi": "10.1016/j.heliyon.2023.e21222",
+      "reason": "Concerns/Issues about Authorship/Affiliation;Concerns/Issues about Results and/or Conclusions;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
+      "retraction_date": "12/21/2025 0:00",
+      "retraction_doi": "10.1016/j.heliyon.2025.e44400"
+    },
     "retraction_doi": "10.1016/j.heliyon.2025.e44400",
     "source": {
       "doi": "10.1016/j.heliyon.2023.e21222",
@@ -273,7 +357,7 @@
       "title": "Fenchone and camphor: Main natural compounds from Lavandula stoechas L., expediting multiple in vitro biological activities",
       "year": 2023
     },
-    "status": "active"
+    "status": "retracted_forgotten"
   },
   {
     "claim_id": "R010",
@@ -282,15 +366,29 @@
     "datasets": {
       "groundtruth_memory": {
         "data_id": "d13dc0ac-adf9-536e-9b7b-ee57b4bc6066",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+        "retraction_notice_data_id": "ceee7f78-b013-5352-93e7-084b83127a61",
+        "retraction_notice_doi": "10.1007/s00500-025-11084-y",
+        "status": "retracted_forgotten"
       },
       "naive_memory": {
         "data_id": "d13dc0ac-adf9-536e-9b7b-ee57b4bc6066",
-        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+        "retraction_notice_data_id": "ceee7f78-b013-5352-93e7-084b83127a61",
+        "retraction_notice_doi": "10.1007/s00500-025-11084-y",
+        "status": "retracted_retained"
       }
     },
     "doi": "10.1007/s00500-023-09589-5",
     "ingestion_mode": "deterministic_graph_fallback",
+    "retraction": {
+      "claim_id": "R010",
+      "nature": "Retraction",
+      "original_doi": "10.1007/s00500-023-09589-5",
+      "reason": "Concerns/Issues about Peer Review;Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Unreliable Results and/or Conclusions;",
+      "retraction_date": "12/31/2025 0:00",
+      "retraction_doi": "10.1007/s00500-025-11084-y"
+    },
     "retraction_doi": "10.1007/s00500-025-11084-y",
     "source": {
       "doi": "10.1007/s00500-023-09589-5",
@@ -299,7 +397,7 @@
       "title": "Distribution characteristics of inhalable particulate pollutants and their effects on cardiopulmonary respiratory system of outdoor football players in a smart healthcare system",
       "year": 2024
     },
-    "status": "active"
+    "status": "retracted_forgotten"
   },
   {
     "claim_id": "R011",
@@ -308,15 +406,29 @@
     "datasets": {
       "groundtruth_memory": {
         "data_id": "be4527b6-ee58-5b79-88a2-6a776a1aad92",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+        "retraction_notice_data_id": "7ee50471-5eca-5da5-9a46-98f60e8c6d87",
+        "retraction_notice_doi": "10.1007/s00500-025-11095-9",
+        "status": "retracted_forgotten"
       },
       "naive_memory": {
         "data_id": "be4527b6-ee58-5b79-88a2-6a776a1aad92",
-        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+        "retraction_notice_data_id": "7ee50471-5eca-5da5-9a46-98f60e8c6d87",
+        "retraction_notice_doi": "10.1007/s00500-025-11095-9",
+        "status": "retracted_retained"
       }
     },
     "doi": "10.1007/s00500-023-09482-1",
     "ingestion_mode": "deterministic_graph_fallback",
+    "retraction": {
+      "claim_id": "R011",
+      "nature": "Retraction",
+      "original_doi": "10.1007/s00500-023-09482-1",
+      "reason": "Concerns/Issues about Peer Review;Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
+      "retraction_date": "12/31/2025 0:00",
+      "retraction_doi": "10.1007/s00500-025-11095-9"
+    },
     "retraction_doi": "10.1007/s00500-025-11095-9",
     "source": {
       "doi": "10.1007/s00500-023-09482-1",
@@ -325,7 +437,7 @@
       "title": "An attention-based dense network model for cardiac image segmentation using learning approaches",
       "year": 2023
     },
-    "status": "active"
+    "status": "retracted_forgotten"
   },
   {
     "claim_id": "R012",
@@ -334,15 +446,29 @@
     "datasets": {
       "groundtruth_memory": {
         "data_id": "8b310b31-aecd-5a18-8fd5-06e67dcfe8bb",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+        "retraction_notice_data_id": "7de422b8-8606-50c3-951a-17a00330ff96",
+        "retraction_notice_doi": "xx10.1007/978-3-030-00524-5_9",
+        "status": "retracted_forgotten"
       },
       "naive_memory": {
         "data_id": "8b310b31-aecd-5a18-8fd5-06e67dcfe8bb",
-        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+        "retraction_notice_data_id": "7de422b8-8606-50c3-951a-17a00330ff96",
+        "retraction_notice_doi": "xx10.1007/978-3-030-00524-5_9",
+        "status": "retracted_retained"
       }
     },
     "doi": "10.1007/978-3-030-00524-5_6",
     "ingestion_mode": "deterministic_graph_fallback",
+    "retraction": {
+      "claim_id": "R012",
+      "nature": "Retraction",
+      "original_doi": "10.1007/978-3-030-00524-5_6",
+      "reason": "Concerns/Issues about Referencing/Attributions;Conflict of Interest;Date of Article and/or Notice Unknown;Investigation by Journal/Publisher;Objections by Author(s);Rogue Editor;Unreliable Results and/or Conclusions;",
+      "retraction_date": "10/15/2024 0:00",
+      "retraction_doi": "xx10.1007/978-3-030-00524-5_9"
+    },
     "retraction_doi": "xx10.1007/978-3-030-00524-5_9",
     "source": {
       "doi": "10.1007/978-3-030-00524-5_6",
@@ -351,7 +477,7 @@
       "title": "SiloMAS: A MAS for Smart Silos to Optimize Food and Water Consumption on Livestock Holdings",
       "year": 2019
     },
-    "status": "active"
+    "status": "retracted_forgotten"
   },
   {
     "claim_id": "R013",

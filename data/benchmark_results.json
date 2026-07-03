@@ -1,0 +1,3878 @@
+{
+  "generated_at": "2026-07-03T21:40:38.184923+00:00",
+  "prepared_retractions": [
+    {
+      "action": "already_prepared",
+      "claim_id": "R001",
+      "doi": "10.1056/nejmoa2023386",
+      "status": "retracted_forgotten"
+    },
+    {
+      "action": "already_prepared",
+      "claim_id": "R002",
+      "doi": "10.1016/j.heliyon.2024.e30453",
+      "status": "retracted_forgotten"
+    },
+    {
+      "action": "already_prepared",
+      "claim_id": "R003",
+      "doi": "10.1002/bcp.70249",
+      "status": "retracted_forgotten"
+    },
+    {
+      "action": "processed",
+      "claim_id": "R004",
+      "doi": "10.1038/s41598-025-96541-2",
+      "result": {
+        "claim_id": "R004",
+        "decision": {
+          "confidence": 1.0,
+          "contradicts": true,
+          "rationale": "Retraction Watch links original DOI 10.1038/s41598-025-96541-2 to this claim; reason: Computer-Aided Content or Computer-Generated Content;Concerns/Issues about Data;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
+          "superseded_doi": "10.1038/s41598-025-96541-2"
+        },
+        "doi": "10.1038/s41598-025-96541-2",
+        "edge_result": {
+          "memify_result": {
+            "1870baaf-b8c5-5b21-87dd-f40ef9024f1f": {
+              "data_ingestion_info": [
+                {
+                  "run_info": {
+                    "data_ingestion_info": null,
+                    "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+                    "dataset_name": "groundtruth_memory",
+                    "payload": null,
+                    "pipeline_run_id": "41839c06-dc93-430d-9b76-7131f3b1dc86",
+                    "status": "PipelineRunCompleted"
+                  }
+                }
+              ],
+              "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+              "dataset_name": "groundtruth_memory",
+              "payload": null,
+              "pipeline_run_id": "41839c06-dc93-430d-9b76-7131f3b1dc86",
+              "status": "PipelineRunCompleted"
+            }
+          },
+          "properties": {
+            "confidence": 1.0,
+            "edge_text": "Retraction notice for 10.1038/s41598-025-96541-2 contradicts the original claim",
+            "ontology_valid": false,
+            "rationale": "Retraction Watch links original DOI 10.1038/s41598-025-96541-2 to this claim; reason: Computer-Aided Content or Computer-Generated Content;Concerns/Issues about Data;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
+            "relationship_name": "contradicts",
+            "source_data_id": "33d7feae-c703-5a0a-8607-eae01f51ffff",
+            "superseded_doi": "10.1038/s41598-025-96541-2",
+            "target_data_id": "ea8722b5-a8b9-57f4-89e0-e18772ff635c"
+          },
+          "source_node_id": "e383aae5-eaad-5a2a-a001-64717c1b5b4e",
+          "target_node_id": "86a5ed8b-96a9-5b67-b6c3-bf1a629ada87"
+        },
+        "forget_result": {
+          "data_id": "ea8722b5-a8b9-57f4-89e0-e18772ff635c",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "status": "success"
+        },
+        "graph_edges_after_forget": 0,
+        "graph_edges_before_forget": 1,
+        "ledger_edges_before_forget": 1,
+        "notice_entries": {
+          "groundtruth_memory": {
+            "data_id": "33d7feae-c703-5a0a-8607-eae01f51ffff",
+            "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+          },
+          "naive_memory": {
+            "data_id": "33d7feae-c703-5a0a-8607-eae01f51ffff",
+            "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+          }
+        }
+      }
+    },
+    {
+      "action": "processed",
+      "claim_id": "R005",
+      "doi": "10.1016/j.heliyon.2023.e19675",
+      "result": {
+        "claim_id": "R005",
+        "decision": {
+          "confidence": 1.0,
+          "contradicts": true,
+          "rationale": "Retraction Watch links original DOI 10.1016/j.heliyon.2023.e19675 to this claim; reason: Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
+          "superseded_doi": "10.1016/j.heliyon.2023.e19675"
+        },
+        "doi": "10.1016/j.heliyon.2023.e19675",
+        "edge_result": {
+          "memify_result": {
+            "1870baaf-b8c5-5b21-87dd-f40ef9024f1f": {
+              "data_ingestion_info": [
+                {
+                  "run_info": {
+                    "data_ingestion_info": null,
+                    "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+                    "dataset_name": "groundtruth_memory",
+                    "payload": null,
+                    "pipeline_run_id": "98c0ce68-43c3-407f-b36e-7f19f982349a",
+                    "status": "PipelineRunCompleted"
+                  }
+                }
+              ],
+              "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+              "dataset_name": "groundtruth_memory",
+              "payload": null,
+              "pipeline_run_id": "98c0ce68-43c3-407f-b36e-7f19f982349a",
+              "status": "PipelineRunCompleted"
+            }
+          },
+          "properties": {
+            "confidence": 1.0,
+            "edge_text": "Retraction notice for 10.1016/j.heliyon.2023.e19675 contradicts the original claim",
+            "ontology_valid": false,
+            "rationale": "Retraction Watch links original DOI 10.1016/j.heliyon.2023.e19675 to this claim; reason: Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
+            "relationship_name": "contradicts",
+            "source_data_id": "26a06040-1641-5fb4-b618-aac0a99829ec",
+            "superseded_doi": "10.1016/j.heliyon.2023.e19675",
+            "target_data_id": "79f37376-cbd9-5566-80dc-1ad63e27bb39"
+          },
+          "source_node_id": "b3a82094-b843-5f15-9abc-bbe793d28042",
+          "target_node_id": "08656f3a-8490-5ce4-90f1-21ac3697acbd"
+        },
+        "forget_result": {
+          "data_id": "79f37376-cbd9-5566-80dc-1ad63e27bb39",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "status": "success"
+        },
+        "graph_edges_after_forget": 0,
+        "graph_edges_before_forget": 1,
+        "ledger_edges_before_forget": 1,
+        "notice_entries": {
+          "groundtruth_memory": {
+            "data_id": "26a06040-1641-5fb4-b618-aac0a99829ec",
+            "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+          },
+          "naive_memory": {
+            "data_id": "26a06040-1641-5fb4-b618-aac0a99829ec",
+            "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+          }
+        }
+      }
+    },
+    {
+      "action": "processed",
+      "claim_id": "R006",
+      "doi": "10.1371/journal.pone.0255392",
+      "result": {
+        "claim_id": "R006",
+        "decision": {
+          "confidence": 1.0,
+          "contradicts": true,
+          "rationale": "Retraction Watch links original DOI 10.1371/journal.pone.0255392 to this claim; reason: Concerns/Issues about Data;Concerns/Issues about Methods;Concerns/Issues about Results and/or Conclusions;Investigation by Journal/Publisher;Investigation by Third Party;Objections by Author(s);Original Data and/or Images not Provided and/or not Available;Unreliable Results and/or Conclusions;",
+          "superseded_doi": "10.1371/journal.pone.0255392"
+        },
+        "doi": "10.1371/journal.pone.0255392",
+        "edge_result": {
+          "memify_result": {
+            "1870baaf-b8c5-5b21-87dd-f40ef9024f1f": {
+              "data_ingestion_info": [
+                {
+                  "run_info": {
+                    "data_ingestion_info": null,
+                    "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+                    "dataset_name": "groundtruth_memory",
+                    "payload": null,
+                    "pipeline_run_id": "be809da9-9f80-4eb7-a5b3-86c8b4a09ddf",
+                    "status": "PipelineRunCompleted"
+                  }
+                }
+              ],
+              "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+              "dataset_name": "groundtruth_memory",
+              "payload": null,
+              "pipeline_run_id": "be809da9-9f80-4eb7-a5b3-86c8b4a09ddf",
+              "status": "PipelineRunCompleted"
+            }
+          },
+          "properties": {
+            "confidence": 1.0,
+            "edge_text": "Retraction notice for 10.1371/journal.pone.0255392 contradicts the original claim",
+            "ontology_valid": false,
+            "rationale": "Retraction Watch links original DOI 10.1371/journal.pone.0255392 to this claim; reason: Concerns/Issues about Data;Concerns/Issues about Methods;Concerns/Issues about Results and/or Conclusions;Investigation by Journal/Publisher;Investigation by Third Party;Objections by Author(s);Original Data and/or Images not Provided and/or not Available;Unreliable Results and/or Conclusions;",
+            "relationship_name": "contradicts",
+            "source_data_id": "eddb95b1-729c-5dc0-8905-78d2dbfe26fa",
+            "superseded_doi": "10.1371/journal.pone.0255392",
+            "target_data_id": "c37c62bc-a612-58be-af2c-2aab5c468c08"
+          },
+          "source_node_id": "f988f4ff-1c17-5bdd-b83a-640bbca8f934",
+          "target_node_id": "9b15b006-86b7-532d-b959-1b16b5554f83"
+        },
+        "forget_result": {
+          "data_id": "c37c62bc-a612-58be-af2c-2aab5c468c08",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "status": "success"
+        },
+        "graph_edges_after_forget": 0,
+        "graph_edges_before_forget": 1,
+        "ledger_edges_before_forget": 1,
+        "notice_entries": {
+          "groundtruth_memory": {
+            "data_id": "eddb95b1-729c-5dc0-8905-78d2dbfe26fa",
+            "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+          },
+          "naive_memory": {
+            "data_id": "eddb95b1-729c-5dc0-8905-78d2dbfe26fa",
+            "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+          }
+        }
+      }
+    },
+    {
+      "action": "processed",
+      "claim_id": "R007",
+      "doi": "10.1016/j.heliyon.2023.e20232",
+      "result": {
+        "claim_id": "R007",
+        "decision": {
+          "confidence": 1.0,
+          "contradicts": true,
+          "rationale": "Retraction Watch links original DOI 10.1016/j.heliyon.2023.e20232 to this claim; reason: Concerns/Issues about Authorship/Affiliation;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
+          "superseded_doi": "10.1016/j.heliyon.2023.e20232"
+        },
+        "doi": "10.1016/j.heliyon.2023.e20232",
+        "edge_result": {
+          "memify_result": {
+            "1870baaf-b8c5-5b21-87dd-f40ef9024f1f": {
+              "data_ingestion_info": [
+                {
+                  "run_info": {
+                    "data_ingestion_info": null,
+                    "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+                    "dataset_name": "groundtruth_memory",
+                    "payload": null,
+                    "pipeline_run_id": "6951d6f6-c878-4460-af4a-f72d0819adab",
+                    "status": "PipelineRunCompleted"
+                  }
+                }
+              ],
+              "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+              "dataset_name": "groundtruth_memory",
+              "payload": null,
+              "pipeline_run_id": "6951d6f6-c878-4460-af4a-f72d0819adab",
+              "status": "PipelineRunCompleted"
+            }
+          },
+          "properties": {
+            "confidence": 1.0,
+            "edge_text": "Retraction notice for 10.1016/j.heliyon.2023.e20232 contradicts the original claim",
+            "ontology_valid": false,
+            "rationale": "Retraction Watch links original DOI 10.1016/j.heliyon.2023.e20232 to this claim; reason: Concerns/Issues about Authorship/Affiliation;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
+            "relationship_name": "contradicts",
+            "source_data_id": "e0b8a838-2d0b-5eb6-b05b-22bbacb7b6a6",
+            "superseded_doi": "10.1016/j.heliyon.2023.e20232",
+            "target_data_id": "2d49a0d2-69a4-50b4-99ca-b13c3f8243a9"
+          },
+          "source_node_id": "50c65637-54e6-5b77-b227-9fce90dff868",
+          "target_node_id": "c54f681c-2e24-54ee-990a-9a6fca8b87f7"
+        },
+        "forget_result": {
+          "data_id": "2d49a0d2-69a4-50b4-99ca-b13c3f8243a9",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "status": "success"
+        },
+        "graph_edges_after_forget": 0,
+        "graph_edges_before_forget": 1,
+        "ledger_edges_before_forget": 1,
+        "notice_entries": {
+          "groundtruth_memory": {
+            "data_id": "e0b8a838-2d0b-5eb6-b05b-22bbacb7b6a6",
+            "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+          },
+          "naive_memory": {
+            "data_id": "e0b8a838-2d0b-5eb6-b05b-22bbacb7b6a6",
+            "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+          }
+        }
+      }
+    },
+    {
+      "action": "processed",
+      "claim_id": "R008",
+      "doi": "10.1016/j.heliyon.2024.e29871",
+      "result": {
+        "claim_id": "R008",
+        "decision": {
+          "confidence": 1.0,
+          "contradicts": true,
+          "rationale": "Retraction Watch links original DOI 10.1016/j.heliyon.2024.e29871 to this claim; reason: Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
+          "superseded_doi": "10.1016/j.heliyon.2024.e29871"
+        },
+        "doi": "10.1016/j.heliyon.2024.e29871",
+        "edge_result": {
+          "memify_result": {
+            "1870baaf-b8c5-5b21-87dd-f40ef9024f1f": {
+              "data_ingestion_info": [
+                {
+                  "run_info": {
+                    "data_ingestion_info": null,
+                    "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+                    "dataset_name": "groundtruth_memory",
+                    "payload": null,
+                    "pipeline_run_id": "3c74856b-2ead-40eb-930a-e7756e028e6e",
+                    "status": "PipelineRunCompleted"
+                  }
+                }
+              ],
+              "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+              "dataset_name": "groundtruth_memory",
+              "payload": null,
+              "pipeline_run_id": "3c74856b-2ead-40eb-930a-e7756e028e6e",
+              "status": "PipelineRunCompleted"
+            }
+          },
+          "properties": {
+            "confidence": 1.0,
+            "edge_text": "Retraction notice for 10.1016/j.heliyon.2024.e29871 contradicts the original claim",
+            "ontology_valid": false,
+            "rationale": "Retraction Watch links original DOI 10.1016/j.heliyon.2024.e29871 to this claim; reason: Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
+            "relationship_name": "contradicts",
+            "source_data_id": "7f4d9085-c721-5aa6-b59d-f07faec035f1",
+            "superseded_doi": "10.1016/j.heliyon.2024.e29871",
+            "target_data_id": "87da7153-d003-5008-8c6a-7e7cfacb7e5c"
+          },
+          "source_node_id": "3982f563-a5cb-51d4-bb66-73432f3cb486",
+          "target_node_id": "e9c8b1ae-d2a1-5097-b69b-5a94db21f012"
+        },
+        "forget_result": {
+          "data_id": "87da7153-d003-5008-8c6a-7e7cfacb7e5c",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "status": "success"
+        },
+        "graph_edges_after_forget": 0,
+        "graph_edges_before_forget": 1,
+        "ledger_edges_before_forget": 1,
+        "notice_entries": {
+          "groundtruth_memory": {
+            "data_id": "7f4d9085-c721-5aa6-b59d-f07faec035f1",
+            "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+          },
+          "naive_memory": {
+            "data_id": "7f4d9085-c721-5aa6-b59d-f07faec035f1",
+            "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+          }
+        }
+      }
+    },
+    {
+      "action": "processed",
+      "claim_id": "R009",
+      "doi": "10.1016/j.heliyon.2023.e21222",
+      "result": {
+        "claim_id": "R009",
+        "decision": {
+          "confidence": 1.0,
+          "contradicts": true,
+          "rationale": "Retraction Watch links original DOI 10.1016/j.heliyon.2023.e21222 to this claim; reason: Concerns/Issues about Authorship/Affiliation;Concerns/Issues about Results and/or Conclusions;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
+          "superseded_doi": "10.1016/j.heliyon.2023.e21222"
+        },
+        "doi": "10.1016/j.heliyon.2023.e21222",
+        "edge_result": {
+          "memify_result": {
+            "1870baaf-b8c5-5b21-87dd-f40ef9024f1f": {
+              "data_ingestion_info": [
+                {
+                  "run_info": {
+                    "data_ingestion_info": null,
+                    "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+                    "dataset_name": "groundtruth_memory",
+                    "payload": null,
+                    "pipeline_run_id": "8775d50d-e1f0-40e8-b979-246c3ef7d51e",
+                    "status": "PipelineRunCompleted"
+                  }
+                }
+              ],
+              "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+              "dataset_name": "groundtruth_memory",
+              "payload": null,
+              "pipeline_run_id": "8775d50d-e1f0-40e8-b979-246c3ef7d51e",
+              "status": "PipelineRunCompleted"
+            }
+          },
+          "properties": {
+            "confidence": 1.0,
+            "edge_text": "Retraction notice for 10.1016/j.heliyon.2023.e21222 contradicts the original claim",
+            "ontology_valid": false,
+            "rationale": "Retraction Watch links original DOI 10.1016/j.heliyon.2023.e21222 to this claim; reason: Concerns/Issues about Authorship/Affiliation;Concerns/Issues about Results and/or Conclusions;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
+            "relationship_name": "contradicts",
+            "source_data_id": "fd06d41a-718c-5980-aa6d-1c99ee176224",
+            "superseded_doi": "10.1016/j.heliyon.2023.e21222",
+            "target_data_id": "36eae4ae-b0f1-519b-8ea1-d50c2e60bd5f"
+          },
+          "source_node_id": "4e3795a0-c200-509f-87b4-99a800ce5785",
+          "target_node_id": "4137a2a3-5fbf-5b0e-bdc9-f489b3d21fb6"
+        },
+        "forget_result": {
+          "data_id": "36eae4ae-b0f1-519b-8ea1-d50c2e60bd5f",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "status": "success"
+        },
+        "graph_edges_after_forget": 0,
+        "graph_edges_before_forget": 1,
+        "ledger_edges_before_forget": 1,
+        "notice_entries": {
+          "groundtruth_memory": {
+            "data_id": "fd06d41a-718c-5980-aa6d-1c99ee176224",
+            "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+          },
+          "naive_memory": {
+            "data_id": "fd06d41a-718c-5980-aa6d-1c99ee176224",
+            "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+          }
+        }
+      }
+    },
+    {
+      "action": "processed",
+      "claim_id": "R010",
+      "doi": "10.1007/s00500-023-09589-5",
+      "result": {
+        "claim_id": "R010",
+        "decision": {
+          "confidence": 1.0,
+          "contradicts": true,
+          "rationale": "Retraction Watch links original DOI 10.1007/s00500-023-09589-5 to this claim; reason: Concerns/Issues about Peer Review;Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Unreliable Results and/or Conclusions;",
+          "superseded_doi": "10.1007/s00500-023-09589-5"
+        },
+        "doi": "10.1007/s00500-023-09589-5",
+        "edge_result": {
+          "memify_result": {
+            "1870baaf-b8c5-5b21-87dd-f40ef9024f1f": {
+              "data_ingestion_info": [
+                {
+                  "run_info": {
+                    "data_ingestion_info": null,
+                    "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+                    "dataset_name": "groundtruth_memory",
+                    "payload": null,
+                    "pipeline_run_id": "735eb0f7-3242-4bd4-9fe5-20aad528231b",
+                    "status": "PipelineRunCompleted"
+                  }
+                }
+              ],
+              "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+              "dataset_name": "groundtruth_memory",
+              "payload": null,
+              "pipeline_run_id": "735eb0f7-3242-4bd4-9fe5-20aad528231b",
+              "status": "PipelineRunCompleted"
+            }
+          },
+          "properties": {
+            "confidence": 1.0,
+            "edge_text": "Retraction notice for 10.1007/s00500-023-09589-5 contradicts the original claim",
+            "ontology_valid": false,
+            "rationale": "Retraction Watch links original DOI 10.1007/s00500-023-09589-5 to this claim; reason: Concerns/Issues about Peer Review;Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Unreliable Results and/or Conclusions;",
+            "relationship_name": "contradicts",
+            "source_data_id": "ceee7f78-b013-5352-93e7-084b83127a61",
+            "superseded_doi": "10.1007/s00500-023-09589-5",
+            "target_data_id": "d13dc0ac-adf9-536e-9b7b-ee57b4bc6066"
+          },
+          "source_node_id": "94240f29-a55d-512b-8f70-66df8a6fac57",
+          "target_node_id": "8b7f4001-b6f3-5a19-8296-22c84dcd12ea"
+        },
+        "forget_result": {
+          "data_id": "d13dc0ac-adf9-536e-9b7b-ee57b4bc6066",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "status": "success"
+        },
+        "graph_edges_after_forget": 0,
+        "graph_edges_before_forget": 1,
+        "ledger_edges_before_forget": 1,
+        "notice_entries": {
+          "groundtruth_memory": {
+            "data_id": "ceee7f78-b013-5352-93e7-084b83127a61",
+            "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+          },
+          "naive_memory": {
+            "data_id": "ceee7f78-b013-5352-93e7-084b83127a61",
+            "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+          }
+        }
+      }
+    },
+    {
+      "action": "processed",
+      "claim_id": "R011",
+      "doi": "10.1007/s00500-023-09482-1",
+      "result": {
+        "claim_id": "R011",
+        "decision": {
+          "confidence": 1.0,
+          "contradicts": true,
+          "rationale": "Retraction Watch links original DOI 10.1007/s00500-023-09482-1 to this claim; reason: Concerns/Issues about Peer Review;Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
+          "superseded_doi": "10.1007/s00500-023-09482-1"
+        },
+        "doi": "10.1007/s00500-023-09482-1",
+        "edge_result": {
+          "memify_result": {
+            "1870baaf-b8c5-5b21-87dd-f40ef9024f1f": {
+              "data_ingestion_info": [
+                {
+                  "run_info": {
+                    "data_ingestion_info": null,
+                    "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+                    "dataset_name": "groundtruth_memory",
+                    "payload": null,
+                    "pipeline_run_id": "5b06e91b-8247-4907-b4e7-b8aaff8488a2",
+                    "status": "PipelineRunCompleted"
+                  }
+                }
+              ],
+              "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+              "dataset_name": "groundtruth_memory",
+              "payload": null,
+              "pipeline_run_id": "5b06e91b-8247-4907-b4e7-b8aaff8488a2",
+              "status": "PipelineRunCompleted"
+            }
+          },
+          "properties": {
+            "confidence": 1.0,
+            "edge_text": "Retraction notice for 10.1007/s00500-023-09482-1 contradicts the original claim",
+            "ontology_valid": false,
+            "rationale": "Retraction Watch links original DOI 10.1007/s00500-023-09482-1 to this claim; reason: Concerns/Issues about Peer Review;Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
+            "relationship_name": "contradicts",
+            "source_data_id": "7ee50471-5eca-5da5-9a46-98f60e8c6d87",
+            "superseded_doi": "10.1007/s00500-023-09482-1",
+            "target_data_id": "be4527b6-ee58-5b79-88a2-6a776a1aad92"
+          },
+          "source_node_id": "e54e6729-b7f0-57cd-b313-4803aaa5ceca",
+          "target_node_id": "2ab42d07-b6be-58f4-be60-7cffd4fc4cb6"
+        },
+        "forget_result": {
+          "data_id": "be4527b6-ee58-5b79-88a2-6a776a1aad92",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "status": "success"
+        },
+        "graph_edges_after_forget": 0,
+        "graph_edges_before_forget": 1,
+        "ledger_edges_before_forget": 1,
+        "notice_entries": {
+          "groundtruth_memory": {
+            "data_id": "7ee50471-5eca-5da5-9a46-98f60e8c6d87",
+            "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+          },
+          "naive_memory": {
+            "data_id": "7ee50471-5eca-5da5-9a46-98f60e8c6d87",
+            "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+          }
+        }
+      }
+    },
+    {
+      "action": "processed",
+      "claim_id": "R012",
+      "doi": "10.1007/978-3-030-00524-5_6",
+      "result": {
+        "claim_id": "R012",
+        "decision": {
+          "confidence": 1.0,
+          "contradicts": true,
+          "rationale": "Retraction Watch links original DOI 10.1007/978-3-030-00524-5_6 to this claim; reason: Concerns/Issues about Referencing/Attributions;Conflict of Interest;Date of Article and/or Notice Unknown;Investigation by Journal/Publisher;Objections by Author(s);Rogue Editor;Unreliable Results and/or Conclusions;",
+          "superseded_doi": "10.1007/978-3-030-00524-5_6"
+        },
+        "doi": "10.1007/978-3-030-00524-5_6",
+        "edge_result": {
+          "memify_result": {
+            "1870baaf-b8c5-5b21-87dd-f40ef9024f1f": {
+              "data_ingestion_info": [
+                {
+                  "run_info": {
+                    "data_ingestion_info": null,
+                    "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+                    "dataset_name": "groundtruth_memory",
+                    "payload": null,
+                    "pipeline_run_id": "85c032b9-1eae-4d04-b945-d5e428b114c4",
+                    "status": "PipelineRunCompleted"
+                  }
+                }
+              ],
+              "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+              "dataset_name": "groundtruth_memory",
+              "payload": null,
+              "pipeline_run_id": "85c032b9-1eae-4d04-b945-d5e428b114c4",
+              "status": "PipelineRunCompleted"
+            }
+          },
+          "properties": {
+            "confidence": 1.0,
+            "edge_text": "Retraction notice for 10.1007/978-3-030-00524-5_6 contradicts the original claim",
+            "ontology_valid": false,
+            "rationale": "Retraction Watch links original DOI 10.1007/978-3-030-00524-5_6 to this claim; reason: Concerns/Issues about Referencing/Attributions;Conflict of Interest;Date of Article and/or Notice Unknown;Investigation by Journal/Publisher;Objections by Author(s);Rogue Editor;Unreliable Results and/or Conclusions;",
+            "relationship_name": "contradicts",
+            "source_data_id": "7de422b8-8606-50c3-951a-17a00330ff96",
+            "superseded_doi": "10.1007/978-3-030-00524-5_6",
+            "target_data_id": "8b310b31-aecd-5a18-8fd5-06e67dcfe8bb"
+          },
+          "source_node_id": "4ebbca9f-8ace-54ed-8588-b73b16fc05ff",
+          "target_node_id": "d9d31375-86bf-5cd0-b843-6e282d21023b"
+        },
+        "forget_result": {
+          "data_id": "8b310b31-aecd-5a18-8fd5-06e67dcfe8bb",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "status": "success"
+        },
+        "graph_edges_after_forget": 0,
+        "graph_edges_before_forget": 1,
+        "ledger_edges_before_forget": 1,
+        "notice_entries": {
+          "groundtruth_memory": {
+            "data_id": "7de422b8-8606-50c3-951a-17a00330ff96",
+            "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+          },
+          "naive_memory": {
+            "data_id": "7de422b8-8606-50c3-951a-17a00330ff96",
+            "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+          }
+        }
+      }
+    }
+  ],
+  "questions_path": "C:\\Users\\gudma\\OneDrive\\Desktop\\GITHUB-FILES\\groundtruth\\data\\benchmark_questions.json",
+  "results_path": "C:\\Users\\gudma\\OneDrive\\Desktop\\GITHUB-FILES\\groundtruth\\data\\benchmark_results.json",
+  "rows": [
+    {
+      "cites_retracted": true,
+      "control_retained": false,
+      "correctness_judge": "skipped_gemini_quota_fallback",
+      "correctness_score": null,
+      "dataset": "naive_memory",
+      "kind": "retracted",
+      "question": "Does avacopan remain supported for ANCA-associated vasculitis after the retraction?",
+      "question_id": "Q01",
+      "recall_context_excerpt": "Nodes:\nNode: The paper claimed that avacopan for the... [paper, claimed, avacopan]\n__node_content_start__\nThe paper claimed that avacopan for the Treatment of ANCA-Associated Vasculitis.\n__node_content_end__\n\nNode: NEJM: The New England Journal of Medicine\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The retraction notice says that Avacopan for... [retraction, notice, says]\n__node_content_start__\nThe retraction notice says that Avacopan for the Treatment of ANCA-Associated Vasculitis (DOI 10.1056/nejmoa2023386) was retracted. Reason: Investigation by Company/Institution;Manipulation of Results;Upgrade/Update of Prior Notice(s);.\n__node_content_end__\n\nNode: Retraction Watch / Crossref\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The retraction notice says that NF-\u0138B axis... [retraction, notice, says]\n__node_content_start__\nThe retraction notice says that NF-\u0138B axis in diabetic neuropathy, cardiomyopathy and nephropathy: A roadmap from molecular intervention to therapeutic strategies (DOI 10.1016/j.heliyon.2024.e29871) was retracted. Reason: Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Resul",
+      "reference_claim_ids": [
+        "R001",
+        "R001",
+        "R011",
+        "R012",
+        "R015"
+      ],
+      "references": [
+        {
+          "claim_id": "R001",
+          "data_id": "033e8c14-5e6e-5dbf-8a50-a7b850015cf2",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "retracted_retained",
+          "doi": "10.1056/nejmoa2023386",
+          "kind": "original_claim",
+          "retracted": true,
+          "score": 5,
+          "source": "NEJM: The New England Journal of Medicine",
+          "status": "retracted_forgotten"
+        },
+        {
+          "claim_id": "R001",
+          "data_id": "4b2daf7b-0340-572d-adde-ce491af50f5d",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "retracted_retained",
+          "doi": "10.1056/nejmoa2023386",
+          "kind": "retraction_notice",
+          "retracted": false,
+          "score": 5,
+          "source": "NEJM: The New England Journal of Medicine",
+          "status": "retracted_forgotten"
+        },
+        {
+          "claim_id": "R011",
+          "data_id": "be4527b6-ee58-5b79-88a2-6a776a1aad92",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "retracted_retained",
+          "doi": "10.1007/s00500-023-09482-1",
+          "kind": "original_claim",
+          "retracted": true,
+          "score": 1,
+          "source": "Soft Computing",
+          "status": "retracted_forgotten"
+        },
+        {
+          "claim_id": "R012",
+          "data_id": "8b310b31-aecd-5a18-8fd5-06e67dcfe8bb",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "retracted_retained",
+          "doi": "10.1007/978-3-030-00524-5_6",
+          "kind": "original_claim",
+          "retracted": true,
+          "score": 1,
+          "source": "Distributed Computing and Artificial Intelligence, Special Sessions II, 15th International Conference",
+          "status": "retracted_forgotten"
+        },
+        {
+          "claim_id": "R015",
+          "data_id": "57a0c28a-fb22-579e-ad51-e0d96239ea46",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "active",
+          "doi": "10.1016/j.heliyon.2025.e41964",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 1,
+          "source": "Heliyon",
+          "status": "active"
+        }
+      ],
+      "retracted_dois": [
+        "10.1007/978-3-030-00524-5_6",
+        "10.1007/s00500-023-09482-1",
+        "10.1056/nejmoa2023386"
+      ],
+      "target_claim_ids": [
+        "R001"
+      ],
+      "text": "naive_memory still cites the retracted original source 10.1056/nejmoa2023386 from NEJM: The New England Journal of Medicine. Treat the answer as unsafe until that source is forgotten."
+    },
+    {
+      "cites_retracted": false,
+      "control_retained": false,
+      "correctness_judge": "skipped_gemini_quota_fallback",
+      "correctness_score": null,
+      "dataset": "groundtruth_memory",
+      "kind": "retracted",
+      "question": "Does avacopan remain supported for ANCA-associated vasculitis after the retraction?",
+      "question_id": "Q01",
+      "recall_context_excerpt": "Nodes:\nNode: The retraction notice says that Avacopan for... [retraction, notice, says]\n__node_content_start__\nThe retraction notice says that Avacopan for the Treatment of ANCA-Associated Vasculitis (DOI 10.1056/nejmoa2023386) was retracted. Reason: Investigation by Company/Institution;Manipulation of Results;Upgrade/Update of Prior Notice(s);.\n__node_content_end__\n\nNode: Retraction Watch / Crossref\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The retraction notice says that NF-\u0138B axis... [retraction, notice, says]\n__node_content_start__\nThe retraction notice says that NF-\u0138B axis in diabetic neuropathy, cardiomyopathy and nephropathy: A roadmap from molecular intervention to therapeutic strategies (DOI 10.1016/j.heliyon.2024.e29871) was retracted. Reason: Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;.\n__node_content_end__\n\nNode: The retraction notice says that The interplay... [retraction, notice, says]\n__node_content_start__\nThe retraction notice says that The interplay between monosodium glutamate (MSG) consumption and metabolic disorders (DOI 10.1016/j.heliyon.2023.e196",
+      "reference_claim_ids": [
+        "R001",
+        "R015",
+        "R018",
+        "R020",
+        "R022"
+      ],
+      "references": [
+        {
+          "claim_id": "R001",
+          "data_id": "4b2daf7b-0340-572d-adde-ce491af50f5d",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "retracted_forgotten",
+          "doi": "10.1056/nejmoa2023386",
+          "kind": "retraction_notice",
+          "retracted": false,
+          "score": 5,
+          "source": "NEJM: The New England Journal of Medicine",
+          "status": "retracted_forgotten"
+        },
+        {
+          "claim_id": "R015",
+          "data_id": "57a0c28a-fb22-579e-ad51-e0d96239ea46",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.1016/j.heliyon.2025.e41964",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 1,
+          "source": "Heliyon",
+          "status": "active"
+        },
+        {
+          "claim_id": "R018",
+          "data_id": "b66cdeb7-f924-54e8-90fc-14104c2dd908",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.1016/j.heliyon.2024.e37293",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 1,
+          "source": "Heliyon",
+          "status": "active"
+        },
+        {
+          "claim_id": "R020",
+          "data_id": "eb56d69a-6313-5dd0-93d8-1d73c161dd3e",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.1007/s00500-021-06668-3",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 1,
+          "source": "Soft Computing",
+          "status": "active"
+        },
+        {
+          "claim_id": "R022",
+          "data_id": "76a51f40-5e8e-5f6b-bb4a-5587be84fbb9",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.1080/14767058.2020.1814239",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 1,
+          "source": "The Journal of Maternal-Fetal & Neonatal Medicine",
+          "status": "active"
+        }
+      ],
+      "retracted_dois": [],
+      "target_claim_ids": [
+        "R001"
+      ],
+      "text": "groundtruth_memory no longer cites the original retracted claim for 10.1056/nejmoa2023386. The active memory cites the retraction notice instead."
+    },
+    {
+      "cites_retracted": true,
+      "control_retained": false,
+      "correctness_judge": "skipped_gemini_quota_fallback",
+      "correctness_score": null,
+      "dataset": "naive_memory",
+      "kind": "retracted",
+      "question": "What should the memory say about antioxidant properties of Amaranthus leafy vegetables?",
+      "question_id": "Q02",
+      "recall_context_excerpt": "Nodes:\nNode: The active control paper reports that role... [active, control, paper]\n__node_content_start__\nThe active control paper reports that role Of Dash Diet In Blood Pressure.\n__node_content_end__\n\nNode: CARDIOMETRY\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The paper claimed that efficacy of methanolic... [paper, claimed, efficacy]\n__node_content_start__\nThe paper claimed that efficacy of methanolic extracts of some medicinal plants on wound healing in diabetic rats.\n__node_content_end__\n\nNode: Heliyon\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The paper claimed that phytochemicals, therapeutic benefits... [paper, claimed, phytochemicals]\n__node_content_start__\nThe paper claimed that phytochemicals, therapeutic benefits and applications of chrysanthemum flower: A review.\n__node_content_end__\n\nNode: The active control paper reports that nuts... [active, control, paper]\n__node_content_start__\nThe active control paper reports that nuts reduce risk of cardiovascular disease.\n__node_content_end__\n\nNode: Nature Reviews Cardiology\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The paper claimed that genetic Architecture Modulates... [paper, claime",
+      "reference_claim_ids": [
+        "R002",
+        "R002"
+      ],
+      "references": [
+        {
+          "claim_id": "R002",
+          "data_id": "0d01068c-5f25-56aa-943a-63b1cd4a05ba",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "retracted_retained",
+          "doi": "10.1016/j.heliyon.2024.e30453",
+          "kind": "original_claim",
+          "retracted": true,
+          "score": 5,
+          "source": "Heliyon",
+          "status": "retracted_forgotten"
+        },
+        {
+          "claim_id": "R002",
+          "data_id": "8f967623-fbe5-5104-bad6-53b3f7f6d931",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "retracted_retained",
+          "doi": "10.1016/j.heliyon.2024.e30453",
+          "kind": "retraction_notice",
+          "retracted": false,
+          "score": 5,
+          "source": "Heliyon",
+          "status": "retracted_forgotten"
+        }
+      ],
+      "retracted_dois": [
+        "10.1016/j.heliyon.2024.e30453"
+      ],
+      "target_claim_ids": [
+        "R002"
+      ],
+      "text": "naive_memory still cites the retracted original source 10.1016/j.heliyon.2024.e30453 from Heliyon. Treat the answer as unsafe until that source is forgotten."
+    },
+    {
+      "cites_retracted": false,
+      "control_retained": false,
+      "correctness_judge": "skipped_gemini_quota_fallback",
+      "correctness_score": null,
+      "dataset": "groundtruth_memory",
+      "kind": "retracted",
+      "question": "What should the memory say about antioxidant properties of Amaranthus leafy vegetables?",
+      "question_id": "Q02",
+      "recall_context_excerpt": "Nodes:\nNode: The paper claimed that dietary Patterns in... [paper, claimed, dietary]\n__node_content_start__\nThe paper claimed that dietary Patterns in Adults Following the Christian Orthodox Fasting Regime in Greece.\n__node_content_end__\n\nNode: Frontiers in Nutrition\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that role... [active, control, paper]\n__node_content_start__\nThe active control paper reports that role Of Dash Diet In Blood Pressure.\n__node_content_end__\n\nNode: CARDIOMETRY\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The paper claimed that role of antioxidants... [paper, claimed, role]\n__node_content_start__\nThe paper claimed that role of antioxidants in gestational diabetes mellitus and relation to fetal outcome: a randomized controlled trial.\n__node_content_end__\n\nNode: The Journal of Maternal-Fetal & Neonatal Medicine\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The paper claimed that efficacy of methanolic... [paper, claimed, efficacy]\n__node_content_start__\nThe paper claimed that efficacy of methanolic extracts of some medicinal plants on wound healing in diabetic rats.\n__node_content_end__\n\nNode: Hel",
+      "reference_claim_ids": [
+        "R002"
+      ],
+      "references": [
+        {
+          "claim_id": "R002",
+          "data_id": "8f967623-fbe5-5104-bad6-53b3f7f6d931",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "retracted_forgotten",
+          "doi": "10.1016/j.heliyon.2024.e30453",
+          "kind": "retraction_notice",
+          "retracted": false,
+          "score": 5,
+          "source": "Heliyon",
+          "status": "retracted_forgotten"
+        }
+      ],
+      "retracted_dois": [],
+      "target_claim_ids": [
+        "R002"
+      ],
+      "text": "groundtruth_memory no longer cites the original retracted claim for 10.1016/j.heliyon.2024.e30453. The active memory cites the retraction notice instead."
+    },
+    {
+      "cites_retracted": true,
+      "control_retained": false,
+      "correctness_judge": "skipped_gemini_quota_fallback",
+      "correctness_score": null,
+      "dataset": "naive_memory",
+      "kind": "retracted",
+      "question": "What does the research say about antihypertensive drug classes and central blood pressure in resistant hypertension?",
+      "question_id": "Q03",
+      "recall_context_excerpt": "Nodes:\nNode: The paper claimed that effects of different... [paper, claimed, effects]\n__node_content_start__\nThe paper claimed that effects of different antihypertensive drug classes on central and ambulatory blood pressure in resistant hypertension: A randomized clinical trial.\n__node_content_end__\n\nNode: British Journal of Clinical Pharmacology\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that role... [active, control, paper]\n__node_content_start__\nThe active control paper reports that role Of Dash Diet In Blood Pressure.\n__node_content_end__\n\nNode: CARDIOMETRY\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The paper claimed that avacopan for the... [paper, claimed, avacopan]\n__node_content_start__\nThe paper claimed that avacopan for the Treatment of ANCA-Associated Vasculitis.\n__node_content_end__\n\nNode: NEJM: The New England Journal of Medicine\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that lipoprotein(a)... [active, control, paper]\n__node_content_start__\nThe active control paper reports that lipoprotein(a) Cholesterol, Randomized Omega-3 Fatty Acid Supplementation, and Cardiovas",
+      "reference_claim_ids": [
+        "R003",
+        "R003",
+        "C003",
+        "C012",
+        "R015"
+      ],
+      "references": [
+        {
+          "claim_id": "R003",
+          "data_id": "e21ca4ca-0fc0-59bc-a3d4-7025db76c675",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "retracted_retained",
+          "doi": "10.1002/bcp.70249",
+          "kind": "original_claim",
+          "retracted": true,
+          "score": 8,
+          "source": "British Journal of Clinical Pharmacology",
+          "status": "retracted_forgotten"
+        },
+        {
+          "claim_id": "R003",
+          "data_id": "99e5a7e4-1f8d-588b-8317-c7a32aa727ce",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "retracted_retained",
+          "doi": "10.1002/bcp.70249",
+          "kind": "retraction_notice",
+          "retracted": false,
+          "score": 8,
+          "source": "British Journal of Clinical Pharmacology",
+          "status": "retracted_forgotten"
+        },
+        {
+          "claim_id": "C003",
+          "data_id": "d3d710dc-228a-5960-bfce-a06ad17503ce",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "active",
+          "doi": "10.18137/cardiometry.2022.24.10191021",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 2,
+          "source": "CARDIOMETRY",
+          "status": "active"
+        },
+        {
+          "claim_id": "C012",
+          "data_id": "eec39b26-e7a8-5064-bd34-eca24c47b414",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "active",
+          "doi": "10.1001/jama.2024.1907",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 2,
+          "source": "JAMA",
+          "status": "active"
+        },
+        {
+          "claim_id": "R015",
+          "data_id": "57a0c28a-fb22-579e-ad51-e0d96239ea46",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "active",
+          "doi": "10.1016/j.heliyon.2025.e41964",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 1,
+          "source": "Heliyon",
+          "status": "active"
+        }
+      ],
+      "retracted_dois": [
+        "10.1002/bcp.70249"
+      ],
+      "target_claim_ids": [
+        "R003"
+      ],
+      "text": "naive_memory still cites the retracted original source 10.1002/bcp.70249 from British Journal of Clinical Pharmacology. Treat the answer as unsafe until that source is forgotten."
+    },
+    {
+      "cites_retracted": false,
+      "control_retained": false,
+      "correctness_judge": "skipped_gemini_quota_fallback",
+      "correctness_score": null,
+      "dataset": "groundtruth_memory",
+      "kind": "retracted",
+      "question": "What does the research say about antihypertensive drug classes and central blood pressure in resistant hypertension?",
+      "question_id": "Q03",
+      "recall_context_excerpt": "Nodes:\nNode: The active control paper reports that role... [active, control, paper]\n__node_content_start__\nThe active control paper reports that role Of Dash Diet In Blood Pressure.\n__node_content_end__\n\nNode: CARDIOMETRY\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The retraction notice says that Effects of... [retraction, notice, says]\n__node_content_start__\nThe retraction notice says that Effects of different antihypertensive drug classes on central and ambulatory blood pressure in resistant hypertension: A randomized clinical trial (DOI 10.1002/bcp.70249) was retracted. Reason: Concerns/Issues about Human Subject Welfare;Concerns/Issues about Methods;Error in Analyses;Investigation by Journal/Publisher;Investigation by Third Party;Unreliable Results and/or Conclusions;.\n__node_content_end__\n\nNode: Retraction Watch / Crossref\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that lipoprotein(a)... [active, control, paper]\n__node_content_start__\nThe active control paper reports that lipoprotein(a) Cholesterol, Randomized Omega-3 Fatty Acid Supplementation, and Cardiovascular Events: Extended Follow-up in the VITamin D and OmegA 3 ",
+      "reference_claim_ids": [
+        "R003",
+        "C003",
+        "C012",
+        "R015",
+        "R019"
+      ],
+      "references": [
+        {
+          "claim_id": "R003",
+          "data_id": "99e5a7e4-1f8d-588b-8317-c7a32aa727ce",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "retracted_forgotten",
+          "doi": "10.1002/bcp.70249",
+          "kind": "retraction_notice",
+          "retracted": false,
+          "score": 8,
+          "source": "British Journal of Clinical Pharmacology",
+          "status": "retracted_forgotten"
+        },
+        {
+          "claim_id": "C003",
+          "data_id": "d3d710dc-228a-5960-bfce-a06ad17503ce",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.18137/cardiometry.2022.24.10191021",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 2,
+          "source": "CARDIOMETRY",
+          "status": "active"
+        },
+        {
+          "claim_id": "C012",
+          "data_id": "eec39b26-e7a8-5064-bd34-eca24c47b414",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.1001/jama.2024.1907",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 2,
+          "source": "JAMA",
+          "status": "active"
+        },
+        {
+          "claim_id": "R015",
+          "data_id": "57a0c28a-fb22-579e-ad51-e0d96239ea46",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.1016/j.heliyon.2025.e41964",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 1,
+          "source": "Heliyon",
+          "status": "active"
+        },
+        {
+          "claim_id": "R019",
+          "data_id": "862102b8-eb18-5287-9414-11adfd4c7430",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.1016/j.jogc.2023.102264",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 1,
+          "source": "Journal of Obstetrics and Gynaecology Canada",
+          "status": "active"
+        }
+      ],
+      "retracted_dois": [],
+      "target_claim_ids": [
+        "R003"
+      ],
+      "text": "groundtruth_memory no longer cites the original retracted claim for 10.1002/bcp.70249. The active memory cites the retraction notice instead."
+    },
+    {
+      "cites_retracted": true,
+      "control_retained": false,
+      "correctness_judge": "skipped_gemini_quota_fallback",
+      "correctness_score": null,
+      "dataset": "naive_memory",
+      "kind": "retracted",
+      "question": "Can PO-RSNN and FZCIS be trusted for diabetes prediction and stroke analysis in the metaverse?",
+      "question_id": "Q04",
+      "recall_context_excerpt": "Nodes:\nNode: The active control paper reports that role... [active, control, paper]\n__node_content_start__\nThe active control paper reports that role Of Dash Diet In Blood Pressure.\n__node_content_end__\n\nNode: CARDIOMETRY\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The paper claimed that siloMAS: A MAS... [paper, claimed, silomas]\n__node_content_start__\nThe paper claimed that siloMAS: A MAS for Smart Silos to Optimize Food and Water Consumption on Livestock Holdings.\n__node_content_end__\n\nNode: Distributed Computing and Artificial Intelligence, Special Sessions II, 15th International Conference\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The paper claimed that avacopan for the... [paper, claimed, avacopan]\n__node_content_start__\nThe paper claimed that avacopan for the Treatment of ANCA-Associated Vasculitis.\n__node_content_end__\n\nNode: NEJM: The New England Journal of Medicine\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The paper claimed that intelligent Livestock Feeding... [paper, claimed, intelligent]\n__node_content_start__\nThe paper claimed that intelligent Livestock Feeding System by Means of Silos with IoT Technology.\n__node_content_end__\n\n",
+      "reference_claim_ids": [
+        "R004",
+        "R004",
+        "R022",
+        "R023",
+        "C002"
+      ],
+      "references": [
+        {
+          "claim_id": "R004",
+          "data_id": "ea8722b5-a8b9-57f4-89e0-e18772ff635c",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "retracted_retained",
+          "doi": "10.1038/s41598-025-96541-2",
+          "kind": "original_claim",
+          "retracted": true,
+          "score": 7,
+          "source": "Scientific Reports",
+          "status": "retracted_forgotten"
+        },
+        {
+          "claim_id": "R004",
+          "data_id": "33d7feae-c703-5a0a-8607-eae01f51ffff",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "retracted_retained",
+          "doi": "10.1038/s41598-025-96541-2",
+          "kind": "retraction_notice",
+          "retracted": false,
+          "score": 7,
+          "source": "Scientific Reports",
+          "status": "retracted_forgotten"
+        },
+        {
+          "claim_id": "R022",
+          "data_id": "76a51f40-5e8e-5f6b-bb4a-5587be84fbb9",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "active",
+          "doi": "10.1080/14767058.2020.1814239",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 3,
+          "source": "The Journal of Maternal-Fetal & Neonatal Medicine",
+          "status": "active"
+        },
+        {
+          "claim_id": "R023",
+          "data_id": "ceb8698f-0cd6-5114-8ba5-e098418bd9b2",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "active",
+          "doi": "10.1080/14767058.2019.1678132",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 3,
+          "source": "The Journal of Maternal-Fetal & Neonatal Medicine",
+          "status": "active"
+        },
+        {
+          "claim_id": "C002",
+          "data_id": "7a2b1e21-7196-5b43-95d1-74d837680599",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "active",
+          "doi": "10.1093/nutrit/nuy014",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 2,
+          "source": "Nutrition Reviews",
+          "status": "active"
+        }
+      ],
+      "retracted_dois": [
+        "10.1038/s41598-025-96541-2"
+      ],
+      "target_claim_ids": [
+        "R004"
+      ],
+      "text": "naive_memory still cites the retracted original source 10.1038/s41598-025-96541-2 from Scientific Reports. Treat the answer as unsafe until that source is forgotten."
+    },
+    {
+      "cites_retracted": false,
+      "control_retained": false,
+      "correctness_judge": "skipped_gemini_quota_fallback",
+      "correctness_score": null,
+      "dataset": "groundtruth_memory",
+      "kind": "retracted",
+      "question": "Can PO-RSNN and FZCIS be trusted for diabetes prediction and stroke analysis in the metaverse?",
+      "question_id": "Q04",
+      "recall_context_excerpt": "Nodes:\nNode: The active control paper reports that role... [active, control, paper]\n__node_content_start__\nThe active control paper reports that role Of Dash Diet In Blood Pressure.\n__node_content_end__\n\nNode: CARDIOMETRY\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The paper claimed that intelligent Livestock Feeding... [paper, claimed, intelligent]\n__node_content_start__\nThe paper claimed that intelligent Livestock Feeding System by Means of Silos with IoT Technology.\n__node_content_end__\n\nNode: Distributed Computing and Artificial Intelligence, Special Sessions II, 15th International Conference\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that intermittent... [active, control, paper]\n__node_content_start__\nThe active control paper reports that intermittent Fasting in Weight Loss and Cardiometabolic Risk Reduction: A Randomized Controlled Trial.\n__node_content_end__\n\nNode: Journal of Nursing Research\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The paper claimed that genetic Architecture Modulates... [paper, claimed, genetic]\n__node_content_start__\nThe paper claimed that genetic Architecture Modulates Diet-Induced ",
+      "reference_claim_ids": [
+        "R004",
+        "R022",
+        "R023",
+        "C002",
+        "C011"
+      ],
+      "references": [
+        {
+          "claim_id": "R004",
+          "data_id": "33d7feae-c703-5a0a-8607-eae01f51ffff",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "retracted_forgotten",
+          "doi": "10.1038/s41598-025-96541-2",
+          "kind": "retraction_notice",
+          "retracted": false,
+          "score": 7,
+          "source": "Scientific Reports",
+          "status": "retracted_forgotten"
+        },
+        {
+          "claim_id": "R022",
+          "data_id": "76a51f40-5e8e-5f6b-bb4a-5587be84fbb9",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.1080/14767058.2020.1814239",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 3,
+          "source": "The Journal of Maternal-Fetal & Neonatal Medicine",
+          "status": "active"
+        },
+        {
+          "claim_id": "R023",
+          "data_id": "ceb8698f-0cd6-5114-8ba5-e098418bd9b2",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.1080/14767058.2019.1678132",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 3,
+          "source": "The Journal of Maternal-Fetal & Neonatal Medicine",
+          "status": "active"
+        },
+        {
+          "claim_id": "C002",
+          "data_id": "7a2b1e21-7196-5b43-95d1-74d837680599",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.1093/nutrit/nuy014",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 2,
+          "source": "Nutrition Reviews",
+          "status": "active"
+        },
+        {
+          "claim_id": "C011",
+          "data_id": "e0feccd5-0f24-515d-9900-32c96ad0be08",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.1177/03000605261443077",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 2,
+          "source": "Journal of International Medical Research",
+          "status": "active"
+        }
+      ],
+      "retracted_dois": [],
+      "target_claim_ids": [
+        "R004"
+      ],
+      "text": "groundtruth_memory no longer cites the original retracted claim for 10.1038/s41598-025-96541-2. The active memory cites the retraction notice instead."
+    },
+    {
+      "cites_retracted": true,
+      "control_retained": false,
+      "correctness_judge": "skipped_gemini_quota_fallback",
+      "correctness_score": null,
+      "dataset": "naive_memory",
+      "kind": "retracted",
+      "question": "What should an answer say about monosodium glutamate consumption and metabolic disorders?",
+      "question_id": "Q05",
+      "recall_context_excerpt": "Nodes:\nNode: The active control paper reports that coffee... [active, control, paper]\n__node_content_start__\nThe active control paper reports that coffee consumption and reduced risk of developing type 2 diabetes: a systematic review with meta-analysis.\n__node_content_end__\n\nNode: Nutrition Reviews\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that dietary... [active, control, paper]\n__node_content_start__\nThe active control paper reports that dietary Sodium Intake and Risk of Cardiovascular Disease.\n__node_content_end__\n\nNode: JAMA Internal Medicine\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that role... [active, control, paper]\n__node_content_start__\nThe active control paper reports that role Of Dash Diet In Blood Pressure.\n__node_content_end__\n\nNode: CARDIOMETRY\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The paper claimed that avacopan for the... [paper, claimed, avacopan]\n__node_content_start__\nThe paper claimed that avacopan for the Treatment of ANCA-Associated Vasculitis.\n__node_content_end__\n\nNode: NEJM: The New England Journal of Medicine\n__node_content_start__\nNone\n__node_",
+      "reference_claim_ids": [
+        "R005",
+        "R005",
+        "R012",
+        "R024",
+        "C002"
+      ],
+      "references": [
+        {
+          "claim_id": "R005",
+          "data_id": "79f37376-cbd9-5566-80dc-1ad63e27bb39",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "retracted_retained",
+          "doi": "10.1016/j.heliyon.2023.e19675",
+          "kind": "original_claim",
+          "retracted": true,
+          "score": 5,
+          "source": "Heliyon",
+          "status": "retracted_forgotten"
+        },
+        {
+          "claim_id": "R005",
+          "data_id": "26a06040-1641-5fb4-b618-aac0a99829ec",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "retracted_retained",
+          "doi": "10.1016/j.heliyon.2023.e19675",
+          "kind": "retraction_notice",
+          "retracted": false,
+          "score": 5,
+          "source": "Heliyon",
+          "status": "retracted_forgotten"
+        },
+        {
+          "claim_id": "R012",
+          "data_id": "8b310b31-aecd-5a18-8fd5-06e67dcfe8bb",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "retracted_retained",
+          "doi": "10.1007/978-3-030-00524-5_6",
+          "kind": "original_claim",
+          "retracted": true,
+          "score": 1,
+          "source": "Distributed Computing and Artificial Intelligence, Special Sessions II, 15th International Conference",
+          "status": "retracted_forgotten"
+        },
+        {
+          "claim_id": "R024",
+          "data_id": "859fb844-7a20-5938-9d2c-fec6e18ed93d",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "active",
+          "doi": "10.1080/14767058.2018.1491030",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 1,
+          "source": "The Journal of Maternal-Fetal & Neonatal Medicine",
+          "status": "active"
+        },
+        {
+          "claim_id": "C002",
+          "data_id": "7a2b1e21-7196-5b43-95d1-74d837680599",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "active",
+          "doi": "10.1093/nutrit/nuy014",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 1,
+          "source": "Nutrition Reviews",
+          "status": "active"
+        }
+      ],
+      "retracted_dois": [
+        "10.1007/978-3-030-00524-5_6",
+        "10.1016/j.heliyon.2023.e19675"
+      ],
+      "target_claim_ids": [
+        "R005"
+      ],
+      "text": "naive_memory still cites the retracted original source 10.1016/j.heliyon.2023.e19675 from Heliyon. Treat the answer as unsafe until that source is forgotten."
+    },
+    {
+      "cites_retracted": false,
+      "control_retained": false,
+      "correctness_judge": "skipped_gemini_quota_fallback",
+      "correctness_score": null,
+      "dataset": "groundtruth_memory",
+      "kind": "retracted",
+      "question": "What should an answer say about monosodium glutamate consumption and metabolic disorders?",
+      "question_id": "Q05",
+      "recall_context_excerpt": "Nodes:\nNode: The active control paper reports that coffee... [active, control, paper]\n__node_content_start__\nThe active control paper reports that coffee consumption and reduced risk of developing type 2 diabetes: a systematic review with meta-analysis.\n__node_content_end__\n\nNode: Nutrition Reviews\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that dietary... [active, control, paper]\n__node_content_start__\nThe active control paper reports that dietary Sodium Intake and Risk of Cardiovascular Disease.\n__node_content_end__\n\nNode: JAMA Internal Medicine\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that role... [active, control, paper]\n__node_content_start__\nThe active control paper reports that role Of Dash Diet In Blood Pressure.\n__node_content_end__\n\nNode: CARDIOMETRY\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that dietary... [active, control, paper]\n__node_content_start__\nThe active control paper reports that dietary Sodium and Blood Pressure.\n__node_content_end__\n\nNode: JAMA\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The paper claimed th",
+      "reference_claim_ids": [
+        "R005",
+        "R024",
+        "C002",
+        "R012"
+      ],
+      "references": [
+        {
+          "claim_id": "R005",
+          "data_id": "26a06040-1641-5fb4-b618-aac0a99829ec",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "retracted_forgotten",
+          "doi": "10.1016/j.heliyon.2023.e19675",
+          "kind": "retraction_notice",
+          "retracted": false,
+          "score": 5,
+          "source": "Heliyon",
+          "status": "retracted_forgotten"
+        },
+        {
+          "claim_id": "R024",
+          "data_id": "859fb844-7a20-5938-9d2c-fec6e18ed93d",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.1080/14767058.2018.1491030",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 1,
+          "source": "The Journal of Maternal-Fetal & Neonatal Medicine",
+          "status": "active"
+        },
+        {
+          "claim_id": "C002",
+          "data_id": "7a2b1e21-7196-5b43-95d1-74d837680599",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.1093/nutrit/nuy014",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 1,
+          "source": "Nutrition Reviews",
+          "status": "active"
+        },
+        {
+          "claim_id": "R012",
+          "data_id": "7de422b8-8606-50c3-951a-17a00330ff96",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "retracted_forgotten",
+          "doi": "10.1007/978-3-030-00524-5_6",
+          "kind": "retraction_notice",
+          "retracted": false,
+          "score": 1,
+          "source": "Distributed Computing and Artificial Intelligence, Special Sessions II, 15th International Conference",
+          "status": "retracted_forgotten"
+        }
+      ],
+      "retracted_dois": [],
+      "target_claim_ids": [
+        "R005"
+      ],
+      "text": "groundtruth_memory no longer cites the original retracted claim for 10.1016/j.heliyon.2023.e19675. The active memory cites the retraction notice instead."
+    },
+    {
+      "cites_retracted": true,
+      "control_retained": false,
+      "correctness_judge": "skipped_gemini_quota_fallback",
+      "correctness_score": null,
+      "dataset": "naive_memory",
+      "kind": "retracted",
+      "question": "What is the memory position on food insecurity and women's mental health during COVID-19?",
+      "question_id": "Q06",
+      "recall_context_excerpt": "Nodes:\nNode: The paper claimed that dietary Patterns in... [paper, claimed, dietary]\n__node_content_start__\nThe paper claimed that dietary Patterns in Adults Following the Christian Orthodox Fasting Regime in Greece.\n__node_content_end__\n\nNode: Frontiers in Nutrition\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that role... [active, control, paper]\n__node_content_start__\nThe active control paper reports that role Of Dash Diet In Blood Pressure.\n__node_content_end__\n\nNode: CARDIOMETRY\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The paper claimed that avacopan for the... [paper, claimed, avacopan]\n__node_content_start__\nThe paper claimed that avacopan for the Treatment of ANCA-Associated Vasculitis.\n__node_content_end__\n\nNode: NEJM: The New England Journal of Medicine\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that effects... [control, active, paper]\n__node_content_start__\nThe active control paper reports that effects of probiotic supplementation on glycemic control in children with type 1 diabetes: A systematic review and meta-analysis.\n__node_content_end__\n\nNode: Journal of Interna",
+      "reference_claim_ids": [
+        "R006",
+        "R006",
+        "R012",
+        "R019",
+        "R022"
+      ],
+      "references": [
+        {
+          "claim_id": "R006",
+          "data_id": "c37c62bc-a612-58be-af2c-2aab5c468c08",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "retracted_retained",
+          "doi": "10.1371/journal.pone.0255392",
+          "kind": "original_claim",
+          "retracted": true,
+          "score": 7,
+          "source": "PLoS One",
+          "status": "retracted_forgotten"
+        },
+        {
+          "claim_id": "R006",
+          "data_id": "eddb95b1-729c-5dc0-8905-78d2dbfe26fa",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "retracted_retained",
+          "doi": "10.1371/journal.pone.0255392",
+          "kind": "retraction_notice",
+          "retracted": false,
+          "score": 7,
+          "source": "PLoS One",
+          "status": "retracted_forgotten"
+        },
+        {
+          "claim_id": "R012",
+          "data_id": "8b310b31-aecd-5a18-8fd5-06e67dcfe8bb",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "retracted_retained",
+          "doi": "10.1007/978-3-030-00524-5_6",
+          "kind": "original_claim",
+          "retracted": true,
+          "score": 1,
+          "source": "Distributed Computing and Artificial Intelligence, Special Sessions II, 15th International Conference",
+          "status": "retracted_forgotten"
+        },
+        {
+          "claim_id": "R019",
+          "data_id": "862102b8-eb18-5287-9414-11adfd4c7430",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "active",
+          "doi": "10.1016/j.jogc.2023.102264",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 1,
+          "source": "Journal of Obstetrics and Gynaecology Canada",
+          "status": "active"
+        },
+        {
+          "claim_id": "R022",
+          "data_id": "76a51f40-5e8e-5f6b-bb4a-5587be84fbb9",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "active",
+          "doi": "10.1080/14767058.2020.1814239",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 1,
+          "source": "The Journal of Maternal-Fetal & Neonatal Medicine",
+          "status": "active"
+        }
+      ],
+      "retracted_dois": [
+        "10.1007/978-3-030-00524-5_6",
+        "10.1371/journal.pone.0255392"
+      ],
+      "target_claim_ids": [
+        "R006"
+      ],
+      "text": "naive_memory still cites the retracted original source 10.1371/journal.pone.0255392 from PLoS One. Treat the answer as unsafe until that source is forgotten."
+    },
+    {
+      "cites_retracted": false,
+      "control_retained": false,
+      "correctness_judge": "skipped_gemini_quota_fallback",
+      "correctness_score": null,
+      "dataset": "groundtruth_memory",
+      "kind": "retracted",
+      "question": "What is the memory position on food insecurity and women's mental health during COVID-19?",
+      "question_id": "Q06",
+      "recall_context_excerpt": "Nodes:\nNode: The paper claimed that dietary Patterns in... [paper, claimed, dietary]\n__node_content_start__\nThe paper claimed that dietary Patterns in Adults Following the Christian Orthodox Fasting Regime in Greece.\n__node_content_end__\n\nNode: Frontiers in Nutrition\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that role... [active, control, paper]\n__node_content_start__\nThe active control paper reports that role Of Dash Diet In Blood Pressure.\n__node_content_end__\n\nNode: CARDIOMETRY\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that effects... [control, active, paper]\n__node_content_start__\nThe active control paper reports that effects of probiotic supplementation on glycemic control in children with type 1 diabetes: A systematic review and meta-analysis.\n__node_content_end__\n\nNode: Journal of International Medical Research\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that dietary... [active, control, paper]\n__node_content_start__\nThe active control paper reports that dietary Sodium Intake and Risk of Cardiovascular Disease.\n__node_content_end__\n\nNode:",
+      "reference_claim_ids": [
+        "R006",
+        "R019",
+        "R022",
+        "R023",
+        "C007"
+      ],
+      "references": [
+        {
+          "claim_id": "R006",
+          "data_id": "eddb95b1-729c-5dc0-8905-78d2dbfe26fa",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "retracted_forgotten",
+          "doi": "10.1371/journal.pone.0255392",
+          "kind": "retraction_notice",
+          "retracted": false,
+          "score": 7,
+          "source": "PLoS One",
+          "status": "retracted_forgotten"
+        },
+        {
+          "claim_id": "R019",
+          "data_id": "862102b8-eb18-5287-9414-11adfd4c7430",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.1016/j.jogc.2023.102264",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 1,
+          "source": "Journal of Obstetrics and Gynaecology Canada",
+          "status": "active"
+        },
+        {
+          "claim_id": "R022",
+          "data_id": "76a51f40-5e8e-5f6b-bb4a-5587be84fbb9",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.1080/14767058.2020.1814239",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 1,
+          "source": "The Journal of Maternal-Fetal & Neonatal Medicine",
+          "status": "active"
+        },
+        {
+          "claim_id": "R023",
+          "data_id": "ceb8698f-0cd6-5114-8ba5-e098418bd9b2",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.1080/14767058.2019.1678132",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 1,
+          "source": "The Journal of Maternal-Fetal & Neonatal Medicine",
+          "status": "active"
+        },
+        {
+          "claim_id": "C007",
+          "data_id": "44af11e3-57bd-52eb-955e-7d0177a46f2c",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.1136/bmj.k4583",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 1,
+          "source": "BMJ",
+          "status": "active"
+        }
+      ],
+      "retracted_dois": [],
+      "target_claim_ids": [
+        "R006"
+      ],
+      "text": "groundtruth_memory no longer cites the original retracted claim for 10.1371/journal.pone.0255392. The active memory cites the retraction notice instead."
+    },
+    {
+      "cites_retracted": true,
+      "control_retained": false,
+      "correctness_judge": "skipped_gemini_quota_fallback",
+      "correctness_score": null,
+      "dataset": "naive_memory",
+      "kind": "retracted",
+      "question": "Should chrysanthemum flower phytochemical and therapeutic benefit claims still be cited?",
+      "question_id": "Q07",
+      "recall_context_excerpt": "Nodes:\nNode: The active control paper reports that dietary... [active, control, paper]\n__node_content_start__\nThe active control paper reports that dietary Sodium Intake and Risk of Cardiovascular Disease.\n__node_content_end__\n\nNode: JAMA Internal Medicine\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The paper claimed that phytochemicals, therapeutic benefits... [paper, claimed, phytochemicals]\n__node_content_start__\nThe paper claimed that phytochemicals, therapeutic benefits and applications of chrysanthemum flower: A review.\n__node_content_end__\n\nNode: Heliyon\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that nuts... [active, control, paper]\n__node_content_start__\nThe active control paper reports that nuts reduce risk of cardiovascular disease.\n__node_content_end__\n\nNode: Nature Reviews Cardiology\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that role... [active, control, paper]\n__node_content_start__\nThe active control paper reports that role Of Dash Diet In Blood Pressure.\n__node_content_end__\n\nNode: CARDIOMETRY\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The paper cla",
+      "reference_claim_ids": [
+        "R007",
+        "R007",
+        "R008",
+        "R008"
+      ],
+      "references": [
+        {
+          "claim_id": "R007",
+          "data_id": "2d49a0d2-69a4-50b4-99ca-b13c3f8243a9",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "retracted_retained",
+          "doi": "10.1016/j.heliyon.2023.e20232",
+          "kind": "original_claim",
+          "retracted": true,
+          "score": 3,
+          "source": "Heliyon",
+          "status": "retracted_forgotten"
+        },
+        {
+          "claim_id": "R007",
+          "data_id": "e0b8a838-2d0b-5eb6-b05b-22bbacb7b6a6",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "retracted_retained",
+          "doi": "10.1016/j.heliyon.2023.e20232",
+          "kind": "retraction_notice",
+          "retracted": false,
+          "score": 3,
+          "source": "Heliyon",
+          "status": "retracted_forgotten"
+        },
+        {
+          "claim_id": "R008",
+          "data_id": "87da7153-d003-5008-8c6a-7e7cfacb7e5c",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "retracted_retained",
+          "doi": "10.1016/j.heliyon.2024.e29871",
+          "kind": "original_claim",
+          "retracted": true,
+          "score": 1,
+          "source": "Heliyon",
+          "status": "retracted_forgotten"
+        },
+        {
+          "claim_id": "R008",
+          "data_id": "7f4d9085-c721-5aa6-b59d-f07faec035f1",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "retracted_retained",
+          "doi": "10.1016/j.heliyon.2024.e29871",
+          "kind": "retraction_notice",
+          "retracted": false,
+          "score": 1,
+          "source": "Heliyon",
+          "status": "retracted_forgotten"
+        }
+      ],
+      "retracted_dois": [
+        "10.1016/j.heliyon.2023.e20232",
+        "10.1016/j.heliyon.2024.e29871"
+      ],
+      "target_claim_ids": [
+        "R007"
+      ],
+      "text": "naive_memory still cites the retracted original source 10.1016/j.heliyon.2023.e20232 from Heliyon. Treat the answer as unsafe until that source is forgotten."
+    },
+    {
+      "cites_retracted": false,
+      "control_retained": false,
+      "correctness_judge": "skipped_gemini_quota_fallback",
+      "correctness_score": null,
+      "dataset": "groundtruth_memory",
+      "kind": "retracted",
+      "question": "Should chrysanthemum flower phytochemical and therapeutic benefit claims still be cited?",
+      "question_id": "Q07",
+      "recall_context_excerpt": "Nodes:\nNode: The paper claimed that role of antioxidants... [paper, claimed, role]\n__node_content_start__\nThe paper claimed that role of antioxidants in gestational diabetes mellitus and relation to fetal outcome: a randomized controlled trial.\n__node_content_end__\n\nNode: The Journal of Maternal-Fetal & Neonatal Medicine\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that dietary... [active, control, paper]\n__node_content_start__\nThe active control paper reports that dietary Sodium Intake and Risk of Cardiovascular Disease.\n__node_content_end__\n\nNode: JAMA Internal Medicine\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that role... [active, control, paper]\n__node_content_start__\nThe active control paper reports that role Of Dash Diet In Blood Pressure.\n__node_content_end__\n\nNode: CARDIOMETRY\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The paper claimed that efficacy of methanolic... [paper, claimed, efficacy]\n__node_content_start__\nThe paper claimed that efficacy of methanolic extracts of some medicinal plants on wound healing in diabetic rats.\n__node_content_end__\n\nNode: Heliyon\n__node",
+      "reference_claim_ids": [
+        "R007",
+        "R008"
+      ],
+      "references": [
+        {
+          "claim_id": "R007",
+          "data_id": "e0b8a838-2d0b-5eb6-b05b-22bbacb7b6a6",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "retracted_forgotten",
+          "doi": "10.1016/j.heliyon.2023.e20232",
+          "kind": "retraction_notice",
+          "retracted": false,
+          "score": 3,
+          "source": "Heliyon",
+          "status": "retracted_forgotten"
+        },
+        {
+          "claim_id": "R008",
+          "data_id": "7f4d9085-c721-5aa6-b59d-f07faec035f1",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "retracted_forgotten",
+          "doi": "10.1016/j.heliyon.2024.e29871",
+          "kind": "retraction_notice",
+          "retracted": false,
+          "score": 1,
+          "source": "Heliyon",
+          "status": "retracted_forgotten"
+        }
+      ],
+      "retracted_dois": [],
+      "target_claim_ids": [
+        "R007"
+      ],
+      "text": "groundtruth_memory no longer cites the original retracted claim for 10.1016/j.heliyon.2023.e20232. The active memory cites the retraction notice instead."
+    },
+    {
+      "cites_retracted": true,
+      "control_retained": false,
+      "correctness_judge": "skipped_gemini_quota_fallback",
+      "correctness_score": null,
+      "dataset": "naive_memory",
+      "kind": "retracted",
+      "question": "What should the memory say about the NF-kB axis in diabetic neuropathy, cardiomyopathy, and nephropathy?",
+      "question_id": "Q08",
+      "recall_context_excerpt": "Nodes:\nNode: The active control paper reports that role... [active, control, paper]\n__node_content_start__\nThe active control paper reports that role Of Dash Diet In Blood Pressure.\n__node_content_end__\n\nNode: CARDIOMETRY\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The paper claimed that avacopan for the... [paper, claimed, avacopan]\n__node_content_start__\nThe paper claimed that avacopan for the Treatment of ANCA-Associated Vasculitis.\n__node_content_end__\n\nNode: NEJM: The New England Journal of Medicine\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The paper claimed that genetic Architecture Modulates... [paper, claimed, genetic]\n__node_content_start__\nThe paper claimed that genetic Architecture Modulates Diet-Induced Hepatic mRNA and miRNA Expression Profiles in Diversity Outbred Mice.\n__node_content_end__\n\nNode: Genetics\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that intermittent... [active, control, paper]\n__node_content_start__\nThe active control paper reports that intermittent Fasting in Weight Loss and Cardiometabolic Risk Reduction: A Randomized Controlled Trial.\n__node_content_end__\n\nNode: Journal of Nurs",
+      "reference_claim_ids": [
+        "R008",
+        "R008",
+        "R016",
+        "R018"
+      ],
+      "references": [
+        {
+          "claim_id": "R008",
+          "data_id": "87da7153-d003-5008-8c6a-7e7cfacb7e5c",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "retracted_retained",
+          "doi": "10.1016/j.heliyon.2024.e29871",
+          "kind": "original_claim",
+          "retracted": true,
+          "score": 5,
+          "source": "Heliyon",
+          "status": "retracted_forgotten"
+        },
+        {
+          "claim_id": "R008",
+          "data_id": "7f4d9085-c721-5aa6-b59d-f07faec035f1",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "retracted_retained",
+          "doi": "10.1016/j.heliyon.2024.e29871",
+          "kind": "retraction_notice",
+          "retracted": false,
+          "score": 5,
+          "source": "Heliyon",
+          "status": "retracted_forgotten"
+        },
+        {
+          "claim_id": "R016",
+          "data_id": "ded0db36-085e-58b9-a93a-0faf32567f2d",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "active",
+          "doi": "10.1016/j.heliyon.2022.e10071",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 1,
+          "source": "Heliyon",
+          "status": "active"
+        },
+        {
+          "claim_id": "R018",
+          "data_id": "b66cdeb7-f924-54e8-90fc-14104c2dd908",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "active",
+          "doi": "10.1016/j.heliyon.2024.e37293",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 1,
+          "source": "Heliyon",
+          "status": "active"
+        }
+      ],
+      "retracted_dois": [
+        "10.1016/j.heliyon.2024.e29871"
+      ],
+      "target_claim_ids": [
+        "R008"
+      ],
+      "text": "naive_memory still cites the retracted original source 10.1016/j.heliyon.2024.e29871 from Heliyon. Treat the answer as unsafe until that source is forgotten."
+    },
+    {
+      "cites_retracted": false,
+      "control_retained": false,
+      "correctness_judge": "skipped_gemini_quota_fallback",
+      "correctness_score": null,
+      "dataset": "groundtruth_memory",
+      "kind": "retracted",
+      "question": "What should the memory say about the NF-kB axis in diabetic neuropathy, cardiomyopathy, and nephropathy?",
+      "question_id": "Q08",
+      "recall_context_excerpt": "Nodes:\nNode: The active control paper reports that role... [active, control, paper]\n__node_content_start__\nThe active control paper reports that role Of Dash Diet In Blood Pressure.\n__node_content_end__\n\nNode: CARDIOMETRY\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The paper claimed that genetic Architecture Modulates... [paper, claimed, genetic]\n__node_content_start__\nThe paper claimed that genetic Architecture Modulates Diet-Induced Hepatic mRNA and miRNA Expression Profiles in Diversity Outbred Mice.\n__node_content_end__\n\nNode: Genetics\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that intermittent... [active, control, paper]\n__node_content_start__\nThe active control paper reports that intermittent Fasting in Weight Loss and Cardiometabolic Risk Reduction: A Randomized Controlled Trial.\n__node_content_end__\n\nNode: Journal of Nursing Research\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The paper claimed that longitudinal Data From... [plaque, paper, claimed]\n__node_content_start__\nThe paper claimed that longitudinal Data From the KETO-CTA Study: Plaque Predicts Plaque, ApoB Does Not.\n__node_content_end__\n\nNode: J",
+      "reference_claim_ids": [
+        "R008",
+        "R016",
+        "R018"
+      ],
+      "references": [
+        {
+          "claim_id": "R008",
+          "data_id": "7f4d9085-c721-5aa6-b59d-f07faec035f1",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "retracted_forgotten",
+          "doi": "10.1016/j.heliyon.2024.e29871",
+          "kind": "retraction_notice",
+          "retracted": false,
+          "score": 5,
+          "source": "Heliyon",
+          "status": "retracted_forgotten"
+        },
+        {
+          "claim_id": "R016",
+          "data_id": "ded0db36-085e-58b9-a93a-0faf32567f2d",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.1016/j.heliyon.2022.e10071",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 1,
+          "source": "Heliyon",
+          "status": "active"
+        },
+        {
+          "claim_id": "R018",
+          "data_id": "b66cdeb7-f924-54e8-90fc-14104c2dd908",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.1016/j.heliyon.2024.e37293",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 1,
+          "source": "Heliyon",
+          "status": "active"
+        }
+      ],
+      "retracted_dois": [],
+      "target_claim_ids": [
+        "R008"
+      ],
+      "text": "groundtruth_memory no longer cites the original retracted claim for 10.1016/j.heliyon.2024.e29871. The active memory cites the retraction notice instead."
+    },
+    {
+      "cites_retracted": true,
+      "control_retained": false,
+      "correctness_judge": "skipped_gemini_quota_fallback",
+      "correctness_score": null,
+      "dataset": "naive_memory",
+      "kind": "retracted",
+      "question": "Are fenchone and camphor claims still reliable after the retraction?",
+      "question_id": "Q09",
+      "recall_context_excerpt": "Nodes:\nNode: The retraction notice says that Phytochemicals, therapeutic... [retraction, notice, says]\n__node_content_start__\nThe retraction notice says that Phytochemicals, therapeutic benefits and applications of chrysanthemum flower: A review (DOI 10.1016/j.heliyon.2023.e20232) was retracted. Reason: Concerns/Issues about Authorship/Affiliation;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;.\n__node_content_end__\n\nNode: Retraction Watch / Crossref\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The retraction notice says that Food insecurity... [and/or, results, retraction]\n__node_content_start__\nThe retraction notice says that Food insecurity and mental health of women during COVID-19: Evidence from a developing country (DOI 10.1371/journal.pone.0255392) was retracted. Reason: Concerns/Issues about Data;Concerns/Issues about Methods;Concerns/Issues about Results and/or Conclusions;Investigation by Journal/Publisher;Investigation by Third Party;Objections by Author(s);Original Data and/or Images not Provided and/or not Available;Unreliable Results and/or Conclusions;.\n__node_content_end__\n\nNode: The retraction notice says",
+      "reference_claim_ids": [
+        "R009",
+        "R009"
+      ],
+      "references": [
+        {
+          "claim_id": "R009",
+          "data_id": "36eae4ae-b0f1-519b-8ea1-d50c2e60bd5f",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "retracted_retained",
+          "doi": "10.1016/j.heliyon.2023.e21222",
+          "kind": "original_claim",
+          "retracted": true,
+          "score": 2,
+          "source": "Heliyon",
+          "status": "retracted_forgotten"
+        },
+        {
+          "claim_id": "R009",
+          "data_id": "fd06d41a-718c-5980-aa6d-1c99ee176224",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "retracted_retained",
+          "doi": "10.1016/j.heliyon.2023.e21222",
+          "kind": "retraction_notice",
+          "retracted": false,
+          "score": 2,
+          "source": "Heliyon",
+          "status": "retracted_forgotten"
+        }
+      ],
+      "retracted_dois": [
+        "10.1016/j.heliyon.2023.e21222"
+      ],
+      "target_claim_ids": [
+        "R009"
+      ],
+      "text": "naive_memory still cites the retracted original source 10.1016/j.heliyon.2023.e21222 from Heliyon. Treat the answer as unsafe until that source is forgotten."
+    },
+    {
+      "cites_retracted": false,
+      "control_retained": false,
+      "correctness_judge": "skipped_gemini_quota_fallback",
+      "correctness_score": null,
+      "dataset": "groundtruth_memory",
+      "kind": "retracted",
+      "question": "Are fenchone and camphor claims still reliable after the retraction?",
+      "question_id": "Q09",
+      "recall_context_excerpt": "Nodes:\nNode: The retraction notice says that Fenchone and... [results, and/or, retraction]\n__node_content_start__\nThe retraction notice says that Fenchone and camphor: Main natural compounds from Lavandula stoechas L., expediting multiple in vitro biological activities (DOI 10.1016/j.heliyon.2023.e21222) was retracted. Reason: Concerns/Issues about Authorship/Affiliation;Concerns/Issues about Results and/or Conclusions;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;.\n__node_content_end__\n\nNode: Retraction Watch / Crossref\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The retraction notice says that SiloMAS: A... [notice, and/or, retraction]\n__node_content_start__\nThe retraction notice says that SiloMAS: A MAS for Smart Silos to Optimize Food and Water Consumption on Livestock Holdings (DOI 10.1007/978-3-030-00524-5_6) was retracted. Reason: Concerns/Issues about Referencing/Attributions;Conflict of Interest;Date of Article and/or Notice Unknown;Investigation by Journal/Publisher;Objections by Author(s);Rogue Editor;Unreliable Results and/or Conclusions;.\n__node_content_end__\n\nNode: The retraction notice says that Phytochem",
+      "reference_claim_ids": [
+        "R009"
+      ],
+      "references": [
+        {
+          "claim_id": "R009",
+          "data_id": "fd06d41a-718c-5980-aa6d-1c99ee176224",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "retracted_forgotten",
+          "doi": "10.1016/j.heliyon.2023.e21222",
+          "kind": "retraction_notice",
+          "retracted": false,
+          "score": 2,
+          "source": "Heliyon",
+          "status": "retracted_forgotten"
+        }
+      ],
+      "retracted_dois": [],
+      "target_claim_ids": [
+        "R009"
+      ],
+      "text": "groundtruth_memory no longer cites the original retracted claim for 10.1016/j.heliyon.2023.e21222. The active memory cites the retraction notice instead."
+    },
+    {
+      "cites_retracted": true,
+      "control_retained": false,
+      "correctness_judge": "skipped_gemini_quota_fallback",
+      "correctness_score": null,
+      "dataset": "naive_memory",
+      "kind": "retracted",
+      "question": "What should be cited about inhalable particulate pollutants and cardiopulmonary effects in outdoor football?",
+      "question_id": "Q10",
+      "recall_context_excerpt": "Nodes:\nNode: The active control paper reports that role... [active, control, paper]\n__node_content_start__\nThe active control paper reports that role Of Dash Diet In Blood Pressure.\n__node_content_end__\n\nNode: CARDIOMETRY\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The paper claimed that avacopan for the... [paper, claimed, avacopan]\n__node_content_start__\nThe paper claimed that avacopan for the Treatment of ANCA-Associated Vasculitis.\n__node_content_end__\n\nNode: NEJM: The New England Journal of Medicine\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that lipoprotein(a)... [active, control, paper]\n__node_content_start__\nThe active control paper reports that lipoprotein(a) Cholesterol, Randomized Omega-3 Fatty Acid Supplementation, and Cardiovascular Events: Extended Follow-up in the VITamin D and OmegA 3 TriaL.\n__node_content_end__\n\nNode: Journal of Clinical Lipidology\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that dietary... [active, control, paper]\n__node_content_start__\nThe active control paper reports that dietary Sodium Intake and Risk of Cardiovascular Disease.\n__node_content_",
+      "reference_claim_ids": [
+        "R010",
+        "R010",
+        "R003",
+        "C007",
+        "C011"
+      ],
+      "references": [
+        {
+          "claim_id": "R010",
+          "data_id": "d13dc0ac-adf9-536e-9b7b-ee57b4bc6066",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "retracted_retained",
+          "doi": "10.1007/s00500-023-09589-5",
+          "kind": "original_claim",
+          "retracted": true,
+          "score": 7,
+          "source": "Soft Computing",
+          "status": "retracted_forgotten"
+        },
+        {
+          "claim_id": "R010",
+          "data_id": "ceee7f78-b013-5352-93e7-084b83127a61",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "retracted_retained",
+          "doi": "10.1007/s00500-023-09589-5",
+          "kind": "retraction_notice",
+          "retracted": false,
+          "score": 7,
+          "source": "Soft Computing",
+          "status": "retracted_forgotten"
+        },
+        {
+          "claim_id": "R003",
+          "data_id": "e21ca4ca-0fc0-59bc-a3d4-7025db76c675",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "retracted_retained",
+          "doi": "10.1002/bcp.70249",
+          "kind": "original_claim",
+          "retracted": true,
+          "score": 1,
+          "source": "British Journal of Clinical Pharmacology",
+          "status": "retracted_forgotten"
+        },
+        {
+          "claim_id": "C007",
+          "data_id": "44af11e3-57bd-52eb-955e-7d0177a46f2c",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "active",
+          "doi": "10.1136/bmj.k4583",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 1,
+          "source": "BMJ",
+          "status": "active"
+        },
+        {
+          "claim_id": "C011",
+          "data_id": "e0feccd5-0f24-515d-9900-32c96ad0be08",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "active",
+          "doi": "10.1177/03000605261443077",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 1,
+          "source": "Journal of International Medical Research",
+          "status": "active"
+        }
+      ],
+      "retracted_dois": [
+        "10.1002/bcp.70249",
+        "10.1007/s00500-023-09589-5"
+      ],
+      "target_claim_ids": [
+        "R010"
+      ],
+      "text": "naive_memory still cites the retracted original source 10.1007/s00500-023-09589-5 from Soft Computing. Treat the answer as unsafe until that source is forgotten."
+    },
+    {
+      "cites_retracted": false,
+      "control_retained": false,
+      "correctness_judge": "skipped_gemini_quota_fallback",
+      "correctness_score": null,
+      "dataset": "groundtruth_memory",
+      "kind": "retracted",
+      "question": "What should be cited about inhalable particulate pollutants and cardiopulmonary effects in outdoor football?",
+      "question_id": "Q10",
+      "recall_context_excerpt": "Nodes:\nNode: The active control paper reports that role... [active, control, paper]\n__node_content_start__\nThe active control paper reports that role Of Dash Diet In Blood Pressure.\n__node_content_end__\n\nNode: CARDIOMETRY\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that lipoprotein(a)... [active, control, paper]\n__node_content_start__\nThe active control paper reports that lipoprotein(a) Cholesterol, Randomized Omega-3 Fatty Acid Supplementation, and Cardiovascular Events: Extended Follow-up in the VITamin D and OmegA 3 TriaL.\n__node_content_end__\n\nNode: Journal of Clinical Lipidology\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that dietary... [active, control, paper]\n__node_content_start__\nThe active control paper reports that dietary Sodium Intake and Risk of Cardiovascular Disease.\n__node_content_end__\n\nNode: JAMA Internal Medicine\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that coffee... [active, control, paper]\n__node_content_start__\nThe active control paper reports that coffee consumption and reduced risk of developing type 2 diabetes: a syste",
+      "reference_claim_ids": [
+        "R010",
+        "C007",
+        "C011",
+        "R003"
+      ],
+      "references": [
+        {
+          "claim_id": "R010",
+          "data_id": "ceee7f78-b013-5352-93e7-084b83127a61",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "retracted_forgotten",
+          "doi": "10.1007/s00500-023-09589-5",
+          "kind": "retraction_notice",
+          "retracted": false,
+          "score": 7,
+          "source": "Soft Computing",
+          "status": "retracted_forgotten"
+        },
+        {
+          "claim_id": "C007",
+          "data_id": "44af11e3-57bd-52eb-955e-7d0177a46f2c",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.1136/bmj.k4583",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 1,
+          "source": "BMJ",
+          "status": "active"
+        },
+        {
+          "claim_id": "C011",
+          "data_id": "e0feccd5-0f24-515d-9900-32c96ad0be08",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.1177/03000605261443077",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 1,
+          "source": "Journal of International Medical Research",
+          "status": "active"
+        },
+        {
+          "claim_id": "R003",
+          "data_id": "99e5a7e4-1f8d-588b-8317-c7a32aa727ce",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "retracted_forgotten",
+          "doi": "10.1002/bcp.70249",
+          "kind": "retraction_notice",
+          "retracted": false,
+          "score": 1,
+          "source": "British Journal of Clinical Pharmacology",
+          "status": "retracted_forgotten"
+        }
+      ],
+      "retracted_dois": [],
+      "target_claim_ids": [
+        "R010"
+      ],
+      "text": "groundtruth_memory no longer cites the original retracted claim for 10.1007/s00500-023-09589-5. The active memory cites the retraction notice instead."
+    },
+    {
+      "cites_retracted": true,
+      "control_retained": false,
+      "correctness_judge": "skipped_gemini_quota_fallback",
+      "correctness_score": null,
+      "dataset": "naive_memory",
+      "kind": "retracted",
+      "question": "Can the attention-based dense network model for cardiac image segmentation still be used as evidence?",
+      "question_id": "Q11",
+      "recall_context_excerpt": "Nodes:\nNode: The active control paper reports that role... [active, control, paper]\n__node_content_start__\nThe active control paper reports that role Of Dash Diet In Blood Pressure.\n__node_content_end__\n\nNode: CARDIOMETRY\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The paper claimed that avacopan for the... [paper, claimed, avacopan]\n__node_content_start__\nThe paper claimed that avacopan for the Treatment of ANCA-Associated Vasculitis.\n__node_content_end__\n\nNode: NEJM: The New England Journal of Medicine\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The paper claimed that siloMAS: A MAS... [paper, claimed, silomas]\n__node_content_start__\nThe paper claimed that siloMAS: A MAS for Smart Silos to Optimize Food and Water Consumption on Livestock Holdings.\n__node_content_end__\n\nNode: Distributed Computing and Artificial Intelligence, Special Sessions II, 15th International Conference\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The paper claimed that intelligent Livestock Feeding... [paper, claimed, intelligent]\n__node_content_start__\nThe paper claimed that intelligent Livestock Feeding System by Means of Silos with IoT Technology.\n__node_content_end__\n\n",
+      "reference_claim_ids": [
+        "R011",
+        "R011",
+        "R018",
+        "R020",
+        "R001"
+      ],
+      "references": [
+        {
+          "claim_id": "R011",
+          "data_id": "be4527b6-ee58-5b79-88a2-6a776a1aad92",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "retracted_retained",
+          "doi": "10.1007/s00500-023-09482-1",
+          "kind": "original_claim",
+          "retracted": true,
+          "score": 9,
+          "source": "Soft Computing",
+          "status": "retracted_forgotten"
+        },
+        {
+          "claim_id": "R011",
+          "data_id": "7ee50471-5eca-5da5-9a46-98f60e8c6d87",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "retracted_retained",
+          "doi": "10.1007/s00500-023-09482-1",
+          "kind": "retraction_notice",
+          "retracted": false,
+          "score": 9,
+          "source": "Soft Computing",
+          "status": "retracted_forgotten"
+        },
+        {
+          "claim_id": "R018",
+          "data_id": "b66cdeb7-f924-54e8-90fc-14104c2dd908",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "active",
+          "doi": "10.1016/j.heliyon.2024.e37293",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 2,
+          "source": "Heliyon",
+          "status": "active"
+        },
+        {
+          "claim_id": "R020",
+          "data_id": "eb56d69a-6313-5dd0-93d8-1d73c161dd3e",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "active",
+          "doi": "10.1007/s00500-021-06668-3",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 2,
+          "source": "Soft Computing",
+          "status": "active"
+        },
+        {
+          "claim_id": "R001",
+          "data_id": "033e8c14-5e6e-5dbf-8a50-a7b850015cf2",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "retracted_retained",
+          "doi": "10.1056/nejmoa2023386",
+          "kind": "original_claim",
+          "retracted": true,
+          "score": 1,
+          "source": "NEJM: The New England Journal of Medicine",
+          "status": "retracted_forgotten"
+        }
+      ],
+      "retracted_dois": [
+        "10.1007/s00500-023-09482-1",
+        "10.1056/nejmoa2023386"
+      ],
+      "target_claim_ids": [
+        "R011"
+      ],
+      "text": "naive_memory still cites the retracted original source 10.1007/s00500-023-09482-1 from Soft Computing. Treat the answer as unsafe until that source is forgotten."
+    },
+    {
+      "cites_retracted": false,
+      "control_retained": false,
+      "correctness_judge": "skipped_gemini_quota_fallback",
+      "correctness_score": null,
+      "dataset": "groundtruth_memory",
+      "kind": "retracted",
+      "question": "Can the attention-based dense network model for cardiac image segmentation still be used as evidence?",
+      "question_id": "Q11",
+      "recall_context_excerpt": "Nodes:\nNode: The active control paper reports that role... [active, control, paper]\n__node_content_start__\nThe active control paper reports that role Of Dash Diet In Blood Pressure.\n__node_content_end__\n\nNode: CARDIOMETRY\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The paper claimed that intelligent Livestock Feeding... [paper, claimed, intelligent]\n__node_content_start__\nThe paper claimed that intelligent Livestock Feeding System by Means of Silos with IoT Technology.\n__node_content_end__\n\nNode: Distributed Computing and Artificial Intelligence, Special Sessions II, 15th International Conference\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that dietary... [active, control, paper]\n__node_content_start__\nThe active control paper reports that dietary Sodium Intake and Risk of Cardiovascular Disease.\n__node_content_end__\n\nNode: JAMA Internal Medicine\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The paper claimed that longitudinal Data From... [plaque, paper, claimed]\n__node_content_start__\nThe paper claimed that longitudinal Data From the KETO-CTA Study: Plaque Predicts Plaque, ApoB Does Not.\n__node_content_end__\n\nNode",
+      "reference_claim_ids": [
+        "R011",
+        "R018",
+        "R020",
+        "R015",
+        "R022"
+      ],
+      "references": [
+        {
+          "claim_id": "R011",
+          "data_id": "7ee50471-5eca-5da5-9a46-98f60e8c6d87",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "retracted_forgotten",
+          "doi": "10.1007/s00500-023-09482-1",
+          "kind": "retraction_notice",
+          "retracted": false,
+          "score": 9,
+          "source": "Soft Computing",
+          "status": "retracted_forgotten"
+        },
+        {
+          "claim_id": "R018",
+          "data_id": "b66cdeb7-f924-54e8-90fc-14104c2dd908",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.1016/j.heliyon.2024.e37293",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 2,
+          "source": "Heliyon",
+          "status": "active"
+        },
+        {
+          "claim_id": "R020",
+          "data_id": "eb56d69a-6313-5dd0-93d8-1d73c161dd3e",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.1007/s00500-021-06668-3",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 2,
+          "source": "Soft Computing",
+          "status": "active"
+        },
+        {
+          "claim_id": "R015",
+          "data_id": "57a0c28a-fb22-579e-ad51-e0d96239ea46",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.1016/j.heliyon.2025.e41964",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 1,
+          "source": "Heliyon",
+          "status": "active"
+        },
+        {
+          "claim_id": "R022",
+          "data_id": "76a51f40-5e8e-5f6b-bb4a-5587be84fbb9",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.1080/14767058.2020.1814239",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 1,
+          "source": "The Journal of Maternal-Fetal & Neonatal Medicine",
+          "status": "active"
+        }
+      ],
+      "retracted_dois": [],
+      "target_claim_ids": [
+        "R011"
+      ],
+      "text": "groundtruth_memory no longer cites the original retracted claim for 10.1007/s00500-023-09482-1. The active memory cites the retraction notice instead."
+    },
+    {
+      "cites_retracted": true,
+      "control_retained": false,
+      "correctness_judge": "skipped_gemini_quota_fallback",
+      "correctness_score": null,
+      "dataset": "naive_memory",
+      "kind": "retracted",
+      "question": "What should the memory say about SiloMAS after its retraction?",
+      "question_id": "Q12",
+      "recall_context_excerpt": "Nodes:\nNode: The retraction notice says that SiloMAS: A... [notice, and/or, retraction]\n__node_content_start__\nThe retraction notice says that SiloMAS: A MAS for Smart Silos to Optimize Food and Water Consumption on Livestock Holdings (DOI 10.1007/978-3-030-00524-5_6) was retracted. Reason: Concerns/Issues about Referencing/Attributions;Conflict of Interest;Date of Article and/or Notice Unknown;Investigation by Journal/Publisher;Objections by Author(s);Rogue Editor;Unreliable Results and/or Conclusions;.\n__node_content_end__\n\nNode: Retraction Watch / Crossref\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The retraction notice says that Fenchone and... [results, and/or, retraction]\n__node_content_start__\nThe retraction notice says that Fenchone and camphor: Main natural compounds from Lavandula stoechas L., expediting multiple in vitro biological activities (DOI 10.1016/j.heliyon.2023.e21222) was retracted. Reason: Concerns/Issues about Authorship/Affiliation;Concerns/Issues about Results and/or Conclusions;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;.\n__node_content_end__\n\nNode: The retraction notice says that NF-\u0138B axi",
+      "reference_claim_ids": [
+        "R012",
+        "R012"
+      ],
+      "references": [
+        {
+          "claim_id": "R012",
+          "data_id": "8b310b31-aecd-5a18-8fd5-06e67dcfe8bb",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "retracted_retained",
+          "doi": "10.1007/978-3-030-00524-5_6",
+          "kind": "original_claim",
+          "retracted": true,
+          "score": 1,
+          "source": "Distributed Computing and Artificial Intelligence, Special Sessions II, 15th International Conference",
+          "status": "retracted_forgotten"
+        },
+        {
+          "claim_id": "R012",
+          "data_id": "7de422b8-8606-50c3-951a-17a00330ff96",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "retracted_retained",
+          "doi": "10.1007/978-3-030-00524-5_6",
+          "kind": "retraction_notice",
+          "retracted": false,
+          "score": 1,
+          "source": "Distributed Computing and Artificial Intelligence, Special Sessions II, 15th International Conference",
+          "status": "retracted_forgotten"
+        }
+      ],
+      "retracted_dois": [
+        "10.1007/978-3-030-00524-5_6"
+      ],
+      "target_claim_ids": [
+        "R012"
+      ],
+      "text": "naive_memory still cites the retracted original source 10.1007/978-3-030-00524-5_6 from Distributed Computing and Artificial Intelligence, Special Sessions II, 15th International Conference. Treat the answer as unsafe until that source is forgotten."
+    },
+    {
+      "cites_retracted": false,
+      "control_retained": false,
+      "correctness_judge": "skipped_gemini_quota_fallback",
+      "correctness_score": null,
+      "dataset": "groundtruth_memory",
+      "kind": "retracted",
+      "question": "What should the memory say about SiloMAS after its retraction?",
+      "question_id": "Q12",
+      "recall_context_excerpt": "Nodes:\nNode: The retraction notice says that SiloMAS: A... [notice, and/or, retraction]\n__node_content_start__\nThe retraction notice says that SiloMAS: A MAS for Smart Silos to Optimize Food and Water Consumption on Livestock Holdings (DOI 10.1007/978-3-030-00524-5_6) was retracted. Reason: Concerns/Issues about Referencing/Attributions;Conflict of Interest;Date of Article and/or Notice Unknown;Investigation by Journal/Publisher;Objections by Author(s);Rogue Editor;Unreliable Results and/or Conclusions;.\n__node_content_end__\n\nNode: Retraction Watch / Crossref\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The retraction notice says that Fenchone and... [results, and/or, retraction]\n__node_content_start__\nThe retraction notice says that Fenchone and camphor: Main natural compounds from Lavandula stoechas L., expediting multiple in vitro biological activities (DOI 10.1016/j.heliyon.2023.e21222) was retracted. Reason: Concerns/Issues about Authorship/Affiliation;Concerns/Issues about Results and/or Conclusions;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;.\n__node_content_end__\n\nNode: The retraction notice says that NF-\u0138B axi",
+      "reference_claim_ids": [
+        "R012"
+      ],
+      "references": [
+        {
+          "claim_id": "R012",
+          "data_id": "7de422b8-8606-50c3-951a-17a00330ff96",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "retracted_forgotten",
+          "doi": "10.1007/978-3-030-00524-5_6",
+          "kind": "retraction_notice",
+          "retracted": false,
+          "score": 1,
+          "source": "Distributed Computing and Artificial Intelligence, Special Sessions II, 15th International Conference",
+          "status": "retracted_forgotten"
+        }
+      ],
+      "retracted_dois": [],
+      "target_claim_ids": [
+        "R012"
+      ],
+      "text": "groundtruth_memory no longer cites the original retracted claim for 10.1007/978-3-030-00524-5_6. The active memory cites the retraction notice instead."
+    },
+    {
+      "cites_retracted": false,
+      "control_retained": true,
+      "correctness_judge": "skipped_gemini_quota_fallback",
+      "correctness_score": null,
+      "dataset": "naive_memory",
+      "kind": "control",
+      "question": "What does the active evidence say about dietary sodium intake and cardiovascular disease risk?",
+      "question_id": "Q13",
+      "recall_context_excerpt": "Nodes:\nNode: The active control paper reports that role... [active, control, paper]\n__node_content_start__\nThe active control paper reports that role Of Dash Diet In Blood Pressure.\n__node_content_end__\n\nNode: CARDIOMETRY\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that coffee... [active, control, paper]\n__node_content_start__\nThe active control paper reports that coffee consumption and reduced risk of developing type 2 diabetes: a systematic review with meta-analysis.\n__node_content_end__\n\nNode: Nutrition Reviews\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that nuts... [active, control, paper]\n__node_content_start__\nThe active control paper reports that nuts reduce risk of cardiovascular disease.\n__node_content_end__\n\nNode: Nature Reviews Cardiology\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that dietary... [active, control, paper]\n__node_content_start__\nThe active control paper reports that dietary Sodium Intake and Risk of Cardiovascular Disease.\n__node_content_end__\n\nNode: JAMA Internal Medicine\n__node_content_start__\nNone\n__node_content_end__\n",
+      "reference_claim_ids": [
+        "C001",
+        "C013",
+        "C004",
+        "C005",
+        "C012"
+      ],
+      "references": [
+        {
+          "claim_id": "C001",
+          "data_id": "2c13440c-7ff4-59ef-aa40-290685b98ff4",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "active",
+          "doi": "10.1001/jamainternmed.2015.2558",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 6,
+          "source": "JAMA Internal Medicine",
+          "status": "active"
+        },
+        {
+          "claim_id": "C013",
+          "data_id": "f8069e33-8232-5c12-838d-ec08a41190f6",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "active",
+          "doi": "10.1038/nrcardio.2017.196",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 3,
+          "source": "Nature Reviews Cardiology",
+          "status": "active"
+        },
+        {
+          "claim_id": "C004",
+          "data_id": "41a51fa9-c5fa-5006-b45f-3d6bab8de1f0",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "active",
+          "doi": "10.3945/ajcn.116.143180",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 2,
+          "source": "The American Journal of Clinical Nutrition",
+          "status": "active"
+        },
+        {
+          "claim_id": "C005",
+          "data_id": "a43d1581-e8c2-52d3-9317-f339967252c0",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "active",
+          "doi": "10.1097/nt.0000000000000561",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 2,
+          "source": "Nutrition Today",
+          "status": "active"
+        },
+        {
+          "claim_id": "C012",
+          "data_id": "eec39b26-e7a8-5064-bd34-eca24c47b414",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "active",
+          "doi": "10.1001/jama.2024.1907",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 2,
+          "source": "JAMA",
+          "status": "active"
+        }
+      ],
+      "retracted_dois": [],
+      "target_claim_ids": [
+        "C001"
+      ],
+      "text": "naive_memory cites an active remembered source for 10.1001/jamainternmed.2015.2558 from JAMA Internal Medicine."
+    },
+    {
+      "cites_retracted": false,
+      "control_retained": true,
+      "correctness_judge": "skipped_gemini_quota_fallback",
+      "correctness_score": null,
+      "dataset": "groundtruth_memory",
+      "kind": "control",
+      "question": "What does the active evidence say about dietary sodium intake and cardiovascular disease risk?",
+      "question_id": "Q13",
+      "recall_context_excerpt": "Nodes:\nNode: The active control paper reports that role... [active, control, paper]\n__node_content_start__\nThe active control paper reports that role Of Dash Diet In Blood Pressure.\n__node_content_end__\n\nNode: CARDIOMETRY\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that coffee... [active, control, paper]\n__node_content_start__\nThe active control paper reports that coffee consumption and reduced risk of developing type 2 diabetes: a systematic review with meta-analysis.\n__node_content_end__\n\nNode: Nutrition Reviews\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that nuts... [active, control, paper]\n__node_content_start__\nThe active control paper reports that nuts reduce risk of cardiovascular disease.\n__node_content_end__\n\nNode: Nature Reviews Cardiology\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that dietary... [active, control, paper]\n__node_content_start__\nThe active control paper reports that dietary Sodium Intake and Risk of Cardiovascular Disease.\n__node_content_end__\n\nNode: JAMA Internal Medicine\n__node_content_start__\nNone\n__node_content_end__\n",
+      "reference_claim_ids": [
+        "C001",
+        "C013",
+        "C004",
+        "C005",
+        "C012"
+      ],
+      "references": [
+        {
+          "claim_id": "C001",
+          "data_id": "2c13440c-7ff4-59ef-aa40-290685b98ff4",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.1001/jamainternmed.2015.2558",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 6,
+          "source": "JAMA Internal Medicine",
+          "status": "active"
+        },
+        {
+          "claim_id": "C013",
+          "data_id": "f8069e33-8232-5c12-838d-ec08a41190f6",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.1038/nrcardio.2017.196",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 3,
+          "source": "Nature Reviews Cardiology",
+          "status": "active"
+        },
+        {
+          "claim_id": "C004",
+          "data_id": "41a51fa9-c5fa-5006-b45f-3d6bab8de1f0",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.3945/ajcn.116.143180",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 2,
+          "source": "The American Journal of Clinical Nutrition",
+          "status": "active"
+        },
+        {
+          "claim_id": "C005",
+          "data_id": "a43d1581-e8c2-52d3-9317-f339967252c0",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.1097/nt.0000000000000561",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 2,
+          "source": "Nutrition Today",
+          "status": "active"
+        },
+        {
+          "claim_id": "C012",
+          "data_id": "eec39b26-e7a8-5064-bd34-eca24c47b414",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.1001/jama.2024.1907",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 2,
+          "source": "JAMA",
+          "status": "active"
+        }
+      ],
+      "retracted_dois": [],
+      "target_claim_ids": [
+        "C001"
+      ],
+      "text": "groundtruth_memory cites an active remembered source for 10.1001/jamainternmed.2015.2558 from JAMA Internal Medicine."
+    },
+    {
+      "cites_retracted": false,
+      "control_retained": true,
+      "correctness_judge": "skipped_gemini_quota_fallback",
+      "correctness_score": null,
+      "dataset": "naive_memory",
+      "kind": "control",
+      "question": "What does the active evidence say about coffee consumption and type 2 diabetes risk?",
+      "question_id": "Q14",
+      "recall_context_excerpt": "Nodes:\nNode: The active control paper reports that coffee... [active, control, paper]\n__node_content_start__\nThe active control paper reports that coffee consumption and reduced risk of developing type 2 diabetes: a systematic review with meta-analysis.\n__node_content_end__\n\nNode: Nutrition Reviews\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that role... [active, control, paper]\n__node_content_start__\nThe active control paper reports that role Of Dash Diet In Blood Pressure.\n__node_content_end__\n\nNode: CARDIOMETRY\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that nuts... [active, control, paper]\n__node_content_start__\nThe active control paper reports that nuts reduce risk of cardiovascular disease.\n__node_content_end__\n\nNode: Nature Reviews Cardiology\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that plant-Based... [active, control, paper]\n__node_content_start__\nThe active control paper reports that plant-Based Diet Adherence and Type 2 Diabetes Risk Factors.\n__node_content_end__\n\nNode: DIET FACTOR (Journal of Nutritional and Food Sciences)\n__node_con",
+      "reference_claim_ids": [
+        "C002",
+        "C004",
+        "C010",
+        "C008",
+        "C011"
+      ],
+      "references": [
+        {
+          "claim_id": "C002",
+          "data_id": "7a2b1e21-7196-5b43-95d1-74d837680599",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "active",
+          "doi": "10.1093/nutrit/nuy014",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 5,
+          "source": "Nutrition Reviews",
+          "status": "active"
+        },
+        {
+          "claim_id": "C004",
+          "data_id": "41a51fa9-c5fa-5006-b45f-3d6bab8de1f0",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "active",
+          "doi": "10.3945/ajcn.116.143180",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 3,
+          "source": "The American Journal of Clinical Nutrition",
+          "status": "active"
+        },
+        {
+          "claim_id": "C010",
+          "data_id": "8f1833d6-f1a6-5a17-bab0-53c083976398",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "active",
+          "doi": "10.54393/df.v6i2.187",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 3,
+          "source": "DIET FACTOR (Journal of Nutritional and Food Sciences)",
+          "status": "active"
+        },
+        {
+          "claim_id": "C008",
+          "data_id": "c6bfc753-f9c4-5711-b0fd-f46ef3d5ce98",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "active",
+          "doi": "10.1056/nejmc1912185",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 2,
+          "source": "New England Journal of Medicine",
+          "status": "active"
+        },
+        {
+          "claim_id": "C011",
+          "data_id": "e0feccd5-0f24-515d-9900-32c96ad0be08",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "active",
+          "doi": "10.1177/03000605261443077",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 2,
+          "source": "Journal of International Medical Research",
+          "status": "active"
+        }
+      ],
+      "retracted_dois": [],
+      "target_claim_ids": [
+        "C002"
+      ],
+      "text": "naive_memory cites an active remembered source for 10.1093/nutrit/nuy014 from Nutrition Reviews."
+    },
+    {
+      "cites_retracted": false,
+      "control_retained": true,
+      "correctness_judge": "skipped_gemini_quota_fallback",
+      "correctness_score": null,
+      "dataset": "groundtruth_memory",
+      "kind": "control",
+      "question": "What does the active evidence say about coffee consumption and type 2 diabetes risk?",
+      "question_id": "Q14",
+      "recall_context_excerpt": "Nodes:\nNode: The active control paper reports that coffee... [active, control, paper]\n__node_content_start__\nThe active control paper reports that coffee consumption and reduced risk of developing type 2 diabetes: a systematic review with meta-analysis.\n__node_content_end__\n\nNode: Nutrition Reviews\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that role... [active, control, paper]\n__node_content_start__\nThe active control paper reports that role Of Dash Diet In Blood Pressure.\n__node_content_end__\n\nNode: CARDIOMETRY\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that nuts... [active, control, paper]\n__node_content_start__\nThe active control paper reports that nuts reduce risk of cardiovascular disease.\n__node_content_end__\n\nNode: Nature Reviews Cardiology\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that plant-Based... [active, control, paper]\n__node_content_start__\nThe active control paper reports that plant-Based Diet Adherence and Type 2 Diabetes Risk Factors.\n__node_content_end__\n\nNode: DIET FACTOR (Journal of Nutritional and Food Sciences)\n__node_con",
+      "reference_claim_ids": [
+        "C002",
+        "C004",
+        "C010",
+        "C008",
+        "C011"
+      ],
+      "references": [
+        {
+          "claim_id": "C002",
+          "data_id": "7a2b1e21-7196-5b43-95d1-74d837680599",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.1093/nutrit/nuy014",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 5,
+          "source": "Nutrition Reviews",
+          "status": "active"
+        },
+        {
+          "claim_id": "C004",
+          "data_id": "41a51fa9-c5fa-5006-b45f-3d6bab8de1f0",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.3945/ajcn.116.143180",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 3,
+          "source": "The American Journal of Clinical Nutrition",
+          "status": "active"
+        },
+        {
+          "claim_id": "C010",
+          "data_id": "8f1833d6-f1a6-5a17-bab0-53c083976398",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.54393/df.v6i2.187",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 3,
+          "source": "DIET FACTOR (Journal of Nutritional and Food Sciences)",
+          "status": "active"
+        },
+        {
+          "claim_id": "C008",
+          "data_id": "c6bfc753-f9c4-5711-b0fd-f46ef3d5ce98",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.1056/nejmc1912185",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 2,
+          "source": "New England Journal of Medicine",
+          "status": "active"
+        },
+        {
+          "claim_id": "C011",
+          "data_id": "e0feccd5-0f24-515d-9900-32c96ad0be08",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.1177/03000605261443077",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 2,
+          "source": "Journal of International Medical Research",
+          "status": "active"
+        }
+      ],
+      "retracted_dois": [],
+      "target_claim_ids": [
+        "C002"
+      ],
+      "text": "groundtruth_memory cites an active remembered source for 10.1093/nutrit/nuy014 from Nutrition Reviews."
+    },
+    {
+      "cites_retracted": true,
+      "control_retained": false,
+      "correctness_judge": "skipped_gemini_quota_fallback",
+      "correctness_score": null,
+      "dataset": "naive_memory",
+      "kind": "control",
+      "question": "What does the active evidence say about the DASH diet and blood pressure?",
+      "question_id": "Q15",
+      "recall_context_excerpt": "Nodes:\nNode: The active control paper reports that role... [active, control, paper]\n__node_content_start__\nThe active control paper reports that role Of Dash Diet In Blood Pressure.\n__node_content_end__\n\nNode: CARDIOMETRY\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that coffee... [active, control, paper]\n__node_content_start__\nThe active control paper reports that coffee consumption and reduced risk of developing type 2 diabetes: a systematic review with meta-analysis.\n__node_content_end__\n\nNode: Nutrition Reviews\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that nuts... [active, control, paper]\n__node_content_start__\nThe active control paper reports that nuts reduce risk of cardiovascular disease.\n__node_content_end__\n\nNode: Nature Reviews Cardiology\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that dietary... [active, control, paper]\n__node_content_start__\nThe active control paper reports that dietary Sodium Intake and Risk of Cardiovascular Disease.\n__node_content_end__\n\nNode: JAMA Internal Medicine\n__node_content_start__\nNone\n__node_content_end__\n",
+      "reference_claim_ids": [
+        "C003",
+        "R003",
+        "C012",
+        "R003",
+        "R006"
+      ],
+      "references": [
+        {
+          "claim_id": "C003",
+          "data_id": "d3d710dc-228a-5960-bfce-a06ad17503ce",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "active",
+          "doi": "10.18137/cardiometry.2022.24.10191021",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 4,
+          "source": "CARDIOMETRY",
+          "status": "active"
+        },
+        {
+          "claim_id": "R003",
+          "data_id": "e21ca4ca-0fc0-59bc-a3d4-7025db76c675",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "retracted_retained",
+          "doi": "10.1002/bcp.70249",
+          "kind": "original_claim",
+          "retracted": true,
+          "score": 2,
+          "source": "British Journal of Clinical Pharmacology",
+          "status": "retracted_forgotten"
+        },
+        {
+          "claim_id": "C012",
+          "data_id": "eec39b26-e7a8-5064-bd34-eca24c47b414",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "active",
+          "doi": "10.1001/jama.2024.1907",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 2,
+          "source": "JAMA",
+          "status": "active"
+        },
+        {
+          "claim_id": "R003",
+          "data_id": "99e5a7e4-1f8d-588b-8317-c7a32aa727ce",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "retracted_retained",
+          "doi": "10.1002/bcp.70249",
+          "kind": "retraction_notice",
+          "retracted": false,
+          "score": 2,
+          "source": "British Journal of Clinical Pharmacology",
+          "status": "retracted_forgotten"
+        },
+        {
+          "claim_id": "R006",
+          "data_id": "c37c62bc-a612-58be-af2c-2aab5c468c08",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "retracted_retained",
+          "doi": "10.1371/journal.pone.0255392",
+          "kind": "original_claim",
+          "retracted": true,
+          "score": 1,
+          "source": "PLoS One",
+          "status": "retracted_forgotten"
+        }
+      ],
+      "retracted_dois": [
+        "10.1002/bcp.70249",
+        "10.1371/journal.pone.0255392"
+      ],
+      "target_claim_ids": [
+        "C003"
+      ],
+      "text": "naive_memory still cites the retracted original source 10.1002/bcp.70249 from British Journal of Clinical Pharmacology. Treat the answer as unsafe until that source is forgotten."
+    },
+    {
+      "cites_retracted": false,
+      "control_retained": true,
+      "correctness_judge": "skipped_gemini_quota_fallback",
+      "correctness_score": null,
+      "dataset": "groundtruth_memory",
+      "kind": "control",
+      "question": "What does the active evidence say about the DASH diet and blood pressure?",
+      "question_id": "Q15",
+      "recall_context_excerpt": "Nodes:\nNode: The active control paper reports that role... [active, control, paper]\n__node_content_start__\nThe active control paper reports that role Of Dash Diet In Blood Pressure.\n__node_content_end__\n\nNode: CARDIOMETRY\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that coffee... [active, control, paper]\n__node_content_start__\nThe active control paper reports that coffee consumption and reduced risk of developing type 2 diabetes: a systematic review with meta-analysis.\n__node_content_end__\n\nNode: Nutrition Reviews\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that nuts... [active, control, paper]\n__node_content_start__\nThe active control paper reports that nuts reduce risk of cardiovascular disease.\n__node_content_end__\n\nNode: Nature Reviews Cardiology\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that plant-Based... [active, control, paper]\n__node_content_start__\nThe active control paper reports that plant-Based Diet Adherence and Type 2 Diabetes Risk Factors.\n__node_content_end__\n\nNode: DIET FACTOR (Journal of Nutritional and Food Sciences)\n__node_con",
+      "reference_claim_ids": [
+        "C003",
+        "C012",
+        "R003",
+        "R019",
+        "R021"
+      ],
+      "references": [
+        {
+          "claim_id": "C003",
+          "data_id": "d3d710dc-228a-5960-bfce-a06ad17503ce",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.18137/cardiometry.2022.24.10191021",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 4,
+          "source": "CARDIOMETRY",
+          "status": "active"
+        },
+        {
+          "claim_id": "C012",
+          "data_id": "eec39b26-e7a8-5064-bd34-eca24c47b414",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.1001/jama.2024.1907",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 2,
+          "source": "JAMA",
+          "status": "active"
+        },
+        {
+          "claim_id": "R003",
+          "data_id": "99e5a7e4-1f8d-588b-8317-c7a32aa727ce",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "retracted_forgotten",
+          "doi": "10.1002/bcp.70249",
+          "kind": "retraction_notice",
+          "retracted": false,
+          "score": 2,
+          "source": "British Journal of Clinical Pharmacology",
+          "status": "retracted_forgotten"
+        },
+        {
+          "claim_id": "R019",
+          "data_id": "862102b8-eb18-5287-9414-11adfd4c7430",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.1016/j.jogc.2023.102264",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 1,
+          "source": "Journal of Obstetrics and Gynaecology Canada",
+          "status": "active"
+        },
+        {
+          "claim_id": "R021",
+          "data_id": "0b3c61b5-688d-5161-8739-a8795964101f",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.1534/genetics.120.303481",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 1,
+          "source": "Genetics",
+          "status": "active"
+        }
+      ],
+      "retracted_dois": [],
+      "target_claim_ids": [
+        "C003"
+      ],
+      "text": "groundtruth_memory no longer cites the original retracted claim for 10.1002/bcp.70249. The active memory cites the retraction notice instead."
+    },
+    {
+      "cites_retracted": false,
+      "control_retained": true,
+      "correctness_judge": "skipped_gemini_quota_fallback",
+      "correctness_score": null,
+      "dataset": "naive_memory",
+      "kind": "control",
+      "question": "What does the active evidence say about whole-grain intake and type 2 diabetes risk?",
+      "question_id": "Q16",
+      "recall_context_excerpt": "Nodes:\nNode: The active control paper reports that coffee... [active, control, paper]\n__node_content_start__\nThe active control paper reports that coffee consumption and reduced risk of developing type 2 diabetes: a systematic review with meta-analysis.\n__node_content_end__\n\nNode: Nutrition Reviews\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The paper claimed that dietary Patterns in... [paper, claimed, dietary]\n__node_content_start__\nThe paper claimed that dietary Patterns in Adults Following the Christian Orthodox Fasting Regime in Greece.\n__node_content_end__\n\nNode: Frontiers in Nutrition\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that role... [active, control, paper]\n__node_content_start__\nThe active control paper reports that role Of Dash Diet In Blood Pressure.\n__node_content_end__\n\nNode: CARDIOMETRY\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that nuts... [active, control, paper]\n__node_content_start__\nThe active control paper reports that nuts reduce risk of cardiovascular disease.\n__node_content_end__\n\nNode: Nature Reviews Cardiology\n__node_content_start__\nNone\n__node_con",
+      "reference_claim_ids": [
+        "C004",
+        "C002",
+        "C010",
+        "C015",
+        "C001"
+      ],
+      "references": [
+        {
+          "claim_id": "C004",
+          "data_id": "41a51fa9-c5fa-5006-b45f-3d6bab8de1f0",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "active",
+          "doi": "10.3945/ajcn.116.143180",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 6,
+          "source": "The American Journal of Clinical Nutrition",
+          "status": "active"
+        },
+        {
+          "claim_id": "C002",
+          "data_id": "7a2b1e21-7196-5b43-95d1-74d837680599",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "active",
+          "doi": "10.1093/nutrit/nuy014",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 3,
+          "source": "Nutrition Reviews",
+          "status": "active"
+        },
+        {
+          "claim_id": "C010",
+          "data_id": "8f1833d6-f1a6-5a17-bab0-53c083976398",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "active",
+          "doi": "10.54393/df.v6i2.187",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 3,
+          "source": "DIET FACTOR (Journal of Nutritional and Food Sciences)",
+          "status": "active"
+        },
+        {
+          "claim_id": "C015",
+          "data_id": "386a3edb-8fd5-5e04-8d52-c44362b40598",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "active",
+          "doi": "10.3390/children12121664",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 3,
+          "source": "Children",
+          "status": "active"
+        },
+        {
+          "claim_id": "C001",
+          "data_id": "2c13440c-7ff4-59ef-aa40-290685b98ff4",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "active",
+          "doi": "10.1001/jamainternmed.2015.2558",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 2,
+          "source": "JAMA Internal Medicine",
+          "status": "active"
+        }
+      ],
+      "retracted_dois": [],
+      "target_claim_ids": [
+        "C004"
+      ],
+      "text": "naive_memory cites an active remembered source for 10.3945/ajcn.116.143180 from The American Journal of Clinical Nutrition."
+    },
+    {
+      "cites_retracted": false,
+      "control_retained": true,
+      "correctness_judge": "skipped_gemini_quota_fallback",
+      "correctness_score": null,
+      "dataset": "groundtruth_memory",
+      "kind": "control",
+      "question": "What does the active evidence say about whole-grain intake and type 2 diabetes risk?",
+      "question_id": "Q16",
+      "recall_context_excerpt": "Nodes:\nNode: The active control paper reports that coffee... [active, control, paper]\n__node_content_start__\nThe active control paper reports that coffee consumption and reduced risk of developing type 2 diabetes: a systematic review with meta-analysis.\n__node_content_end__\n\nNode: Nutrition Reviews\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The paper claimed that dietary Patterns in... [paper, claimed, dietary]\n__node_content_start__\nThe paper claimed that dietary Patterns in Adults Following the Christian Orthodox Fasting Regime in Greece.\n__node_content_end__\n\nNode: Frontiers in Nutrition\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that role... [active, control, paper]\n__node_content_start__\nThe active control paper reports that role Of Dash Diet In Blood Pressure.\n__node_content_end__\n\nNode: CARDIOMETRY\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that nuts... [active, control, paper]\n__node_content_start__\nThe active control paper reports that nuts reduce risk of cardiovascular disease.\n__node_content_end__\n\nNode: Nature Reviews Cardiology\n__node_content_start__\nNone\n__node_con",
+      "reference_claim_ids": [
+        "C004",
+        "C002",
+        "C010",
+        "C015",
+        "C001"
+      ],
+      "references": [
+        {
+          "claim_id": "C004",
+          "data_id": "41a51fa9-c5fa-5006-b45f-3d6bab8de1f0",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.3945/ajcn.116.143180",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 6,
+          "source": "The American Journal of Clinical Nutrition",
+          "status": "active"
+        },
+        {
+          "claim_id": "C002",
+          "data_id": "7a2b1e21-7196-5b43-95d1-74d837680599",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.1093/nutrit/nuy014",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 3,
+          "source": "Nutrition Reviews",
+          "status": "active"
+        },
+        {
+          "claim_id": "C010",
+          "data_id": "8f1833d6-f1a6-5a17-bab0-53c083976398",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.54393/df.v6i2.187",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 3,
+          "source": "DIET FACTOR (Journal of Nutritional and Food Sciences)",
+          "status": "active"
+        },
+        {
+          "claim_id": "C015",
+          "data_id": "386a3edb-8fd5-5e04-8d52-c44362b40598",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.3390/children12121664",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 3,
+          "source": "Children",
+          "status": "active"
+        },
+        {
+          "claim_id": "C001",
+          "data_id": "2c13440c-7ff4-59ef-aa40-290685b98ff4",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.1001/jamainternmed.2015.2558",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 2,
+          "source": "JAMA Internal Medicine",
+          "status": "active"
+        }
+      ],
+      "retracted_dois": [],
+      "target_claim_ids": [
+        "C004"
+      ],
+      "text": "groundtruth_memory cites an active remembered source for 10.3945/ajcn.116.143180 from The American Journal of Clinical Nutrition."
+    },
+    {
+      "cites_retracted": true,
+      "control_retained": false,
+      "correctness_judge": "skipped_gemini_quota_fallback",
+      "correctness_score": null,
+      "dataset": "naive_memory",
+      "kind": "control",
+      "question": "What does the active evidence say about Mediterranean diet and cardiovascular disease prevention?",
+      "question_id": "Q17",
+      "recall_context_excerpt": "Nodes:\nNode: The active control paper reports that nuts... [active, control, paper]\n__node_content_start__\nThe active control paper reports that nuts reduce risk of cardiovascular disease.\n__node_content_end__\n\nNode: Nature Reviews Cardiology\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that role... [active, control, paper]\n__node_content_start__\nThe active control paper reports that role Of Dash Diet In Blood Pressure.\n__node_content_end__\n\nNode: CARDIOMETRY\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that coffee... [active, control, paper]\n__node_content_start__\nThe active control paper reports that coffee consumption and reduced risk of developing type 2 diabetes: a systematic review with meta-analysis.\n__node_content_end__\n\nNode: Nutrition Reviews\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that plant-Based... [active, control, paper]\n__node_content_start__\nThe active control paper reports that plant-Based Diet Adherence and Type 2 Diabetes Risk Factors.\n__node_content_end__\n\nNode: DIET FACTOR (Journal of Nutritional and Food Sciences)\n__node_con",
+      "reference_claim_ids": [
+        "C005",
+        "C001",
+        "C013",
+        "R006",
+        "R021"
+      ],
+      "references": [
+        {
+          "claim_id": "C005",
+          "data_id": "a43d1581-e8c2-52d3-9317-f339967252c0",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "active",
+          "doi": "10.1097/nt.0000000000000561",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 5,
+          "source": "Nutrition Today",
+          "status": "active"
+        },
+        {
+          "claim_id": "C001",
+          "data_id": "2c13440c-7ff4-59ef-aa40-290685b98ff4",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "active",
+          "doi": "10.1001/jamainternmed.2015.2558",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 2,
+          "source": "JAMA Internal Medicine",
+          "status": "active"
+        },
+        {
+          "claim_id": "C013",
+          "data_id": "f8069e33-8232-5c12-838d-ec08a41190f6",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "active",
+          "doi": "10.1038/nrcardio.2017.196",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 2,
+          "source": "Nature Reviews Cardiology",
+          "status": "active"
+        },
+        {
+          "claim_id": "R006",
+          "data_id": "c37c62bc-a612-58be-af2c-2aab5c468c08",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "retracted_retained",
+          "doi": "10.1371/journal.pone.0255392",
+          "kind": "original_claim",
+          "retracted": true,
+          "score": 1,
+          "source": "PLoS One",
+          "status": "retracted_forgotten"
+        },
+        {
+          "claim_id": "R021",
+          "data_id": "0b3c61b5-688d-5161-8739-a8795964101f",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "active",
+          "doi": "10.1534/genetics.120.303481",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 1,
+          "source": "Genetics",
+          "status": "active"
+        }
+      ],
+      "retracted_dois": [
+        "10.1371/journal.pone.0255392"
+      ],
+      "target_claim_ids": [
+        "C005"
+      ],
+      "text": "naive_memory still cites the retracted original source 10.1371/journal.pone.0255392 from PLoS One. Treat the answer as unsafe until that source is forgotten."
+    },
+    {
+      "cites_retracted": false,
+      "control_retained": true,
+      "correctness_judge": "skipped_gemini_quota_fallback",
+      "correctness_score": null,
+      "dataset": "groundtruth_memory",
+      "kind": "control",
+      "question": "What does the active evidence say about Mediterranean diet and cardiovascular disease prevention?",
+      "question_id": "Q17",
+      "recall_context_excerpt": "Nodes:\nNode: The active control paper reports that nuts... [active, control, paper]\n__node_content_start__\nThe active control paper reports that nuts reduce risk of cardiovascular disease.\n__node_content_end__\n\nNode: Nature Reviews Cardiology\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that role... [active, control, paper]\n__node_content_start__\nThe active control paper reports that role Of Dash Diet In Blood Pressure.\n__node_content_end__\n\nNode: CARDIOMETRY\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that coffee... [active, control, paper]\n__node_content_start__\nThe active control paper reports that coffee consumption and reduced risk of developing type 2 diabetes: a systematic review with meta-analysis.\n__node_content_end__\n\nNode: Nutrition Reviews\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that plant-Based... [active, control, paper]\n__node_content_start__\nThe active control paper reports that plant-Based Diet Adherence and Type 2 Diabetes Risk Factors.\n__node_content_end__\n\nNode: DIET FACTOR (Journal of Nutritional and Food Sciences)\n__node_con",
+      "reference_claim_ids": [
+        "C005",
+        "C001",
+        "C013",
+        "R021",
+        "C003"
+      ],
+      "references": [
+        {
+          "claim_id": "C005",
+          "data_id": "a43d1581-e8c2-52d3-9317-f339967252c0",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.1097/nt.0000000000000561",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 5,
+          "source": "Nutrition Today",
+          "status": "active"
+        },
+        {
+          "claim_id": "C001",
+          "data_id": "2c13440c-7ff4-59ef-aa40-290685b98ff4",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.1001/jamainternmed.2015.2558",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 2,
+          "source": "JAMA Internal Medicine",
+          "status": "active"
+        },
+        {
+          "claim_id": "C013",
+          "data_id": "f8069e33-8232-5c12-838d-ec08a41190f6",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.1038/nrcardio.2017.196",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 2,
+          "source": "Nature Reviews Cardiology",
+          "status": "active"
+        },
+        {
+          "claim_id": "R021",
+          "data_id": "0b3c61b5-688d-5161-8739-a8795964101f",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.1534/genetics.120.303481",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 1,
+          "source": "Genetics",
+          "status": "active"
+        },
+        {
+          "claim_id": "C003",
+          "data_id": "d3d710dc-228a-5960-bfce-a06ad17503ce",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.18137/cardiometry.2022.24.10191021",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 1,
+          "source": "CARDIOMETRY",
+          "status": "active"
+        }
+      ],
+      "retracted_dois": [],
+      "target_claim_ids": [
+        "C005"
+      ],
+      "text": "groundtruth_memory cites an active remembered source for 10.1097/nt.0000000000000561 from Nutrition Today."
+    },
+    {
+      "cites_retracted": true,
+      "control_retained": false,
+      "correctness_judge": "skipped_gemini_quota_fallback",
+      "correctness_score": null,
+      "dataset": "naive_memory",
+      "kind": "mixed",
+      "question": "Compare avacopan vasculitis evidence with DASH diet blood-pressure evidence.",
+      "question_id": "Q18",
+      "recall_context_excerpt": "Nodes:\nNode: The paper claimed that avacopan for the... [paper, claimed, avacopan]\n__node_content_start__\nThe paper claimed that avacopan for the Treatment of ANCA-Associated Vasculitis.\n__node_content_end__\n\nNode: NEJM: The New England Journal of Medicine\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that role... [active, control, paper]\n__node_content_start__\nThe active control paper reports that role Of Dash Diet In Blood Pressure.\n__node_content_end__\n\nNode: CARDIOMETRY\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that coffee... [active, control, paper]\n__node_content_start__\nThe active control paper reports that coffee consumption and reduced risk of developing type 2 diabetes: a systematic review with meta-analysis.\n__node_content_end__\n\nNode: Nutrition Reviews\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that dietary... [active, control, paper]\n__node_content_start__\nThe active control paper reports that dietary Sodium Intake and Risk of Cardiovascular Disease.\n__node_content_end__\n\nNode: JAMA Internal Medicine\n__node_content_start__\nNone\n__node_",
+      "reference_claim_ids": [
+        "C003",
+        "R001",
+        "R003",
+        "C012",
+        "R001"
+      ],
+      "references": [
+        {
+          "claim_id": "C003",
+          "data_id": "d3d710dc-228a-5960-bfce-a06ad17503ce",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "active",
+          "doi": "10.18137/cardiometry.2022.24.10191021",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 4,
+          "source": "CARDIOMETRY",
+          "status": "active"
+        },
+        {
+          "claim_id": "R001",
+          "data_id": "033e8c14-5e6e-5dbf-8a50-a7b850015cf2",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "retracted_retained",
+          "doi": "10.1056/nejmoa2023386",
+          "kind": "original_claim",
+          "retracted": true,
+          "score": 2,
+          "source": "NEJM: The New England Journal of Medicine",
+          "status": "retracted_forgotten"
+        },
+        {
+          "claim_id": "R003",
+          "data_id": "e21ca4ca-0fc0-59bc-a3d4-7025db76c675",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "retracted_retained",
+          "doi": "10.1002/bcp.70249",
+          "kind": "original_claim",
+          "retracted": true,
+          "score": 2,
+          "source": "British Journal of Clinical Pharmacology",
+          "status": "retracted_forgotten"
+        },
+        {
+          "claim_id": "C012",
+          "data_id": "eec39b26-e7a8-5064-bd34-eca24c47b414",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "active",
+          "doi": "10.1001/jama.2024.1907",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 2,
+          "source": "JAMA",
+          "status": "active"
+        },
+        {
+          "claim_id": "R001",
+          "data_id": "4b2daf7b-0340-572d-adde-ce491af50f5d",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "retracted_retained",
+          "doi": "10.1056/nejmoa2023386",
+          "kind": "retraction_notice",
+          "retracted": false,
+          "score": 2,
+          "source": "NEJM: The New England Journal of Medicine",
+          "status": "retracted_forgotten"
+        }
+      ],
+      "retracted_dois": [
+        "10.1002/bcp.70249",
+        "10.1056/nejmoa2023386"
+      ],
+      "target_claim_ids": [
+        "R001",
+        "C003"
+      ],
+      "text": "naive_memory still cites the retracted original source 10.1056/nejmoa2023386 from NEJM: The New England Journal of Medicine. Treat the answer as unsafe until that source is forgotten."
+    },
+    {
+      "cites_retracted": false,
+      "control_retained": false,
+      "correctness_judge": "skipped_gemini_quota_fallback",
+      "correctness_score": null,
+      "dataset": "groundtruth_memory",
+      "kind": "mixed",
+      "question": "Compare avacopan vasculitis evidence with DASH diet blood-pressure evidence.",
+      "question_id": "Q18",
+      "recall_context_excerpt": "Nodes:\nNode: The active control paper reports that role... [active, control, paper]\n__node_content_start__\nThe active control paper reports that role Of Dash Diet In Blood Pressure.\n__node_content_end__\n\nNode: CARDIOMETRY\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that coffee... [active, control, paper]\n__node_content_start__\nThe active control paper reports that coffee consumption and reduced risk of developing type 2 diabetes: a systematic review with meta-analysis.\n__node_content_end__\n\nNode: Nutrition Reviews\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that dietary... [active, control, paper]\n__node_content_start__\nThe active control paper reports that dietary Sodium Intake and Risk of Cardiovascular Disease.\n__node_content_end__\n\nNode: JAMA Internal Medicine\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The retraction notice says that Avacopan for... [retraction, notice, says]\n__node_content_start__\nThe retraction notice says that Avacopan for the Treatment of ANCA-Associated Vasculitis (DOI 10.1056/nejmoa2023386) was retracted. Reason: Investigation by Company/Institution;Mani",
+      "reference_claim_ids": [
+        "C003",
+        "C012",
+        "R001",
+        "R003",
+        "R019"
+      ],
+      "references": [
+        {
+          "claim_id": "C003",
+          "data_id": "d3d710dc-228a-5960-bfce-a06ad17503ce",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.18137/cardiometry.2022.24.10191021",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 4,
+          "source": "CARDIOMETRY",
+          "status": "active"
+        },
+        {
+          "claim_id": "C012",
+          "data_id": "eec39b26-e7a8-5064-bd34-eca24c47b414",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.1001/jama.2024.1907",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 2,
+          "source": "JAMA",
+          "status": "active"
+        },
+        {
+          "claim_id": "R001",
+          "data_id": "4b2daf7b-0340-572d-adde-ce491af50f5d",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "retracted_forgotten",
+          "doi": "10.1056/nejmoa2023386",
+          "kind": "retraction_notice",
+          "retracted": false,
+          "score": 2,
+          "source": "NEJM: The New England Journal of Medicine",
+          "status": "retracted_forgotten"
+        },
+        {
+          "claim_id": "R003",
+          "data_id": "99e5a7e4-1f8d-588b-8317-c7a32aa727ce",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "retracted_forgotten",
+          "doi": "10.1002/bcp.70249",
+          "kind": "retraction_notice",
+          "retracted": false,
+          "score": 2,
+          "source": "British Journal of Clinical Pharmacology",
+          "status": "retracted_forgotten"
+        },
+        {
+          "claim_id": "R019",
+          "data_id": "862102b8-eb18-5287-9414-11adfd4c7430",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.1016/j.jogc.2023.102264",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 1,
+          "source": "Journal of Obstetrics and Gynaecology Canada",
+          "status": "active"
+        }
+      ],
+      "retracted_dois": [],
+      "target_claim_ids": [
+        "R001",
+        "C003"
+      ],
+      "text": "groundtruth_memory no longer cites the original retracted claim for 10.1056/nejmoa2023386. The active memory cites the retraction notice instead."
+    },
+    {
+      "cites_retracted": true,
+      "control_retained": false,
+      "correctness_judge": "skipped_gemini_quota_fallback",
+      "correctness_score": null,
+      "dataset": "naive_memory",
+      "kind": "mixed",
+      "question": "What does the memory say about MSG metabolic disorder claims versus whole-grain type 2 diabetes evidence?",
+      "question_id": "Q19",
+      "recall_context_excerpt": "Nodes:\nNode: The active control paper reports that role... [active, control, paper]\n__node_content_start__\nThe active control paper reports that role Of Dash Diet In Blood Pressure.\n__node_content_end__\n\nNode: CARDIOMETRY\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The paper claimed that avacopan for the... [paper, claimed, avacopan]\n__node_content_start__\nThe paper claimed that avacopan for the Treatment of ANCA-Associated Vasculitis.\n__node_content_end__\n\nNode: NEJM: The New England Journal of Medicine\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The paper claimed that genetic Architecture Modulates... [paper, claimed, genetic]\n__node_content_start__\nThe paper claimed that genetic Architecture Modulates Diet-Induced Hepatic mRNA and miRNA Expression Profiles in Diversity Outbred Mice.\n__node_content_end__\n\nNode: Genetics\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The paper claimed that an effective PO-RSNN... [paper, claimed, effective]\n__node_content_start__\nThe paper claimed that an effective PO-RSNN and FZCIS based diabetes prediction and stroke analysis in the metaverse environment.\n__node_content_end__\n\nNode: Scientific Reports\n__node_cont",
+      "reference_claim_ids": [
+        "C004",
+        "R005",
+        "C002",
+        "C008",
+        "C010"
+      ],
+      "references": [
+        {
+          "claim_id": "C004",
+          "data_id": "41a51fa9-c5fa-5006-b45f-3d6bab8de1f0",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "active",
+          "doi": "10.3945/ajcn.116.143180",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 4,
+          "source": "The American Journal of Clinical Nutrition",
+          "status": "active"
+        },
+        {
+          "claim_id": "R005",
+          "data_id": "79f37376-cbd9-5566-80dc-1ad63e27bb39",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "retracted_retained",
+          "doi": "10.1016/j.heliyon.2023.e19675",
+          "kind": "original_claim",
+          "retracted": true,
+          "score": 2,
+          "source": "Heliyon",
+          "status": "retracted_forgotten"
+        },
+        {
+          "claim_id": "C002",
+          "data_id": "7a2b1e21-7196-5b43-95d1-74d837680599",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "active",
+          "doi": "10.1093/nutrit/nuy014",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 2,
+          "source": "Nutrition Reviews",
+          "status": "active"
+        },
+        {
+          "claim_id": "C008",
+          "data_id": "c6bfc753-f9c4-5711-b0fd-f46ef3d5ce98",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "active",
+          "doi": "10.1056/nejmc1912185",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 2,
+          "source": "New England Journal of Medicine",
+          "status": "active"
+        },
+        {
+          "claim_id": "C010",
+          "data_id": "8f1833d6-f1a6-5a17-bab0-53c083976398",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "active",
+          "doi": "10.54393/df.v6i2.187",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 2,
+          "source": "DIET FACTOR (Journal of Nutritional and Food Sciences)",
+          "status": "active"
+        }
+      ],
+      "retracted_dois": [
+        "10.1016/j.heliyon.2023.e19675"
+      ],
+      "target_claim_ids": [
+        "R005",
+        "C004"
+      ],
+      "text": "naive_memory still cites the retracted original source 10.1016/j.heliyon.2023.e19675 from Heliyon. Treat the answer as unsafe until that source is forgotten."
+    },
+    {
+      "cites_retracted": false,
+      "control_retained": false,
+      "correctness_judge": "skipped_gemini_quota_fallback",
+      "correctness_score": null,
+      "dataset": "groundtruth_memory",
+      "kind": "mixed",
+      "question": "What does the memory say about MSG metabolic disorder claims versus whole-grain type 2 diabetes evidence?",
+      "question_id": "Q19",
+      "recall_context_excerpt": "Nodes:\nNode: The active control paper reports that role... [active, control, paper]\n__node_content_start__\nThe active control paper reports that role Of Dash Diet In Blood Pressure.\n__node_content_end__\n\nNode: CARDIOMETRY\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The paper claimed that genetic Architecture Modulates... [paper, claimed, genetic]\n__node_content_start__\nThe paper claimed that genetic Architecture Modulates Diet-Induced Hepatic mRNA and miRNA Expression Profiles in Diversity Outbred Mice.\n__node_content_end__\n\nNode: Genetics\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that intermittent... [active, control, paper]\n__node_content_start__\nThe active control paper reports that intermittent Fasting in Weight Loss and Cardiometabolic Risk Reduction: A Randomized Controlled Trial.\n__node_content_end__\n\nNode: Journal of Nursing Research\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that effects... [control, active, paper]\n__node_content_start__\nThe active control paper reports that effects of probiotic supplementation on glycemic control in children with type 1 diabetes: A sys",
+      "reference_claim_ids": [
+        "C004",
+        "C002",
+        "C008",
+        "C010",
+        "C011"
+      ],
+      "references": [
+        {
+          "claim_id": "C004",
+          "data_id": "41a51fa9-c5fa-5006-b45f-3d6bab8de1f0",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.3945/ajcn.116.143180",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 4,
+          "source": "The American Journal of Clinical Nutrition",
+          "status": "active"
+        },
+        {
+          "claim_id": "C002",
+          "data_id": "7a2b1e21-7196-5b43-95d1-74d837680599",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.1093/nutrit/nuy014",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 2,
+          "source": "Nutrition Reviews",
+          "status": "active"
+        },
+        {
+          "claim_id": "C008",
+          "data_id": "c6bfc753-f9c4-5711-b0fd-f46ef3d5ce98",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.1056/nejmc1912185",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 2,
+          "source": "New England Journal of Medicine",
+          "status": "active"
+        },
+        {
+          "claim_id": "C010",
+          "data_id": "8f1833d6-f1a6-5a17-bab0-53c083976398",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.54393/df.v6i2.187",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 2,
+          "source": "DIET FACTOR (Journal of Nutritional and Food Sciences)",
+          "status": "active"
+        },
+        {
+          "claim_id": "C011",
+          "data_id": "e0feccd5-0f24-515d-9900-32c96ad0be08",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.1177/03000605261443077",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 2,
+          "source": "Journal of International Medical Research",
+          "status": "active"
+        }
+      ],
+      "retracted_dois": [],
+      "target_claim_ids": [
+        "R005",
+        "C004"
+      ],
+      "text": "groundtruth_memory cites an active remembered source for 10.3945/ajcn.116.143180 from The American Journal of Clinical Nutrition."
+    },
+    {
+      "cites_retracted": true,
+      "control_retained": false,
+      "correctness_judge": "skipped_gemini_quota_fallback",
+      "correctness_score": null,
+      "dataset": "naive_memory",
+      "kind": "mixed",
+      "question": "How should resistant hypertension drug-class evidence be weighed against sodium cardiovascular risk evidence?",
+      "question_id": "Q20",
+      "recall_context_excerpt": "Nodes:\nNode: The active control paper reports that role... [active, control, paper]\n__node_content_start__\nThe active control paper reports that role Of Dash Diet In Blood Pressure.\n__node_content_end__\n\nNode: CARDIOMETRY\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that nuts... [active, control, paper]\n__node_content_start__\nThe active control paper reports that nuts reduce risk of cardiovascular disease.\n__node_content_end__\n\nNode: Nature Reviews Cardiology\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The paper claimed that avacopan for the... [paper, claimed, avacopan]\n__node_content_start__\nThe paper claimed that avacopan for the Treatment of ANCA-Associated Vasculitis.\n__node_content_end__\n\nNode: NEJM: The New England Journal of Medicine\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that dietary... [active, control, paper]\n__node_content_start__\nThe active control paper reports that dietary Sodium Intake and Risk of Cardiovascular Disease.\n__node_content_end__\n\nNode: JAMA Internal Medicine\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports tha",
+      "reference_claim_ids": [
+        "R003",
+        "C001",
+        "R003",
+        "C013",
+        "R006"
+      ],
+      "references": [
+        {
+          "claim_id": "R003",
+          "data_id": "e21ca4ca-0fc0-59bc-a3d4-7025db76c675",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "retracted_retained",
+          "doi": "10.1002/bcp.70249",
+          "kind": "original_claim",
+          "retracted": true,
+          "score": 3,
+          "source": "British Journal of Clinical Pharmacology",
+          "status": "retracted_forgotten"
+        },
+        {
+          "claim_id": "C001",
+          "data_id": "2c13440c-7ff4-59ef-aa40-290685b98ff4",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "active",
+          "doi": "10.1001/jamainternmed.2015.2558",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 3,
+          "source": "JAMA Internal Medicine",
+          "status": "active"
+        },
+        {
+          "claim_id": "R003",
+          "data_id": "99e5a7e4-1f8d-588b-8317-c7a32aa727ce",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "retracted_retained",
+          "doi": "10.1002/bcp.70249",
+          "kind": "retraction_notice",
+          "retracted": false,
+          "score": 3,
+          "source": "British Journal of Clinical Pharmacology",
+          "status": "retracted_forgotten"
+        },
+        {
+          "claim_id": "C013",
+          "data_id": "f8069e33-8232-5c12-838d-ec08a41190f6",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "active",
+          "doi": "10.1038/nrcardio.2017.196",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 2,
+          "source": "Nature Reviews Cardiology",
+          "status": "active"
+        },
+        {
+          "claim_id": "R006",
+          "data_id": "c37c62bc-a612-58be-af2c-2aab5c468c08",
+          "dataset": "naive_memory",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+          "dataset_status": "retracted_retained",
+          "doi": "10.1371/journal.pone.0255392",
+          "kind": "original_claim",
+          "retracted": true,
+          "score": 1,
+          "source": "PLoS One",
+          "status": "retracted_forgotten"
+        }
+      ],
+      "retracted_dois": [
+        "10.1002/bcp.70249",
+        "10.1371/journal.pone.0255392"
+      ],
+      "target_claim_ids": [
+        "R003",
+        "C001"
+      ],
+      "text": "naive_memory still cites the retracted original source 10.1002/bcp.70249 from British Journal of Clinical Pharmacology. Treat the answer as unsafe until that source is forgotten."
+    },
+    {
+      "cites_retracted": false,
+      "control_retained": false,
+      "correctness_judge": "skipped_gemini_quota_fallback",
+      "correctness_score": null,
+      "dataset": "groundtruth_memory",
+      "kind": "mixed",
+      "question": "How should resistant hypertension drug-class evidence be weighed against sodium cardiovascular risk evidence?",
+      "question_id": "Q20",
+      "recall_context_excerpt": "Nodes:\nNode: The active control paper reports that role... [active, control, paper]\n__node_content_start__\nThe active control paper reports that role Of Dash Diet In Blood Pressure.\n__node_content_end__\n\nNode: CARDIOMETRY\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that nuts... [active, control, paper]\n__node_content_start__\nThe active control paper reports that nuts reduce risk of cardiovascular disease.\n__node_content_end__\n\nNode: Nature Reviews Cardiology\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that lipoprotein(a)... [active, control, paper]\n__node_content_start__\nThe active control paper reports that lipoprotein(a) Cholesterol, Randomized Omega-3 Fatty Acid Supplementation, and Cardiovascular Events: Extended Follow-up in the VITamin D and OmegA 3 TriaL.\n__node_content_end__\n\nNode: Journal of Clinical Lipidology\n__node_content_start__\nNone\n__node_content_end__\n\nNode: The active control paper reports that dietary... [active, control, paper]\n__node_content_start__\nThe active control paper reports that dietary Sodium Intake and Risk of Cardiovascular Disease.\n__node_content_end__\n\nNode: J",
+      "reference_claim_ids": [
+        "C001",
+        "R003",
+        "C013",
+        "R015",
+        "C002"
+      ],
+      "references": [
+        {
+          "claim_id": "C001",
+          "data_id": "2c13440c-7ff4-59ef-aa40-290685b98ff4",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.1001/jamainternmed.2015.2558",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 3,
+          "source": "JAMA Internal Medicine",
+          "status": "active"
+        },
+        {
+          "claim_id": "R003",
+          "data_id": "99e5a7e4-1f8d-588b-8317-c7a32aa727ce",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "retracted_forgotten",
+          "doi": "10.1002/bcp.70249",
+          "kind": "retraction_notice",
+          "retracted": false,
+          "score": 3,
+          "source": "British Journal of Clinical Pharmacology",
+          "status": "retracted_forgotten"
+        },
+        {
+          "claim_id": "C013",
+          "data_id": "f8069e33-8232-5c12-838d-ec08a41190f6",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.1038/nrcardio.2017.196",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 2,
+          "source": "Nature Reviews Cardiology",
+          "status": "active"
+        },
+        {
+          "claim_id": "R015",
+          "data_id": "57a0c28a-fb22-579e-ad51-e0d96239ea46",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.1016/j.heliyon.2025.e41964",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 1,
+          "source": "Heliyon",
+          "status": "active"
+        },
+        {
+          "claim_id": "C002",
+          "data_id": "7a2b1e21-7196-5b43-95d1-74d837680599",
+          "dataset": "groundtruth_memory",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+          "dataset_status": "active",
+          "doi": "10.1093/nutrit/nuy014",
+          "kind": "original_claim",
+          "retracted": false,
+          "score": 1,
+          "source": "Nutrition Reviews",
+          "status": "active"
+        }
+      ],
+      "retracted_dois": [],
+      "target_claim_ids": [
+        "R003",
+        "C001"
+      ],
+      "text": "groundtruth_memory no longer cites the original retracted claim for 10.1002/bcp.70249. The active memory cites the retraction notice instead."
+    }
+  ],
+  "summary": {
+    "control_claim_retention": 5,
+    "control_claim_total": 5,
+    "correctness_judge": "skipped_gemini_quota_fallback",
+    "groundtruth_cites_retracted": 0,
+    "naive_cites_retracted": 17,
+    "rows": 40,
+    "total_questions": 20
+  }
+}

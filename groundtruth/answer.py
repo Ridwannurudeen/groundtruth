@@ -6,7 +6,7 @@ from pathlib import Path
 from typing import Any
 from uuid import UUID
 
-from groundtruth.contradictions import memory_data_ids
+from groundtruth.contradictions import ledger_nodes, memory_data_ids
 from groundtruth.registry import CLAIMS_PATH, load_claims
 from groundtruth.runtime import import_cognee
 
@@ -152,6 +152,20 @@ def select_references(
     return references[:5]
 
 
+async def used_graph_element_ids(
+    dataset_id: UUID,
+    references: list[dict[str, Any]],
+) -> dict[str, list[str]] | None:
+    node_ids: set[str] = set()
+    for reference in references:
+        for node in await ledger_nodes(dataset_id, UUID(reference["data_id"])):
+            node_ids.add(str(node.slug))
+
+    if not node_ids:
+        return None
+    return {"node_ids": sorted(node_ids)}
+
+
 def answer_text(dataset_name: str, references: list[dict[str, Any]]) -> str:
     if not references:
         return "No matching remembered source was found for this question."
@@ -186,6 +200,9 @@ async def answer(
     dataset: str,
     *,
     registry_path: Path = CLAIMS_PATH,
+    session_id: str | None = None,
+    record_session: bool = True,
+    feedback_influence: float = 0.0,
 ) -> dict[str, Any]:
     cognee = import_cognee()
     resolved_dataset_id = await dataset_id(cognee, dataset)
@@ -195,8 +212,11 @@ async def answer(
         include_references=True,
         only_context=True,
         auto_route=False,
+        scope="graph",
+        session_id=session_id,
         top_k=10,
         wide_search_top_k=20,
+        feedback_influence=feedback_influence,
     )
     claims = load_claims(registry_path)
     references = select_references(
@@ -208,6 +228,7 @@ async def answer(
     retracted_dois = sorted(
         {reference["doi"] for reference in references if reference["retracted"]}
     )
+    graph_elements = await used_graph_element_ids(resolved_dataset_id, references)
     payload = {
         "question": question,
         "dataset": dataset,
@@ -217,8 +238,26 @@ async def answer(
         "cites_retracted": bool(retracted_dois),
         "retracted_dois": retracted_dois,
         "recall_mode": "GRAPH_COMPLETION only_context=True",
+        "feedback_influence": feedback_influence,
+        "session_id": session_id,
+        "qa_id": None,
+        "used_graph_element_ids": graph_elements,
         "recall_output": compact_recall(recall_results),
         "recall_context": recall_text(recall_results),
     }
+    if session_id and record_session:
+        session_result = await cognee.remember(
+            cognee.QAEntry(
+                question=question,
+                context=payload["recall_context"],
+                answer=payload["text"],
+                used_graph_element_ids=graph_elements,
+            ),
+            dataset_name=dataset,
+            session_id=session_id,
+        )
+        payload["qa_id"] = session_result.entry_id
+        payload["session_status"] = session_result.status
+
     json.dumps(payload, default=str)
     return payload

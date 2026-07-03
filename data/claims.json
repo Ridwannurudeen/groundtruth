@@ -512,15 +512,29 @@
     "datasets": {
       "groundtruth_memory": {
         "data_id": "a5064084-be81-5ee2-9a52-9a955f1c5683",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+        "retraction_notice_data_id": "07fce8c0-7a17-5e40-867b-acfcc87d2110",
+        "retraction_notice_doi": "10.1016/j.jacadv.2025.101686",
+        "status": "retracted_forgotten"
       },
       "naive_memory": {
         "data_id": "a5064084-be81-5ee2-9a52-9a955f1c5683",
-        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
+        "retraction_notice_data_id": "07fce8c0-7a17-5e40-867b-acfcc87d2110",
+        "retraction_notice_doi": "10.1016/j.jacadv.2025.101686",
+        "status": "retracted_retained"
       }
     },
     "doi": "10.1016/j.jacadv.2025.101686",
     "ingestion_mode": "deterministic_graph_fallback",
+    "retraction": {
+      "claim_id": "R014",
+      "nature": "Retraction",
+      "original_doi": "10.1016/j.jacadv.2025.101686",
+      "reason": "Concerns/Issues about Methods;Unreliable Data;Upgrade/Update of Prior Notice(s);",
+      "retraction_date": "3/11/2026 0:00",
+      "retraction_doi": "10.1016/j.jacadv.2025.101686"
+    },
     "retraction_doi": "10.1016/j.jacadv.2025.101686",
     "source": {
       "doi": "10.1016/j.jacadv.2025.101686",
@@ -529,7 +543,7 @@
       "title": "Longitudinal Data From the KETO-CTA Study: Plaque Predicts Plaque, ApoB Does Not",
       "year": 2025
     },
-    "status": "active"
+    "status": "retracted_forgotten"
   },
   {
     "claim_id": "R015",

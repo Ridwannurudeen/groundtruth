@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GroundTruth</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <header class="masthead">
+      <div>
+        <p class="eyebrow">Retraction memory desk</p>
+        <h1>GroundTruth</h1>
+      </div>
+      <div class="headline">
+        <span id="metricNaive">17/20 naive</span>
+        <span id="metricGroundtruth">0/20 GroundTruth</span>
+        <span id="metricControl">5/5 controls</span>
+      </div>
+    </header>
+
+    <main>
+      <section class="query-band" aria-label="Ask both memories">
+        <label for="question">Question</label>
+        <div class="query-row">
+          <textarea id="question" rows="3"></textarea>
+          <button id="askButton" type="button">Ask Both</button>
+        </div>
+      </section>
+
+      <section class="answer-grid" aria-label="Side by side answers">
+        <article class="answer-panel naive">
+          <div class="panel-kicker">
+            <span>Naive memory</span>
+            <strong id="naiveBadge">waiting</strong>
+          </div>
+          <p id="naiveText" class="answer-text">No answer loaded.</p>
+          <div id="naiveRefs" class="refs"></div>
+        </article>
+
+        <article class="answer-panel groundtruth">
+          <div class="panel-kicker">
+            <span>GroundTruth memory</span>
+            <strong id="groundtruthBadge">waiting</strong>
+          </div>
+          <p id="groundtruthText" class="answer-text">No answer loaded.</p>
+          <div id="groundtruthRefs" class="refs"></div>
+          <div class="feedback-row">
+            <button id="downvoteButton" type="button">Downvote</button>
+            <button id="upvoteButton" type="button">Upvote</button>
+            <button id="improveButton" type="button">Improve</button>
+          </div>
+        </article>
+      </section>
+
+      <section class="control-grid">
+        <article class="wire-panel">
+          <div class="panel-kicker">
+            <span>Retraction wire</span>
+            <strong id="activeCount">0 active</strong>
+          </div>
+          <div class="retract-row">
+            <select id="doiSelect"></select>
+            <button id="retractButton" type="button">Retract</button>
+          </div>
+          <div id="timeline" class="timeline" aria-live="polite"></div>
+        </article>
+
+        <article class="graph-panel">
+          <div class="panel-kicker">
+            <span>Provenance graph</span>
+            <strong>global memory view</strong>
+          </div>
+          <p>
+            Global file-to-entity memory graph. Answer citations remain in the
+            panels above.
+          </p>
+          <a class="graph-link" href="/graph" target="_blank" rel="noreferrer">Open Graph</a>
+        </article>
+      </section>
+    </main>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>

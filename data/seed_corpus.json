@@ -1,0 +1,732 @@
+{
+  "claims": [
+    {
+      "claim_id": "R001",
+      "claim_text": "The paper claimed that avacopan for the Treatment of ANCA-Associated Vasculitis.",
+      "cohort": "retracted_original",
+      "source": {
+        "doi": "10.1056/nejmoa2023386",
+        "journal": "NEJM: The New England Journal of Medicine",
+        "subject": "(HSC) Medicine - Cardiovascular;(HSC) Medicine - Pharmacology;(HSC) Medicine - Rehabilitation/Therapy;",
+        "title": "Avacopan for the Treatment of ANCA-Associated Vasculitis",
+        "year": 2021
+      },
+      "status_at_seed": "active"
+    },
+    {
+      "claim_id": "R002",
+      "claim_text": "The paper claimed that nutritional and bioactive properties and antioxidant potential of Amaranthus tricolor, A. lividus, A viridis, and A. spinosus leafy vegetables.",
+      "cohort": "retracted_original",
+      "source": {
+        "doi": "10.1016/j.heliyon.2024.e30453",
+        "journal": "Heliyon",
+        "subject": "(BLS) Nutrition;(ENV) Food Science;",
+        "title": "Nutritional and bioactive properties and antioxidant potential of Amaranthus tricolor, A. lividus, A viridis, and A. spinosus leafy vegetables",
+        "year": 2024
+      },
+      "status_at_seed": "active"
+    },
+    {
+      "claim_id": "R003",
+      "claim_text": "The paper claimed that effects of different antihypertensive drug classes on central and ambulatory blood pressure in resistant hypertension: A randomized clinical trial.",
+      "cohort": "retracted_original",
+      "source": {
+        "doi": "10.1002/bcp.70249",
+        "journal": "British Journal of Clinical Pharmacology",
+        "subject": "(HSC) Medicine - Cardiovascular;(HSC) Medicine - Pharmacology;",
+        "title": "Effects of different antihypertensive drug classes on central and ambulatory blood pressure in resistant hypertension: A randomized clinical trial",
+        "year": 2025
+      },
+      "status_at_seed": "active"
+    },
+    {
+      "claim_id": "R004",
+      "claim_text": "The paper claimed that an effective PO-RSNN and FZCIS based diabetes prediction and stroke analysis in the metaverse environment.",
+      "cohort": "retracted_original",
+      "source": {
+        "doi": "10.1038/s41598-025-96541-2",
+        "journal": "Scientific Reports",
+        "subject": "(B/T) Data Science;(B/T) Technology;(HSC) Medicine - Cardiovascular;(HSC) Medicine - Diabetes;(HSC) Medicine - Neurology;",
+        "title": "An effective PO-RSNN and FZCIS based diabetes prediction and stroke analysis in the metaverse environment",
+        "year": 2025
+      },
+      "status_at_seed": "active"
+    },
+    {
+      "claim_id": "R005",
+      "claim_text": "The paper claimed that the interplay between monosodium glutamate (MSG) consumption and metabolic disorders.",
+      "cohort": "retracted_original",
+      "source": {
+        "doi": "10.1016/j.heliyon.2023.e19675",
+        "journal": "Heliyon",
+        "subject": "(HSC) Medicine - Endocrinology;(HSC) Nutrition;",
+        "title": "The interplay between monosodium glutamate (MSG) consumption and metabolic disorders",
+        "year": 2023
+      },
+      "status_at_seed": "active"
+    },
+    {
+      "claim_id": "R006",
+      "claim_text": "The paper claimed that food insecurity and mental health of women during COVID-19: Evidence from a developing country.",
+      "cohort": "retracted_original",
+      "source": {
+        "doi": "10.1371/journal.pone.0255392",
+        "journal": "PLoS One",
+        "subject": "(HSC) Medicine - Infectious Disease;(HSC) Medicine - Psychiatry;(HSC) Nutrition;",
+        "title": "Food insecurity and mental health of women during COVID-19: Evidence from a developing country",
+        "year": 2021
+      },
+      "status_at_seed": "active"
+    },
+    {
+      "claim_id": "R007",
+      "claim_text": "The paper claimed that phytochemicals, therapeutic benefits and applications of chrysanthemum flower: A review.",
+      "cohort": "retracted_original",
+      "source": {
+        "doi": "10.1016/j.heliyon.2023.e20232",
+        "journal": "Heliyon",
+        "subject": "(BLS) Biochemistry;(BLS) Nutrition;(BLS) Plant Biology/Botany;(HSC) Medicine - Alternative;",
+        "title": "Phytochemicals, therapeutic benefits and applications of chrysanthemum flower: A review",
+        "year": 2023
+      },
+      "status_at_seed": "active"
+    },
+    {
+      "claim_id": "R008",
+      "claim_text": "The paper claimed that nF-\u0138B axis in diabetic neuropathy, cardiomyopathy and nephropathy: A roadmap from molecular intervention to therapeutic strategies.",
+      "cohort": "retracted_original",
+      "source": {
+        "doi": "10.1016/j.heliyon.2024.e29871",
+        "journal": "Heliyon",
+        "subject": "(HSC) Medicine - Cardiovascular;(HSC) Medicine - Diabetes;(HSC) Medicine - Neurology;(HSC) Medicine - Urology/Nephrology;",
+        "title": "NF-\u0138B axis in diabetic neuropathy, cardiomyopathy and nephropathy: A roadmap from molecular intervention to therapeutic strategies",
+        "year": 2024
+      },
+      "status_at_seed": "active"
+    },
+    {
+      "claim_id": "R009",
+      "claim_text": "The paper claimed that fenchone and camphor: Main natural compounds from Lavandula stoechas L., expediting multiple in vitro biological activities.",
+      "cohort": "retracted_original",
+      "source": {
+        "doi": "10.1016/j.heliyon.2023.e21222",
+        "journal": "Heliyon",
+        "subject": "(HSC) Medicine - Alternative;(HSC) Medicine - Diabetes;(HSC) Medicine - Pharmacology;",
+        "title": "Fenchone and camphor: Main natural compounds from Lavandula stoechas L., expediting multiple in vitro biological activities",
+        "year": 2023
+      },
+      "status_at_seed": "active"
+    },
+    {
+      "claim_id": "R010",
+      "claim_text": "The paper claimed that distribution characteristics of inhalable particulate pollutants and their effects on cardiopulmonary respiratory system of outdoor football players in a smart healthcare system.",
+      "cohort": "retracted_original",
+      "source": {
+        "doi": "10.1007/s00500-023-09589-5",
+        "journal": "Soft Computing",
+        "subject": "(ENV) Environmental Sciences;(HSC) Medicine - Cardiovascular;(HSC) Medicine - Pulmonology;(HSC) Medicine - Sports;(HSC) Public Health and Safety;",
+        "title": "Distribution characteristics of inhalable particulate pollutants and their effects on cardiopulmonary respiratory system of outdoor football players in a smart healthcare system",
+        "year": 2024
+      },
+      "status_at_seed": "active"
+    },
+    {
+      "claim_id": "R011",
+      "claim_text": "The paper claimed that an attention-based dense network model for cardiac image segmentation using learning approaches.",
+      "cohort": "retracted_original",
+      "source": {
+        "doi": "10.1007/s00500-023-09482-1",
+        "journal": "Soft Computing",
+        "subject": "(B/T) Computer Science;(HSC) Medicine - Cardiovascular;(HSC) Radiology/Imaging;",
+        "title": "An attention-based dense network model for cardiac image segmentation using learning approaches",
+        "year": 2023
+      },
+      "status_at_seed": "active"
+    },
+    {
+      "claim_id": "R012",
+      "claim_text": "The paper claimed that siloMAS: A MAS for Smart Silos to Optimize Food and Water Consumption on Livestock Holdings.",
+      "cohort": "retracted_original",
+      "source": {
+        "doi": "10.1007/978-3-030-00524-5_6",
+        "journal": "Distributed Computing and Artificial Intelligence, Special Sessions II, 15th International Conference",
+        "subject": "(B/T) Technology;(BLS) Agriculture;(BLS) Nutrition;",
+        "title": "SiloMAS: A MAS for Smart Silos to Optimize Food and Water Consumption on Livestock Holdings",
+        "year": 2019
+      },
+      "status_at_seed": "active"
+    },
+    {
+      "claim_id": "R013",
+      "claim_text": "The paper claimed that intelligent Livestock Feeding System by Means of Silos with IoT Technology.",
+      "cohort": "retracted_original",
+      "source": {
+        "doi": "10.1007/978-3-030-00524-5_7",
+        "journal": "Distributed Computing and Artificial Intelligence, Special Sessions II, 15th International Conference",
+        "subject": "(B/T) Technology;(BLS) Agriculture;(BLS) Nutrition;",
+        "title": "Intelligent Livestock Feeding System by Means of Silos with IoT Technology",
+        "year": 2019
+      },
+      "status_at_seed": "active"
+    },
+    {
+      "claim_id": "R014",
+      "claim_text": "The paper claimed that longitudinal Data From the KETO-CTA Study: Plaque Predicts Plaque, ApoB Does Not.",
+      "cohort": "retracted_original",
+      "source": {
+        "doi": "10.1016/j.jacadv.2025.101686",
+        "journal": "JACC: Advances",
+        "subject": "(HSC) Biostatistics/Epidemiology;(HSC) Medicine - Cardiovascular;(HSC) Medicine - Pathology;",
+        "title": "Longitudinal Data From the KETO-CTA Study: Plaque Predicts Plaque, ApoB Does Not",
+        "year": 2025
+      },
+      "status_at_seed": "active"
+    },
+    {
+      "claim_id": "R015",
+      "claim_text": "The paper claimed that targeting epithelial-mesenchymal transition signaling pathways with Dietary Phytocompounds and repurposed drug combinations for overcoming drug resistance in various cancers.",
+      "cohort": "retracted_original",
+      "source": {
+        "doi": "10.1016/j.heliyon.2025.e41964",
+        "journal": "Heliyon",
+        "subject": "(HSC) Medicine - Drug Design;(HSC) Medicine - Oncology;(HSC) Nutrition;",
+        "title": "Targeting epithelial-mesenchymal transition signaling pathways with Dietary Phytocompounds and repurposed drug combinations for overcoming drug resistance in various cancers",
+        "year": 2025
+      },
+      "status_at_seed": "active"
+    },
+    {
+      "claim_id": "R016",
+      "claim_text": "The paper claimed that efficacy of methanolic extracts of some medicinal plants on wound healing in diabetic rats.",
+      "cohort": "retracted_original",
+      "source": {
+        "doi": "10.1016/j.heliyon.2022.e10071",
+        "journal": "Heliyon",
+        "subject": "(BLS) Biochemistry;(BLS) Biology - Cellular;(BLS) Plant Biology/Botany;(BLS) Toxicology;(HSC) Medicine - Diabetes;",
+        "title": "Efficacy of methanolic extracts of some medicinal plants on wound healing in diabetic rats",
+        "year": 2022
+      },
+      "status_at_seed": "active"
+    },
+    {
+      "claim_id": "R017",
+      "claim_text": "The paper claimed that dietary Patterns in Adults Following the Christian Orthodox Fasting Regime in Greece.",
+      "cohort": "retracted_original",
+      "source": {
+        "doi": "10.3389/fnut.2022.803913",
+        "journal": "Frontiers in Nutrition",
+        "subject": "(HSC) Nutrition;(HUM) Religion;",
+        "title": "Dietary Patterns in Adults Following the Christian Orthodox Fasting Regime in Greece",
+        "year": 2022
+      },
+      "status_at_seed": "active"
+    },
+    {
+      "claim_id": "R018",
+      "claim_text": "The paper claimed that mobileNet-V2 /IFHO model for Accurate Detection of early-stage diabetic retinopathy.",
+      "cohort": "retracted_original",
+      "source": {
+        "doi": "10.1016/j.heliyon.2024.e37293",
+        "journal": "Heliyon",
+        "subject": "(B/T) Technology;(HSC) Medicine - Diabetes;(HSC) Medicine - Ophthalmology;",
+        "title": "MobileNet-V2 /IFHO model for Accurate Detection of early-stage diabetic retinopathy",
+        "year": 2024
+      },
+      "status_at_seed": "active"
+    },
+    {
+      "claim_id": "R019",
+      "claim_text": "The paper claimed that the Effect of Preoperative Intravenous Tranexamic Acid Versus Rectal Misoprostol in Reducing Blood Loss During and After Elective Cesarean Delivery in Primigravida: A Double-Blinded, Randomized, Comparative-Placebo Trial.",
+      "cohort": "retracted_original",
+      "source": {
+        "doi": "10.1016/j.jogc.2023.102264",
+        "journal": "Journal of Obstetrics and Gynaecology Canada",
+        "subject": "(HSC) Medicine - Cardiovascular;(HSC) Medicine - Obstetrics/Gynecology;(HSC) Medicine - Pharmacology;",
+        "title": "The Effect of Preoperative Intravenous Tranexamic Acid Versus Rectal Misoprostol in Reducing Blood Loss During and After Elective Cesarean Delivery in Primigravida: A Double-Blinded, Randomized, Comparative-Placebo Trial",
+        "year": 2023
+      },
+      "status_at_seed": "active"
+    },
+    {
+      "claim_id": "R020",
+      "claim_text": "The paper claimed that fat-based studies for computer-assisted screening of child obesity using thermal imaging based on deep learning techniques: a comparison with quantum machine learning approach.",
+      "cohort": "retracted_original",
+      "source": {
+        "doi": "10.1007/s00500-021-06668-3",
+        "journal": "Soft Computing",
+        "subject": "(B/T) Data Science;(HSC) Medicine - Endocrinology;(HSC) Medicine - Pediatrics;(HSC) Radiology/Imaging;",
+        "title": "Fat-based studies for computer-assisted screening of child obesity using thermal imaging based on deep learning techniques: a comparison with quantum machine learning approach",
+        "year": 2022
+      },
+      "status_at_seed": "active"
+    },
+    {
+      "claim_id": "R021",
+      "claim_text": "The paper claimed that genetic Architecture Modulates Diet-Induced Hepatic mRNA and miRNA Expression Profiles in Diversity Outbred Mice.",
+      "cohort": "retracted_original",
+      "source": {
+        "doi": "10.1534/genetics.120.303481",
+        "journal": "Genetics",
+        "subject": "(BLS) Biochemistry;(BLS) Genetics;(BLS) Nutrition;",
+        "title": "Genetic Architecture Modulates Diet-Induced Hepatic mRNA and miRNA Expression Profiles in Diversity Outbred Mice",
+        "year": 2020
+      },
+      "status_at_seed": "active"
+    },
+    {
+      "claim_id": "R022",
+      "claim_text": "The paper claimed that omega-3 fatty acids plus vitamin for women with gestational diabetes or prediabetes: a meta-analysis of randomized controlled studies.",
+      "cohort": "retracted_original",
+      "source": {
+        "doi": "10.1080/14767058.2020.1814239",
+        "journal": "The Journal of Maternal-Fetal & Neonatal Medicine",
+        "subject": "(HSC) Medicine - Diabetes;(HSC) Medicine - Obstetrics/Gynecology;(HSC) Nutrition;",
+        "title": "Omega-3 fatty acids plus vitamin for women with gestational diabetes or prediabetes: a meta-analysis of randomized controlled studies",
+        "year": 2020
+      },
+      "status_at_seed": "active"
+    },
+    {
+      "claim_id": "R023",
+      "claim_text": "The paper claimed that ultrasound markers for prediction of gestational diabetes mellitus in early pregnancy in Egyptian women: observational study.",
+      "cohort": "retracted_original",
+      "source": {
+        "doi": "10.1080/14767058.2019.1678132",
+        "journal": "The Journal of Maternal-Fetal & Neonatal Medicine",
+        "subject": "(HSC) Medicine - Diabetes;(HSC) Medicine - Obstetrics/Gynecology;(HSC) Radiology/Imaging;",
+        "title": "Ultrasound markers for prediction of gestational diabetes mellitus in early pregnancy in Egyptian women: observational study",
+        "year": 2020
+      },
+      "status_at_seed": "active"
+    },
+    {
+      "claim_id": "R024",
+      "claim_text": "The paper claimed that maternal, fetal, and neonatal outcomes among different types of hypertensive disorders associating pregnancy needing intensive care management.",
+      "cohort": "retracted_original",
+      "source": {
+        "doi": "10.1080/14767058.2018.1491030",
+        "journal": "The Journal of Maternal-Fetal & Neonatal Medicine",
+        "subject": "(HSC) Medicine - Cardiovascular;(HSC) Medicine - Obstetrics/Gynecology;(HSC) Medicine - Pediatrics;",
+        "title": "Maternal, fetal, and neonatal outcomes among different types of hypertensive disorders associating pregnancy needing intensive care management",
+        "year": 2018
+      },
+      "status_at_seed": "active"
+    },
+    {
+      "claim_id": "R025",
+      "claim_text": "The paper claimed that role of antioxidants in gestational diabetes mellitus and relation to fetal outcome: a randomized controlled trial.",
+      "cohort": "retracted_original",
+      "source": {
+        "doi": "10.3109/14767058.2016.1154526",
+        "journal": "The Journal of Maternal-Fetal & Neonatal Medicine",
+        "subject": "(HSC) Medicine - Diabetes;(HSC) Medicine - Obstetrics/Gynecology;",
+        "title": "Role of antioxidants in gestational diabetes mellitus and relation to fetal outcome: a randomized controlled trial",
+        "year": 2016
+      },
+      "status_at_seed": "active"
+    },
+    {
+      "claim_id": "C001",
+      "claim_text": "The active control paper reports that dietary Sodium Intake and Risk of Cardiovascular Disease.",
+      "cohort": "active_control",
+      "source": {
+        "doi": "10.1001/jamainternmed.2015.2558",
+        "journal": "JAMA Internal Medicine",
+        "subject": "nutrition/metabolic medicine control",
+        "title": "Dietary Sodium Intake and Risk of Cardiovascular Disease",
+        "year": 2015
+      },
+      "status_at_seed": "active"
+    },
+    {
+      "claim_id": "C002",
+      "claim_text": "The active control paper reports that coffee consumption and reduced risk of developing type 2 diabetes: a systematic review with meta-analysis.",
+      "cohort": "active_control",
+      "source": {
+        "doi": "10.1093/nutrit/nuy014",
+        "journal": "Nutrition Reviews",
+        "subject": "nutrition/metabolic medicine control",
+        "title": "Coffee consumption and reduced risk of developing type 2 diabetes: a systematic review with meta-analysis",
+        "year": 2018
+      },
+      "status_at_seed": "active"
+    },
+    {
+      "claim_id": "C003",
+      "claim_text": "The active control paper reports that role Of Dash Diet In Blood Pressure.",
+      "cohort": "active_control",
+      "source": {
+        "doi": "10.18137/cardiometry.2022.24.10191021",
+        "journal": "CARDIOMETRY",
+        "subject": "nutrition/metabolic medicine control",
+        "title": "Role Of Dash Diet In Blood Pressure",
+        "year": 2022
+      },
+      "status_at_seed": "active"
+    },
+    {
+      "claim_id": "C004",
+      "claim_text": "The active control paper reports that whole-grain intake and risk of type 2 diabetes.",
+      "cohort": "active_control",
+      "source": {
+        "doi": "10.3945/ajcn.116.143180",
+        "journal": "The American Journal of Clinical Nutrition",
+        "subject": "nutrition/metabolic medicine control",
+        "title": "Whole-grain intake and risk of type 2 diabetes",
+        "year": 2016
+      },
+      "status_at_seed": "active"
+    },
+    {
+      "claim_id": "C005",
+      "claim_text": "The active control paper reports that mediterranean Diet and Prevention of Cardiovascular Disease.",
+      "cohort": "active_control",
+      "source": {
+        "doi": "10.1097/nt.0000000000000561",
+        "journal": "Nutrition Today",
+        "subject": "nutrition/metabolic medicine control",
+        "title": "Mediterranean Diet and Prevention of Cardiovascular Disease",
+        "year": 2022
+      },
+      "status_at_seed": "active"
+    },
+    {
+      "claim_id": "C006",
+      "claim_text": "The active control paper reports that beyond sugar-sweetened beverages.",
+      "cohort": "active_control",
+      "source": {
+        "doi": "10.1016/j.adaj.2024.12.004",
+        "journal": "The Journal of the American Dental Association",
+        "subject": "nutrition/metabolic medicine control",
+        "title": "Beyond sugar-sweetened beverages",
+        "year": 2025
+      },
+      "status_at_seed": "active"
+    },
+    {
+      "claim_id": "C007",
+      "claim_text": "The active control paper reports that effects of a low carbohydrate diet on energy expenditure during weight loss maintenance: randomized trial.",
+      "cohort": "active_control",
+      "source": {
+        "doi": "10.1136/bmj.k4583",
+        "journal": "BMJ",
+        "subject": "nutrition/metabolic medicine control",
+        "title": "Effects of a low carbohydrate diet on energy expenditure during weight loss maintenance: randomized trial",
+        "year": 2018
+      },
+      "status_at_seed": "active"
+    },
+    {
+      "claim_id": "C008",
+      "claim_text": "The active control paper reports that vitamin D Supplementation and Prevention of Type 2 Diabetes.",
+      "cohort": "active_control",
+      "source": {
+        "doi": "10.1056/nejmc1912185",
+        "journal": "New England Journal of Medicine",
+        "subject": "nutrition/metabolic medicine control",
+        "title": "Vitamin D Supplementation and Prevention of Type 2 Diabetes",
+        "year": 2019
+      },
+      "status_at_seed": "active"
+    },
+    {
+      "claim_id": "C009",
+      "claim_text": "The active control paper reports that lipoprotein(a) Cholesterol, Randomized Omega-3 Fatty Acid Supplementation, and Cardiovascular Events: Extended Follow-up in the VITamin D and OmegA 3 TriaL.",
+      "cohort": "active_control",
+      "source": {
+        "doi": "10.1016/j.jacl.2025.04.092",
+        "journal": "Journal of Clinical Lipidology",
+        "subject": "nutrition/metabolic medicine control",
+        "title": "Lipoprotein(a) Cholesterol, Randomized Omega-3 Fatty Acid Supplementation, and Cardiovascular Events: Extended Follow-up in the VITamin D and OmegA 3 TriaL",
+        "year": 2025
+      },
+      "status_at_seed": "active"
+    },
+    {
+      "claim_id": "C010",
+      "claim_text": "The active control paper reports that plant-Based Diet Adherence and Type 2 Diabetes Risk Factors.",
+      "cohort": "active_control",
+      "source": {
+        "doi": "10.54393/df.v6i2.187",
+        "journal": "DIET FACTOR (Journal of Nutritional and Food Sciences)",
+        "subject": "nutrition/metabolic medicine control",
+        "title": "Plant-Based Diet Adherence and Type 2 Diabetes Risk Factors",
+        "year": 2025
+      },
+      "status_at_seed": "active"
+    },
+    {
+      "claim_id": "C011",
+      "claim_text": "The active control paper reports that effects of probiotic supplementation on glycemic control in children with type 1 diabetes: A systematic review and meta-analysis.",
+      "cohort": "active_control",
+      "source": {
+        "doi": "10.1177/03000605261443077",
+        "journal": "Journal of International Medical Research",
+        "subject": "nutrition/metabolic medicine control",
+        "title": "Effects of probiotic supplementation on glycemic control in children with type 1 diabetes: A systematic review and meta-analysis",
+        "year": 2026
+      },
+      "status_at_seed": "active"
+    },
+    {
+      "claim_id": "C012",
+      "claim_text": "The active control paper reports that dietary Sodium and Blood Pressure.",
+      "cohort": "active_control",
+      "source": {
+        "doi": "10.1001/jama.2024.1907",
+        "journal": "JAMA",
+        "subject": "nutrition/metabolic medicine control",
+        "title": "Dietary Sodium and Blood Pressure",
+        "year": 2024
+      },
+      "status_at_seed": "active"
+    },
+    {
+      "claim_id": "C013",
+      "claim_text": "The active control paper reports that nuts reduce risk of cardiovascular disease.",
+      "cohort": "active_control",
+      "source": {
+        "doi": "10.1038/nrcardio.2017.196",
+        "journal": "Nature Reviews Cardiology",
+        "subject": "nutrition/metabolic medicine control",
+        "title": "Nuts reduce risk of cardiovascular disease",
+        "year": 2018
+      },
+      "status_at_seed": "active"
+    },
+    {
+      "claim_id": "C014",
+      "claim_text": "The active control paper reports that intermittent Fasting in Weight Loss and Cardiometabolic Risk Reduction: A Randomized Controlled Trial.",
+      "cohort": "active_control",
+      "source": {
+        "doi": "10.1097/jnr.0000000000000469",
+        "journal": "Journal of Nursing Research",
+        "subject": "nutrition/metabolic medicine control",
+        "title": "Intermittent Fasting in Weight Loss and Cardiometabolic Risk Reduction: A Randomized Controlled Trial",
+        "year": 2022
+      },
+      "status_at_seed": "active"
+    },
+    {
+      "claim_id": "C015",
+      "claim_text": "The active control paper reports that dietary Fat and Protein Intake and Their Impact on Glycemic Control in Pediatric Type 1 Diabetes: A Narrative Review.",
+      "cohort": "active_control",
+      "source": {
+        "doi": "10.3390/children12121664",
+        "journal": "Children",
+        "subject": "nutrition/metabolic medicine control",
+        "title": "Dietary Fat and Protein Intake and Their Impact on Glycemic Control in Pediatric Type 1 Diabetes: A Narrative Review",
+        "year": 2025
+      },
+      "status_at_seed": "active"
+    }
+  ],
+  "generated_at": "2026-07-03T20:32:53.728419+00:00",
+  "held_back_retractions": [
+    {
+      "claim_id": "R001",
+      "nature": "Retraction",
+      "original_doi": "10.1056/nejmoa2023386",
+      "reason": "Investigation by Company/Institution;Manipulation of Results;Upgrade/Update of Prior Notice(s);",
+      "retraction_date": "6/29/2026 0:00",
+      "retraction_doi": "10.1056/nejme2608684"
+    },
+    {
+      "claim_id": "R002",
+      "nature": "Retraction",
+      "original_doi": "10.1016/j.heliyon.2024.e30453",
+      "reason": "Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
+      "retraction_date": "11/24/2025 0:00",
+      "retraction_doi": "10.1016/j.heliyon.2025.e44253"
+    },
+    {
+      "claim_id": "R003",
+      "nature": "Retraction",
+      "original_doi": "10.1002/bcp.70249",
+      "reason": "Concerns/Issues about Human Subject Welfare;Concerns/Issues about Methods;Error in Analyses;Investigation by Journal/Publisher;Investigation by Third Party;Unreliable Results and/or Conclusions;",
+      "retraction_date": "1/22/2026 0:00",
+      "retraction_doi": "10.1002/bcp.70475"
+    },
+    {
+      "claim_id": "R004",
+      "nature": "Retraction",
+      "original_doi": "10.1038/s41598-025-96541-2",
+      "reason": "Computer-Aided Content or Computer-Generated Content;Concerns/Issues about Data;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
+      "retraction_date": "6/3/2026 0:00",
+      "retraction_doi": "10.1038/s41598-026-55044-4"
+    },
+    {
+      "claim_id": "R005",
+      "nature": "Retraction",
+      "original_doi": "10.1016/j.heliyon.2023.e19675",
+      "reason": "Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
+      "retraction_date": "12/16/2025 0:00",
+      "retraction_doi": "10.1016/j.heliyon.2025.e44379"
+    },
+    {
+      "claim_id": "R006",
+      "nature": "Retraction",
+      "original_doi": "10.1371/journal.pone.0255392",
+      "reason": "Concerns/Issues about Data;Concerns/Issues about Methods;Concerns/Issues about Results and/or Conclusions;Investigation by Journal/Publisher;Investigation by Third Party;Objections by Author(s);Original Data and/or Images not Provided and/or not Available;Unreliable Results and/or Conclusions;",
+      "retraction_date": "5/21/2026 0:00",
+      "retraction_doi": "10.1371/journal.pone.0349829"
+    },
+    {
+      "claim_id": "R007",
+      "nature": "Retraction",
+      "original_doi": "10.1016/j.heliyon.2023.e20232",
+      "reason": "Concerns/Issues about Authorship/Affiliation;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
+      "retraction_date": "12/16/2025 0:00",
+      "retraction_doi": "10.1016/j.heliyon.2025.e44382"
+    },
+    {
+      "claim_id": "R008",
+      "nature": "Retraction",
+      "original_doi": "10.1016/j.heliyon.2024.e29871",
+      "reason": "Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
+      "retraction_date": "12/16/2025 0:00",
+      "retraction_doi": "10.1016/j.heliyon.2025.e44378"
+    },
+    {
+      "claim_id": "R009",
+      "nature": "Retraction",
+      "original_doi": "10.1016/j.heliyon.2023.e21222",
+      "reason": "Concerns/Issues about Authorship/Affiliation;Concerns/Issues about Results and/or Conclusions;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
+      "retraction_date": "12/21/2025 0:00",
+      "retraction_doi": "10.1016/j.heliyon.2025.e44400"
+    },
+    {
+      "claim_id": "R010",
+      "nature": "Retraction",
+      "original_doi": "10.1007/s00500-023-09589-5",
+      "reason": "Concerns/Issues about Peer Review;Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Unreliable Results and/or Conclusions;",
+      "retraction_date": "12/31/2025 0:00",
+      "retraction_doi": "10.1007/s00500-025-11084-y"
+    },
+    {
+      "claim_id": "R011",
+      "nature": "Retraction",
+      "original_doi": "10.1007/s00500-023-09482-1",
+      "reason": "Concerns/Issues about Peer Review;Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
+      "retraction_date": "12/31/2025 0:00",
+      "retraction_doi": "10.1007/s00500-025-11095-9"
+    },
+    {
+      "claim_id": "R012",
+      "nature": "Retraction",
+      "original_doi": "10.1007/978-3-030-00524-5_6",
+      "reason": "Concerns/Issues about Referencing/Attributions;Conflict of Interest;Date of Article and/or Notice Unknown;Investigation by Journal/Publisher;Objections by Author(s);Rogue Editor;Unreliable Results and/or Conclusions;",
+      "retraction_date": "10/15/2024 0:00",
+      "retraction_doi": "xx10.1007/978-3-030-00524-5_9"
+    },
+    {
+      "claim_id": "R013",
+      "nature": "Retraction",
+      "original_doi": "10.1007/978-3-030-00524-5_7",
+      "reason": "Concerns/Issues about Referencing/Attributions;Conflict of Interest;Date of Article and/or Notice Unknown;Investigation by Journal/Publisher;Objections by Author(s);Rogue Editor;Unreliable Results and/or Conclusions;",
+      "retraction_date": "10/15/2024 0:00",
+      "retraction_doi": "x10.1007/978-3-030-00524-5_9"
+    },
+    {
+      "claim_id": "R014",
+      "nature": "Retraction",
+      "original_doi": "10.1016/j.jacadv.2025.101686",
+      "reason": "Concerns/Issues about Methods;Unreliable Data;Upgrade/Update of Prior Notice(s);",
+      "retraction_date": "3/11/2026 0:00",
+      "retraction_doi": "10.1016/j.jacadv.2025.101686"
+    },
+    {
+      "claim_id": "R015",
+      "nature": "Retraction",
+      "original_doi": "10.1016/j.heliyon.2025.e41964",
+      "reason": "Computer-Aided Content or Computer-Generated Content;Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
+      "retraction_date": "2/11/2026 0:00",
+      "retraction_doi": "10.1016/j.heliyon.2026.e44613"
+    },
+    {
+      "claim_id": "R016",
+      "nature": "Retraction",
+      "original_doi": "10.1016/j.heliyon.2022.e10071",
+      "reason": "Duplication of/in Image;Investigation by Journal/Publisher;Investigation by Third Party;Objections by Author(s);Unreliable Results and/or Conclusions;",
+      "retraction_date": "2/26/2026 0:00",
+      "retraction_doi": "10.1016/j.heliyon.2026.e44645"
+    },
+    {
+      "claim_id": "R017",
+      "nature": "Retraction",
+      "original_doi": "10.3389/fnut.2022.803913",
+      "reason": "Concerns/Issues about Data;Investigation by Journal/Publisher;Lack of Approval from Company/Institution;",
+      "retraction_date": "11/5/2024 0:00",
+      "retraction_doi": "10.3389/fnut.2024.1520555"
+    },
+    {
+      "claim_id": "R018",
+      "nature": "Retraction",
+      "original_doi": "10.1016/j.heliyon.2024.e37293",
+      "reason": "Author Unresponsive;Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Unreliable Results and/or Conclusions;",
+      "retraction_date": "3/17/2026 0:00",
+      "retraction_doi": "10.1016/j.heliyon.2026.e44757"
+    },
+    {
+      "claim_id": "R019",
+      "nature": "Retraction",
+      "original_doi": "10.1016/j.jogc.2023.102264",
+      "reason": "Concerns/Issues about Data;Investigation by Journal/Publisher;Investigation by Third Party;Notice - Limited or No Information;",
+      "retraction_date": "9/26/2024 0:00",
+      "retraction_doi": "10.1016/j.jogc.2023.102264"
+    },
+    {
+      "claim_id": "R020",
+      "nature": "Retraction",
+      "original_doi": "10.1007/s00500-021-06668-3",
+      "reason": "Compromised Peer Review;Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Objections by Author(s);Rogue Editor;Unreliable Results and/or Conclusions;",
+      "retraction_date": "1/21/2026 0:00",
+      "retraction_doi": "10.1007/s00500-026-11208-y"
+    },
+    {
+      "claim_id": "R021",
+      "nature": "Retraction",
+      "original_doi": "10.1534/genetics.120.303481",
+      "reason": "Error in Data;Retract and Replace;",
+      "retraction_date": "7/14/2021 0:00",
+      "retraction_doi": "10.1093/genetics/iyab067"
+    },
+    {
+      "claim_id": "R022",
+      "nature": "Retraction",
+      "original_doi": "10.1080/14767058.2020.1814239",
+      "reason": "Concerns/Issues about Data;Investigation by Journal/Publisher;Investigation by Third Party;Unreliable Results and/or Conclusions;",
+      "retraction_date": "5/8/2025 0:00",
+      "retraction_doi": "10.1080/14767058.2025.2501451"
+    },
+    {
+      "claim_id": "R023",
+      "nature": "Retraction",
+      "original_doi": "10.1080/14767058.2019.1678132",
+      "reason": "Author Unresponsive;Concerns/Issues about Data;Concerns/Issues about Results and/or Conclusions;Investigation by Journal/Publisher;Original Data and/or Images not Provided and/or not Available;Unreliable Results and/or Conclusions;",
+      "retraction_date": "1/7/2026 0:00",
+      "retraction_doi": "10.1080/14767058.2026.2607752"
+    },
+    {
+      "claim_id": "R024",
+      "nature": "Retraction",
+      "original_doi": "10.1080/14767058.2018.1491030",
+      "reason": "Concerns/Issues about Data;Concerns/Issues about Results and/or Conclusions;Investigation by Journal/Publisher;Unreliable Results and/or Conclusions;Upgrade/Update of Prior Notice(s);",
+      "retraction_date": "4/7/2026 0:00",
+      "retraction_doi": "10.1080/14767058.2026.2654284"
+    },
+    {
+      "claim_id": "R025",
+      "nature": "Retraction",
+      "original_doi": "10.3109/14767058.2016.1154526",
+      "reason": "Concerns/Issues about Data;Concerns/Issues about Results and/or Conclusions;Investigation by Journal/Publisher;Unreliable Results and/or Conclusions;Upgrade/Update of Prior Notice(s);",
+      "retraction_date": "4/9/2026 0:00",
+      "retraction_doi": "10.1080/14767058.2026.2654275"
+    }
+  ],
+  "source": {
+    "crossref_works": "https://api.crossref.org/works",
+    "retraction_watch": "https://api.labs.crossref.org/data/retractionwatch"
+  },
+  "subject_area": "nutrition and metabolic medicine"
+}

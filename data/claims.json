@@ -1,0 +1,1042 @@
+[
+  {
+    "claim_id": "R001",
+    "claim_text": "The paper claimed that avacopan for the Treatment of ANCA-Associated Vasculitis.",
+    "cohort": "retracted_original",
+    "datasets": {
+      "groundtruth_memory": {
+        "data_id": "033e8c14-5e6e-5dbf-8a50-a7b850015cf2",
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+      },
+      "naive_memory": {
+        "data_id": "033e8c14-5e6e-5dbf-8a50-a7b850015cf2",
+        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+      }
+    },
+    "doi": "10.1056/nejmoa2023386",
+    "ingestion_mode": "deterministic_graph_fallback",
+    "retraction_doi": "10.1056/nejme2608684",
+    "source": {
+      "doi": "10.1056/nejmoa2023386",
+      "journal": "NEJM: The New England Journal of Medicine",
+      "subject": "(HSC) Medicine - Cardiovascular;(HSC) Medicine - Pharmacology;(HSC) Medicine - Rehabilitation/Therapy;",
+      "title": "Avacopan for the Treatment of ANCA-Associated Vasculitis",
+      "year": 2021
+    },
+    "status": "active"
+  },
+  {
+    "claim_id": "R002",
+    "claim_text": "The paper claimed that nutritional and bioactive properties and antioxidant potential of Amaranthus tricolor, A. lividus, A viridis, and A. spinosus leafy vegetables.",
+    "cohort": "retracted_original",
+    "datasets": {
+      "groundtruth_memory": {
+        "data_id": "0d01068c-5f25-56aa-943a-63b1cd4a05ba",
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+      },
+      "naive_memory": {
+        "data_id": "0d01068c-5f25-56aa-943a-63b1cd4a05ba",
+        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+      }
+    },
+    "doi": "10.1016/j.heliyon.2024.e30453",
+    "ingestion_mode": "deterministic_graph_fallback",
+    "retraction_doi": "10.1016/j.heliyon.2025.e44253",
+    "source": {
+      "doi": "10.1016/j.heliyon.2024.e30453",
+      "journal": "Heliyon",
+      "subject": "(BLS) Nutrition;(ENV) Food Science;",
+      "title": "Nutritional and bioactive properties and antioxidant potential of Amaranthus tricolor, A. lividus, A viridis, and A. spinosus leafy vegetables",
+      "year": 2024
+    },
+    "status": "active"
+  },
+  {
+    "claim_id": "R003",
+    "claim_text": "The paper claimed that effects of different antihypertensive drug classes on central and ambulatory blood pressure in resistant hypertension: A randomized clinical trial.",
+    "cohort": "retracted_original",
+    "datasets": {
+      "groundtruth_memory": {
+        "data_id": "e21ca4ca-0fc0-59bc-a3d4-7025db76c675",
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+      },
+      "naive_memory": {
+        "data_id": "e21ca4ca-0fc0-59bc-a3d4-7025db76c675",
+        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+      }
+    },
+    "doi": "10.1002/bcp.70249",
+    "ingestion_mode": "deterministic_graph_fallback",
+    "retraction_doi": "10.1002/bcp.70475",
+    "source": {
+      "doi": "10.1002/bcp.70249",
+      "journal": "British Journal of Clinical Pharmacology",
+      "subject": "(HSC) Medicine - Cardiovascular;(HSC) Medicine - Pharmacology;",
+      "title": "Effects of different antihypertensive drug classes on central and ambulatory blood pressure in resistant hypertension: A randomized clinical trial",
+      "year": 2025
+    },
+    "status": "active"
+  },
+  {
+    "claim_id": "R004",
+    "claim_text": "The paper claimed that an effective PO-RSNN and FZCIS based diabetes prediction and stroke analysis in the metaverse environment.",
+    "cohort": "retracted_original",
+    "datasets": {
+      "groundtruth_memory": {
+        "data_id": "ea8722b5-a8b9-57f4-89e0-e18772ff635c",
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+      },
+      "naive_memory": {
+        "data_id": "ea8722b5-a8b9-57f4-89e0-e18772ff635c",
+        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+      }
+    },
+    "doi": "10.1038/s41598-025-96541-2",
+    "ingestion_mode": "deterministic_graph_fallback",
+    "retraction_doi": "10.1038/s41598-026-55044-4",
+    "source": {
+      "doi": "10.1038/s41598-025-96541-2",
+      "journal": "Scientific Reports",
+      "subject": "(B/T) Data Science;(B/T) Technology;(HSC) Medicine - Cardiovascular;(HSC) Medicine - Diabetes;(HSC) Medicine - Neurology;",
+      "title": "An effective PO-RSNN and FZCIS based diabetes prediction and stroke analysis in the metaverse environment",
+      "year": 2025
+    },
+    "status": "active"
+  },
+  {
+    "claim_id": "R005",
+    "claim_text": "The paper claimed that the interplay between monosodium glutamate (MSG) consumption and metabolic disorders.",
+    "cohort": "retracted_original",
+    "datasets": {
+      "groundtruth_memory": {
+        "data_id": "79f37376-cbd9-5566-80dc-1ad63e27bb39",
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+      },
+      "naive_memory": {
+        "data_id": "79f37376-cbd9-5566-80dc-1ad63e27bb39",
+        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+      }
+    },
+    "doi": "10.1016/j.heliyon.2023.e19675",
+    "ingestion_mode": "deterministic_graph_fallback",
+    "retraction_doi": "10.1016/j.heliyon.2025.e44379",
+    "source": {
+      "doi": "10.1016/j.heliyon.2023.e19675",
+      "journal": "Heliyon",
+      "subject": "(HSC) Medicine - Endocrinology;(HSC) Nutrition;",
+      "title": "The interplay between monosodium glutamate (MSG) consumption and metabolic disorders",
+      "year": 2023
+    },
+    "status": "active"
+  },
+  {
+    "claim_id": "R006",
+    "claim_text": "The paper claimed that food insecurity and mental health of women during COVID-19: Evidence from a developing country.",
+    "cohort": "retracted_original",
+    "datasets": {
+      "groundtruth_memory": {
+        "data_id": "c37c62bc-a612-58be-af2c-2aab5c468c08",
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+      },
+      "naive_memory": {
+        "data_id": "c37c62bc-a612-58be-af2c-2aab5c468c08",
+        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+      }
+    },
+    "doi": "10.1371/journal.pone.0255392",
+    "ingestion_mode": "deterministic_graph_fallback",
+    "retraction_doi": "10.1371/journal.pone.0349829",
+    "source": {
+      "doi": "10.1371/journal.pone.0255392",
+      "journal": "PLoS One",
+      "subject": "(HSC) Medicine - Infectious Disease;(HSC) Medicine - Psychiatry;(HSC) Nutrition;",
+      "title": "Food insecurity and mental health of women during COVID-19: Evidence from a developing country",
+      "year": 2021
+    },
+    "status": "active"
+  },
+  {
+    "claim_id": "R007",
+    "claim_text": "The paper claimed that phytochemicals, therapeutic benefits and applications of chrysanthemum flower: A review.",
+    "cohort": "retracted_original",
+    "datasets": {
+      "groundtruth_memory": {
+        "data_id": "2d49a0d2-69a4-50b4-99ca-b13c3f8243a9",
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+      },
+      "naive_memory": {
+        "data_id": "2d49a0d2-69a4-50b4-99ca-b13c3f8243a9",
+        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+      }
+    },
+    "doi": "10.1016/j.heliyon.2023.e20232",
+    "ingestion_mode": "deterministic_graph_fallback",
+    "retraction_doi": "10.1016/j.heliyon.2025.e44382",
+    "source": {
+      "doi": "10.1016/j.heliyon.2023.e20232",
+      "journal": "Heliyon",
+      "subject": "(BLS) Biochemistry;(BLS) Nutrition;(BLS) Plant Biology/Botany;(HSC) Medicine - Alternative;",
+      "title": "Phytochemicals, therapeutic benefits and applications of chrysanthemum flower: A review",
+      "year": 2023
+    },
+    "status": "active"
+  },
+  {
+    "claim_id": "R008",
+    "claim_text": "The paper claimed that nF-\u0138B axis in diabetic neuropathy, cardiomyopathy and nephropathy: A roadmap from molecular intervention to therapeutic strategies.",
+    "cohort": "retracted_original",
+    "datasets": {
+      "groundtruth_memory": {
+        "data_id": "87da7153-d003-5008-8c6a-7e7cfacb7e5c",
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+      },
+      "naive_memory": {
+        "data_id": "87da7153-d003-5008-8c6a-7e7cfacb7e5c",
+        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+      }
+    },
+    "doi": "10.1016/j.heliyon.2024.e29871",
+    "ingestion_mode": "deterministic_graph_fallback",
+    "retraction_doi": "10.1016/j.heliyon.2025.e44378",
+    "source": {
+      "doi": "10.1016/j.heliyon.2024.e29871",
+      "journal": "Heliyon",
+      "subject": "(HSC) Medicine - Cardiovascular;(HSC) Medicine - Diabetes;(HSC) Medicine - Neurology;(HSC) Medicine - Urology/Nephrology;",
+      "title": "NF-\u0138B axis in diabetic neuropathy, cardiomyopathy and nephropathy: A roadmap from molecular intervention to therapeutic strategies",
+      "year": 2024
+    },
+    "status": "active"
+  },
+  {
+    "claim_id": "R009",
+    "claim_text": "The paper claimed that fenchone and camphor: Main natural compounds from Lavandula stoechas L., expediting multiple in vitro biological activities.",
+    "cohort": "retracted_original",
+    "datasets": {
+      "groundtruth_memory": {
+        "data_id": "36eae4ae-b0f1-519b-8ea1-d50c2e60bd5f",
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+      },
+      "naive_memory": {
+        "data_id": "36eae4ae-b0f1-519b-8ea1-d50c2e60bd5f",
+        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+      }
+    },
+    "doi": "10.1016/j.heliyon.2023.e21222",
+    "ingestion_mode": "deterministic_graph_fallback",
+    "retraction_doi": "10.1016/j.heliyon.2025.e44400",
+    "source": {
+      "doi": "10.1016/j.heliyon.2023.e21222",
+      "journal": "Heliyon",
+      "subject": "(HSC) Medicine - Alternative;(HSC) Medicine - Diabetes;(HSC) Medicine - Pharmacology;",
+      "title": "Fenchone and camphor: Main natural compounds from Lavandula stoechas L., expediting multiple in vitro biological activities",
+      "year": 2023
+    },
+    "status": "active"
+  },
+  {
+    "claim_id": "R010",
+    "claim_text": "The paper claimed that distribution characteristics of inhalable particulate pollutants and their effects on cardiopulmonary respiratory system of outdoor football players in a smart healthcare system.",
+    "cohort": "retracted_original",
+    "datasets": {
+      "groundtruth_memory": {
+        "data_id": "d13dc0ac-adf9-536e-9b7b-ee57b4bc6066",
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+      },
+      "naive_memory": {
+        "data_id": "d13dc0ac-adf9-536e-9b7b-ee57b4bc6066",
+        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+      }
+    },
+    "doi": "10.1007/s00500-023-09589-5",
+    "ingestion_mode": "deterministic_graph_fallback",
+    "retraction_doi": "10.1007/s00500-025-11084-y",
+    "source": {
+      "doi": "10.1007/s00500-023-09589-5",
+      "journal": "Soft Computing",
+      "subject": "(ENV) Environmental Sciences;(HSC) Medicine - Cardiovascular;(HSC) Medicine - Pulmonology;(HSC) Medicine - Sports;(HSC) Public Health and Safety;",
+      "title": "Distribution characteristics of inhalable particulate pollutants and their effects on cardiopulmonary respiratory system of outdoor football players in a smart healthcare system",
+      "year": 2024
+    },
+    "status": "active"
+  },
+  {
+    "claim_id": "R011",
+    "claim_text": "The paper claimed that an attention-based dense network model for cardiac image segmentation using learning approaches.",
+    "cohort": "retracted_original",
+    "datasets": {
+      "groundtruth_memory": {
+        "data_id": "be4527b6-ee58-5b79-88a2-6a776a1aad92",
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+      },
+      "naive_memory": {
+        "data_id": "be4527b6-ee58-5b79-88a2-6a776a1aad92",
+        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+      }
+    },
+    "doi": "10.1007/s00500-023-09482-1",
+    "ingestion_mode": "deterministic_graph_fallback",
+    "retraction_doi": "10.1007/s00500-025-11095-9",
+    "source": {
+      "doi": "10.1007/s00500-023-09482-1",
+      "journal": "Soft Computing",
+      "subject": "(B/T) Computer Science;(HSC) Medicine - Cardiovascular;(HSC) Radiology/Imaging;",
+      "title": "An attention-based dense network model for cardiac image segmentation using learning approaches",
+      "year": 2023
+    },
+    "status": "active"
+  },
+  {
+    "claim_id": "R012",
+    "claim_text": "The paper claimed that siloMAS: A MAS for Smart Silos to Optimize Food and Water Consumption on Livestock Holdings.",
+    "cohort": "retracted_original",
+    "datasets": {
+      "groundtruth_memory": {
+        "data_id": "8b310b31-aecd-5a18-8fd5-06e67dcfe8bb",
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+      },
+      "naive_memory": {
+        "data_id": "8b310b31-aecd-5a18-8fd5-06e67dcfe8bb",
+        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+      }
+    },
+    "doi": "10.1007/978-3-030-00524-5_6",
+    "ingestion_mode": "deterministic_graph_fallback",
+    "retraction_doi": "xx10.1007/978-3-030-00524-5_9",
+    "source": {
+      "doi": "10.1007/978-3-030-00524-5_6",
+      "journal": "Distributed Computing and Artificial Intelligence, Special Sessions II, 15th International Conference",
+      "subject": "(B/T) Technology;(BLS) Agriculture;(BLS) Nutrition;",
+      "title": "SiloMAS: A MAS for Smart Silos to Optimize Food and Water Consumption on Livestock Holdings",
+      "year": 2019
+    },
+    "status": "active"
+  },
+  {
+    "claim_id": "R013",
+    "claim_text": "The paper claimed that intelligent Livestock Feeding System by Means of Silos with IoT Technology.",
+    "cohort": "retracted_original",
+    "datasets": {
+      "groundtruth_memory": {
+        "data_id": "d4b61a3d-722d-5dd8-988f-af173e8ebee1",
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+      },
+      "naive_memory": {
+        "data_id": "d4b61a3d-722d-5dd8-988f-af173e8ebee1",
+        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+      }
+    },
+    "doi": "10.1007/978-3-030-00524-5_7",
+    "ingestion_mode": "deterministic_graph_fallback",
+    "retraction_doi": "x10.1007/978-3-030-00524-5_9",
+    "source": {
+      "doi": "10.1007/978-3-030-00524-5_7",
+      "journal": "Distributed Computing and Artificial Intelligence, Special Sessions II, 15th International Conference",
+      "subject": "(B/T) Technology;(BLS) Agriculture;(BLS) Nutrition;",
+      "title": "Intelligent Livestock Feeding System by Means of Silos with IoT Technology",
+      "year": 2019
+    },
+    "status": "active"
+  },
+  {
+    "claim_id": "R014",
+    "claim_text": "The paper claimed that longitudinal Data From the KETO-CTA Study: Plaque Predicts Plaque, ApoB Does Not.",
+    "cohort": "retracted_original",
+    "datasets": {
+      "groundtruth_memory": {
+        "data_id": "a5064084-be81-5ee2-9a52-9a955f1c5683",
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+      },
+      "naive_memory": {
+        "data_id": "a5064084-be81-5ee2-9a52-9a955f1c5683",
+        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+      }
+    },
+    "doi": "10.1016/j.jacadv.2025.101686",
+    "ingestion_mode": "deterministic_graph_fallback",
+    "retraction_doi": "10.1016/j.jacadv.2025.101686",
+    "source": {
+      "doi": "10.1016/j.jacadv.2025.101686",
+      "journal": "JACC: Advances",
+      "subject": "(HSC) Biostatistics/Epidemiology;(HSC) Medicine - Cardiovascular;(HSC) Medicine - Pathology;",
+      "title": "Longitudinal Data From the KETO-CTA Study: Plaque Predicts Plaque, ApoB Does Not",
+      "year": 2025
+    },
+    "status": "active"
+  },
+  {
+    "claim_id": "R015",
+    "claim_text": "The paper claimed that targeting epithelial-mesenchymal transition signaling pathways with Dietary Phytocompounds and repurposed drug combinations for overcoming drug resistance in various cancers.",
+    "cohort": "retracted_original",
+    "datasets": {
+      "groundtruth_memory": {
+        "data_id": "57a0c28a-fb22-579e-ad51-e0d96239ea46",
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+      },
+      "naive_memory": {
+        "data_id": "57a0c28a-fb22-579e-ad51-e0d96239ea46",
+        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+      }
+    },
+    "doi": "10.1016/j.heliyon.2025.e41964",
+    "ingestion_mode": "deterministic_graph_fallback",
+    "retraction_doi": "10.1016/j.heliyon.2026.e44613",
+    "source": {
+      "doi": "10.1016/j.heliyon.2025.e41964",
+      "journal": "Heliyon",
+      "subject": "(HSC) Medicine - Drug Design;(HSC) Medicine - Oncology;(HSC) Nutrition;",
+      "title": "Targeting epithelial-mesenchymal transition signaling pathways with Dietary Phytocompounds and repurposed drug combinations for overcoming drug resistance in various cancers",
+      "year": 2025
+    },
+    "status": "active"
+  },
+  {
+    "claim_id": "R016",
+    "claim_text": "The paper claimed that efficacy of methanolic extracts of some medicinal plants on wound healing in diabetic rats.",
+    "cohort": "retracted_original",
+    "datasets": {
+      "groundtruth_memory": {
+        "data_id": "ded0db36-085e-58b9-a93a-0faf32567f2d",
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+      },
+      "naive_memory": {
+        "data_id": "ded0db36-085e-58b9-a93a-0faf32567f2d",
+        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+      }
+    },
+    "doi": "10.1016/j.heliyon.2022.e10071",
+    "ingestion_mode": "deterministic_graph_fallback",
+    "retraction_doi": "10.1016/j.heliyon.2026.e44645",
+    "source": {
+      "doi": "10.1016/j.heliyon.2022.e10071",
+      "journal": "Heliyon",
+      "subject": "(BLS) Biochemistry;(BLS) Biology - Cellular;(BLS) Plant Biology/Botany;(BLS) Toxicology;(HSC) Medicine - Diabetes;",
+      "title": "Efficacy of methanolic extracts of some medicinal plants on wound healing in diabetic rats",
+      "year": 2022
+    },
+    "status": "active"
+  },
+  {
+    "claim_id": "R017",
+    "claim_text": "The paper claimed that dietary Patterns in Adults Following the Christian Orthodox Fasting Regime in Greece.",
+    "cohort": "retracted_original",
+    "datasets": {
+      "groundtruth_memory": {
+        "data_id": "13481387-d756-5462-ab6e-d8a3dbe08581",
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+      },
+      "naive_memory": {
+        "data_id": "13481387-d756-5462-ab6e-d8a3dbe08581",
+        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+      }
+    },
+    "doi": "10.3389/fnut.2022.803913",
+    "ingestion_mode": "deterministic_graph_fallback",
+    "retraction_doi": "10.3389/fnut.2024.1520555",
+    "source": {
+      "doi": "10.3389/fnut.2022.803913",
+      "journal": "Frontiers in Nutrition",
+      "subject": "(HSC) Nutrition;(HUM) Religion;",
+      "title": "Dietary Patterns in Adults Following the Christian Orthodox Fasting Regime in Greece",
+      "year": 2022
+    },
+    "status": "active"
+  },
+  {
+    "claim_id": "R018",
+    "claim_text": "The paper claimed that mobileNet-V2 /IFHO model for Accurate Detection of early-stage diabetic retinopathy.",
+    "cohort": "retracted_original",
+    "datasets": {
+      "groundtruth_memory": {
+        "data_id": "b66cdeb7-f924-54e8-90fc-14104c2dd908",
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+      },
+      "naive_memory": {
+        "data_id": "b66cdeb7-f924-54e8-90fc-14104c2dd908",
+        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+      }
+    },
+    "doi": "10.1016/j.heliyon.2024.e37293",
+    "ingestion_mode": "deterministic_graph_fallback",
+    "retraction_doi": "10.1016/j.heliyon.2026.e44757",
+    "source": {
+      "doi": "10.1016/j.heliyon.2024.e37293",
+      "journal": "Heliyon",
+      "subject": "(B/T) Technology;(HSC) Medicine - Diabetes;(HSC) Medicine - Ophthalmology;",
+      "title": "MobileNet-V2 /IFHO model for Accurate Detection of early-stage diabetic retinopathy",
+      "year": 2024
+    },
+    "status": "active"
+  },
+  {
+    "claim_id": "R019",
+    "claim_text": "The paper claimed that the Effect of Preoperative Intravenous Tranexamic Acid Versus Rectal Misoprostol in Reducing Blood Loss During and After Elective Cesarean Delivery in Primigravida: A Double-Blinded, Randomized, Comparative-Placebo Trial.",
+    "cohort": "retracted_original",
+    "datasets": {
+      "groundtruth_memory": {
+        "data_id": "862102b8-eb18-5287-9414-11adfd4c7430",
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+      },
+      "naive_memory": {
+        "data_id": "862102b8-eb18-5287-9414-11adfd4c7430",
+        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+      }
+    },
+    "doi": "10.1016/j.jogc.2023.102264",
+    "ingestion_mode": "deterministic_graph_fallback",
+    "retraction_doi": "10.1016/j.jogc.2023.102264",
+    "source": {
+      "doi": "10.1016/j.jogc.2023.102264",
+      "journal": "Journal of Obstetrics and Gynaecology Canada",
+      "subject": "(HSC) Medicine - Cardiovascular;(HSC) Medicine - Obstetrics/Gynecology;(HSC) Medicine - Pharmacology;",
+      "title": "The Effect of Preoperative Intravenous Tranexamic Acid Versus Rectal Misoprostol in Reducing Blood Loss During and After Elective Cesarean Delivery in Primigravida: A Double-Blinded, Randomized, Comparative-Placebo Trial",
+      "year": 2023
+    },
+    "status": "active"
+  },
+  {
+    "claim_id": "R020",
+    "claim_text": "The paper claimed that fat-based studies for computer-assisted screening of child obesity using thermal imaging based on deep learning techniques: a comparison with quantum machine learning approach.",
+    "cohort": "retracted_original",
+    "datasets": {
+      "groundtruth_memory": {
+        "data_id": "eb56d69a-6313-5dd0-93d8-1d73c161dd3e",
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+      },
+      "naive_memory": {
+        "data_id": "eb56d69a-6313-5dd0-93d8-1d73c161dd3e",
+        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+      }
+    },
+    "doi": "10.1007/s00500-021-06668-3",
+    "ingestion_mode": "deterministic_graph_fallback",
+    "retraction_doi": "10.1007/s00500-026-11208-y",
+    "source": {
+      "doi": "10.1007/s00500-021-06668-3",
+      "journal": "Soft Computing",
+      "subject": "(B/T) Data Science;(HSC) Medicine - Endocrinology;(HSC) Medicine - Pediatrics;(HSC) Radiology/Imaging;",
+      "title": "Fat-based studies for computer-assisted screening of child obesity using thermal imaging based on deep learning techniques: a comparison with quantum machine learning approach",
+      "year": 2022
+    },
+    "status": "active"
+  },
+  {
+    "claim_id": "R021",
+    "claim_text": "The paper claimed that genetic Architecture Modulates Diet-Induced Hepatic mRNA and miRNA Expression Profiles in Diversity Outbred Mice.",
+    "cohort": "retracted_original",
+    "datasets": {
+      "groundtruth_memory": {
+        "data_id": "0b3c61b5-688d-5161-8739-a8795964101f",
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+      },
+      "naive_memory": {
+        "data_id": "0b3c61b5-688d-5161-8739-a8795964101f",
+        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+      }
+    },
+    "doi": "10.1534/genetics.120.303481",
+    "ingestion_mode": "deterministic_graph_fallback",
+    "retraction_doi": "10.1093/genetics/iyab067",
+    "source": {
+      "doi": "10.1534/genetics.120.303481",
+      "journal": "Genetics",
+      "subject": "(BLS) Biochemistry;(BLS) Genetics;(BLS) Nutrition;",
+      "title": "Genetic Architecture Modulates Diet-Induced Hepatic mRNA and miRNA Expression Profiles in Diversity Outbred Mice",
+      "year": 2020
+    },
+    "status": "active"
+  },
+  {
+    "claim_id": "R022",
+    "claim_text": "The paper claimed that omega-3 fatty acids plus vitamin for women with gestational diabetes or prediabetes: a meta-analysis of randomized controlled studies.",
+    "cohort": "retracted_original",
+    "datasets": {
+      "groundtruth_memory": {
+        "data_id": "76a51f40-5e8e-5f6b-bb4a-5587be84fbb9",
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+      },
+      "naive_memory": {
+        "data_id": "76a51f40-5e8e-5f6b-bb4a-5587be84fbb9",
+        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+      }
+    },
+    "doi": "10.1080/14767058.2020.1814239",
+    "ingestion_mode": "deterministic_graph_fallback",
+    "retraction_doi": "10.1080/14767058.2025.2501451",
+    "source": {
+      "doi": "10.1080/14767058.2020.1814239",
+      "journal": "The Journal of Maternal-Fetal & Neonatal Medicine",
+      "subject": "(HSC) Medicine - Diabetes;(HSC) Medicine - Obstetrics/Gynecology;(HSC) Nutrition;",
+      "title": "Omega-3 fatty acids plus vitamin for women with gestational diabetes or prediabetes: a meta-analysis of randomized controlled studies",
+      "year": 2020
+    },
+    "status": "active"
+  },
+  {
+    "claim_id": "R023",
+    "claim_text": "The paper claimed that ultrasound markers for prediction of gestational diabetes mellitus in early pregnancy in Egyptian women: observational study.",
+    "cohort": "retracted_original",
+    "datasets": {
+      "groundtruth_memory": {
+        "data_id": "ceb8698f-0cd6-5114-8ba5-e098418bd9b2",
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+      },
+      "naive_memory": {
+        "data_id": "ceb8698f-0cd6-5114-8ba5-e098418bd9b2",
+        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+      }
+    },
+    "doi": "10.1080/14767058.2019.1678132",
+    "ingestion_mode": "deterministic_graph_fallback",
+    "retraction_doi": "10.1080/14767058.2026.2607752",
+    "source": {
+      "doi": "10.1080/14767058.2019.1678132",
+      "journal": "The Journal of Maternal-Fetal & Neonatal Medicine",
+      "subject": "(HSC) Medicine - Diabetes;(HSC) Medicine - Obstetrics/Gynecology;(HSC) Radiology/Imaging;",
+      "title": "Ultrasound markers for prediction of gestational diabetes mellitus in early pregnancy in Egyptian women: observational study",
+      "year": 2020
+    },
+    "status": "active"
+  },
+  {
+    "claim_id": "R024",
+    "claim_text": "The paper claimed that maternal, fetal, and neonatal outcomes among different types of hypertensive disorders associating pregnancy needing intensive care management.",
+    "cohort": "retracted_original",
+    "datasets": {
+      "groundtruth_memory": {
+        "data_id": "859fb844-7a20-5938-9d2c-fec6e18ed93d",
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+      },
+      "naive_memory": {
+        "data_id": "859fb844-7a20-5938-9d2c-fec6e18ed93d",
+        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+      }
+    },
+    "doi": "10.1080/14767058.2018.1491030",
+    "ingestion_mode": "deterministic_graph_fallback",
+    "retraction_doi": "10.1080/14767058.2026.2654284",
+    "source": {
+      "doi": "10.1080/14767058.2018.1491030",
+      "journal": "The Journal of Maternal-Fetal & Neonatal Medicine",
+      "subject": "(HSC) Medicine - Cardiovascular;(HSC) Medicine - Obstetrics/Gynecology;(HSC) Medicine - Pediatrics;",
+      "title": "Maternal, fetal, and neonatal outcomes among different types of hypertensive disorders associating pregnancy needing intensive care management",
+      "year": 2018
+    },
+    "status": "active"
+  },
+  {
+    "claim_id": "R025",
+    "claim_text": "The paper claimed that role of antioxidants in gestational diabetes mellitus and relation to fetal outcome: a randomized controlled trial.",
+    "cohort": "retracted_original",
+    "datasets": {
+      "groundtruth_memory": {
+        "data_id": "65ffea2b-248b-5e27-b82f-c74fa1c8eeb6",
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+      },
+      "naive_memory": {
+        "data_id": "65ffea2b-248b-5e27-b82f-c74fa1c8eeb6",
+        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+      }
+    },
+    "doi": "10.3109/14767058.2016.1154526",
+    "ingestion_mode": "deterministic_graph_fallback",
+    "retraction_doi": "10.1080/14767058.2026.2654275",
+    "source": {
+      "doi": "10.3109/14767058.2016.1154526",
+      "journal": "The Journal of Maternal-Fetal & Neonatal Medicine",
+      "subject": "(HSC) Medicine - Diabetes;(HSC) Medicine - Obstetrics/Gynecology;",
+      "title": "Role of antioxidants in gestational diabetes mellitus and relation to fetal outcome: a randomized controlled trial",
+      "year": 2016
+    },
+    "status": "active"
+  },
+  {
+    "claim_id": "C001",
+    "claim_text": "The active control paper reports that dietary Sodium Intake and Risk of Cardiovascular Disease.",
+    "cohort": "active_control",
+    "datasets": {
+      "groundtruth_memory": {
+        "data_id": "2c13440c-7ff4-59ef-aa40-290685b98ff4",
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+      },
+      "naive_memory": {
+        "data_id": "2c13440c-7ff4-59ef-aa40-290685b98ff4",
+        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+      }
+    },
+    "doi": "10.1001/jamainternmed.2015.2558",
+    "ingestion_mode": "deterministic_graph_fallback",
+    "retraction_doi": null,
+    "source": {
+      "doi": "10.1001/jamainternmed.2015.2558",
+      "journal": "JAMA Internal Medicine",
+      "subject": "nutrition/metabolic medicine control",
+      "title": "Dietary Sodium Intake and Risk of Cardiovascular Disease",
+      "year": 2015
+    },
+    "status": "active"
+  },
+  {
+    "claim_id": "C002",
+    "claim_text": "The active control paper reports that coffee consumption and reduced risk of developing type 2 diabetes: a systematic review with meta-analysis.",
+    "cohort": "active_control",
+    "datasets": {
+      "groundtruth_memory": {
+        "data_id": "7a2b1e21-7196-5b43-95d1-74d837680599",
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+      },
+      "naive_memory": {
+        "data_id": "7a2b1e21-7196-5b43-95d1-74d837680599",
+        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+      }
+    },
+    "doi": "10.1093/nutrit/nuy014",
+    "ingestion_mode": "deterministic_graph_fallback",
+    "retraction_doi": null,
+    "source": {
+      "doi": "10.1093/nutrit/nuy014",
+      "journal": "Nutrition Reviews",
+      "subject": "nutrition/metabolic medicine control",
+      "title": "Coffee consumption and reduced risk of developing type 2 diabetes: a systematic review with meta-analysis",
+      "year": 2018
+    },
+    "status": "active"
+  },
+  {
+    "claim_id": "C003",
+    "claim_text": "The active control paper reports that role Of Dash Diet In Blood Pressure.",
+    "cohort": "active_control",
+    "datasets": {
+      "groundtruth_memory": {
+        "data_id": "d3d710dc-228a-5960-bfce-a06ad17503ce",
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+      },
+      "naive_memory": {
+        "data_id": "d3d710dc-228a-5960-bfce-a06ad17503ce",
+        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+      }
+    },
+    "doi": "10.18137/cardiometry.2022.24.10191021",
+    "ingestion_mode": "deterministic_graph_fallback",
+    "retraction_doi": null,
+    "source": {
+      "doi": "10.18137/cardiometry.2022.24.10191021",
+      "journal": "CARDIOMETRY",
+      "subject": "nutrition/metabolic medicine control",
+      "title": "Role Of Dash Diet In Blood Pressure",
+      "year": 2022
+    },
+    "status": "active"
+  },
+  {
+    "claim_id": "C004",
+    "claim_text": "The active control paper reports that whole-grain intake and risk of type 2 diabetes.",
+    "cohort": "active_control",
+    "datasets": {
+      "groundtruth_memory": {
+        "data_id": "41a51fa9-c5fa-5006-b45f-3d6bab8de1f0",
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+      },
+      "naive_memory": {
+        "data_id": "41a51fa9-c5fa-5006-b45f-3d6bab8de1f0",
+        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+      }
+    },
+    "doi": "10.3945/ajcn.116.143180",
+    "ingestion_mode": "deterministic_graph_fallback",
+    "retraction_doi": null,
+    "source": {
+      "doi": "10.3945/ajcn.116.143180",
+      "journal": "The American Journal of Clinical Nutrition",
+      "subject": "nutrition/metabolic medicine control",
+      "title": "Whole-grain intake and risk of type 2 diabetes",
+      "year": 2016
+    },
+    "status": "active"
+  },
+  {
+    "claim_id": "C005",
+    "claim_text": "The active control paper reports that mediterranean Diet and Prevention of Cardiovascular Disease.",
+    "cohort": "active_control",
+    "datasets": {
+      "groundtruth_memory": {
+        "data_id": "a43d1581-e8c2-52d3-9317-f339967252c0",
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+      },
+      "naive_memory": {
+        "data_id": "a43d1581-e8c2-52d3-9317-f339967252c0",
+        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+      }
+    },
+    "doi": "10.1097/nt.0000000000000561",
+    "ingestion_mode": "deterministic_graph_fallback",
+    "retraction_doi": null,
+    "source": {
+      "doi": "10.1097/nt.0000000000000561",
+      "journal": "Nutrition Today",
+      "subject": "nutrition/metabolic medicine control",
+      "title": "Mediterranean Diet and Prevention of Cardiovascular Disease",
+      "year": 2022
+    },
+    "status": "active"
+  },
+  {
+    "claim_id": "C006",
+    "claim_text": "The active control paper reports that beyond sugar-sweetened beverages.",
+    "cohort": "active_control",
+    "datasets": {
+      "groundtruth_memory": {
+        "data_id": "5f0c21e3-3306-511a-889a-3219e07a831e",
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+      },
+      "naive_memory": {
+        "data_id": "5f0c21e3-3306-511a-889a-3219e07a831e",
+        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+      }
+    },
+    "doi": "10.1016/j.adaj.2024.12.004",
+    "ingestion_mode": "deterministic_graph_fallback",
+    "retraction_doi": null,
+    "source": {
+      "doi": "10.1016/j.adaj.2024.12.004",
+      "journal": "The Journal of the American Dental Association",
+      "subject": "nutrition/metabolic medicine control",
+      "title": "Beyond sugar-sweetened beverages",
+      "year": 2025
+    },
+    "status": "active"
+  },
+  {
+    "claim_id": "C007",
+    "claim_text": "The active control paper reports that effects of a low carbohydrate diet on energy expenditure during weight loss maintenance: randomized trial.",
+    "cohort": "active_control",
+    "datasets": {
+      "groundtruth_memory": {
+        "data_id": "44af11e3-57bd-52eb-955e-7d0177a46f2c",
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+      },
+      "naive_memory": {
+        "data_id": "44af11e3-57bd-52eb-955e-7d0177a46f2c",
+        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+      }
+    },
+    "doi": "10.1136/bmj.k4583",
+    "ingestion_mode": "deterministic_graph_fallback",
+    "retraction_doi": null,
+    "source": {
+      "doi": "10.1136/bmj.k4583",
+      "journal": "BMJ",
+      "subject": "nutrition/metabolic medicine control",
+      "title": "Effects of a low carbohydrate diet on energy expenditure during weight loss maintenance: randomized trial",
+      "year": 2018
+    },
+    "status": "active"
+  },
+  {
+    "claim_id": "C008",
+    "claim_text": "The active control paper reports that vitamin D Supplementation and Prevention of Type 2 Diabetes.",
+    "cohort": "active_control",
+    "datasets": {
+      "groundtruth_memory": {
+        "data_id": "c6bfc753-f9c4-5711-b0fd-f46ef3d5ce98",
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+      },
+      "naive_memory": {
+        "data_id": "c6bfc753-f9c4-5711-b0fd-f46ef3d5ce98",
+        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+      }
+    },
+    "doi": "10.1056/nejmc1912185",
+    "ingestion_mode": "deterministic_graph_fallback",
+    "retraction_doi": null,
+    "source": {
+      "doi": "10.1056/nejmc1912185",
+      "journal": "New England Journal of Medicine",
+      "subject": "nutrition/metabolic medicine control",
+      "title": "Vitamin D Supplementation and Prevention of Type 2 Diabetes",
+      "year": 2019
+    },
+    "status": "active"
+  },
+  {
+    "claim_id": "C009",
+    "claim_text": "The active control paper reports that lipoprotein(a) Cholesterol, Randomized Omega-3 Fatty Acid Supplementation, and Cardiovascular Events: Extended Follow-up in the VITamin D and OmegA 3 TriaL.",
+    "cohort": "active_control",
+    "datasets": {
+      "groundtruth_memory": {
+        "data_id": "4d721de0-b238-5daa-afff-6a492dc589bc",
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+      },
+      "naive_memory": {
+        "data_id": "4d721de0-b238-5daa-afff-6a492dc589bc",
+        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+      }
+    },
+    "doi": "10.1016/j.jacl.2025.04.092",
+    "ingestion_mode": "deterministic_graph_fallback",
+    "retraction_doi": null,
+    "source": {
+      "doi": "10.1016/j.jacl.2025.04.092",
+      "journal": "Journal of Clinical Lipidology",
+      "subject": "nutrition/metabolic medicine control",
+      "title": "Lipoprotein(a) Cholesterol, Randomized Omega-3 Fatty Acid Supplementation, and Cardiovascular Events: Extended Follow-up in the VITamin D and OmegA 3 TriaL",
+      "year": 2025
+    },
+    "status": "active"
+  },
+  {
+    "claim_id": "C010",
+    "claim_text": "The active control paper reports that plant-Based Diet Adherence and Type 2 Diabetes Risk Factors.",
+    "cohort": "active_control",
+    "datasets": {
+      "groundtruth_memory": {
+        "data_id": "8f1833d6-f1a6-5a17-bab0-53c083976398",
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+      },
+      "naive_memory": {
+        "data_id": "8f1833d6-f1a6-5a17-bab0-53c083976398",
+        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+      }
+    },
+    "doi": "10.54393/df.v6i2.187",
+    "ingestion_mode": "deterministic_graph_fallback",
+    "retraction_doi": null,
+    "source": {
+      "doi": "10.54393/df.v6i2.187",
+      "journal": "DIET FACTOR (Journal of Nutritional and Food Sciences)",
+      "subject": "nutrition/metabolic medicine control",
+      "title": "Plant-Based Diet Adherence and Type 2 Diabetes Risk Factors",
+      "year": 2025
+    },
+    "status": "active"
+  },
+  {
+    "claim_id": "C011",
+    "claim_text": "The active control paper reports that effects of probiotic supplementation on glycemic control in children with type 1 diabetes: A systematic review and meta-analysis.",
+    "cohort": "active_control",
+    "datasets": {
+      "groundtruth_memory": {
+        "data_id": "e0feccd5-0f24-515d-9900-32c96ad0be08",
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+      },
+      "naive_memory": {
+        "data_id": "e0feccd5-0f24-515d-9900-32c96ad0be08",
+        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+      }
+    },
+    "doi": "10.1177/03000605261443077",
+    "ingestion_mode": "deterministic_graph_fallback",
+    "retraction_doi": null,
+    "source": {
+      "doi": "10.1177/03000605261443077",
+      "journal": "Journal of International Medical Research",
+      "subject": "nutrition/metabolic medicine control",
+      "title": "Effects of probiotic supplementation on glycemic control in children with type 1 diabetes: A systematic review and meta-analysis",
+      "year": 2026
+    },
+    "status": "active"
+  },
+  {
+    "claim_id": "C012",
+    "claim_text": "The active control paper reports that dietary Sodium and Blood Pressure.",
+    "cohort": "active_control",
+    "datasets": {
+      "groundtruth_memory": {
+        "data_id": "eec39b26-e7a8-5064-bd34-eca24c47b414",
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+      },
+      "naive_memory": {
+        "data_id": "eec39b26-e7a8-5064-bd34-eca24c47b414",
+        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+      }
+    },
+    "doi": "10.1001/jama.2024.1907",
+    "ingestion_mode": "deterministic_graph_fallback",
+    "retraction_doi": null,
+    "source": {
+      "doi": "10.1001/jama.2024.1907",
+      "journal": "JAMA",
+      "subject": "nutrition/metabolic medicine control",
+      "title": "Dietary Sodium and Blood Pressure",
+      "year": 2024
+    },
+    "status": "active"
+  },
+  {
+    "claim_id": "C013",
+    "claim_text": "The active control paper reports that nuts reduce risk of cardiovascular disease.",
+    "cohort": "active_control",
+    "datasets": {
+      "groundtruth_memory": {
+        "data_id": "f8069e33-8232-5c12-838d-ec08a41190f6",
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+      },
+      "naive_memory": {
+        "data_id": "f8069e33-8232-5c12-838d-ec08a41190f6",
+        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+      }
+    },
+    "doi": "10.1038/nrcardio.2017.196",
+    "ingestion_mode": "deterministic_graph_fallback",
+    "retraction_doi": null,
+    "source": {
+      "doi": "10.1038/nrcardio.2017.196",
+      "journal": "Nature Reviews Cardiology",
+      "subject": "nutrition/metabolic medicine control",
+      "title": "Nuts reduce risk of cardiovascular disease",
+      "year": 2018
+    },
+    "status": "active"
+  },
+  {
+    "claim_id": "C014",
+    "claim_text": "The active control paper reports that intermittent Fasting in Weight Loss and Cardiometabolic Risk Reduction: A Randomized Controlled Trial.",
+    "cohort": "active_control",
+    "datasets": {
+      "groundtruth_memory": {
+        "data_id": "9faf49c6-0c18-592c-bd01-65731fa1f5cd",
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+      },
+      "naive_memory": {
+        "data_id": "9faf49c6-0c18-592c-bd01-65731fa1f5cd",
+        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+      }
+    },
+    "doi": "10.1097/jnr.0000000000000469",
+    "ingestion_mode": "deterministic_graph_fallback",
+    "retraction_doi": null,
+    "source": {
+      "doi": "10.1097/jnr.0000000000000469",
+      "journal": "Journal of Nursing Research",
+      "subject": "nutrition/metabolic medicine control",
+      "title": "Intermittent Fasting in Weight Loss and Cardiometabolic Risk Reduction: A Randomized Controlled Trial",
+      "year": 2022
+    },
+    "status": "active"
+  },
+  {
+    "claim_id": "C015",
+    "claim_text": "The active control paper reports that dietary Fat and Protein Intake and Their Impact on Glycemic Control in Pediatric Type 1 Diabetes: A Narrative Review.",
+    "cohort": "active_control",
+    "datasets": {
+      "groundtruth_memory": {
+        "data_id": "386a3edb-8fd5-5e04-8d52-c44362b40598",
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+      },
+      "naive_memory": {
+        "data_id": "386a3edb-8fd5-5e04-8d52-c44362b40598",
+        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+      }
+    },
+    "doi": "10.3390/children12121664",
+    "ingestion_mode": "deterministic_graph_fallback",
+    "retraction_doi": null,
+    "source": {
+      "doi": "10.3390/children12121664",
+      "journal": "Children",
+      "subject": "nutrition/metabolic medicine control",
+      "title": "Dietary Fat and Protein Intake and Their Impact on Glycemic Control in Pediatric Type 1 Diabetes: A Narrative Review",
+      "year": 2025
+    },
+    "status": "active"
+  }
+]

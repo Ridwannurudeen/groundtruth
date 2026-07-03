@@ -1,0 +1,41 @@
+[
+  {
+    "claim_id": "R001",
+    "data_id": "b04b6801-fbfe-5b58-b362-c57bad2466ab",
+    "node_count": 5,
+    "node_types": [
+      "DocumentChunk",
+      "ScientificClaim",
+      "Source",
+      "TextDocument",
+      "TextSummary"
+    ],
+    "passed": true
+  },
+  {
+    "claim_id": "R002",
+    "data_id": "d7f6a9a3-2860-5445-b193-d54c7a23466e",
+    "node_count": 5,
+    "node_types": [
+      "DocumentChunk",
+      "ScientificClaim",
+      "Source",
+      "TextDocument",
+      "TextSummary"
+    ],
+    "passed": true
+  },
+  {
+    "claim_id": "R003",
+    "data_id": "5332804b-59c8-5707-a0a7-52a32ae9eeb2",
+    "node_count": 5,
+    "node_types": [
+      "DocumentChunk",
+      "ScientificClaim",
+      "Source",
+      "TextDocument",
+      "TextSummary"
+    ],
+    "passed": true
+  }
+]

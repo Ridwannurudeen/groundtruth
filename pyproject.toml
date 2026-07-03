@@ -1,0 +1,30 @@
+[project]
+name = "groundtruth"
+version = "0.1.0"
+description = "Cognee memory that unlearns retracted science."
+requires-python = ">=3.10,<3.14"
+dependencies = [
+    "cognee[fastembed]==1.2.2",
+    "fastapi",
+    "httpx",
+    "python-dotenv",
+    "uvicorn",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-asyncio",
+]
+
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["groundtruth*"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+pythonpath = ["."]

@@ -20,8 +20,8 @@
 5. **No AI/Claude/Codex attribution** in code, commits, or docs. No Co-Authored-By tags.
 6. **Commit per phase** (small, descriptive commits within a phase are fine). Do not push unless told.
 7. **Tests:** each phase lists its tests. Run them and record real output. pytest, in `tests/`.
-8. **Stack is pinned:** Python 3.10–3.14, `cognee==1.2.2` with its own pins (do NOT override `lancedb` — older lance panics on deletion vectors, which `forget()` creates). Defaults only: **Ladybug** graph store + **LanceDB** vectors + **SQLite** relational. No Neo4j/Postgres/Docker. Python SDK only — never the `cognee-cli -ui` Node frontend.
-9. **LLM/embeddings:** cognee defaults are `openai/gpt-5-mini` + `openai/text-embedding-3-large`, both billed to `LLM_API_KEY`. Keep the defaults.
+8. **Stack is pinned:** Python **3.10–3.13** (fastembed requires `python_version < '3.14'` per `pyproject.toml:138`), install `pip install "cognee[fastembed]==1.2.2"` with its own pins (do NOT override `lancedb` — older lance panics on deletion vectors, which `forget()` creates). Defaults only: **Ladybug** graph store + **LanceDB** vectors + **SQLite** relational. No Neo4j/Postgres/Docker. Python SDK only — never the `cognee-cli -ui` Node frontend.
+9. **LLM/embeddings — FREE stack (primary):** LLM = **Google Gemini free tier** (`LLM_PROVIDER=gemini`, `LLM_MODEL=gemini/gemini-2.5-flash`, key from https://aistudio.google.com/apikey into `LLM_API_KEY` **and** `GEMINI_API_KEY`); embeddings = **local Fastembed** (`EMBEDDING_PROVIDER=fastembed`, `EMBEDDING_MODEL=BAAI/bge-small-en-v1.5`, `EMBEDDING_DIMENSIONS=384`) — no key, no quota. Gemini free tier is **15 req/min**, so `LLM_RATE_LIMIT_ENABLED=true` / `LLM_RATE_LIMIT_REQUESTS=14` are set in `.env` (cognee has a built-in limiter; verified fields at `cognee/infrastructure/llm/config.py:44-70`). All provider config is read from `.env` (pydantic-settings) — do not hardcode. **Fallback = OpenAI** (`openai/gpt-5-mini` + `text-embedding-3-large`) if Gemini structured output proves unreliable; the `.env` has the commented fallback block. The whole build is a few hundred LLM calls — well within Gemini's 1,500/day.
 10. If blocked >3 attempts on one error: stop, write the diagnosis, move on or halt at the gate.
 
 ## Repository layout (target)
@@ -30,7 +30,7 @@
 groundtruth/
 ├── PLAN.md, SPIKE.md            # this plan + the P0 spike spec
 ├── .env.example                 # LLM_API_KEY=, CROSSREF_MAILTO=
-├── pyproject.toml               # deps: cognee==1.2.2, fastapi, uvicorn, httpx, python-dotenv, pytest, pytest-asyncio
+├── pyproject.toml               # deps: cognee[fastembed]==1.2.2, fastapi, uvicorn, httpx, python-dotenv, pytest, pytest-asyncio
 ├── spike/                       # P0 output (run_spike.py, RESULTS.md)
 ├── groundtruth/                 # the package
 │   ├── ontology.py              # P1: Claim/Source DataPoint graph model
@@ -52,6 +52,8 @@ groundtruth/
 ## Phase 0 — The spike (GO/NO-GO gate) — ~half a day
 
 **Execute `SPIKE.md` exactly as written.** It proves the one path no cognee example covers: remember two contradicting claims (one per `remember()` call) → custom memify task writes a `contradicts` edge (stamped into the relational edges ledger so `forget` can clean it) → `forget(data_id=…, memory_only=True)` the superseded claim → the recall answer changes.
+
+**Provider-validation gate (do this FIRST, before the contradiction path):** confirm the free stack actually produces structured output on this corpus. Run one `remember()` of a single claim with the Gemini+Fastembed `.env` and verify (a) Fastembed embeddings index without dimension errors, and (b) `cognify` extracts a non-empty graph (entities/relationships) — i.e. Gemini honored the structured-output schema. If the graph comes back empty or instructor/LiteLLM errors on Gemini, **switch to the OpenAI fallback block in `.env`** (requires ~$5 credit) and note it in `spike/RESULTS.md`. Everything downstream depends on structured output working; settle the provider here, on claim #1, not on day 5.
 
 **Gate:** `spike/RESULTS.md` verdict is `GO` or `GO-WITH-FALLBACK`. On `NO-GO`, stop everything.
 
@@ -187,12 +189,14 @@ Wire thumbs-up/down into the API/UI (Phase 5) and expose `POST /improve`. In the
 
 | # | Item | Used for | Status |
 |---|------|----------|--------|
-| 1 | **`LLM_API_KEY`** — an OpenAI API key | All cognee LLM calls (`gpt-5-mini`) + embeddings (`text-embedding-3-large`) + curation & judge calls. ~$5–15 at this corpus size; set a hard spend limit on the key. | **MISSING — required before P0.** Codex: do not start until it's in `.env`. |
-| 2 | **`CROSSREF_MAILTO`** — contact email | Polite-pool param for the Retraction Watch CSV download (free, no signup) | Provided (in `.env`) |
-| 3 | `COGNEE_API_KEY` | **Not used in self-hosted mode** (Cognee Cloud only). Kept in `.env` in case a Cloud comparison is wanted later; never commit it. | Provided (in `.env`) |
-| 4 | Python 3.10–3.14 on PATH | everything | — |
-| — | *Nothing else.* No other API keys, no databases, no Docker, no paid services. | | |
+| 1 | **Free Gemini API key** → `LLM_API_KEY` + `GEMINI_API_KEY` in `.env` | All cognee LLM calls (`gemini-2.5-flash`) + curation & judge calls. Free tier, no card, from https://aistudio.google.com/apikey | **MISSING — required before P0.** Codex: do not start until it's in `.env`. |
+| 2 | **Fastembed embeddings** (local) | Vector embeddings, no key/quota — `pip install "cognee[fastembed]"` | Configured in `.env`; installs with deps |
+| 3 | **`CROSSREF_MAILTO`** — contact email | Polite-pool param for the Retraction Watch CSV download (free, no signup) | Provided |
+| 4 | Python **3.10–3.13** on PATH (not 3.14 — fastembed) | everything | — |
+| — | **OpenAI key** (`sk-proj-…`) | Fallback only, if Gemini structured output fails. Key is valid but **unfunded** — needs ~$5 credit to use. | In `.env` as commented fallback |
+| — | `COGNEE_API_KEY` | Cognee Cloud only; **unused** in self-hosted mode. | In `.env`, ignored |
+| — | *Nothing else.* No databases, no Docker. Total cost at $0 if Gemini works; ~$5 if we fall back to OpenAI. | | |
 
-Secrets live only in `.env` (gitignored). `.env.example` documents the shape with empty values.
+Secrets live only in `.env` (gitignored, verified). `.env.example` documents the shape with empty values.
 
 Owner-side items outside Codex's scope (later): GitHub repo publish, VPS deploy + subdomain, demo video recording, Google Form submission (all approval-gated to the owner).

@@ -14,11 +14,12 @@ Every API fact below was verified by reading `topoteretes/cognee` source at comm
 
 ## 0. Environment
 
-- Python **3.10–3.14** (hard requirement: `requires-python = ">=3.10,<3.15"`).
-- Fresh venv, then: `pip install cognee==1.2.2`
+- Python **3.10–3.13** (fastembed needs `python_version < '3.14'`).
+- Fresh venv, then: `pip install "cognee[fastembed]==1.2.2"`
 - **Do NOT override the lancedb version** — cognee pins `lancedb>=0.24.3,<1.0.0` because older lance panics on tables with deletion vectors, which `forget()` creates. Let pip resolve it.
 - Defaults need no external services: **Ladybug** graph store (NOT Kuzu — Kuzu was archived upstream) + LanceDB vectors + SQLite relational. Do not configure Neo4j/Postgres for the spike.
-- Env var required: `LLM_API_KEY` = an OpenAI API key (cognee's default provider). Ask the user for it if not set; do not hardcode any key in a file.
+- **Providers come from `.env` (already written): FREE stack = Gemini `gemini-2.5-flash` (LLM) + local Fastembed (embeddings).** Requires a free Gemini key in `LLM_API_KEY`+`GEMINI_API_KEY` (https://aistudio.google.com/apikey). Load `.env` via `python-dotenv` before importing cognee. **Step 0 of the spike:** `remember()` one claim and confirm Fastembed indexes (no dimension error) AND `cognify` returns a non-empty graph (Gemini honored structured output). If that fails, switch to the OpenAI fallback block in `.env` (needs ~$5 credit) and record it. Never hardcode a key in a file.
+- Gemini free tier = 15 req/min; `.env` sets `LLM_RATE_LIMIT_ENABLED=true`/`LLM_RATE_LIMIT_REQUESTS=14`. If you still hit 429s, lower it.
 - Windows note: cognee depends on `python-magic-bin` on Windows (auto-installed). Everything is driven from the Python SDK — do NOT touch `cognee-cli -ui` / the Node frontend.
 - Put the spike in `spike/` in this repo: `spike/run_spike.py` (single script, asyncio) plus at most one helper module. No product scaffolding yet.
 

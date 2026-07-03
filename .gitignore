@@ -3,3 +3,4 @@ __pycache__/
 .env
 *.lance/
 .cognee*/
+.fastembed_cache/

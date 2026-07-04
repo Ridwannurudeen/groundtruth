@@ -36,7 +36,7 @@ RESUMABLE_PROVIDER_ERROR_MARKERS = QUOTA_ERROR_MARKERS + (
 
 
 def configure_runtime() -> None:
-    load_dotenv(ROOT / ".env", override=True)
+    load_dotenv(ROOT / ".env", override=False)
 
     os.environ.setdefault("DATA_ROOT_DIRECTORY", str(LOCAL_RUNTIME_ROOT / "data"))
     os.environ.setdefault("SYSTEM_ROOT_DIRECTORY", str(LOCAL_RUNTIME_ROOT / "system"))
@@ -98,6 +98,15 @@ def configure_gemini_quota_fallback() -> None:
     os.environ.setdefault("LLM_RATE_LIMIT_INTERVAL", "60")
 
 
+def snapshot_runtime_env() -> dict[str, str]:
+    return dict(os.environ)
+
+
+def restore_runtime_env(snapshot: dict[str, str]) -> None:
+    for key, value in snapshot.items():
+        os.environ[key] = value
+
+
 def clear_cognee_config_caches() -> None:
     from cognee.infrastructure.databases.vector.embeddings.config import (
         get_embedding_config,
@@ -124,8 +133,10 @@ def is_resumable_provider_error(error: BaseException) -> bool:
 
 def import_cognee() -> Any:
     configure_runtime()
+    env_snapshot = snapshot_runtime_env()
     import cognee
 
+    restore_runtime_env(env_snapshot)
     configure_runtime()
     clear_cognee_config_caches()
     return cognee

@@ -2,12 +2,15 @@ from __future__ import annotations
 
 from typing import Literal
 
-from groundtruth.runtime import configure_runtime
+from groundtruth.runtime import configure_runtime, restore_runtime_env, snapshot_runtime_env
 
 
 configure_runtime()
+_env_snapshot = snapshot_runtime_env()
 
 from cognee.low_level import DataPoint  # noqa: E402
+
+restore_runtime_env(_env_snapshot)
 
 
 class Source(DataPoint):

@@ -6,6 +6,16 @@ Context that is FINE and must stay:
 - The spike (`spike/RESULTS.md`) is the real proof: Gemini structured output + Fastembed + the contradict→forget→answer-flip path all verified. Leave it.
 - Deterministic Retraction-Watch DOI matching for retractions is CORRECT and honest (a retraction is a fact). Keep it — just reframe wording (FIX-4). Do not replace it with an LLM judge.
 
+## Execution & quota (READ FIRST)
+
+- Work on branch `plan/build-package`. Load `.env` before importing cognee. Provider stack unchanged: Gemini (`gemini-2.5-flash`) + local Fastembed.
+- **The original run stopped at 13/25 because it exhausted the Gemini free-tier daily quota mid-pass.** This WILL happen again. So:
+  1. Make the retraction pass **resumable + idempotent** (FIX-1) — this is mandatory, not optional. Each retracted-cohort claim's forget must be skippable if already done, so re-running continues from the cutoff. Persist progress to `data/claims.json` after every claim (not just at the end), so a mid-run quota 429 loses at most one claim.
+  2. If Gemini returns quota/429 errors, **do NOT fabricate results or mark claims forgotten that weren't.** Stop the pass, write what completed to `docs/RESULTS-FIX.md` (with the count done vs remaining), and exit non-zero. Re-running later resumes.
+  3. An OpenAI fallback block exists commented in `.env` (needs ~$5 credit). Only switch to it if the user has explicitly funded it — do not assume. Otherwise stay on Gemini and rely on resume across quota windows.
+- After the pass completes ALL 25, regenerate the benchmark once (that's the LLM-cheap part — scoring is deterministic; only answer synthesis in FIX-3 costs calls, so do FIX-3 last and keep it small).
+- Report real numbers only. If you cannot finish all 25 within available quota, say so plainly in `docs/RESULTS-FIX.md` and leave the honest partial state — a truthful "22/25 forgotten, resume pending" beats a fake 25.
+
 ---
 
 ## FIX-1 (CRITICAL) — the corpus/metric integrity gap

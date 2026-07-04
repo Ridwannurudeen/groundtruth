@@ -314,6 +314,14 @@ def superseded_references(
     return superseded
 
 
+def contested_references(references: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    return [
+        reference
+        for reference in references
+        if reference.get("belief_state") == "contested"
+    ]
+
+
 def graph_elements_from_edges(edges: list[Any]) -> dict[str, list[str]] | None:
     node_ids = edge_node_ids(edges)
     edge_ids = sorted(
@@ -428,6 +436,18 @@ def answer_text(
             return f"{synthesized_text}\n\n{warning}"
         return warning
 
+    contested = contested_references(references)
+    if contested:
+        reference = contested[0]
+        basis = reference.get("belief_state_basis") or "a contested belief state"
+        warning = (
+            f"{dataset_name} retrieved {reference['doi']}, but the registry marks "
+            f"that source as contested. Basis: {basis}"
+        )
+        if synthesized_text:
+            return f"{synthesized_text}\n\n{warning}"
+        return warning
+
     if synthesized_text:
         return synthesized_text
 
@@ -535,6 +555,10 @@ async def answer(
             if item["reference"].get("doi")
         }
     )
+    contested = contested_references(references)
+    contested_dois = sorted(
+        {reference["doi"] for reference in contested if reference.get("doi")}
+    )
     payload = {
         "question": question,
         "dataset": dataset,
@@ -547,6 +571,8 @@ async def answer(
         "reference_cross_check": reference_cross_check,
         "cites_retracted": bool(retracted_dois),
         "cites_by_state": cites_by_state(references),
+        "cites_contested": bool(contested_dois),
+        "contested_dois": contested_dois,
         "cites_superseded": bool(superseded_dois),
         "superseded_dois": superseded_dois,
         "superseded_references": superseded,

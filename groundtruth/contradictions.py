@@ -300,7 +300,7 @@ async def add_semantic_conflict_edges(
             properties=shared_properties,
         )
     ]
-    if decision.direction == "a_supersedes_b":
+    if decision.direction == "a_supersedes_b" and decision.confidence >= 0.9:
         results.append(
             await add_relationship_edge(
                 cognee,
@@ -312,7 +312,7 @@ async def add_semantic_conflict_edges(
                 properties=shared_properties,
             )
         )
-    elif decision.direction == "b_supersedes_a":
+    elif decision.direction == "b_supersedes_a" and decision.confidence >= 0.9:
         results.append(
             await add_relationship_edge(
                 cognee,

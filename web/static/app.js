@@ -3,6 +3,7 @@ const state = {
   groundtruthQaId: null,
   lastQuestion: "",
   mutationConfirmation: null,
+  contestedItems: [],
 };
 
 const el = {
@@ -24,6 +25,8 @@ const el = {
   metricNaive: document.querySelector("#metricNaive"),
   metricGroundtruth: document.querySelector("#metricGroundtruth"),
   metricControl: document.querySelector("#metricControl"),
+  contestedCount: document.querySelector("#contestedCount"),
+  contestedList: document.querySelector("#contestedList"),
 };
 
 function setBusy(button, busy) {
@@ -34,6 +37,11 @@ function badge(node, result) {
   node.classList.remove("badge-danger", "badge-safe");
   if (result.cites_retracted) {
     node.textContent = "cites retracted";
+    node.classList.add("badge-danger");
+    return;
+  }
+  if ((result.cites_by_state || {}).contested > 0) {
+    node.textContent = "contested citations";
     node.classList.add("badge-danger");
     return;
   }
@@ -57,13 +65,19 @@ function renderRefs(target, references) {
 
     const meta = document.createElement("div");
     meta.className = "ref-meta";
-    meta.textContent = `${reference.claim_id} / ${reference.kind} / ${reference.status}`;
+    meta.textContent = `${reference.claim_id} / ${reference.kind} / ${reference.belief_state}`;
 
     const title = document.createElement("p");
     title.className = "ref-title";
     title.textContent = `${reference.doi} / ${reference.source}`;
 
     item.append(meta, title);
+    if (reference.belief_state_basis) {
+      const basis = document.createElement("p");
+      basis.className = "ref-basis";
+      basis.textContent = reference.belief_state_basis;
+      item.append(basis);
+    }
     target.append(item);
   }
 }
@@ -174,6 +188,83 @@ async function loadState(resetQuestion = false) {
   }
 }
 
+async function loadContested() {
+  const response = await fetch("/contested");
+  if (!response.ok) {
+    throw new Error(await response.text());
+  }
+  const payload = await response.json();
+  state.contestedItems = payload.items || [];
+  renderContested(state.contestedItems);
+}
+
+function renderContested(items) {
+  el.contestedCount.textContent = `${items.length} open`;
+  el.contestedList.replaceChildren();
+  if (!items.length) {
+    const empty = document.createElement("p");
+    empty.className = "contest-empty";
+    empty.textContent = "No contested semantic pairs.";
+    el.contestedList.append(empty);
+    return;
+  }
+
+  for (const item of items) {
+    const card = document.createElement("div");
+    card.className = "contest-item";
+
+    const meta = document.createElement("div");
+    meta.className = "ref-meta";
+    meta.textContent = `${item.pair} / ${item.decision.direction} / ${item.decision.confidence}`;
+
+    const claims = document.createElement("p");
+    claims.className = "ref-title";
+    claims.textContent = item.claims
+      .map((claim) => `${claim.claim_id}: ${claim.title}`)
+      .join(" vs ");
+
+    const basis = document.createElement("p");
+    basis.className = "ref-basis";
+    basis.textContent = item.basis;
+
+    const actions = document.createElement("div");
+    actions.className = "contest-actions";
+    for (const [label, verdict] of [
+      ["No conflict", "none"],
+      ["A supersedes B", "a_supersedes_b"],
+      ["B supersedes A", "b_supersedes_a"],
+      ["Mutual", "mutual"],
+    ]) {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.textContent = label;
+      button.addEventListener("click", () => adjudicate(item.pair, verdict));
+      actions.append(button);
+    }
+
+    card.append(meta, claims, basis, actions);
+    el.contestedList.append(card);
+  }
+}
+
+async function adjudicate(pair, verdict) {
+  try {
+    const result = await postJson("/adjudicate", {
+      pair,
+      verdict,
+      basis: `UI adjudication selected ${verdict}.`,
+      confirm_mutation: state.mutationConfirmation,
+    });
+    addTimeline("adjudicated", `${result.pair} -> ${result.verdict}`);
+    await loadContested();
+    if (state.lastQuestion) {
+      await askBoth();
+    }
+  } catch (error) {
+    addTimeline("error", error.message);
+  }
+}
+
 async function retractSelected() {
   const doi = el.doiSelect.value;
   if (!doi) {
@@ -220,6 +311,7 @@ async function retractSelected() {
       }
     }
     await loadState(false);
+    await loadContested();
     if (selectedQuestion) {
       el.question.value = selectedQuestion;
     }
@@ -275,5 +367,6 @@ el.upvoteButton.addEventListener("click", () => sendFeedback(5));
 el.improveButton.addEventListener("click", improve);
 
 loadState(true)
+  .then(() => loadContested())
   .then(() => askBoth())
   .catch((error) => addTimeline("error", error.message));

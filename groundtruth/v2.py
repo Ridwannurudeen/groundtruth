@@ -18,6 +18,11 @@ from groundtruth.contradictions import (
     judge_semantic_conflict,
     ledger_edges,
 )
+from groundtruth.contest import (
+    mark_auto_superseded,
+    mark_contested,
+    semantic_action,
+)
 from groundtruth.ingest import dataset_id, store_claim_deterministic
 from groundtruth.registry import load_json, write_json
 from groundtruth.runtime import (
@@ -497,14 +502,31 @@ async def write_confirmed_edges(
     edge_rows = []
     for row in rows:
         decision = SemanticConflictDecision(**row["decision"])
-        if not decision.conflicts or decision.confidence < CONFIDENCE_THRESHOLD:
+        action = semantic_action(decision)
+        if action == "log_only":
             continue
         current_pair_key = pair_key(row["claim_a_id"], row["claim_b_id"])
+        state_result = (
+            mark_contested(
+                registry,
+                row,
+                dataset=V2_DATASET,
+                registry_path=V2_REGISTRY_PATH,
+            )
+            if action == "contested"
+            else mark_auto_superseded(
+                registry,
+                row,
+                registry_path=V2_REGISTRY_PATH,
+            )
+        )
         if current_pair_key in existing_pair_keys:
             edge_rows.append(
                 {
                     "pair": [row["claim_a_id"], row["claim_b_id"]],
                     "action": "already_exists",
+                    "semantic_action": action,
+                    "state_result": state_result,
                     "edges": [],
                 }
             )
@@ -514,6 +536,9 @@ async def write_confirmed_edges(
         edge_rows.append(
             {
                 "pair": [row["claim_a_id"], row["claim_b_id"]],
+                "action": "edge_written",
+                "semantic_action": action,
+                "state_result": state_result,
                 "edges": await add_semantic_conflict_edges(
                     cognee,
                     dataset_id=dataset,

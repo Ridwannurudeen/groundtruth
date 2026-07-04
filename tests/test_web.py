@@ -146,6 +146,108 @@ def test_feedback_and_improve_endpoints(monkeypatch) -> None:
     assert improve.json()["session_bridge"] == "skipped_quota_fallback"
 
 
+def test_contested_endpoint_lists_open_pairs(monkeypatch) -> None:
+    monkeypatch.setattr(
+        "web.app.list_contested_pairs",
+        lambda: [
+            {
+                "pair": "V2C003::V2C004",
+                "status": "open",
+                "decision": {
+                    "conflicts": True,
+                    "direction": "mutual",
+                    "basis": "Claims disagree.",
+                    "confidence": 1.0,
+                },
+                "claims": [
+                    {
+                        "claim_id": "V2C003",
+                        "doi": "10.5555/a",
+                        "belief_state": "contested",
+                        "latest_state_change": {"evidence_class": "semantic_inference"},
+                    },
+                    {
+                        "claim_id": "V2C004",
+                        "doi": "10.5555/b",
+                        "belief_state": "contested",
+                        "latest_state_change": {"evidence_class": "semantic_inference"},
+                    },
+                ],
+            }
+        ],
+    )
+
+    response = client.get("/contested")
+
+    assert response.status_code == 200
+    payload = response.json()
+    assert payload["count"] == 1
+    assert payload["items"][0]["pair"] == "V2C003::V2C004"
+    assert (
+        payload["items"][0]["claims"][0]["latest_state_change"]["evidence_class"]
+        == "semantic_inference"
+    )
+
+
+def test_adjudicate_endpoint_requires_mutation_confirmation(monkeypatch) -> None:
+    async def fake_adjudicate(*args, **kwargs):
+        return {"status": "resolved"}
+
+    monkeypatch.setattr("web.app.adjudicate_pair", fake_adjudicate)
+    response = client.post(
+        "/adjudicate",
+        json={"pair": "V2C003::V2C004", "verdict": "none"},
+    )
+
+    assert response.status_code == 409
+    assert "Mutation confirmation required" in response.text
+
+
+def test_adjudicate_endpoint_resolves_pair(monkeypatch) -> None:
+    calls = []
+
+    async def fake_adjudicate(pair, verdict, *, basis=None):
+        calls.append((pair, verdict, basis))
+        return {
+            "pair": pair,
+            "status": "resolved",
+            "verdict": verdict,
+            "state_changes": [
+                {
+                    "claim_id": "V2C003",
+                    "state": "active",
+                    "evidence_class": "user_assertion",
+                    "evidence_ref": f"adjudication:{pair}",
+                }
+            ],
+        }
+
+    monkeypatch.setattr("web.app.adjudicate_pair", fake_adjudicate)
+    response = client.post(
+        "/adjudicate",
+        json={
+            "pair": "V2C003::V2C004",
+            "verdict": "none",
+            "basis": "Endpoint mismatch.",
+            "confirm_mutation": MUTATION_CONFIRMATION,
+        },
+    )
+
+    assert response.status_code == 200
+    payload = response.json()
+    assert calls == [("V2C003::V2C004", "none", "Endpoint mismatch.")]
+    assert payload["state_changes"][0]["evidence_class"] == "user_assertion"
+    assert payload["state_changes"][0]["evidence_ref"] == "adjudication:V2C003::V2C004"
+
+
+def test_index_serves_contested_mount_points() -> None:
+    response = client.get("/")
+
+    assert response.status_code == 200
+    assert 'id="contestedCount"' in response.text
+    assert 'id="contestedList"' in response.text
+
+
 def test_graph_endpoint_serves_html(monkeypatch) -> None:
     async def fake_render_graph_html():
         return "<html><body>graph</body></html>"

@@ -160,7 +160,8 @@ main {
 .query-band,
 .answer-panel,
 .wire-panel,
-.graph-panel {
+.graph-panel,
+.contest-panel {
   border: 1px solid var(--night-line);
   border-radius: 8px;
   background: rgba(20, 16, 11, 0.82);
@@ -217,7 +218,8 @@ select {
 
 .answer-panel,
 .wire-panel,
-.graph-panel {
+.graph-panel,
+.contest-panel {
   min-width: 0;
   padding: 16px;
 }
@@ -271,6 +273,14 @@ select {
   margin: 0;
   color: var(--paper-quiet);
   font-size: 13px;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.ref-basis {
+  margin: 8px 0 0;
+  color: var(--vellum);
+  font-size: 12px;
   line-height: 1.45;
   overflow-wrap: anywhere;
 }
@@ -346,6 +356,42 @@ select {
 .graph-link {
   display: inline-flex;
   align-items: center;
+}
+
+.contest-panel {
+  grid-column: 1 / -1;
+}
+
+.contest-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.contest-empty {
+  margin: 0;
+  color: var(--vellum);
+  font-size: 13px;
+}
+
+.contest-item {
+  padding: 10px;
+  border: 1px solid var(--night-line);
+  border-radius: 6px;
+  background: rgba(14, 10, 6, 0.72);
+}
+
+.contest-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.contest-actions button {
+  min-height: 32px;
+  padding: 0 10px;
+  font-size: 10px;
 }
 
 @media (max-width: 820px) {

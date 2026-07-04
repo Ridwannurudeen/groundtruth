@@ -12,6 +12,7 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
 from groundtruth.answer import answer as answer_question
+from groundtruth.contest import adjudicate_pair, list_contested_pairs
 from groundtruth.feedback import add_feedback, improve_from_feedback
 from groundtruth.ingest import normalize_doi
 from groundtruth.registry import DATASETS, load_claims, load_json, load_seed
@@ -67,6 +68,13 @@ class ImproveRequest(BaseModel):
     dataset: Literal["groundtruth_memory"] = "groundtruth_memory"
     session_ids: list[str] = Field(min_length=1)
     feedback_alpha: float = 1.0
+    confirm_mutation: str | None = None
+
+
+class AdjudicateRequest(BaseModel):
+    pair: str = Field(min_length=1)
+    verdict: Literal["a_supersedes_b", "b_supersedes_a", "mutual", "none"]
+    basis: str | None = None
     confirm_mutation: str | None = None
 
 
@@ -216,6 +224,12 @@ async def state() -> dict[str, Any]:
     }
 
 
+@app.get("/contested")
+async def contested() -> dict[str, Any]:
+    items = list_contested_pairs()
+    return {"count": len(items), "items": items}
+
+
 @app.post("/ask")
 async def ask(request: AskRequest) -> dict[str, Any]:
     return await answer_question(
@@ -295,6 +309,19 @@ async def improve(request: ImproveRequest) -> dict[str, Any]:
         request.session_ids,
         feedback_alpha=request.feedback_alpha,
     )
+
+
+@app.post("/adjudicate")
+async def adjudicate(request: AdjudicateRequest) -> dict[str, Any]:
+    require_mutation_confirmation(request.confirm_mutation)
+    try:
+        return await adjudicate_pair(
+            request.pair,
+            request.verdict,
+            basis=request.basis,
+        )
+    except ValueError as error:
+        raise HTTPException(status_code=404, detail=str(error)) from error
 
 
 @app.get("/graph", response_class=HTMLResponse)

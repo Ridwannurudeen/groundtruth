@@ -1,5 +1,6 @@
 [
   {
+    "belief_state": "superseded",
     "claim_id": "V2C001",
     "claim_text": "Vitamin D3 supplementation at 4000 IU per day does not significantly lower diabetes risk versus placebo in adults at high risk for type 2 diabetes.",
     "cohort": "semantic_conflict",
@@ -19,9 +20,26 @@
       "url": "https://www.nejm.org/doi/full/10.1056/NEJMoa1900906",
       "year": 2019
     },
+    "state_history": [
+      {
+        "at": "2019-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "10.1056/NEJMoa1900906",
+        "state": "active"
+      },
+      {
+        "at": "2026-07-04T21:03:35.457405+00:00",
+        "basis": "Semantic inference for V2C001::V2C002 auto-superseded V2C001 with confidence 0.90; basis: Claim A, a systematic review and meta-analysis published in 2020, synthesizes evidence that Vitamin D supplementation appears to reduce progression to type 2 diabetes in people with prediabetes. Claim B, from a 2019 randomized controlled trial (the D2d study), specifically states that Vitamin D3 supplementation at 4000 IU per day does not significantly lower diabetes risk in adults at high risk. Given that Claim A is a more recent meta-analysis, it likely incorporated the findings of the D2d study (Claim B's source) along with other relevant studies to provide a more comprehensive and statistically robust overall estimate of effect. Therefore, its conclusion, representing a broader synthesis of evidence, supersedes the finding of a single trial, even a large one.",
+        "evidence_class": "semantic_inference",
+        "evidence_ref": "pair:V2C001::V2C002",
+        "state": "superseded"
+      }
+    ],
     "status": "active"
   },
   {
+    "belief_state": "active",
     "claim_id": "V2C002",
     "claim_text": "Vitamin D supplementation appears to reduce progression to type 2 diabetes in people with prediabetes.",
     "cohort": "semantic_conflict",
@@ -41,9 +59,26 @@
       "url": "https://academic.oup.com/jcem/article/105/12/3721/5897217",
       "year": 2020
     },
+    "state_history": [
+      {
+        "at": "2020-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "10.1210/clinem/dgaa607",
+        "state": "active"
+      },
+      {
+        "at": "2026-07-04T21:03:35.457405+00:00",
+        "basis": "Semantic inference for V2C001::V2C002 auto-superseded V2C001 with confidence 0.90; basis: Claim A, a systematic review and meta-analysis published in 2020, synthesizes evidence that Vitamin D supplementation appears to reduce progression to type 2 diabetes in people with prediabetes. Claim B, from a 2019 randomized controlled trial (the D2d study), specifically states that Vitamin D3 supplementation at 4000 IU per day does not significantly lower diabetes risk in adults at high risk. Given that Claim A is a more recent meta-analysis, it likely incorporated the findings of the D2d study (Claim B's source) along with other relevant studies to provide a more comprehensive and statistically robust overall estimate of effect. Therefore, its conclusion, representing a broader synthesis of evidence, supersedes the finding of a single trial, even a large one.",
+        "evidence_class": "semantic_inference",
+        "evidence_ref": "pair:V2C001::V2C002",
+        "state": "active"
+      }
+    ],
     "status": "active"
   },
   {
+    "belief_state": "contested",
     "claim_id": "V2C003",
     "claim_text": "Marine n-3 fatty acid supplementation does not lower the incidence of major cardiovascular events compared with placebo.",
     "cohort": "semantic_conflict",
@@ -63,9 +98,26 @@
       "url": "https://www.nejm.org/doi/full/10.1056/NEJMoa1811403",
       "year": 2019
     },
+    "state_history": [
+      {
+        "at": "2019-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "10.1056/NEJMoa1811403",
+        "state": "active"
+      },
+      {
+        "at": "2026-07-04T21:03:35.457405+00:00",
+        "basis": "Semantic inference for V2C003::V2C004 landed in the contested band (confidence 1.00, direction mutual); basis: Both claims evaluate the effect of marine omega-3 (n-3) fatty acid supplementation on cardiovascular events. Claim A asserts that supplementation lowers the risk for several cardiovascular outcomes (myocardial infarction, coronary heart disease death, cardiovascular disease death, and total cardiovascular disease). Claim B, conversely, states that marine n-3 fatty acid supplementation does not lower the incidence of major cardiovascular events compared with placebo. These are directly contradictory findings regarding the efficacy of marine omega-3 supplementation for cardiovascular disease prevention.",
+        "evidence_class": "semantic_inference",
+        "evidence_ref": "pair:V2C003::V2C004",
+        "state": "contested"
+      }
+    ],
     "status": "active"
   },
   {
+    "belief_state": "contested",
     "claim_id": "V2C004",
     "claim_text": "Marine omega-3 supplementation lowers risk for myocardial infarction, coronary heart disease death, cardiovascular disease death, and total cardiovascular disease.",
     "cohort": "semantic_conflict",
@@ -85,9 +137,26 @@
       "url": "https://www.ahajournals.org/doi/10.1161/JAHA.119.013543",
       "year": 2019
     },
+    "state_history": [
+      {
+        "at": "2019-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "10.1161/JAHA.119.013543",
+        "state": "active"
+      },
+      {
+        "at": "2026-07-04T21:03:35.457405+00:00",
+        "basis": "Semantic inference for V2C003::V2C004 landed in the contested band (confidence 1.00, direction mutual); basis: Both claims evaluate the effect of marine omega-3 (n-3) fatty acid supplementation on cardiovascular events. Claim A asserts that supplementation lowers the risk for several cardiovascular outcomes (myocardial infarction, coronary heart disease death, cardiovascular disease death, and total cardiovascular disease). Claim B, conversely, states that marine n-3 fatty acid supplementation does not lower the incidence of major cardiovascular events compared with placebo. These are directly contradictory findings regarding the efficacy of marine omega-3 supplementation for cardiovascular disease prevention.",
+        "evidence_class": "semantic_inference",
+        "evidence_ref": "pair:V2C003::V2C004",
+        "state": "contested"
+      }
+    ],
     "status": "active"
   },
   {
+    "belief_state": "active",
     "claim_id": "V2C005",
     "claim_text": "Sixteen weeks of probiotic supplementation shows no beneficial effect on glycemic control, lipid profiles, or weight in patients with type 2 diabetes.",
     "cohort": "semantic_conflict",
@@ -107,9 +176,19 @@
       "url": "https://www.frontiersin.org/journals/endocrinology/articles/10.3389/fendo.2024.1440286/full",
       "year": 2024
     },
+    "state_history": [
+      {
+        "at": "2024-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "10.3389/fendo.2024.1440286",
+        "state": "active"
+      }
+    ],
     "status": "active"
   },
   {
+    "belief_state": "active",
     "claim_id": "V2C006",
     "claim_text": "Probiotic interventions can positively modulate glucose control in type 2 diabetes, including HbA1c, insulin, and HOMA-IR at specific intervention windows.",
     "cohort": "semantic_conflict",
@@ -129,9 +208,19 @@
       "url": "https://www.frontiersin.org/journals/endocrinology/articles/10.3389/fendo.2024.1392306/full",
       "year": 2024
     },
+    "state_history": [
+      {
+        "at": "2024-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "10.3389/fendo.2024.1392306",
+        "state": "active"
+      }
+    ],
     "status": "active"
   },
   {
+    "belief_state": "active",
     "claim_id": "V2C007",
     "claim_text": "Reduced dietary sodium lowers blood pressure, and the DASH diet lowers systolic blood pressure at each tested sodium level.",
     "cohort": "semantic_conflict",
@@ -151,9 +240,19 @@
       "url": "https://www.nejm.org/doi/full/10.1056/NEJM200101043440101",
       "year": 2001
     },
+    "state_history": [
+      {
+        "at": "2001-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "10.1056/NEJM200101043440101",
+        "state": "active"
+      }
+    ],
     "status": "active"
   },
   {
+    "belief_state": "active",
     "claim_id": "V2C008",
     "claim_text": "A low-fat dietary pattern does not significantly reduce coronary heart disease, stroke, or overall cardiovascular disease risk.",
     "cohort": "semantic_conflict",
@@ -173,6 +272,15 @@
       "url": "https://jamanetwork.com/journals/jama/fullarticle/202339",
       "year": 2006
     },
+    "state_history": [
+      {
+        "at": "2006-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "10.1001/jama.295.6.655",
+        "state": "active"
+      }
+    ],
     "status": "active"
   }
 ]

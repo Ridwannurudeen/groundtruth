@@ -2,7 +2,12 @@ from __future__ import annotations
 
 import pytest
 
-from groundtruth.answer import answer, rank_graph_references, reference_for_claim
+from groundtruth.answer import (
+    answer,
+    answer_text,
+    rank_graph_references,
+    reference_for_claim,
+)
 
 
 def test_reference_for_claim_uses_ground_truth_cohort() -> None:
@@ -100,3 +105,21 @@ async def test_answer_flags_retracted_sources(retraction_lifecycle):
         reference["kind"] != "original_claim" or not reference["retracted"]
         for reference in groundtruth["references"]
     )
+
+
+def test_contested_warning_uses_reference_belief_state() -> None:
+    references = [
+        {
+            "claim_id": "V2C004",
+            "kind": "original_claim",
+            "doi": "10.2/omega",
+            "data_id": "omega-data-id",
+            "belief_state": "contested",
+            "belief_state_basis": "pair:V2C003::V2C004 is unresolved.",
+        }
+    ]
+
+    text = answer_text("dataset", references)
+
+    assert "contested" in text
+    assert "pair:V2C003::V2C004" in text

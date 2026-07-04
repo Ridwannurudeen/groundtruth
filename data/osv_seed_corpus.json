@@ -1,0 +1,282 @@
+[
+  {
+    "belief_state": "active",
+    "claim_id": "OSV001",
+    "claim_text": "Package jinja2 2.4.1 is safe to recommend for new software projects.",
+    "cohort": "osv_package_claim",
+    "doi": "pkg:pypi/jinja2@2.4.1",
+    "source": {
+      "doi": "pkg:pypi/jinja2@2.4.1",
+      "journal": "PyPI package index",
+      "package": {
+        "ecosystem": "PyPI",
+        "name": "jinja2",
+        "version": "2.4.1"
+      },
+      "title": "jinja2 2.4.1 dependency recommendation",
+      "year": 2010
+    },
+    "state_history": [
+      {
+        "at": "2010-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "pkg:pypi/jinja2@2.4.1",
+        "state": "active"
+      }
+    ],
+    "status": "active"
+  },
+  {
+    "belief_state": "active",
+    "claim_id": "OSV002",
+    "claim_text": "Package PyYAML 5.3.1 is safe to recommend for new software projects.",
+    "cohort": "osv_package_claim",
+    "doi": "pkg:pypi/PyYAML@5.3.1",
+    "source": {
+      "doi": "pkg:pypi/PyYAML@5.3.1",
+      "journal": "PyPI package index",
+      "package": {
+        "ecosystem": "PyPI",
+        "name": "PyYAML",
+        "version": "5.3.1"
+      },
+      "title": "PyYAML 5.3.1 dependency recommendation",
+      "year": 2020
+    },
+    "state_history": [
+      {
+        "at": "2020-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "pkg:pypi/PyYAML@5.3.1",
+        "state": "active"
+      }
+    ],
+    "status": "active"
+  },
+  {
+    "belief_state": "active",
+    "claim_id": "OSV003",
+    "claim_text": "Package urllib3 1.26.5 is safe to recommend for new software projects.",
+    "cohort": "osv_package_claim",
+    "doi": "pkg:pypi/urllib3@1.26.5",
+    "source": {
+      "doi": "pkg:pypi/urllib3@1.26.5",
+      "journal": "PyPI package index",
+      "package": {
+        "ecosystem": "PyPI",
+        "name": "urllib3",
+        "version": "1.26.5"
+      },
+      "title": "urllib3 1.26.5 dependency recommendation",
+      "year": 2021
+    },
+    "state_history": [
+      {
+        "at": "2021-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "pkg:pypi/urllib3@1.26.5",
+        "state": "active"
+      }
+    ],
+    "status": "active"
+  },
+  {
+    "belief_state": "active",
+    "claim_id": "OSV004",
+    "claim_text": "Package lodash 4.17.20 is safe to recommend for new software projects.",
+    "cohort": "osv_package_claim",
+    "doi": "pkg:npm/lodash@4.17.20",
+    "source": {
+      "doi": "pkg:npm/lodash@4.17.20",
+      "journal": "npm package registry",
+      "package": {
+        "ecosystem": "npm",
+        "name": "lodash",
+        "version": "4.17.20"
+      },
+      "title": "lodash 4.17.20 dependency recommendation",
+      "year": 2020
+    },
+    "state_history": [
+      {
+        "at": "2020-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "pkg:npm/lodash@4.17.20",
+        "state": "active"
+      }
+    ],
+    "status": "active"
+  },
+  {
+    "belief_state": "active",
+    "claim_id": "OSV005",
+    "claim_text": "Package minimist 0.0.8 is safe to recommend for new software projects.",
+    "cohort": "osv_package_claim",
+    "doi": "pkg:npm/minimist@0.0.8",
+    "source": {
+      "doi": "pkg:npm/minimist@0.0.8",
+      "journal": "npm package registry",
+      "package": {
+        "ecosystem": "npm",
+        "name": "minimist",
+        "version": "0.0.8"
+      },
+      "title": "minimist 0.0.8 dependency recommendation",
+      "year": 2013
+    },
+    "state_history": [
+      {
+        "at": "2013-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "pkg:npm/minimist@0.0.8",
+        "state": "active"
+      }
+    ],
+    "status": "active"
+  },
+  {
+    "belief_state": "active",
+    "claim_id": "OSV006",
+    "claim_text": "Package packaging 24.2 is safe to recommend for new software projects.",
+    "cohort": "osv_package_claim",
+    "doi": "pkg:pypi/packaging@24.2",
+    "source": {
+      "doi": "pkg:pypi/packaging@24.2",
+      "journal": "PyPI package index",
+      "package": {
+        "ecosystem": "PyPI",
+        "name": "packaging",
+        "version": "24.2"
+      },
+      "title": "packaging 24.2 dependency recommendation",
+      "year": 2024
+    },
+    "state_history": [
+      {
+        "at": "2024-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "pkg:pypi/packaging@24.2",
+        "state": "active"
+      }
+    ],
+    "status": "active"
+  },
+  {
+    "belief_state": "active",
+    "claim_id": "OSV007",
+    "claim_text": "Package click 8.1.8 is safe to recommend for new software projects.",
+    "cohort": "osv_package_claim",
+    "doi": "pkg:pypi/click@8.1.8",
+    "source": {
+      "doi": "pkg:pypi/click@8.1.8",
+      "journal": "PyPI package index",
+      "package": {
+        "ecosystem": "PyPI",
+        "name": "click",
+        "version": "8.1.8"
+      },
+      "title": "click 8.1.8 dependency recommendation",
+      "year": 2024
+    },
+    "state_history": [
+      {
+        "at": "2024-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "pkg:pypi/click@8.1.8",
+        "state": "active"
+      }
+    ],
+    "status": "active"
+  },
+  {
+    "belief_state": "active",
+    "claim_id": "OSV008",
+    "claim_text": "Package six 1.17.0 is safe to recommend for new software projects.",
+    "cohort": "osv_package_claim",
+    "doi": "pkg:pypi/six@1.17.0",
+    "source": {
+      "doi": "pkg:pypi/six@1.17.0",
+      "journal": "PyPI package index",
+      "package": {
+        "ecosystem": "PyPI",
+        "name": "six",
+        "version": "1.17.0"
+      },
+      "title": "six 1.17.0 dependency recommendation",
+      "year": 2024
+    },
+    "state_history": [
+      {
+        "at": "2024-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "pkg:pypi/six@1.17.0",
+        "state": "active"
+      }
+    ],
+    "status": "active"
+  },
+  {
+    "belief_state": "active",
+    "claim_id": "OSV009",
+    "claim_text": "Package h11 0.16.0 is safe to recommend for new software projects.",
+    "cohort": "osv_package_claim",
+    "doi": "pkg:pypi/h11@0.16.0",
+    "source": {
+      "doi": "pkg:pypi/h11@0.16.0",
+      "journal": "PyPI package index",
+      "package": {
+        "ecosystem": "PyPI",
+        "name": "h11",
+        "version": "0.16.0"
+      },
+      "title": "h11 0.16.0 dependency recommendation",
+      "year": 2025
+    },
+    "state_history": [
+      {
+        "at": "2025-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "pkg:pypi/h11@0.16.0",
+        "state": "active"
+      }
+    ],
+    "status": "active"
+  },
+  {
+    "belief_state": "active",
+    "claim_id": "OSV010",
+    "claim_text": "Package is-number 7.0.0 is safe to recommend for new software projects.",
+    "cohort": "osv_package_claim",
+    "doi": "pkg:npm/is-number@7.0.0",
+    "source": {
+      "doi": "pkg:npm/is-number@7.0.0",
+      "journal": "npm package registry",
+      "package": {
+        "ecosystem": "npm",
+        "name": "is-number",
+        "version": "7.0.0"
+      },
+      "title": "is-number 7.0.0 dependency recommendation",
+      "year": 2018
+    },
+    "state_history": [
+      {
+        "at": "2018-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "pkg:npm/is-number@7.0.0",
+        "state": "active"
+      }
+    ],
+    "status": "active"
+  }
+]

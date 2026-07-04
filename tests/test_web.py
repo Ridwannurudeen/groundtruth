@@ -16,7 +16,7 @@ def test_state_exposes_demo_inventory() -> None:
 
     payload = response.json()
     assert payload["datasets"] == ["naive_memory", "groundtruth_memory"]
-    assert payload["benchmark"]["naive_cites_retracted"] == 20
+    assert payload["benchmark"]["naive_cites_retracted"] == 18
     assert payload["benchmark"]["groundtruth_cites_retracted"] == 0
     assert payload["active_retractions"] == []
     assert len(payload["processed_retractions"]) == 25

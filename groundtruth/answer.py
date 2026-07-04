@@ -350,6 +350,36 @@ def reference_ids(references: list[dict[str, Any]]) -> list[str]:
     return [f"{reference['claim_id']}:{reference['kind']}" for reference in references]
 
 
+def rank_graph_references(
+    question: str,
+    references: list[dict[str, Any]],
+    claims: list[dict[str, Any]],
+    *,
+    limit: int = 5,
+) -> list[dict[str, Any]]:
+    claims_by_id = {claim["claim_id"]: claim for claim in claims}
+    ranked = []
+    scored = []
+    for index, reference in enumerate(references):
+        claim = claims_by_id.get(reference["claim_id"])
+        relevance_score = score_claim(question, claim) if claim else 0
+        item = {
+            **reference,
+            "graph_retrieval_rank": reference.get("retrieval_rank"),
+            "graph_relevance_score": relevance_score,
+            "score": relevance_score,
+        }
+        scored.append(item)
+        if relevance_score > 0:
+            ranked.append((relevance_score, index, item))
+
+    if not ranked:
+        return scored[:limit]
+
+    ranked.sort(key=lambda item: (-item[0], item[1]))
+    return [item for _, _, item in ranked[:limit]]
+
+
 async def synthesized_recall(
     cognee: Any,
     question: str,
@@ -461,13 +491,14 @@ async def answer(
         claims,
         memory_ids,
     )
-    references = await references_from_graph_edges(
+    raw_graph_references = await references_from_graph_edges(
         resolved_dataset_id,
         dataset,
         claims,
         memory_ids,
         edges,
     )
+    references = rank_graph_references(question, raw_graph_references, claims)
     synthesized_text = (
         await synthesized_recall(
             cognee,
@@ -485,9 +516,10 @@ async def answer(
     graph_elements = graph_elements_from_edges(edges)
     recall_context = str(search_results[0].get("context_result") or "")
     reference_cross_check = {
-        "retrieved_graph_references": reference_ids(references),
+        "retrieved_graph_references": reference_ids(raw_graph_references),
+        "ranked_graph_references": reference_ids(references),
         "deterministic_membership_references": reference_ids(deterministic_references),
-        "disagreement": reference_ids(references)
+        "disagreement": reference_ids(raw_graph_references)
         != reference_ids(deterministic_references),
     }
     reference_edges = await relationship_edges_for_references(
@@ -507,6 +539,7 @@ async def answer(
         "dataset_id": str(resolved_dataset_id),
         "text": answer_text(dataset, references, synthesized_text, superseded),
         "references": references,
+        "raw_graph_references": raw_graph_references,
         "reference_edges": reference_edges,
         "deterministic_references": deterministic_references,
         "reference_cross_check": reference_cross_check,

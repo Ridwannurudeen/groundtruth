@@ -1,6 +1,6 @@
 # GroundTruth V2 Results
 
-Generated: 2026-07-04T18:07:44.103236+00:00
+Generated: 2026-07-04T19:08:28.114967+00:00
 Status: `partial_quota_stop`
 
 ## Baseline Before V2
@@ -427,7 +427,7 @@ The pass stopped on a quota/rate-limit error. Cached judgments and ingested clai
     litellm.RateLimitError: litellm.RateLimitError: geminiException - {
   "error": {
     "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 16.542371508s.",
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 32.661290023s.",
     "status": "RESOURCE_EXHAUSTED",
     "details": [
       {

@@ -607,6 +607,10 @@ def answer_probe_summary(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
     return summary
 
 
+def clean_text_block(text: str) -> str:
+    return "\n".join(line.rstrip() for line in text.splitlines())
+
+
 def write_results_doc(payload: dict[str, Any]) -> None:
     payload = compact_json(payload)
     lines = [
@@ -679,7 +683,7 @@ def write_results_doc(payload: dict[str, Any]) -> None:
                 "The pass stopped on a quota/rate-limit error. Cached judgments and ingested claims were preserved for resume.",
                 "",
                 "```text",
-                payload["quota_error"],
+                clean_text_block(payload["quota_error"]),
                 "```",
                 "",
             ]
@@ -692,7 +696,7 @@ def write_results_doc(payload: dict[str, Any]) -> None:
                 "The pass stopped on a provider/API connectivity error. Cached judgments and ingested claims were preserved for resume.",
                 "",
                 "```text",
-                payload["provider_error"],
+                clean_text_block(payload["provider_error"]),
                 "```",
                 "",
             ]

@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import pytest
 
-from groundtruth.answer import answer, reference_for_claim
+from groundtruth.answer import answer, rank_graph_references, reference_for_claim
 
 
 def test_reference_for_claim_uses_ground_truth_cohort() -> None:
@@ -26,6 +26,43 @@ def test_reference_for_claim_uses_ground_truth_cohort() -> None:
 
     assert reference["retracted"] is True
     assert reference["cohort"] == "retracted_original"
+
+
+def test_rank_graph_references_filters_full_graph_noise() -> None:
+    claims = [
+        {
+            "claim_id": "V2C004",
+            "claim_text": "Marine omega-3 supplementation lowers cardiovascular disease risk.",
+            "doi": "10.2/omega",
+            "source": {
+                "title": "Marine Omega-3 Supplementation and Cardiovascular Disease",
+                "journal": "Journal",
+            },
+        },
+        {
+            "claim_id": "V2C007",
+            "claim_text": "Reduced dietary sodium lowers blood pressure.",
+            "doi": "10.2/sodium",
+            "source": {
+                "title": "Reduced Dietary Sodium and Blood Pressure",
+                "journal": "Journal",
+            },
+        },
+    ]
+    references = [
+        {"claim_id": "V2C007", "kind": "original_claim", "retrieval_rank": 1},
+        {"claim_id": "V2C004", "kind": "original_claim", "retrieval_rank": 2},
+    ]
+
+    ranked = rank_graph_references(
+        "Should omega-3 supplementation reduce cardiovascular disease events?",
+        references,
+        claims,
+    )
+
+    assert [reference["claim_id"] for reference in ranked] == ["V2C004"]
+    assert ranked[0]["graph_retrieval_rank"] == 2
+    assert ranked[0]["graph_relevance_score"] > 0
 
 
 @pytest.mark.asyncio

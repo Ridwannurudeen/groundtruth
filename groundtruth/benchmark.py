@@ -27,9 +27,10 @@ BENCHMARK_DOC_PATH = DOCS_DIR / "BENCHMARK.md"
 RESULTS_FIX_PATH = DOCS_DIR / "RESULTS-FIX.md"
 V2_RESULTS_PATH = DATA_DIR / "v2_results.json"
 METRIC_DEFINITION = (
-    "The headline metric is the fraction of answers whose Cognee GRAPH_COMPLETION "
-    "retrieved graph context includes a still-present original claim from "
-    '`cohort == "retracted_original"`.'
+    "The headline metric is the fraction of answers whose relevance-ranked "
+    "Cognee GRAPH_COMPLETION references include a still-present original claim "
+    'from `cohort == "retracted_original"`. Raw graph references remain in '
+    "the JSON for audit."
 )
 
 
@@ -451,7 +452,7 @@ def write_benchmark_doc(payload: dict[str, Any]) -> None:
             f"{progress['retracted_cohort_total']} retracted-cohort originals forgotten "
             "from GroundTruth memory."
         ),
-        "- Correctness judge: skipped with disclosure; the primary metric is retrieved graph context containing a still-present retracted original.",
+        "- Correctness judge: skipped with disclosure; the primary metric is relevance-ranked graph references containing a still-present retracted original.",
         *v2_addendum_lines(),
         "",
         "## Metric Definition",

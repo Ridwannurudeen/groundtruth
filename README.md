@@ -9,7 +9,7 @@
   <p>
     <a href="#quickstart"><img alt="Python" src="https://img.shields.io/badge/python-3.10--3.13-1A1208"></a>
     <a href="https://github.com/topoteretes/cognee"><img alt="Cognee" src="https://img.shields.io/badge/cognee-1.2.2-B8893A"></a>
-    <a href="docs/BENCHMARK.md"><img alt="Benchmark" src="https://img.shields.io/badge/benchmark-17%2F20_vs_0%2F20-B83A3A"></a>
+    <a href="docs/BENCHMARK.md"><img alt="Benchmark" src="https://img.shields.io/badge/benchmark-19%2F20_vs_0%2F20-B83A3A"></a>
     <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/license-MIT-6B5A3D"></a>
   </p>
   <p>
@@ -103,6 +103,15 @@ $env:PYTHONIOENCODING='utf-8'; .\.venv\Scripts\python.exe -m groundtruth.benchma
 Results are written to [docs/BENCHMARK.md](docs/BENCHMARK.md) and
 [data/benchmark_results.json](data/benchmark_results.json).
 
+The V2 semantic conflict pass is separate from the retraction-forgetting metric:
+
+```powershell
+$env:PYTHONIOENCODING='utf-8'; .\.venv\Scripts\python.exe -m groundtruth.v2
+```
+
+Results are written to [docs/RESULTS-V2.md](docs/RESULTS-V2.md) and
+[data/v2_results.json](data/v2_results.json).
+
 ### Demo UI
 
 ```powershell
@@ -168,12 +177,13 @@ groundtruth/
 | 4 | [docs/BENCHMARK.md](docs/BENCHMARK.md) | 19/20 naive vs 0/20 GroundTruth |
 | 5 | [docs/DEMO.md](docs/DEMO.md) | local UI, live retraction, graph route |
 | 6 | [docs/RESULTS-P6.md](docs/RESULTS-P6.md) | final tests and package checks |
+| V2 | [docs/RESULTS-V2.md](docs/RESULTS-V2.md) | semantic conflict precision 1.00, recall 1.00 |
 
 ## Limitations
 
 - The LLM correctness judge is skipped in the benchmark because Gemini free-tier quota was exhausted; the primary metric is retrieved graph context containing a still-present `cohort == "retracted_original"` original.
 - All 25 retracted-cohort originals are forgotten from GroundTruth memory; all 15 active controls remain present in both memories.
-- The retraction decision path uses the deterministic Retraction Watch DOI match fallback rather than an LLM contradiction judge.
+- The retraction decision path uses the deterministic Retraction Watch DOI match fallback rather than an LLM contradiction judge; semantic conflict detection is reported separately in the V2 results.
 - `/graph` shows Cognee's global memory-provenance graph, not answer-level provenance. Answer-level provenance is the reference list returned by `/ask`.
 - Live `/retract` mutates `data/claims.json` and the local Cognee runtime. Use a fresh ingest to reset the demo.
 - There is no hosted public demo in this repo; the local FastAPI app is the submission-ready demo surface.

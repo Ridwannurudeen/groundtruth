@@ -1,0 +1,178 @@
+[
+  {
+    "claim_id": "V2C001",
+    "claim_text": "Vitamin D3 supplementation at 4000 IU per day does not significantly lower diabetes risk versus placebo in adults at high risk for type 2 diabetes.",
+    "cohort": "semantic_conflict",
+    "datasets": {
+      "groundtruth_v2_semantic_memory": {
+        "data_id": "ad55037e-b445-55cf-8acc-2c18a91c9c1b",
+        "dataset_id": "fe16f431-f6ae-5d5e-b102-b7b0e16ad8bf"
+      }
+    },
+    "doi": "10.1056/NEJMoa1900906",
+    "ingestion_mode": "v2_semantic_deterministic_graph",
+    "source": {
+      "doi": "10.1056/NEJMoa1900906",
+      "journal": "New England Journal of Medicine",
+      "subject": "vitamin D and type 2 diabetes prevention",
+      "title": "Vitamin D Supplementation and Prevention of Type 2 Diabetes",
+      "url": "https://www.nejm.org/doi/full/10.1056/NEJMoa1900906",
+      "year": 2019
+    },
+    "status": "active"
+  },
+  {
+    "claim_id": "V2C002",
+    "claim_text": "Vitamin D supplementation appears to reduce progression to type 2 diabetes in people with prediabetes.",
+    "cohort": "semantic_conflict",
+    "datasets": {
+      "groundtruth_v2_semantic_memory": {
+        "data_id": "a0e2cf45-9385-5d6d-8727-b021ba7cbf8d",
+        "dataset_id": "fe16f431-f6ae-5d5e-b102-b7b0e16ad8bf"
+      }
+    },
+    "doi": "10.1210/clinem/dgaa607",
+    "ingestion_mode": "v2_semantic_deterministic_graph",
+    "source": {
+      "doi": "10.1210/clinem/dgaa607",
+      "journal": "Journal of Clinical Endocrinology and Metabolism",
+      "subject": "vitamin D and type 2 diabetes prevention",
+      "title": "Vitamin D Supplementation for Prevention of Type 2 Diabetes Mellitus",
+      "url": "https://academic.oup.com/jcem/article/105/12/3721/5897217",
+      "year": 2020
+    },
+    "status": "active"
+  },
+  {
+    "claim_id": "V2C003",
+    "claim_text": "Marine n-3 fatty acid supplementation does not lower the incidence of major cardiovascular events compared with placebo.",
+    "cohort": "semantic_conflict",
+    "datasets": {
+      "groundtruth_v2_semantic_memory": {
+        "data_id": "c82e05d1-0ba4-596b-bde2-e320488f31e4",
+        "dataset_id": "fe16f431-f6ae-5d5e-b102-b7b0e16ad8bf"
+      }
+    },
+    "doi": "10.1056/NEJMoa1811403",
+    "ingestion_mode": "v2_semantic_deterministic_graph",
+    "source": {
+      "doi": "10.1056/NEJMoa1811403",
+      "journal": "New England Journal of Medicine",
+      "subject": "omega-3 supplementation and cardiovascular events",
+      "title": "Marine n-3 Fatty Acids and Prevention of Cardiovascular Disease and Cancer",
+      "url": "https://www.nejm.org/doi/full/10.1056/NEJMoa1811403",
+      "year": 2019
+    },
+    "status": "active"
+  },
+  {
+    "claim_id": "V2C004",
+    "claim_text": "Marine omega-3 supplementation lowers risk for myocardial infarction, coronary heart disease death, cardiovascular disease death, and total cardiovascular disease.",
+    "cohort": "semantic_conflict",
+    "datasets": {
+      "groundtruth_v2_semantic_memory": {
+        "data_id": "f11ad17a-7d73-519d-a3a0-cd63a2f6d047",
+        "dataset_id": "fe16f431-f6ae-5d5e-b102-b7b0e16ad8bf"
+      }
+    },
+    "doi": "10.1161/JAHA.119.013543",
+    "ingestion_mode": "v2_semantic_deterministic_graph",
+    "source": {
+      "doi": "10.1161/JAHA.119.013543",
+      "journal": "Journal of the American Heart Association",
+      "subject": "omega-3 supplementation and cardiovascular events",
+      "title": "Marine Omega-3 Supplementation and Cardiovascular Disease",
+      "url": "https://www.ahajournals.org/doi/10.1161/JAHA.119.013543",
+      "year": 2019
+    },
+    "status": "active"
+  },
+  {
+    "claim_id": "V2C005",
+    "claim_text": "Sixteen weeks of probiotic supplementation shows no beneficial effect on glycemic control, lipid profiles, or weight in patients with type 2 diabetes.",
+    "cohort": "semantic_conflict",
+    "datasets": {
+      "groundtruth_v2_semantic_memory": {
+        "data_id": "a10c2a54-bc40-5899-ace5-f11680b078b7",
+        "dataset_id": "fe16f431-f6ae-5d5e-b102-b7b0e16ad8bf"
+      }
+    },
+    "doi": "10.3389/fendo.2024.1440286",
+    "ingestion_mode": "v2_semantic_deterministic_graph",
+    "source": {
+      "doi": "10.3389/fendo.2024.1440286",
+      "journal": "Frontiers in Endocrinology",
+      "subject": "probiotics and glycemic control",
+      "title": "Effect of probiotics on glycemic control and lipid profiles in patients with type 2 diabetes",
+      "url": "https://www.frontiersin.org/journals/endocrinology/articles/10.3389/fendo.2024.1440286/full",
+      "year": 2024
+    },
+    "status": "active"
+  },
+  {
+    "claim_id": "V2C006",
+    "claim_text": "Probiotic interventions can positively modulate glucose control in type 2 diabetes, including HbA1c, insulin, and HOMA-IR at specific intervention windows.",
+    "cohort": "semantic_conflict",
+    "datasets": {
+      "groundtruth_v2_semantic_memory": {
+        "data_id": "0c1ad036-0875-5203-bdcb-c39429572f54",
+        "dataset_id": "fe16f431-f6ae-5d5e-b102-b7b0e16ad8bf"
+      }
+    },
+    "doi": "10.3389/fendo.2024.1392306",
+    "ingestion_mode": "v2_semantic_deterministic_graph",
+    "source": {
+      "doi": "10.3389/fendo.2024.1392306",
+      "journal": "Frontiers in Endocrinology",
+      "subject": "probiotics and glycemic control",
+      "title": "Effect of probiotics at different intervention time on glycemic control in patients with type 2 diabetes",
+      "url": "https://www.frontiersin.org/journals/endocrinology/articles/10.3389/fendo.2024.1392306/full",
+      "year": 2024
+    },
+    "status": "active"
+  },
+  {
+    "claim_id": "V2C007",
+    "claim_text": "Reduced dietary sodium lowers blood pressure, and the DASH diet lowers systolic blood pressure at each tested sodium level.",
+    "cohort": "semantic_conflict",
+    "datasets": {
+      "groundtruth_v2_semantic_memory": {
+        "data_id": "b52def3d-ece4-5a9e-b1b4-d5f56b0a3111",
+        "dataset_id": "fe16f431-f6ae-5d5e-b102-b7b0e16ad8bf"
+      }
+    },
+    "doi": "10.1056/NEJM200101043440101",
+    "ingestion_mode": "v2_semantic_deterministic_graph",
+    "source": {
+      "doi": "10.1056/NEJM200101043440101",
+      "journal": "New England Journal of Medicine",
+      "subject": "dietary sodium and blood pressure",
+      "title": "Effects on Blood Pressure of Reduced Dietary Sodium and the Dietary Approaches to Stop Hypertension (DASH) Diet",
+      "url": "https://www.nejm.org/doi/full/10.1056/NEJM200101043440101",
+      "year": 2001
+    },
+    "status": "active"
+  },
+  {
+    "claim_id": "V2C008",
+    "claim_text": "A low-fat dietary pattern does not significantly reduce coronary heart disease, stroke, or overall cardiovascular disease risk.",
+    "cohort": "semantic_conflict",
+    "datasets": {
+      "groundtruth_v2_semantic_memory": {
+        "data_id": "bc9738a0-f540-53cc-9332-e9cb0be92aaf",
+        "dataset_id": "fe16f431-f6ae-5d5e-b102-b7b0e16ad8bf"
+      }
+    },
+    "doi": "10.1001/jama.295.6.655",
+    "ingestion_mode": "v2_semantic_deterministic_graph",
+    "source": {
+      "doi": "10.1001/jama.295.6.655",
+      "journal": "JAMA",
+      "subject": "low-fat dietary pattern and cardiovascular disease",
+      "title": "Low-Fat Dietary Pattern and Risk of Cardiovascular Disease",
+      "url": "https://jamanetwork.com/journals/jama/fullarticle/202339",
+      "year": 2006
+    },
+    "status": "active"
+  }
+]

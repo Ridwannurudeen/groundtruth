@@ -1,0 +1,74 @@
+{
+  "V2C001::V2C002": {
+    "claim_a_id": "V2C001",
+    "claim_b_id": "V2C002",
+    "decision": {
+      "basis": "Claim A states that vitamin D3 supplementation does not significantly lower diabetes risk in high-risk adults, while Claim B suggests that vitamin D supplementation reduces progression to type 2 diabetes in people with prediabetes. The populations (high-risk adults vs. people with prediabetes) and the outcomes (diabetes risk vs. progression to type 2 diabetes) are not identical, leading to a potential conflict in interpretation or specific application of findings. However, both claims address the effect of vitamin D supplementation on diabetes risk.",
+      "confidence": 0.7,
+      "conflicts": true,
+      "direction": "mutual"
+    },
+    "generated_at": "2026-07-04T15:47:07.993169+00:00",
+    "judge": "LLMGateway.acreate_structured_output"
+  },
+  "V2C001::V2C007": {
+    "claim_a_id": "V2C001",
+    "claim_b_id": "V2C007",
+    "decision": {
+      "basis": "The claims address completely different interventions (Vitamin D3 supplementation vs. dietary sodium and DASH diet) and outcomes (diabetes risk vs. blood pressure). There is no overlap or contradiction between them.",
+      "confidence": 1.0,
+      "conflicts": false,
+      "direction": "none"
+    },
+    "generated_at": "2026-07-04T15:47:12.668262+00:00",
+    "judge": "LLMGateway.acreate_structured_output"
+  },
+  "V2C003::V2C004": {
+    "claim_a_id": "V2C003",
+    "claim_b_id": "V2C004",
+    "decision": {
+      "basis": "Claim B states that marine omega-3 supplementation lowers risk for myocardial infarction, coronary heart disease death, cardiovascular disease death, and total cardiovascular disease, directly contradicting Claim A, which states that marine n-3 fatty acid supplementation does not lower the incidence of major cardiovascular events. The DOI for Claim B (10.1161/JAHA.119.013543) is a more recent publication than Claim A (10.1056/NEJMoa1811403), suggesting it might contain updated or more comprehensive findings.",
+      "confidence": 1.0,
+      "conflicts": true,
+      "direction": "b_supersedes_a"
+    },
+    "generated_at": "2026-07-04T15:47:09.508569+00:00",
+    "judge": "LLMGateway.acreate_structured_output"
+  },
+  "V2C004::V2C008": {
+    "claim_a_id": "V2C004",
+    "claim_b_id": "V2C008",
+    "decision": {
+      "basis": "The claims address different interventions: marine omega-3 supplementation (Claim A) and low-fat dietary patterns (Claim B). There is no direct contradiction as they do not make incompatible assertions about the same intervention, population, outcome, or mechanism.",
+      "confidence": 1.0,
+      "conflicts": false,
+      "direction": "none"
+    },
+    "generated_at": "2026-07-04T15:47:13.749701+00:00",
+    "judge": "LLMGateway.acreate_structured_output"
+  },
+  "V2C005::V2C006": {
+    "claim_a_id": "V2C005",
+    "claim_b_id": "V2C006",
+    "decision": {
+      "basis": "Claim A asserts no beneficial effect of probiotic supplementation on glycemic control in patients with type 2 diabetes, while Claim B states that probiotic interventions can positively modulate glucose control in the same population. The claims directly contradict each other regarding the efficacy of probiotics for glycemic control in type 2 diabetes.",
+      "confidence": 0.9,
+      "conflicts": true,
+      "direction": "mutual"
+    },
+    "generated_at": "2026-07-04T15:47:11.389477+00:00",
+    "judge": "LLMGateway.acreate_structured_output"
+  },
+  "V2C007::V2C008": {
+    "claim_a_id": "V2C007",
+    "claim_b_id": "V2C008",
+    "decision": {
+      "basis": "The claims are about different dietary interventions (sodium/DASH vs. low-fat) and different outcomes (blood pressure vs. cardiovascular disease risk).",
+      "confidence": 1.0,
+      "conflicts": false,
+      "direction": "none"
+    },
+    "generated_at": "2026-07-04T15:47:24.548175+00:00",
+    "judge": "LLMGateway.acreate_structured_output"
+  }
+}

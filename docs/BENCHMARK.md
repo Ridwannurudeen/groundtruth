@@ -10,6 +10,27 @@ Generated: 2026-07-04T13:35:27.294840+00:00
 - Retraction coverage: 25/25 retracted-cohort originals forgotten from GroundTruth memory.
 - Correctness judge: skipped with disclosure; the primary metric is retrieved graph context containing a still-present retracted original.
 
+## V2 Semantic Conflict Addendum
+
+The FIX retraction metric above remains the benchmark headline: 19/20 naive
+answers retrieved retracted originals, versus 0/20 GroundTruth answers.
+
+The V2 semantic conflict pass is a separate graph-conflict eval over concrete
+non-retracted claims. It completed with live structured LLM judgments and no
+quota stop:
+
+- Evaluated pairs: 6.
+- True positives: 3.
+- True negatives: 3.
+- False positives: 0.
+- False negatives: 0.
+- Precision: 1.00.
+- Recall: 1.00.
+- Graph-aware answer probes: 3/3 completed, 3/3 surfaced conflicted graph references.
+
+Full V2 output: [docs/RESULTS-V2.md](RESULTS-V2.md) and
+`data/v2_results.json`.
+
 ## Metric Definition
 
 The headline metric is the fraction of answers whose Cognee GRAPH_COMPLETION retrieved graph context includes a still-present original claim from `cohort == "retracted_original"`.

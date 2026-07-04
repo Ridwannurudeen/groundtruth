@@ -6,7 +6,7 @@ from pathlib import Path
 from typing import Any
 from uuid import UUID
 
-from groundtruth.contradictions import ledger_nodes, memory_data_ids
+from groundtruth.contradictions import ledger_edges_for_node, ledger_nodes, memory_data_ids
 from groundtruth.registry import CLAIMS_PATH, load_claims
 from groundtruth.runtime import import_cognee
 
@@ -226,6 +226,76 @@ async def references_from_graph_edges(
     return references
 
 
+async def relationship_edges_for_references(
+    dataset_id: UUID,
+    references: list[dict[str, Any]],
+) -> dict[str, list[dict[str, Any]]]:
+    from cognee.infrastructure.databases.graph import get_graph_engine
+
+    graph_engine = await get_graph_engine()
+    relationships = {"contradicts", "supersedes", "superseded_by"}
+    by_reference: dict[str, list[dict[str, Any]]] = {}
+    for reference in references:
+        reference_key = f"{reference['claim_id']}:{reference['kind']}"
+        reference_edges: list[dict[str, Any]] = []
+        for node in await ledger_nodes(dataset_id, UUID(reference["data_id"])):
+            graph_edges = await graph_engine.get_edges(str(node.slug))
+            for source_node, relationship_name, target_node in graph_edges:
+                if relationship_name in relationships:
+                    reference_edges.append(
+                        {
+                            "source_node": source_node,
+                            "relationship_name": relationship_name,
+                            "target_node": target_node,
+                            "origin": "graph_engine.get_edges",
+                        }
+                    )
+            for ledger_edge in await ledger_edges_for_node(dataset_id, node.slug, relationships):
+                reference_edges.append(
+                    {
+                        "source_node_id": str(ledger_edge.source_node_id),
+                        "destination_node_id": str(ledger_edge.destination_node_id),
+                        "relationship_name": ledger_edge.relationship_name,
+                        "attributes": ledger_edge.attributes or {},
+                        "origin": "ledger_edges",
+                    }
+                )
+        by_reference[reference_key] = reference_edges
+    return by_reference
+
+
+def superseded_references(
+    references: list[dict[str, Any]],
+    reference_edges: dict[str, list[dict[str, Any]]],
+) -> list[dict[str, Any]]:
+    superseded = []
+    for reference in references:
+        reference_key = f"{reference['claim_id']}:{reference['kind']}"
+        edges = reference_edges.get(reference_key, [])
+        for edge in edges:
+            relationship_name = edge["relationship_name"]
+            attributes = edge.get("attributes") or {}
+            reference_data_id = reference["data_id"]
+            target_data_id = attributes.get("target_data_id")
+            if relationship_name == "supersedes" and target_data_id == reference_data_id:
+                superseded.append(
+                    {
+                        "reference": reference,
+                        "edge": edge,
+                        "basis": attributes.get("basis") or attributes.get("rationale"),
+                    }
+                )
+            elif relationship_name in {"contradicts", "superseded_by"} and target_data_id == reference_data_id:
+                superseded.append(
+                    {
+                        "reference": reference,
+                        "edge": edge,
+                        "basis": attributes.get("basis") or attributes.get("rationale"),
+                    }
+                )
+    return superseded
+
+
 def graph_elements_from_edges(edges: list[Any]) -> dict[str, list[str]] | None:
     node_ids = edge_node_ids(edges)
     edge_ids = sorted(
@@ -291,12 +361,27 @@ def answer_text(
     dataset_name: str,
     references: list[dict[str, Any]],
     synthesized_text: str | None = None,
+    superseded: list[dict[str, Any]] | None = None,
 ) -> str:
-    if synthesized_text:
-        return synthesized_text
-
     if not references:
         return "No matching remembered source was found for this question."
+
+    if superseded:
+        first = superseded[0]
+        reference = first["reference"]
+        relationship = first["edge"]["relationship_name"]
+        state = "superseded" if relationship == "supersedes" else "conflicted"
+        basis = first.get("basis") or "a graph supersession edge"
+        warning = (
+            f"{dataset_name} retrieved {reference['doi']}, but the graph marks that "
+            f"source as {state} via `{relationship}`. Basis: {basis}"
+        )
+        if synthesized_text:
+            return f"{synthesized_text}\n\n{warning}"
+        return warning
+
+    if synthesized_text:
+        return synthesized_text
 
     cited_retracted = [reference for reference in references if reference["retracted"]]
     notices = [reference for reference in references if reference["kind"] == "retraction_notice"]
@@ -384,15 +469,24 @@ async def answer(
         "deterministic_membership_references": reference_ids(deterministic_references),
         "disagreement": reference_ids(references) != reference_ids(deterministic_references),
     }
+    reference_edges = await relationship_edges_for_references(resolved_dataset_id, references)
+    superseded = superseded_references(references, reference_edges)
+    superseded_dois = sorted(
+        {item["reference"]["doi"] for item in superseded if item["reference"].get("doi")}
+    )
     payload = {
         "question": question,
         "dataset": dataset,
         "dataset_id": str(resolved_dataset_id),
-        "text": answer_text(dataset, references, synthesized_text),
+        "text": answer_text(dataset, references, synthesized_text, superseded),
         "references": references,
+        "reference_edges": reference_edges,
         "deterministic_references": deterministic_references,
         "reference_cross_check": reference_cross_check,
         "cites_retracted": bool(retracted_dois),
+        "cites_superseded": bool(superseded_dois),
+        "superseded_dois": superseded_dois,
+        "superseded_references": superseded,
         "retracted_dois": retracted_dois,
         "recall_mode": "GRAPH_COMPLETION only_context=True verbose graph references",
         "synthesis_mode": (

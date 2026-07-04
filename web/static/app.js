@@ -4,6 +4,7 @@ const state = {
   lastQuestion: "",
   mutationConfirmation: null,
   contestedItems: [],
+  briefing: null,
 };
 
 const el = {
@@ -27,6 +28,11 @@ const el = {
   metricControl: document.querySelector("#metricControl"),
   contestedCount: document.querySelector("#contestedCount"),
   contestedList: document.querySelector("#contestedList"),
+  briefingGeneratedAt: document.querySelector("#briefingGeneratedAt"),
+  briefingLearned: document.querySelector("#briefingLearned"),
+  briefingContested: document.querySelector("#briefingContested"),
+  briefingRevised: document.querySelector("#briefingRevised"),
+  briefingPurged: document.querySelector("#briefingPurged"),
 };
 
 function setBusy(button, busy) {
@@ -198,6 +204,61 @@ async function loadContested() {
   renderContested(state.contestedItems);
 }
 
+async function loadBriefing() {
+  const response = await fetch("/briefing");
+  if (!response.ok) {
+    throw new Error(await response.text());
+  }
+  const payload = await response.json();
+  state.briefing = payload;
+  renderBriefing(payload);
+}
+
+function renderBriefingItem(item) {
+  const card = document.createElement("div");
+  card.className = "briefing-item";
+
+  const meta = document.createElement("div");
+  meta.className = "ref-meta";
+  const subject = item.pair || item.claim_id || "item";
+  meta.textContent = `${subject} / ${item.belief_state || "state"} / ${item.evidence_class || "evidence"}`;
+
+  const title = document.createElement("p");
+  title.className = "ref-title";
+  title.textContent = item.title || item.doi || item.evidence_ref || "Untitled evidence";
+
+  card.append(meta, title);
+  if (item.basis) {
+    const basis = document.createElement("p");
+    basis.className = "ref-basis";
+    basis.textContent = item.basis;
+    card.append(basis);
+  }
+  return card;
+}
+
+function renderBriefingList(target, items) {
+  target.replaceChildren();
+  if (!items.length) {
+    const empty = document.createElement("p");
+    empty.className = "contest-empty";
+    empty.textContent = "None.";
+    target.append(empty);
+    return;
+  }
+  for (const item of items) {
+    target.append(renderBriefingItem(item));
+  }
+}
+
+function renderBriefing(payload) {
+  el.briefingGeneratedAt.textContent = payload.generated_at || "not generated";
+  renderBriefingList(el.briefingLearned, payload.learned_last_night || []);
+  renderBriefingList(el.briefingContested, payload.now_contested || []);
+  renderBriefingList(el.briefingRevised, payload.revised || []);
+  renderBriefingList(el.briefingPurged, payload.purged || []);
+}
+
 function renderContested(items) {
   el.contestedCount.textContent = `${items.length} open`;
   el.contestedList.replaceChildren();
@@ -257,6 +318,7 @@ async function adjudicate(pair, verdict) {
     });
     addTimeline("adjudicated", `${result.pair} -> ${result.verdict}`);
     await loadContested();
+    await loadBriefing();
     if (state.lastQuestion) {
       await askBoth();
     }
@@ -312,6 +374,7 @@ async function retractSelected() {
     }
     await loadState(false);
     await loadContested();
+    await loadBriefing();
     if (selectedQuestion) {
       el.question.value = selectedQuestion;
     }
@@ -368,5 +431,6 @@ el.improveButton.addEventListener("click", improve);
 
 loadState(true)
   .then(() => loadContested())
+  .then(() => loadBriefing())
   .then(() => askBoth())
   .catch((error) => addTimeline("error", error.message));

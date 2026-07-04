@@ -12,6 +12,7 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
 from groundtruth.answer import answer as answer_question
+from groundtruth.briefing import build_briefing, render_briefing_markdown
 from groundtruth.contest import adjudicate_pair, list_contested_pairs
 from groundtruth.feedback import add_feedback, improve_from_feedback
 from groundtruth.ingest import normalize_doi
@@ -228,6 +229,19 @@ async def state() -> dict[str, Any]:
 async def contested() -> dict[str, Any]:
     items = list_contested_pairs()
     return {"count": len(items), "items": items}
+
+
+@app.get("/briefing")
+async def briefing() -> dict[str, Any]:
+    return build_briefing()
+
+
+@app.get("/briefing.md")
+async def briefing_markdown() -> Response:
+    return Response(
+        render_briefing_markdown(build_briefing()),
+        media_type="text/markdown; charset=utf-8",
+    )
 
 
 @app.post("/ask")

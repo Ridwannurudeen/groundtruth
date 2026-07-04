@@ -189,6 +189,59 @@ def test_contested_endpoint_lists_open_pairs(monkeypatch) -> None:
     )
 
 
+def test_briefing_endpoint_uses_briefing_layer(monkeypatch) -> None:
+    def fake_build_briefing():
+        return {
+            "generated_at": "2026-07-04T08:00:00+00:00",
+            "learned_last_night": [],
+            "now_contested": [
+                {
+                    "pair": "V2C003::V2C004",
+                    "evidence_class": "semantic_inference",
+                    "evidence_ref": "pair:V2C003::V2C004",
+                    "basis": "Claims disagree.",
+                }
+            ],
+            "revised": [
+                {
+                    "claim_id": "V2C001",
+                    "belief_state": "superseded",
+                    "evidence_class": "semantic_inference",
+                    "evidence_ref": "pair:V2C001::V2C002",
+                    "basis": "Newer evidence supersedes it.",
+                }
+            ],
+            "purged": [],
+        }
+
+    monkeypatch.setattr("web.app.build_briefing", fake_build_briefing)
+
+    response = client.get("/briefing")
+
+    assert response.status_code == 200
+    payload = response.json()
+    assert payload["generated_at"] == "2026-07-04T08:00:00+00:00"
+    assert payload["now_contested"][0]["pair"] == "V2C003::V2C004"
+    assert payload["revised"][0]["evidence_class"] == "semantic_inference"
+
+
+def test_briefing_markdown_endpoint_serves_markdown(monkeypatch) -> None:
+    monkeypatch.setattr(
+        "web.app.build_briefing",
+        lambda: {"generated_at": "2026-07-04T08:00:00+00:00"},
+    )
+    monkeypatch.setattr(
+        "web.app.render_briefing_markdown",
+        lambda briefing: "# Morning Briefing\n\nGenerated.",
+    )
+
+    response = client.get("/briefing.md")
+
+    assert response.status_code == 200
+    assert response.headers["content-type"].startswith("text/markdown")
+    assert "# Morning Briefing" in response.text
+
+
 def test_adjudicate_endpoint_requires_mutation_confirmation(monkeypatch) -> None:
     async def fake_adjudicate(*args, **kwargs):
         return {"status": "resolved"}
@@ -246,6 +299,9 @@ def test_index_serves_contested_mount_points() -> None:
     assert response.status_code == 200
     assert 'id="contestedCount"' in response.text
     assert 'id="contestedList"' in response.text
+    assert 'id="briefingGeneratedAt"' in response.text
+    assert 'id="briefingContested"' in response.text
+    assert 'href="/briefing.md"' in response.text
 
 
 def test_graph_endpoint_serves_html(monkeypatch) -> None:

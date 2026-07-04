@@ -88,6 +88,34 @@
           <div id="contestedList" class="contest-list" aria-live="polite"></div>
         </article>
       </section>
+
+      <section class="briefing-panel" aria-label="Morning briefing">
+        <div class="panel-kicker">
+          <span>Morning briefing</span>
+          <strong id="briefingGeneratedAt">not loaded</strong>
+        </div>
+        <div class="briefing-grid">
+          <article>
+            <h2>Learned last night</h2>
+            <div id="briefingLearned" class="briefing-list"></div>
+          </article>
+          <article>
+            <h2>Now contested</h2>
+            <div id="briefingContested" class="briefing-list"></div>
+          </article>
+          <article>
+            <h2>Revised</h2>
+            <div id="briefingRevised" class="briefing-list"></div>
+          </article>
+          <article>
+            <h2>Purged</h2>
+            <div id="briefingPurged" class="briefing-list"></div>
+          </article>
+        </div>
+        <a class="graph-link" href="/briefing.md" target="_blank" rel="noreferrer"
+          >Open Markdown</a
+        >
+      </section>
     </main>
 
     <script src="/static/app.js"></script>

@@ -2,7 +2,30 @@ from __future__ import annotations
 
 import pytest
 
-from groundtruth.answer import answer
+from groundtruth.answer import answer, reference_for_claim
+
+
+def test_reference_for_claim_uses_ground_truth_cohort() -> None:
+    claim = {
+        "claim_id": "R999",
+        "doi": "10.5555/retracted-but-active",
+        "status": "active",
+        "cohort": "retracted_original",
+        "source": {"journal": "Test Journal"},
+    }
+    dataset_entry = {"dataset_id": "dataset-1", "data_id": "data-1", "status": "active"}
+
+    reference = reference_for_claim(
+        claim,
+        "groundtruth_memory",
+        dataset_entry,
+        kind="original_claim",
+        data_id="data-1",
+        score=1,
+    )
+
+    assert reference["retracted"] is True
+    assert reference["cohort"] == "retracted_original"
 
 
 @pytest.mark.asyncio

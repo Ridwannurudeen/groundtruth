@@ -9,20 +9,34 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from groundtruth.answer import answer
+from groundtruth.answer import answer, dataset_id as resolve_dataset_id
+from groundtruth.contradictions import memory_data_ids
 from groundtruth.registry import (
     DATASETS,
     load_claims,
     load_json,
     write_json,
 )
-from groundtruth.runtime import DATA_DIR, DOCS_DIR
+from groundtruth.runtime import DATA_DIR, DOCS_DIR, import_cognee, is_quota_error
 from groundtruth.watcher import process_retraction
 
 
 BENCHMARK_QUESTIONS_PATH = DATA_DIR / "benchmark_questions.json"
 BENCHMARK_RESULTS_PATH = DATA_DIR / "benchmark_results.json"
 BENCHMARK_DOC_PATH = DOCS_DIR / "BENCHMARK.md"
+RESULTS_FIX_PATH = DOCS_DIR / "RESULTS-FIX.md"
+METRIC_DEFINITION = (
+    "The headline metric is the fraction of answers whose Cognee GRAPH_COMPLETION "
+    "retrieved graph context includes a still-present original claim from "
+    '`cohort == "retracted_original"`.'
+)
+
+
+class QuotaStop(RuntimeError):
+    def __init__(self, prepared: list[dict[str, Any]], error: BaseException):
+        super().__init__(str(error))
+        self.prepared = prepared
+        self.error = error
 
 
 def now() -> str:
@@ -51,13 +65,90 @@ def claim_index() -> dict[str, dict[str, Any]]:
     return {claim["claim_id"]: claim for claim in load_claims()}
 
 
-def target_retracted_claim_ids(questions: list[dict[str, Any]]) -> list[str]:
-    claim_ids: list[str] = []
-    for question in questions:
-        for claim_id in question["target_claim_ids"]:
-            if claim_id.startswith("R") and claim_id not in claim_ids:
-                claim_ids.append(claim_id)
-    return claim_ids
+def all_retracted_claim_ids(claims: list[dict[str, Any]] | None = None) -> list[str]:
+    entries = claims if claims is not None else load_claims()
+    return [
+        claim["claim_id"]
+        for claim in entries
+        if claim.get("cohort") == "retracted_original"
+    ]
+
+
+def retraction_progress(claims: list[dict[str, Any]] | None = None) -> dict[str, Any]:
+    entries = claims if claims is not None else load_claims()
+    retracted = [
+        claim for claim in entries if claim.get("cohort") == "retracted_original"
+    ]
+    forgotten = [
+        claim
+        for claim in retracted
+        if claim.get("status") == "retracted_forgotten"
+        and claim.get("datasets", {})
+        .get("groundtruth_memory", {})
+        .get("status")
+        == "retracted_forgotten"
+    ]
+    pending = [claim["claim_id"] for claim in retracted if claim not in forgotten]
+    return {
+        "retracted_cohort_total": len(retracted),
+        "groundtruth_forgotten": len(forgotten),
+        "pending": pending,
+    }
+
+
+async def memory_integrity_report(
+    claims: list[dict[str, Any]] | None = None,
+) -> dict[str, Any]:
+    entries = claims if claims is not None else load_claims()
+    cognee = import_cognee()
+    memory_ids_by_dataset = {}
+    for dataset in DATASETS:
+        resolved_dataset_id = await resolve_dataset_id(cognee, dataset)
+        memory_ids_by_dataset[dataset] = await memory_data_ids(resolved_dataset_id)
+
+    violations: list[dict[str, str]] = []
+    for claim in entries:
+        datasets = claim.get("datasets", {})
+        if claim.get("cohort") == "retracted_original":
+            groundtruth_entry = datasets.get("groundtruth_memory", {})
+            naive_entry = datasets.get("naive_memory", {})
+            if groundtruth_entry.get("data_id") in memory_ids_by_dataset["groundtruth_memory"]:
+                violations.append(
+                    {
+                        "claim_id": claim["claim_id"],
+                        "dataset": "groundtruth_memory",
+                        "problem": "retracted_original_present",
+                    }
+                )
+            if naive_entry.get("data_id") not in memory_ids_by_dataset["naive_memory"]:
+                violations.append(
+                    {
+                        "claim_id": claim["claim_id"],
+                        "dataset": "naive_memory",
+                        "problem": "retracted_original_missing_from_naive",
+                    }
+                )
+        elif claim.get("cohort") == "active_control":
+            for dataset in DATASETS:
+                dataset_entry = datasets.get(dataset, {})
+                if dataset_entry.get("data_id") not in memory_ids_by_dataset[dataset]:
+                    violations.append(
+                        {
+                            "claim_id": claim["claim_id"],
+                            "dataset": dataset,
+                            "problem": "active_control_missing",
+                        }
+                    )
+
+    return {
+        "violations": violations,
+        "retracted_original_total": sum(
+            claim.get("cohort") == "retracted_original" for claim in entries
+        ),
+        "active_control_total": sum(
+            claim.get("cohort") == "active_control" for claim in entries
+        ),
+    }
 
 
 async def prepare_retractions(
@@ -65,11 +156,12 @@ async def prepare_retractions(
     *,
     skip_prepare: bool,
 ) -> list[dict[str, Any]]:
+    del questions
     if skip_prepare:
         return []
 
     prepared: list[dict[str, Any]] = []
-    for claim_id in target_retracted_claim_ids(questions):
+    for claim_id in all_retracted_claim_ids():
         claims = claim_index()
         claim = claims[claim_id]
         if claim["status"] != "active":
@@ -82,8 +174,28 @@ async def prepare_retractions(
                 }
             )
             continue
-        result = await process_retraction(claim["doi"])
-        prepared.append({"claim_id": claim_id, "doi": claim["doi"], "action": "processed", "result": result})
+        try:
+            result = await process_retraction(claim["doi"])
+        except Exception as error:
+            if is_quota_error(error):
+                prepared.append(
+                    {
+                        "claim_id": claim_id,
+                        "doi": claim["doi"],
+                        "action": "quota_error",
+                        "error": str(error)[:1000],
+                    }
+                )
+                raise QuotaStop(prepared, error) from error
+            raise
+        prepared.append(
+            {
+                "claim_id": claim_id,
+                "doi": claim["doi"],
+                "action": result.get("action", "processed"),
+                "result": result,
+            }
+        )
     return prepared
 
 
@@ -110,18 +222,83 @@ async def run_question(question: dict[str, Any], dataset: str) -> dict[str, Any]
         "retracted_dois": result["retracted_dois"],
         "reference_claim_ids": reference_claim_ids(result),
         "references": result["references"],
+        "reference_cross_check": result["reference_cross_check"],
         "control_retained": control_retained(question, result),
         "correctness_score": None,
-        "correctness_judge": "skipped_gemini_quota_fallback",
+        "correctness_judge": "skipped_quota_disclosed",
         "text": result["text"],
+        "recall_mode": result["recall_mode"],
         "recall_context_excerpt": result["recall_context"][:1200],
     }
 
 
-async def run_benchmark(skip_prepare: bool = False) -> dict[str, Any]:
+async def demo_synthesis(questions: list[dict[str, Any]]) -> dict[str, Any]:
+    question = next(item for item in questions if item["id"] == "Q01")
+    answers: dict[str, Any] = {}
+    for dataset in DATASETS:
+        try:
+            result = await answer(question["question"], dataset, synthesize=True)
+        except Exception as error:
+            if is_quota_error(error):
+                answers[dataset] = {
+                    "status": "skipped_quota_error",
+                    "error": str(error)[:1000],
+                }
+                continue
+            raise
+        answers[dataset] = {
+            "status": "completed",
+            "text": result["text"],
+            "references": result["references"],
+            "cites_retracted": result["cites_retracted"],
+            "retracted_dois": result["retracted_dois"],
+        }
+    return {
+        "question_id": question["id"],
+        "question": question["question"],
+        "answers": answers,
+    }
+
+
+async def run_benchmark(
+    skip_prepare: bool = False,
+    *,
+    synthesize_demo: bool = False,
+) -> dict[str, Any]:
     os.environ["COGNEE_SKIP_CONNECTION_TEST"] = "true"
     questions = load_questions()
-    prepared = await prepare_retractions(questions, skip_prepare=skip_prepare)
+    try:
+        prepared = await prepare_retractions(questions, skip_prepare=skip_prepare)
+    except QuotaStop as stop:
+        payload = {
+            "generated_at": now(),
+            "status": "partial_quota_stop",
+            "metric_definition": METRIC_DEFINITION,
+            "prepared_retractions": stop.prepared,
+            "retraction_progress": retraction_progress(),
+            "quota_error": str(stop.error)[:1000],
+            "summary": None,
+            "rows": [],
+        }
+        write_results_fix_doc(payload)
+        raise
+
+    integrity = await memory_integrity_report()
+    progress = retraction_progress()
+    if integrity["violations"]:
+        payload = {
+            "generated_at": now(),
+            "status": "memory_integrity_failed",
+            "metric_definition": METRIC_DEFINITION,
+            "prepared_retractions": prepared,
+            "retraction_progress": progress,
+            "memory_integrity": integrity,
+            "summary": None,
+            "rows": [],
+        }
+        write_results_fix_doc(payload)
+        raise RuntimeError(f"Memory integrity violations: {integrity['violations']}")
+
     rows: list[dict[str, Any]] = []
     for question in questions:
         for dataset in DATASETS:
@@ -130,19 +307,28 @@ async def run_benchmark(skip_prepare: bool = False) -> dict[str, Any]:
     summary = summarize(rows)
     payload = {
         "generated_at": now(),
+        "status": "complete",
+        "metric_definition": METRIC_DEFINITION,
         "questions_path": str(BENCHMARK_QUESTIONS_PATH),
         "results_path": str(BENCHMARK_RESULTS_PATH),
         "prepared_retractions": prepared,
+        "retraction_progress": progress,
+        "memory_integrity": integrity,
+        "demo_synthesis": await demo_synthesis(questions) if synthesize_demo else None,
         "summary": summary,
         "rows": rows,
     }
     write_json(BENCHMARK_RESULTS_PATH, payload)
     write_benchmark_doc(payload)
+    write_results_fix_doc(payload)
     return payload
 
 
 def summarize(rows: list[dict[str, Any]]) -> dict[str, Any]:
-    by_dataset = {dataset: [row for row in rows if row["dataset"] == dataset] for dataset in DATASETS}
+    by_dataset = {
+        dataset: [row for row in rows if row["dataset"] == dataset]
+        for dataset in DATASETS
+    }
     control_rows = [
         row
         for row in by_dataset["groundtruth_memory"]
@@ -151,13 +337,15 @@ def summarize(rows: list[dict[str, Any]]) -> dict[str, Any]:
     return {
         "total_questions": len({row["question_id"] for row in rows}),
         "rows": len(rows),
-        "naive_cites_retracted": sum(row["cites_retracted"] for row in by_dataset["naive_memory"]),
+        "naive_cites_retracted": sum(
+            row["cites_retracted"] for row in by_dataset["naive_memory"]
+        ),
         "groundtruth_cites_retracted": sum(
             row["cites_retracted"] for row in by_dataset["groundtruth_memory"]
         ),
         "control_claim_retention": sum(row["control_retained"] for row in control_rows),
         "control_claim_total": len(control_rows),
-        "correctness_judge": "skipped_gemini_quota_fallback",
+        "correctness_judge": "skipped_quota_disclosed",
     }
 
 
@@ -177,6 +365,7 @@ def table_row(row: dict[str, Any]) -> str:
 def write_benchmark_doc(payload: dict[str, Any]) -> None:
     summary = payload["summary"]
     prepared = payload["prepared_retractions"]
+    progress = payload["retraction_progress"]
     rows = payload["rows"]
     lines = [
         "# GroundTruth Benchmark",
@@ -186,23 +375,38 @@ def write_benchmark_doc(payload: dict[str, Any]) -> None:
         "## Headline",
         "",
         (
-            f"- Naive memory cites retracted sources in "
+            f"- Naive memory retrieves retracted originals in "
             f"{summary['naive_cites_retracted']}/{summary['total_questions']} answers."
         ),
         (
-            f"- GroundTruth cites retracted sources in "
+            f"- GroundTruth retrieves retracted originals in "
             f"{summary['groundtruth_cites_retracted']}/{summary['total_questions']} answers."
         ),
         (
             f"- Control-claim retention: "
             f"{summary['control_claim_retention']}/{summary['control_claim_total']}."
         ),
-        "- Correctness judge: skipped because Gemini free-tier quota is exhausted; primary metric is deterministic citation status.",
+        (
+            f"- Retraction coverage: {progress['groundtruth_forgotten']}/"
+            f"{progress['retracted_cohort_total']} retracted-cohort originals forgotten "
+            "from GroundTruth memory."
+        ),
+        "- Correctness judge: skipped with disclosure; the primary metric is retrieved graph context containing a still-present retracted original.",
+        "",
+        "## Metric Definition",
+        "",
+        METRIC_DEFINITION,
         "",
         "## Reproduction",
         "",
         "```powershell",
         "$env:PYTHONIOENCODING='utf-8'; .\\.venv\\Scripts\\python.exe -m groundtruth.benchmark",
+        "```",
+        "",
+        "## Memory Integrity",
+        "",
+        "```json",
+        json.dumps(payload["memory_integrity"], indent=2, sort_keys=True),
         "```",
         "",
         "## Retraction Preparation",
@@ -213,7 +417,7 @@ def write_benchmark_doc(payload: dict[str, Any]) -> None:
         "",
         "## Results",
         "",
-        "| Q | Kind | Dataset | Cites Retracted | Control Retained | Correctness | References |",
+        "| Q | Kind | Dataset | Retrieves Retracted Original | Control Retained | Correctness | Retrieved References |",
         "|---|---|---|---:|---:|---|---|",
     ]
     lines.extend(table_row(row) for row in rows)
@@ -229,6 +433,117 @@ def write_benchmark_doc(payload: dict[str, Any]) -> None:
     BENCHMARK_DOC_PATH.write_text("\n".join(lines), encoding="utf-8")
 
 
+def sample_rows(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    selected_ids = {"Q01", "Q13", "Q18"}
+    return [row for row in rows if row["question_id"] in selected_ids]
+
+
+def write_results_fix_doc(payload: dict[str, Any]) -> None:
+    summary = payload.get("summary")
+    progress = payload.get("retraction_progress", {})
+    lines = [
+        "# Fix Pass Results",
+        "",
+        f"Generated: {payload['generated_at']}",
+        f"Status: `{payload['status']}`",
+        "",
+        "## Retraction Pass",
+        "",
+        (
+            f"- GroundTruth forgotten: {progress.get('groundtruth_forgotten', 0)}/"
+            f"{progress.get('retracted_cohort_total', 0)} retracted-cohort originals."
+        ),
+        f"- Pending: {progress.get('pending', [])}",
+        "",
+    ]
+    if payload.get("quota_error"):
+        lines.extend(
+            [
+                "## Quota Stop",
+                "",
+                "The pass stopped on a provider quota/rate-limit error. No pending claim was marked forgotten.",
+                "",
+                "```text",
+                payload["quota_error"],
+                "```",
+                "",
+            ]
+        )
+    if payload.get("memory_integrity"):
+        lines.extend(
+            [
+                "## Memory Integrity",
+                "",
+                "```json",
+                json.dumps(payload["memory_integrity"], indent=2, sort_keys=True),
+                "```",
+                "",
+            ]
+        )
+    if summary:
+        lines.extend(
+            [
+                "## Regenerated Numbers",
+                "",
+                (
+                    f"- Naive memory retrieves retracted originals in "
+                    f"{summary['naive_cites_retracted']}/{summary['total_questions']} answers."
+                ),
+                (
+                    f"- GroundTruth retrieves retracted originals in "
+                    f"{summary['groundtruth_cites_retracted']}/{summary['total_questions']} answers."
+                ),
+                (
+                    f"- Control retention: {summary['control_claim_retention']}/"
+                    f"{summary['control_claim_total']}."
+                ),
+                "",
+                "## Metric",
+                "",
+                METRIC_DEFINITION,
+                "",
+                "## Sample Recall References",
+                "",
+            ]
+        )
+        for row in sample_rows(payload["rows"]):
+            refs = [
+                {
+                    "claim_id": ref["claim_id"],
+                    "kind": ref["kind"],
+                    "cohort": ref.get("cohort"),
+                    "retracted": ref["retracted"],
+                    "data_id": ref["data_id"],
+                }
+                for ref in row["references"]
+            ]
+            lines.extend(
+                [
+                    f"### {row['question_id']} - {row['dataset']}",
+                    "",
+                    f"- `cites_retracted`: `{row['cites_retracted']}`",
+                    f"- `retracted_dois`: `{row['retracted_dois']}`",
+                    "",
+                    "```json",
+                    json.dumps(refs, indent=2, sort_keys=True),
+                    "```",
+                    "",
+                ]
+            )
+    if payload.get("demo_synthesis"):
+        lines.extend(
+            [
+                "## Demo Synthesis",
+                "",
+                "```json",
+                json.dumps(payload["demo_synthesis"], indent=2, sort_keys=True),
+                "```",
+                "",
+            ]
+        )
+    RESULTS_FIX_PATH.write_text("\n".join(lines), encoding="utf-8")
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="GroundTruth benchmark")
     parser.add_argument(
@@ -236,15 +551,28 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="Do not trigger benchmark target retractions before scoring",
     )
+    parser.add_argument(
+        "--synthesize-demo",
+        action="store_true",
+        help="Run one small synthesized-answer demo after deterministic scoring",
+    )
     return parser.parse_args()
 
 
 async def main() -> int:
     args = parse_args()
-    payload = await run_benchmark(skip_prepare=args.skip_prepare)
+    try:
+        payload = await run_benchmark(
+            skip_prepare=args.skip_prepare,
+            synthesize_demo=args.synthesize_demo,
+        )
+    except QuotaStop:
+        print(f"Wrote {RESULTS_FIX_PATH}")
+        return 1
     print(json.dumps(payload["summary"], indent=2, sort_keys=True))
     print(f"Wrote {BENCHMARK_RESULTS_PATH}")
     print(f"Wrote {BENCHMARK_DOC_PATH}")
+    print(f"Wrote {RESULTS_FIX_PATH}")
     return 0
 
 

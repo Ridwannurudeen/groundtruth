@@ -89,8 +89,8 @@ def reference_for_claim(
     data_id: str,
     score: int,
 ) -> dict[str, Any]:
-    is_retracted_original = kind == "original_claim" and str(claim["status"]).startswith(
-        "retracted"
+    is_retracted_original = (
+        kind == "original_claim" and claim.get("cohort") == "retracted_original"
     )
     return {
         "claim_id": claim["claim_id"],
@@ -102,6 +102,7 @@ def reference_for_claim(
         "source": claim["source"]["journal"],
         "status": claim["status"],
         "dataset_status": dataset_entry.get("status", claim["status"]),
+        "cohort": claim.get("cohort"),
         "retracted": is_retracted_original,
         "score": score,
     }
@@ -152,21 +153,148 @@ def select_references(
     return references[:5]
 
 
-async def used_graph_element_ids(
+def reference_index(
+    dataset_name: str,
+    claims: list[dict[str, Any]],
+    memory_ids: set[str],
+) -> dict[str, dict[str, Any]]:
+    indexed: dict[str, dict[str, Any]] = {}
+    for claim in claims:
+        dataset_entry = claim.get("datasets", {}).get(dataset_name)
+        if not dataset_entry:
+            continue
+
+        original_data_id = dataset_entry["data_id"]
+        if original_data_id in memory_ids:
+            indexed[original_data_id] = reference_for_claim(
+                claim,
+                dataset_name,
+                dataset_entry,
+                kind="original_claim",
+                data_id=original_data_id,
+                score=0,
+            )
+
+        notice_data_id = dataset_entry.get("retraction_notice_data_id")
+        if notice_data_id and notice_data_id in memory_ids:
+            indexed[notice_data_id] = reference_for_claim(
+                claim,
+                dataset_name,
+                dataset_entry,
+                kind="retraction_notice",
+                data_id=notice_data_id,
+                score=0,
+            )
+    return indexed
+
+
+def edge_node_ids(edges: list[Any]) -> list[str]:
+    node_ids: list[str] = []
+    for edge in edges:
+        for node in (getattr(edge, "node1", None), getattr(edge, "node2", None)):
+            node_id = getattr(node, "id", None)
+            if node_id is not None and str(node_id) not in node_ids:
+                node_ids.append(str(node_id))
+    return node_ids
+
+
+async def references_from_graph_edges(
     dataset_id: UUID,
+    dataset_name: str,
+    claims: list[dict[str, Any]],
+    memory_ids: set[str],
+    edges: list[Any],
+) -> list[dict[str, Any]]:
+    node_to_data_id = {
+        str(node.slug): str(node.data_id)
+        for node in await ledger_nodes(dataset_id)
+        if getattr(node, "data_id", None) is not None
+    }
+    data_id_to_reference = reference_index(dataset_name, claims, memory_ids)
+    references: list[dict[str, Any]] = []
+    seen_data_ids: set[str] = set()
+
+    for node_id in edge_node_ids(edges):
+        data_id = node_to_data_id.get(node_id)
+        if not data_id or data_id in seen_data_ids or data_id not in data_id_to_reference:
+            continue
+        reference = dict(data_id_to_reference[data_id])
+        reference["retrieval_rank"] = len(references) + 1
+        references.append(reference)
+        seen_data_ids.add(data_id)
+
+    return references
+
+
+def graph_elements_from_edges(edges: list[Any]) -> dict[str, list[str]] | None:
+    node_ids = edge_node_ids(edges)
+    edge_ids = sorted(
+        {
+            str(edge.attributes["edge_object_id"])
+            for edge in edges
+            if getattr(edge, "attributes", None)
+            and edge.attributes.get("edge_object_id") is not None
+        }
+    )
+    graph_elements: dict[str, list[str]] = {}
+    if node_ids:
+        graph_elements["node_ids"] = sorted(node_ids)
+    if edge_ids:
+        graph_elements["edge_ids"] = edge_ids
+    return graph_elements or None
+
+
+def compact_graph_search(results: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    compacted = []
+    for result in results:
+        edges = result.get("objects_result") or []
+        compacted.append(
+            {
+                "dataset_id": str(result.get("dataset_id")),
+                "dataset_name": result.get("dataset_name"),
+                "context_result": result.get("context_result"),
+                "edge_count": len(edges),
+                "node_ids": edge_node_ids(edges),
+            }
+        )
+    return compacted
+
+
+def reference_ids(references: list[dict[str, Any]]) -> list[str]:
+    return [f"{reference['claim_id']}:{reference['kind']}" for reference in references]
+
+
+async def synthesized_recall(
+    cognee: Any,
+    question: str,
+    dataset: str,
+    *,
+    session_id: str | None,
+    feedback_influence: float,
+) -> str:
+    results = await cognee.recall(
+        question,
+        datasets=[dataset],
+        include_references=True,
+        only_context=False,
+        auto_route=False,
+        scope="graph",
+        session_id=session_id,
+        top_k=5,
+        wide_search_top_k=10,
+        feedback_influence=feedback_influence,
+    )
+    return recall_text(results).strip()
+
+
+def answer_text(
+    dataset_name: str,
     references: list[dict[str, Any]],
-) -> dict[str, list[str]] | None:
-    node_ids: set[str] = set()
-    for reference in references:
-        for node in await ledger_nodes(dataset_id, UUID(reference["data_id"])):
-            node_ids.add(str(node.slug))
+    synthesized_text: str | None = None,
+) -> str:
+    if synthesized_text:
+        return synthesized_text
 
-    if not node_ids:
-        return None
-    return {"node_ids": sorted(node_ids)}
-
-
-def answer_text(dataset_name: str, references: list[dict[str, Any]]) -> str:
     if not references:
         return "No matching remembered source was found for this question."
 
@@ -203,47 +331,81 @@ async def answer(
     session_id: str | None = None,
     record_session: bool = True,
     feedback_influence: float = 0.0,
+    synthesize: bool = False,
 ) -> dict[str, Any]:
     cognee = import_cognee()
-    resolved_dataset_id = await dataset_id(cognee, dataset)
-    recall_results = await cognee.recall(
+    from cognee.modules.search.types import SearchType
+
+    search_results = await cognee.search(
         question,
+        query_type=SearchType.GRAPH_COMPLETION,
         datasets=[dataset],
-        include_references=True,
         only_context=True,
-        auto_route=False,
-        scope="graph",
-        session_id=session_id,
+        verbose=True,
         top_k=10,
         wide_search_top_k=20,
         feedback_influence=feedback_influence,
     )
+    resolved_dataset_id = UUID(str(search_results[0]["dataset_id"]))
+    edges = search_results[0].get("objects_result") or []
     claims = load_claims(registry_path)
-    references = select_references(
+    memory_ids = await memory_data_ids(resolved_dataset_id)
+    deterministic_references = select_references(
         question,
         dataset,
         claims,
-        await memory_data_ids(resolved_dataset_id),
+        memory_ids,
+    )
+    references = await references_from_graph_edges(
+        resolved_dataset_id,
+        dataset,
+        claims,
+        memory_ids,
+        edges,
+    )
+    synthesized_text = (
+        await synthesized_recall(
+            cognee,
+            question,
+            dataset,
+            session_id=session_id,
+            feedback_influence=feedback_influence,
+        )
+        if synthesize
+        else None
     )
     retracted_dois = sorted(
         {reference["doi"] for reference in references if reference["retracted"]}
     )
-    graph_elements = await used_graph_element_ids(resolved_dataset_id, references)
+    graph_elements = graph_elements_from_edges(edges)
+    recall_context = str(search_results[0].get("context_result") or "")
+    reference_cross_check = {
+        "retrieved_graph_references": reference_ids(references),
+        "deterministic_membership_references": reference_ids(deterministic_references),
+        "disagreement": reference_ids(references) != reference_ids(deterministic_references),
+    }
     payload = {
         "question": question,
         "dataset": dataset,
         "dataset_id": str(resolved_dataset_id),
-        "text": answer_text(dataset, references),
+        "text": answer_text(dataset, references, synthesized_text),
         "references": references,
+        "deterministic_references": deterministic_references,
+        "reference_cross_check": reference_cross_check,
         "cites_retracted": bool(retracted_dois),
         "retracted_dois": retracted_dois,
-        "recall_mode": "GRAPH_COMPLETION only_context=True",
+        "recall_mode": "GRAPH_COMPLETION only_context=True verbose graph references",
+        "synthesis_mode": (
+            "GRAPH_COMPLETION only_context=False include_references=True"
+            if synthesize
+            else "disabled_deterministic_benchmark"
+        ),
         "feedback_influence": feedback_influence,
         "session_id": session_id,
         "qa_id": None,
         "used_graph_element_ids": graph_elements,
-        "recall_output": compact_recall(recall_results),
-        "recall_context": recall_text(recall_results),
+        "recall_output": compact_graph_search(search_results),
+        "recall_context": recall_context,
     }
     if session_id and record_session:
         session_result = await cognee.remember(

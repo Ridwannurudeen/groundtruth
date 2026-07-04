@@ -44,16 +44,16 @@ the superseded claim in Cognee memory.
     <td><strong>Retraction watcher</strong><br>Held-back Retraction Watch records are discovered DOI by DOI and written into both memories.</td>
   </tr>
   <tr>
-    <td><strong>Contradiction graph edge</strong><br>GroundTruth adds a data-stamped <code>contradicts</code> edge from retraction notice to original claim before forgetting.</td>
+    <td><strong>Retraction-linked supersession</strong><br>GroundTruth records a data-stamped relationship from the retraction notice to the original claim before forgetting.</td>
     <td><strong>Surgical forget</strong><br>The GroundTruth dataset calls <code>forget(data_id=..., memory_only=True)</code>; the naive dataset keeps the same bad source.</td>
   </tr>
   <tr>
-    <td><strong>Cited answer layer</strong><br>One wrapper powers the benchmark and UI, returning answer text, references, and deterministic retracted-source flags.</td>
-    <td><strong>Measured benchmark</strong><br>On the committed 20-question eval, naive memory cites retracted sources in 17/20 answers; GroundTruth cites them in 0/20.</td>
+    <td><strong>Retrieved-reference answer layer</strong><br>One wrapper powers the benchmark and UI, returning answer text, graph-derived references, and retracted-original flags.</td>
+    <td><strong>Measured benchmark</strong><br>On the committed 20-question eval, naive memory retrieves retracted originals in 19/20 answers; GroundTruth retrieves them in 0/20.</td>
   </tr>
 </table>
 
-Also included: feedback-backed `improve`, a FastAPI demo app, Cognee memory-provenance graph rendering, and phase-by-phase result docs.
+Also included: feedback capture through Cognee `improve`, a FastAPI demo app, Cognee memory-provenance graph rendering, and phase-by-phase result docs.
 
 ## How It Works
 
@@ -65,10 +65,10 @@ data/seed_corpus.json -> groundtruth.ingest -> Cognee datasets
                                       |          | naive_memory
                                       |          | groundtruth_memory
                                       v
-groundtruth.watcher -> remember notice -> add contradiction edge -> forget original
+groundtruth.watcher -> remember notice -> link notice to original -> forget original
         |
         v
-groundtruth.answer -> cited answer + retracted-source flag
+groundtruth.answer -> retrieved references + retracted-original flag
         |
         v
 benchmark + FastAPI demo UI
@@ -165,14 +165,15 @@ groundtruth/
 | 1 | [docs/RESULTS-P1.md](docs/RESULTS-P1.md) | 40 claims in both datasets |
 | 2 | [docs/RESULTS-P2.md](docs/RESULTS-P2.md) | watcher adds edge, forgets original |
 | 3 | [docs/RESULTS-P3.md](docs/RESULTS-P3.md) | feedback stored, improve path completed |
-| 4 | [docs/BENCHMARK.md](docs/BENCHMARK.md) | 17/20 naive vs 0/20 GroundTruth |
+| 4 | [docs/BENCHMARK.md](docs/BENCHMARK.md) | 19/20 naive vs 0/20 GroundTruth |
 | 5 | [docs/DEMO.md](docs/DEMO.md) | local UI, live retraction, graph route |
 | 6 | [docs/RESULTS-P6.md](docs/RESULTS-P6.md) | final tests and package checks |
 
 ## Limitations
 
-- The LLM correctness judge is skipped in the benchmark because Gemini free-tier quota was exhausted; the primary metric is deterministic citation status.
-- The contradiction decision path uses the deterministic Retraction Watch DOI match fallback rather than an LLM judge.
+- The LLM correctness judge is skipped in the benchmark because Gemini free-tier quota was exhausted; the primary metric is retrieved graph context containing a still-present `cohort == "retracted_original"` original.
+- All 25 retracted-cohort originals are forgotten from GroundTruth memory; all 15 active controls remain present in both memories.
+- The retraction decision path uses the deterministic Retraction Watch DOI match fallback rather than an LLM contradiction judge.
 - `/graph` shows Cognee's global memory-provenance graph, not answer-level provenance. Answer-level provenance is the reference list returned by `/ask`.
 - Live `/retract` mutates `data/claims.json` and the local Cognee runtime. Use a fresh ingest to reset the demo.
 - There is no hosted public demo in this repo; the local FastAPI app is the submission-ready demo surface.

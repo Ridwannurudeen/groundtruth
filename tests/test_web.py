@@ -16,9 +16,10 @@ def test_state_exposes_demo_inventory() -> None:
 
     payload = response.json()
     assert payload["datasets"] == ["naive_memory", "groundtruth_memory"]
-    assert payload["benchmark"]["naive_cites_retracted"] == 17
+    assert payload["benchmark"]["naive_cites_retracted"] == 19
     assert payload["benchmark"]["groundtruth_cites_retracted"] == 0
-    assert payload["active_retractions"]
+    assert payload["active_retractions"] == []
+    assert len(payload["processed_retractions"]) == 25
     assert payload["default_question"]
 
 
@@ -52,7 +53,10 @@ def test_ask_endpoint_uses_answer_layer(monkeypatch) -> None:
 
 
 def test_retract_endpoint_streams_timeline(monkeypatch) -> None:
-    active_doi = client.get("/state").json()["active_retractions"][0]["doi"]
+    active_doi = "10.5555/demo-active"
+
+    def fake_claim_for_doi(doi):
+        return {"claim_id": "R999", "doi": doi, "status": "active"}
 
     async def fake_process_retraction(doi):
         return {
@@ -63,6 +67,7 @@ def test_retract_endpoint_streams_timeline(monkeypatch) -> None:
             "graph_edges_after_forget": 0,
         }
 
+    monkeypatch.setattr("web.app.claim_for_doi", fake_claim_for_doi)
     monkeypatch.setattr("web.app.process_retraction", fake_process_retraction)
     response = client.post("/retract", json={"doi": active_doi})
 

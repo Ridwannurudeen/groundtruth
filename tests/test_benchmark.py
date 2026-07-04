@@ -1,6 +1,8 @@
 from __future__ import annotations
 
-from groundtruth.benchmark import load_questions, summarize
+import pytest
+
+from groundtruth.benchmark import load_questions, memory_integrity_report, summarize
 
 
 def test_benchmark_question_manifest_shape() -> None:
@@ -49,3 +51,11 @@ def test_benchmark_summary_counts() -> None:
     assert summary["groundtruth_cites_retracted"] == 0
     assert summary["control_claim_retention"] == 1
     assert summary["control_claim_total"] == 1
+
+
+@pytest.mark.asyncio
+async def test_committed_corpus_memory_integrity_guard() -> None:
+    report = await memory_integrity_report()
+    assert report["retracted_original_total"] == 25
+    assert report["active_control_total"] == 15
+    assert report["violations"] == []

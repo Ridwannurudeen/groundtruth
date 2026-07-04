@@ -15,6 +15,15 @@ DOCS_DIR = ROOT / "docs"
 LOCAL_RUNTIME_ROOT = (
     Path(os.environ.get("LOCALAPPDATA", str(ROOT))) / "GroundTruth" / "cognee"
 )
+QUOTA_ERROR_MARKERS = (
+    "429",
+    "quota",
+    "rate limit",
+    "rate_limit",
+    "resourceexhausted",
+    "too many requests",
+    "exceeded your current quota",
+)
 
 
 def configure_runtime() -> None:
@@ -90,6 +99,11 @@ def clear_cognee_config_caches() -> None:
     get_embedding_config.cache_clear()
     create_embedding_engine.cache_clear()
     get_llm_config.cache_clear()
+
+
+def is_quota_error(error: BaseException) -> bool:
+    text = f"{type(error).__name__}: {error}".lower()
+    return any(marker in text for marker in QUOTA_ERROR_MARKERS)
 
 
 def import_cognee() -> Any:

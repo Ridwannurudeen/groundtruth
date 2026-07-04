@@ -1,18 +1,33 @@
 # GroundTruth Benchmark
 
-Generated: 2026-07-03T21:40:38.184923+00:00
+Generated: 2026-07-04T13:35:27.294840+00:00
 
 ## Headline
 
-- Naive memory cites retracted sources in 17/20 answers.
-- GroundTruth cites retracted sources in 0/20 answers.
+- Naive memory retrieves retracted originals in 19/20 answers.
+- GroundTruth retrieves retracted originals in 0/20 answers.
 - Control-claim retention: 5/5.
-- Correctness judge: skipped because Gemini free-tier quota is exhausted; primary metric is deterministic citation status.
+- Retraction coverage: 25/25 retracted-cohort originals forgotten from GroundTruth memory.
+- Correctness judge: skipped with disclosure; the primary metric is retrieved graph context containing a still-present retracted original.
+
+## Metric Definition
+
+The headline metric is the fraction of answers whose Cognee GRAPH_COMPLETION retrieved graph context includes a still-present original claim from `cohort == "retracted_original"`.
 
 ## Reproduction
 
 ```powershell
 $env:PYTHONIOENCODING='utf-8'; .\.venv\Scripts\python.exe -m groundtruth.benchmark
+```
+
+## Memory Integrity
+
+```json
+{
+  "active_control_total": 15,
+  "retracted_original_total": 25,
+  "violations": []
+}
 ```
 
 ## Retraction Preparation
@@ -38,494 +53,72 @@ $env:PYTHONIOENCODING='utf-8'; .\.venv\Scripts\python.exe -m groundtruth.benchma
     "status": "retracted_forgotten"
   },
   {
-    "action": "processed",
+    "action": "already_prepared",
     "claim_id": "R004",
     "doi": "10.1038/s41598-025-96541-2",
-    "result": {
-      "claim_id": "R004",
-      "decision": {
-        "confidence": 1.0,
-        "contradicts": true,
-        "rationale": "Retraction Watch links original DOI 10.1038/s41598-025-96541-2 to this claim; reason: Computer-Aided Content or Computer-Generated Content;Concerns/Issues about Data;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
-        "superseded_doi": "10.1038/s41598-025-96541-2"
-      },
-      "doi": "10.1038/s41598-025-96541-2",
-      "edge_result": {
-        "memify_result": {
-          "1870baaf-b8c5-5b21-87dd-f40ef9024f1f": {
-            "data_ingestion_info": [
-              {
-                "run_info": {
-                  "data_ingestion_info": null,
-                  "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
-                  "dataset_name": "groundtruth_memory",
-                  "payload": null,
-                  "pipeline_run_id": "41839c06-dc93-430d-9b76-7131f3b1dc86",
-                  "status": "PipelineRunCompleted"
-                }
-              }
-            ],
-            "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
-            "dataset_name": "groundtruth_memory",
-            "payload": null,
-            "pipeline_run_id": "41839c06-dc93-430d-9b76-7131f3b1dc86",
-            "status": "PipelineRunCompleted"
-          }
-        },
-        "properties": {
-          "confidence": 1.0,
-          "edge_text": "Retraction notice for 10.1038/s41598-025-96541-2 contradicts the original claim",
-          "ontology_valid": false,
-          "rationale": "Retraction Watch links original DOI 10.1038/s41598-025-96541-2 to this claim; reason: Computer-Aided Content or Computer-Generated Content;Concerns/Issues about Data;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
-          "relationship_name": "contradicts",
-          "source_data_id": "33d7feae-c703-5a0a-8607-eae01f51ffff",
-          "superseded_doi": "10.1038/s41598-025-96541-2",
-          "target_data_id": "ea8722b5-a8b9-57f4-89e0-e18772ff635c"
-        },
-        "source_node_id": "e383aae5-eaad-5a2a-a001-64717c1b5b4e",
-        "target_node_id": "86a5ed8b-96a9-5b67-b6c3-bf1a629ada87"
-      },
-      "forget_result": {
-        "data_id": "ea8722b5-a8b9-57f4-89e0-e18772ff635c",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
-        "status": "success"
-      },
-      "graph_edges_after_forget": 0,
-      "graph_edges_before_forget": 1,
-      "ledger_edges_before_forget": 1,
-      "notice_entries": {
-        "groundtruth_memory": {
-          "data_id": "33d7feae-c703-5a0a-8607-eae01f51ffff",
-          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
-        },
-        "naive_memory": {
-          "data_id": "33d7feae-c703-5a0a-8607-eae01f51ffff",
-          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
-        }
-      }
-    }
+    "status": "retracted_forgotten"
   },
   {
-    "action": "processed",
+    "action": "already_prepared",
     "claim_id": "R005",
     "doi": "10.1016/j.heliyon.2023.e19675",
-    "result": {
-      "claim_id": "R005",
-      "decision": {
-        "confidence": 1.0,
-        "contradicts": true,
-        "rationale": "Retraction Watch links original DOI 10.1016/j.heliyon.2023.e19675 to this claim; reason: Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
-        "superseded_doi": "10.1016/j.heliyon.2023.e19675"
-      },
-      "doi": "10.1016/j.heliyon.2023.e19675",
-      "edge_result": {
-        "memify_result": {
-          "1870baaf-b8c5-5b21-87dd-f40ef9024f1f": {
-            "data_ingestion_info": [
-              {
-                "run_info": {
-                  "data_ingestion_info": null,
-                  "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
-                  "dataset_name": "groundtruth_memory",
-                  "payload": null,
-                  "pipeline_run_id": "98c0ce68-43c3-407f-b36e-7f19f982349a",
-                  "status": "PipelineRunCompleted"
-                }
-              }
-            ],
-            "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
-            "dataset_name": "groundtruth_memory",
-            "payload": null,
-            "pipeline_run_id": "98c0ce68-43c3-407f-b36e-7f19f982349a",
-            "status": "PipelineRunCompleted"
-          }
-        },
-        "properties": {
-          "confidence": 1.0,
-          "edge_text": "Retraction notice for 10.1016/j.heliyon.2023.e19675 contradicts the original claim",
-          "ontology_valid": false,
-          "rationale": "Retraction Watch links original DOI 10.1016/j.heliyon.2023.e19675 to this claim; reason: Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
-          "relationship_name": "contradicts",
-          "source_data_id": "26a06040-1641-5fb4-b618-aac0a99829ec",
-          "superseded_doi": "10.1016/j.heliyon.2023.e19675",
-          "target_data_id": "79f37376-cbd9-5566-80dc-1ad63e27bb39"
-        },
-        "source_node_id": "b3a82094-b843-5f15-9abc-bbe793d28042",
-        "target_node_id": "08656f3a-8490-5ce4-90f1-21ac3697acbd"
-      },
-      "forget_result": {
-        "data_id": "79f37376-cbd9-5566-80dc-1ad63e27bb39",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
-        "status": "success"
-      },
-      "graph_edges_after_forget": 0,
-      "graph_edges_before_forget": 1,
-      "ledger_edges_before_forget": 1,
-      "notice_entries": {
-        "groundtruth_memory": {
-          "data_id": "26a06040-1641-5fb4-b618-aac0a99829ec",
-          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
-        },
-        "naive_memory": {
-          "data_id": "26a06040-1641-5fb4-b618-aac0a99829ec",
-          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
-        }
-      }
-    }
+    "status": "retracted_forgotten"
   },
   {
-    "action": "processed",
+    "action": "already_prepared",
     "claim_id": "R006",
     "doi": "10.1371/journal.pone.0255392",
-    "result": {
-      "claim_id": "R006",
-      "decision": {
-        "confidence": 1.0,
-        "contradicts": true,
-        "rationale": "Retraction Watch links original DOI 10.1371/journal.pone.0255392 to this claim; reason: Concerns/Issues about Data;Concerns/Issues about Methods;Concerns/Issues about Results and/or Conclusions;Investigation by Journal/Publisher;Investigation by Third Party;Objections by Author(s);Original Data and/or Images not Provided and/or not Available;Unreliable Results and/or Conclusions;",
-        "superseded_doi": "10.1371/journal.pone.0255392"
-      },
-      "doi": "10.1371/journal.pone.0255392",
-      "edge_result": {
-        "memify_result": {
-          "1870baaf-b8c5-5b21-87dd-f40ef9024f1f": {
-            "data_ingestion_info": [
-              {
-                "run_info": {
-                  "data_ingestion_info": null,
-                  "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
-                  "dataset_name": "groundtruth_memory",
-                  "payload": null,
-                  "pipeline_run_id": "be809da9-9f80-4eb7-a5b3-86c8b4a09ddf",
-                  "status": "PipelineRunCompleted"
-                }
-              }
-            ],
-            "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
-            "dataset_name": "groundtruth_memory",
-            "payload": null,
-            "pipeline_run_id": "be809da9-9f80-4eb7-a5b3-86c8b4a09ddf",
-            "status": "PipelineRunCompleted"
-          }
-        },
-        "properties": {
-          "confidence": 1.0,
-          "edge_text": "Retraction notice for 10.1371/journal.pone.0255392 contradicts the original claim",
-          "ontology_valid": false,
-          "rationale": "Retraction Watch links original DOI 10.1371/journal.pone.0255392 to this claim; reason: Concerns/Issues about Data;Concerns/Issues about Methods;Concerns/Issues about Results and/or Conclusions;Investigation by Journal/Publisher;Investigation by Third Party;Objections by Author(s);Original Data and/or Images not Provided and/or not Available;Unreliable Results and/or Conclusions;",
-          "relationship_name": "contradicts",
-          "source_data_id": "eddb95b1-729c-5dc0-8905-78d2dbfe26fa",
-          "superseded_doi": "10.1371/journal.pone.0255392",
-          "target_data_id": "c37c62bc-a612-58be-af2c-2aab5c468c08"
-        },
-        "source_node_id": "f988f4ff-1c17-5bdd-b83a-640bbca8f934",
-        "target_node_id": "9b15b006-86b7-532d-b959-1b16b5554f83"
-      },
-      "forget_result": {
-        "data_id": "c37c62bc-a612-58be-af2c-2aab5c468c08",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
-        "status": "success"
-      },
-      "graph_edges_after_forget": 0,
-      "graph_edges_before_forget": 1,
-      "ledger_edges_before_forget": 1,
-      "notice_entries": {
-        "groundtruth_memory": {
-          "data_id": "eddb95b1-729c-5dc0-8905-78d2dbfe26fa",
-          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
-        },
-        "naive_memory": {
-          "data_id": "eddb95b1-729c-5dc0-8905-78d2dbfe26fa",
-          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
-        }
-      }
-    }
+    "status": "retracted_forgotten"
   },
   {
-    "action": "processed",
+    "action": "already_prepared",
     "claim_id": "R007",
     "doi": "10.1016/j.heliyon.2023.e20232",
-    "result": {
-      "claim_id": "R007",
-      "decision": {
-        "confidence": 1.0,
-        "contradicts": true,
-        "rationale": "Retraction Watch links original DOI 10.1016/j.heliyon.2023.e20232 to this claim; reason: Concerns/Issues about Authorship/Affiliation;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
-        "superseded_doi": "10.1016/j.heliyon.2023.e20232"
-      },
-      "doi": "10.1016/j.heliyon.2023.e20232",
-      "edge_result": {
-        "memify_result": {
-          "1870baaf-b8c5-5b21-87dd-f40ef9024f1f": {
-            "data_ingestion_info": [
-              {
-                "run_info": {
-                  "data_ingestion_info": null,
-                  "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
-                  "dataset_name": "groundtruth_memory",
-                  "payload": null,
-                  "pipeline_run_id": "6951d6f6-c878-4460-af4a-f72d0819adab",
-                  "status": "PipelineRunCompleted"
-                }
-              }
-            ],
-            "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
-            "dataset_name": "groundtruth_memory",
-            "payload": null,
-            "pipeline_run_id": "6951d6f6-c878-4460-af4a-f72d0819adab",
-            "status": "PipelineRunCompleted"
-          }
-        },
-        "properties": {
-          "confidence": 1.0,
-          "edge_text": "Retraction notice for 10.1016/j.heliyon.2023.e20232 contradicts the original claim",
-          "ontology_valid": false,
-          "rationale": "Retraction Watch links original DOI 10.1016/j.heliyon.2023.e20232 to this claim; reason: Concerns/Issues about Authorship/Affiliation;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
-          "relationship_name": "contradicts",
-          "source_data_id": "e0b8a838-2d0b-5eb6-b05b-22bbacb7b6a6",
-          "superseded_doi": "10.1016/j.heliyon.2023.e20232",
-          "target_data_id": "2d49a0d2-69a4-50b4-99ca-b13c3f8243a9"
-        },
-        "source_node_id": "50c65637-54e6-5b77-b227-9fce90dff868",
-        "target_node_id": "c54f681c-2e24-54ee-990a-9a6fca8b87f7"
-      },
-      "forget_result": {
-        "data_id": "2d49a0d2-69a4-50b4-99ca-b13c3f8243a9",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
-        "status": "success"
-      },
-      "graph_edges_after_forget": 0,
-      "graph_edges_before_forget": 1,
-      "ledger_edges_before_forget": 1,
-      "notice_entries": {
-        "groundtruth_memory": {
-          "data_id": "e0b8a838-2d0b-5eb6-b05b-22bbacb7b6a6",
-          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
-        },
-        "naive_memory": {
-          "data_id": "e0b8a838-2d0b-5eb6-b05b-22bbacb7b6a6",
-          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
-        }
-      }
-    }
+    "status": "retracted_forgotten"
   },
   {
-    "action": "processed",
+    "action": "already_prepared",
     "claim_id": "R008",
     "doi": "10.1016/j.heliyon.2024.e29871",
-    "result": {
-      "claim_id": "R008",
-      "decision": {
-        "confidence": 1.0,
-        "contradicts": true,
-        "rationale": "Retraction Watch links original DOI 10.1016/j.heliyon.2024.e29871 to this claim; reason: Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
-        "superseded_doi": "10.1016/j.heliyon.2024.e29871"
-      },
-      "doi": "10.1016/j.heliyon.2024.e29871",
-      "edge_result": {
-        "memify_result": {
-          "1870baaf-b8c5-5b21-87dd-f40ef9024f1f": {
-            "data_ingestion_info": [
-              {
-                "run_info": {
-                  "data_ingestion_info": null,
-                  "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
-                  "dataset_name": "groundtruth_memory",
-                  "payload": null,
-                  "pipeline_run_id": "3c74856b-2ead-40eb-930a-e7756e028e6e",
-                  "status": "PipelineRunCompleted"
-                }
-              }
-            ],
-            "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
-            "dataset_name": "groundtruth_memory",
-            "payload": null,
-            "pipeline_run_id": "3c74856b-2ead-40eb-930a-e7756e028e6e",
-            "status": "PipelineRunCompleted"
-          }
-        },
-        "properties": {
-          "confidence": 1.0,
-          "edge_text": "Retraction notice for 10.1016/j.heliyon.2024.e29871 contradicts the original claim",
-          "ontology_valid": false,
-          "rationale": "Retraction Watch links original DOI 10.1016/j.heliyon.2024.e29871 to this claim; reason: Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
-          "relationship_name": "contradicts",
-          "source_data_id": "7f4d9085-c721-5aa6-b59d-f07faec035f1",
-          "superseded_doi": "10.1016/j.heliyon.2024.e29871",
-          "target_data_id": "87da7153-d003-5008-8c6a-7e7cfacb7e5c"
-        },
-        "source_node_id": "3982f563-a5cb-51d4-bb66-73432f3cb486",
-        "target_node_id": "e9c8b1ae-d2a1-5097-b69b-5a94db21f012"
-      },
-      "forget_result": {
-        "data_id": "87da7153-d003-5008-8c6a-7e7cfacb7e5c",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
-        "status": "success"
-      },
-      "graph_edges_after_forget": 0,
-      "graph_edges_before_forget": 1,
-      "ledger_edges_before_forget": 1,
-      "notice_entries": {
-        "groundtruth_memory": {
-          "data_id": "7f4d9085-c721-5aa6-b59d-f07faec035f1",
-          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
-        },
-        "naive_memory": {
-          "data_id": "7f4d9085-c721-5aa6-b59d-f07faec035f1",
-          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
-        }
-      }
-    }
+    "status": "retracted_forgotten"
   },
   {
-    "action": "processed",
+    "action": "already_prepared",
     "claim_id": "R009",
     "doi": "10.1016/j.heliyon.2023.e21222",
-    "result": {
-      "claim_id": "R009",
-      "decision": {
-        "confidence": 1.0,
-        "contradicts": true,
-        "rationale": "Retraction Watch links original DOI 10.1016/j.heliyon.2023.e21222 to this claim; reason: Concerns/Issues about Authorship/Affiliation;Concerns/Issues about Results and/or Conclusions;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
-        "superseded_doi": "10.1016/j.heliyon.2023.e21222"
-      },
-      "doi": "10.1016/j.heliyon.2023.e21222",
-      "edge_result": {
-        "memify_result": {
-          "1870baaf-b8c5-5b21-87dd-f40ef9024f1f": {
-            "data_ingestion_info": [
-              {
-                "run_info": {
-                  "data_ingestion_info": null,
-                  "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
-                  "dataset_name": "groundtruth_memory",
-                  "payload": null,
-                  "pipeline_run_id": "8775d50d-e1f0-40e8-b979-246c3ef7d51e",
-                  "status": "PipelineRunCompleted"
-                }
-              }
-            ],
-            "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
-            "dataset_name": "groundtruth_memory",
-            "payload": null,
-            "pipeline_run_id": "8775d50d-e1f0-40e8-b979-246c3ef7d51e",
-            "status": "PipelineRunCompleted"
-          }
-        },
-        "properties": {
-          "confidence": 1.0,
-          "edge_text": "Retraction notice for 10.1016/j.heliyon.2023.e21222 contradicts the original claim",
-          "ontology_valid": false,
-          "rationale": "Retraction Watch links original DOI 10.1016/j.heliyon.2023.e21222 to this claim; reason: Concerns/Issues about Authorship/Affiliation;Concerns/Issues about Results and/or Conclusions;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
-          "relationship_name": "contradicts",
-          "source_data_id": "fd06d41a-718c-5980-aa6d-1c99ee176224",
-          "superseded_doi": "10.1016/j.heliyon.2023.e21222",
-          "target_data_id": "36eae4ae-b0f1-519b-8ea1-d50c2e60bd5f"
-        },
-        "source_node_id": "4e3795a0-c200-509f-87b4-99a800ce5785",
-        "target_node_id": "4137a2a3-5fbf-5b0e-bdc9-f489b3d21fb6"
-      },
-      "forget_result": {
-        "data_id": "36eae4ae-b0f1-519b-8ea1-d50c2e60bd5f",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
-        "status": "success"
-      },
-      "graph_edges_after_forget": 0,
-      "graph_edges_before_forget": 1,
-      "ledger_edges_before_forget": 1,
-      "notice_entries": {
-        "groundtruth_memory": {
-          "data_id": "fd06d41a-718c-5980-aa6d-1c99ee176224",
-          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
-        },
-        "naive_memory": {
-          "data_id": "fd06d41a-718c-5980-aa6d-1c99ee176224",
-          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
-        }
-      }
-    }
+    "status": "retracted_forgotten"
   },
   {
-    "action": "processed",
+    "action": "already_prepared",
     "claim_id": "R010",
     "doi": "10.1007/s00500-023-09589-5",
-    "result": {
-      "claim_id": "R010",
-      "decision": {
-        "confidence": 1.0,
-        "contradicts": true,
-        "rationale": "Retraction Watch links original DOI 10.1007/s00500-023-09589-5 to this claim; reason: Concerns/Issues about Peer Review;Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Unreliable Results and/or Conclusions;",
-        "superseded_doi": "10.1007/s00500-023-09589-5"
-      },
-      "doi": "10.1007/s00500-023-09589-5",
-      "edge_result": {
-        "memify_result": {
-          "1870baaf-b8c5-5b21-87dd-f40ef9024f1f": {
-            "data_ingestion_info": [
-              {
-                "run_info": {
-                  "data_ingestion_info": null,
-                  "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
-                  "dataset_name": "groundtruth_memory",
-                  "payload": null,
-                  "pipeline_run_id": "735eb0f7-3242-4bd4-9fe5-20aad528231b",
-                  "status": "PipelineRunCompleted"
-                }
-              }
-            ],
-            "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
-            "dataset_name": "groundtruth_memory",
-            "payload": null,
-            "pipeline_run_id": "735eb0f7-3242-4bd4-9fe5-20aad528231b",
-            "status": "PipelineRunCompleted"
-          }
-        },
-        "properties": {
-          "confidence": 1.0,
-          "edge_text": "Retraction notice for 10.1007/s00500-023-09589-5 contradicts the original claim",
-          "ontology_valid": false,
-          "rationale": "Retraction Watch links original DOI 10.1007/s00500-023-09589-5 to this claim; reason: Concerns/Issues about Peer Review;Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Unreliable Results and/or Conclusions;",
-          "relationship_name": "contradicts",
-          "source_data_id": "ceee7f78-b013-5352-93e7-084b83127a61",
-          "superseded_doi": "10.1007/s00500-023-09589-5",
-          "target_data_id": "d13dc0ac-adf9-536e-9b7b-ee57b4bc6066"
-        },
-        "source_node_id": "94240f29-a55d-512b-8f70-66df8a6fac57",
-        "target_node_id": "8b7f4001-b6f3-5a19-8296-22c84dcd12ea"
-      },
-      "forget_result": {
-        "data_id": "d13dc0ac-adf9-536e-9b7b-ee57b4bc6066",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
-        "status": "success"
-      },
-      "graph_edges_after_forget": 0,
-      "graph_edges_before_forget": 1,
-      "ledger_edges_before_forget": 1,
-      "notice_entries": {
-        "groundtruth_memory": {
-          "data_id": "ceee7f78-b013-5352-93e7-084b83127a61",
-          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
-        },
-        "naive_memory": {
-          "data_id": "ceee7f78-b013-5352-93e7-084b83127a61",
-          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
-        }
-      }
-    }
+    "status": "retracted_forgotten"
   },
   {
-    "action": "processed",
+    "action": "already_prepared",
     "claim_id": "R011",
     "doi": "10.1007/s00500-023-09482-1",
+    "status": "retracted_forgotten"
+  },
+  {
+    "action": "already_prepared",
+    "claim_id": "R012",
+    "doi": "10.1007/978-3-030-00524-5_6",
+    "status": "retracted_forgotten"
+  },
+  {
+    "action": "processed",
+    "claim_id": "R013",
+    "doi": "10.1007/978-3-030-00524-5_7",
     "result": {
-      "claim_id": "R011",
+      "claim_id": "R013",
       "decision": {
         "confidence": 1.0,
         "contradicts": true,
-        "rationale": "Retraction Watch links original DOI 10.1007/s00500-023-09482-1 to this claim; reason: Concerns/Issues about Peer Review;Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
-        "superseded_doi": "10.1007/s00500-023-09482-1"
+        "rationale": "Retraction Watch links original DOI 10.1007/978-3-030-00524-5_7 to this claim; reason: Concerns/Issues about Referencing/Attributions;Conflict of Interest;Date of Article and/or Notice Unknown;Investigation by Journal/Publisher;Objections by Author(s);Rogue Editor;Unreliable Results and/or Conclusions;",
+        "superseded_doi": "10.1007/978-3-030-00524-5_7"
       },
-      "doi": "10.1007/s00500-023-09482-1",
+      "doi": "10.1007/978-3-030-00524-5_7",
       "edge_result": {
         "memify_result": {
           "1870baaf-b8c5-5b21-87dd-f40ef9024f1f": {
@@ -536,7 +129,7 @@ $env:PYTHONIOENCODING='utf-8'; .\.venv\Scripts\python.exe -m groundtruth.benchma
                   "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
                   "dataset_name": "groundtruth_memory",
                   "payload": null,
-                  "pipeline_run_id": "5b06e91b-8247-4907-b4e7-b8aaff8488a2",
+                  "pipeline_run_id": "b4eb6c2a-92f7-4607-b640-60c156388bb8",
                   "status": "PipelineRunCompleted"
                 }
               }
@@ -544,38 +137,112 @@ $env:PYTHONIOENCODING='utf-8'; .\.venv\Scripts\python.exe -m groundtruth.benchma
             "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
             "dataset_name": "groundtruth_memory",
             "payload": null,
-            "pipeline_run_id": "5b06e91b-8247-4907-b4e7-b8aaff8488a2",
+            "pipeline_run_id": "b4eb6c2a-92f7-4607-b640-60c156388bb8",
             "status": "PipelineRunCompleted"
           }
         },
         "properties": {
           "confidence": 1.0,
-          "edge_text": "Retraction notice for 10.1007/s00500-023-09482-1 contradicts the original claim",
+          "edge_text": "Retraction notice for 10.1007/978-3-030-00524-5_7 contradicts the original claim",
           "ontology_valid": false,
-          "rationale": "Retraction Watch links original DOI 10.1007/s00500-023-09482-1 to this claim; reason: Concerns/Issues about Peer Review;Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
+          "rationale": "Retraction Watch links original DOI 10.1007/978-3-030-00524-5_7 to this claim; reason: Concerns/Issues about Referencing/Attributions;Conflict of Interest;Date of Article and/or Notice Unknown;Investigation by Journal/Publisher;Objections by Author(s);Rogue Editor;Unreliable Results and/or Conclusions;",
           "relationship_name": "contradicts",
-          "source_data_id": "7ee50471-5eca-5da5-9a46-98f60e8c6d87",
-          "superseded_doi": "10.1007/s00500-023-09482-1",
-          "target_data_id": "be4527b6-ee58-5b79-88a2-6a776a1aad92"
+          "source_data_id": "c5783413-5ccc-5877-9d83-049b21dca5a5",
+          "superseded_doi": "10.1007/978-3-030-00524-5_7",
+          "target_data_id": "d4b61a3d-722d-5dd8-988f-af173e8ebee1"
         },
-        "source_node_id": "e54e6729-b7f0-57cd-b313-4803aaa5ceca",
-        "target_node_id": "2ab42d07-b6be-58f4-be60-7cffd4fc4cb6"
+        "source_node_id": "a6f78f94-4dcf-5021-b496-c26f59f2a6ad",
+        "target_node_id": "0a0acbf5-9d12-55c9-b1a6-6134bdcc77b7"
       },
       "forget_result": {
-        "data_id": "be4527b6-ee58-5b79-88a2-6a776a1aad92",
+        "data_id": "d4b61a3d-722d-5dd8-988f-af173e8ebee1",
         "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
         "status": "success"
       },
-      "graph_edges_after_forget": 0,
-      "graph_edges_before_forget": 1,
+      "graph_edges_after_forget": 1,
+      "graph_edges_before_forget": 2,
       "ledger_edges_before_forget": 1,
       "notice_entries": {
         "groundtruth_memory": {
-          "data_id": "7ee50471-5eca-5da5-9a46-98f60e8c6d87",
+          "data_id": "c5783413-5ccc-5877-9d83-049b21dca5a5",
           "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
         },
         "naive_memory": {
-          "data_id": "7ee50471-5eca-5da5-9a46-98f60e8c6d87",
+          "data_id": "c5783413-5ccc-5877-9d83-049b21dca5a5",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+        }
+      }
+    }
+  },
+  {
+    "action": "already_prepared",
+    "claim_id": "R014",
+    "doi": "10.1016/j.jacadv.2025.101686",
+    "status": "retracted_forgotten"
+  },
+  {
+    "action": "processed",
+    "claim_id": "R015",
+    "doi": "10.1016/j.heliyon.2025.e41964",
+    "result": {
+      "claim_id": "R015",
+      "decision": {
+        "confidence": 1.0,
+        "contradicts": true,
+        "rationale": "Retraction Watch links original DOI 10.1016/j.heliyon.2025.e41964 to this claim; reason: Computer-Aided Content or Computer-Generated Content;Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
+        "superseded_doi": "10.1016/j.heliyon.2025.e41964"
+      },
+      "doi": "10.1016/j.heliyon.2025.e41964",
+      "edge_result": {
+        "memify_result": {
+          "1870baaf-b8c5-5b21-87dd-f40ef9024f1f": {
+            "data_ingestion_info": [
+              {
+                "run_info": {
+                  "data_ingestion_info": null,
+                  "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+                  "dataset_name": "groundtruth_memory",
+                  "payload": null,
+                  "pipeline_run_id": "f28429d6-b179-4e89-8e1a-f3e8aa33bb96",
+                  "status": "PipelineRunCompleted"
+                }
+              }
+            ],
+            "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+            "dataset_name": "groundtruth_memory",
+            "payload": null,
+            "pipeline_run_id": "f28429d6-b179-4e89-8e1a-f3e8aa33bb96",
+            "status": "PipelineRunCompleted"
+          }
+        },
+        "properties": {
+          "confidence": 1.0,
+          "edge_text": "Retraction notice for 10.1016/j.heliyon.2025.e41964 contradicts the original claim",
+          "ontology_valid": false,
+          "rationale": "Retraction Watch links original DOI 10.1016/j.heliyon.2025.e41964 to this claim; reason: Computer-Aided Content or Computer-Generated Content;Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
+          "relationship_name": "contradicts",
+          "source_data_id": "10dd0a00-a6f2-533b-a6af-5d4884e532ac",
+          "superseded_doi": "10.1016/j.heliyon.2025.e41964",
+          "target_data_id": "57a0c28a-fb22-579e-ad51-e0d96239ea46"
+        },
+        "source_node_id": "7eff0eb1-ba90-5b6b-92fa-89ff78aef7c4",
+        "target_node_id": "224fe172-f852-50e2-8fa3-0e4be54730a4"
+      },
+      "forget_result": {
+        "data_id": "57a0c28a-fb22-579e-ad51-e0d96239ea46",
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+        "status": "success"
+      },
+      "graph_edges_after_forget": 1,
+      "graph_edges_before_forget": 2,
+      "ledger_edges_before_forget": 1,
+      "notice_entries": {
+        "groundtruth_memory": {
+          "data_id": "10dd0a00-a6f2-533b-a6af-5d4884e532ac",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+        },
+        "naive_memory": {
+          "data_id": "10dd0a00-a6f2-533b-a6af-5d4884e532ac",
           "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
         }
       }
@@ -583,17 +250,17 @@ $env:PYTHONIOENCODING='utf-8'; .\.venv\Scripts\python.exe -m groundtruth.benchma
   },
   {
     "action": "processed",
-    "claim_id": "R012",
-    "doi": "10.1007/978-3-030-00524-5_6",
+    "claim_id": "R016",
+    "doi": "10.1016/j.heliyon.2022.e10071",
     "result": {
-      "claim_id": "R012",
+      "claim_id": "R016",
       "decision": {
         "confidence": 1.0,
         "contradicts": true,
-        "rationale": "Retraction Watch links original DOI 10.1007/978-3-030-00524-5_6 to this claim; reason: Concerns/Issues about Referencing/Attributions;Conflict of Interest;Date of Article and/or Notice Unknown;Investigation by Journal/Publisher;Objections by Author(s);Rogue Editor;Unreliable Results and/or Conclusions;",
-        "superseded_doi": "10.1007/978-3-030-00524-5_6"
+        "rationale": "Retraction Watch links original DOI 10.1016/j.heliyon.2022.e10071 to this claim; reason: Duplication of/in Image;Investigation by Journal/Publisher;Investigation by Third Party;Objections by Author(s);Unreliable Results and/or Conclusions;",
+        "superseded_doi": "10.1016/j.heliyon.2022.e10071"
       },
-      "doi": "10.1007/978-3-030-00524-5_6",
+      "doi": "10.1016/j.heliyon.2022.e10071",
       "edge_result": {
         "memify_result": {
           "1870baaf-b8c5-5b21-87dd-f40ef9024f1f": {
@@ -604,7 +271,7 @@ $env:PYTHONIOENCODING='utf-8'; .\.venv\Scripts\python.exe -m groundtruth.benchma
                   "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
                   "dataset_name": "groundtruth_memory",
                   "payload": null,
-                  "pipeline_run_id": "85c032b9-1eae-4d04-b945-d5e428b114c4",
+                  "pipeline_run_id": "54951bd5-6bbc-4776-874c-7fec0da99ca5",
                   "status": "PipelineRunCompleted"
                 }
               }
@@ -612,38 +279,650 @@ $env:PYTHONIOENCODING='utf-8'; .\.venv\Scripts\python.exe -m groundtruth.benchma
             "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
             "dataset_name": "groundtruth_memory",
             "payload": null,
-            "pipeline_run_id": "85c032b9-1eae-4d04-b945-d5e428b114c4",
+            "pipeline_run_id": "54951bd5-6bbc-4776-874c-7fec0da99ca5",
             "status": "PipelineRunCompleted"
           }
         },
         "properties": {
           "confidence": 1.0,
-          "edge_text": "Retraction notice for 10.1007/978-3-030-00524-5_6 contradicts the original claim",
+          "edge_text": "Retraction notice for 10.1016/j.heliyon.2022.e10071 contradicts the original claim",
           "ontology_valid": false,
-          "rationale": "Retraction Watch links original DOI 10.1007/978-3-030-00524-5_6 to this claim; reason: Concerns/Issues about Referencing/Attributions;Conflict of Interest;Date of Article and/or Notice Unknown;Investigation by Journal/Publisher;Objections by Author(s);Rogue Editor;Unreliable Results and/or Conclusions;",
+          "rationale": "Retraction Watch links original DOI 10.1016/j.heliyon.2022.e10071 to this claim; reason: Duplication of/in Image;Investigation by Journal/Publisher;Investigation by Third Party;Objections by Author(s);Unreliable Results and/or Conclusions;",
           "relationship_name": "contradicts",
-          "source_data_id": "7de422b8-8606-50c3-951a-17a00330ff96",
-          "superseded_doi": "10.1007/978-3-030-00524-5_6",
-          "target_data_id": "8b310b31-aecd-5a18-8fd5-06e67dcfe8bb"
+          "source_data_id": "8129f5bb-c4dd-5ba4-96e8-c64bfda8929d",
+          "superseded_doi": "10.1016/j.heliyon.2022.e10071",
+          "target_data_id": "ded0db36-085e-58b9-a93a-0faf32567f2d"
         },
-        "source_node_id": "4ebbca9f-8ace-54ed-8588-b73b16fc05ff",
-        "target_node_id": "d9d31375-86bf-5cd0-b843-6e282d21023b"
+        "source_node_id": "f330b435-d8cd-5d14-ae35-4b7ecfd97098",
+        "target_node_id": "54e9f54f-db85-5ecc-b7fb-e722f93b38ae"
       },
       "forget_result": {
-        "data_id": "8b310b31-aecd-5a18-8fd5-06e67dcfe8bb",
+        "data_id": "ded0db36-085e-58b9-a93a-0faf32567f2d",
         "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
         "status": "success"
       },
-      "graph_edges_after_forget": 0,
-      "graph_edges_before_forget": 1,
+      "graph_edges_after_forget": 1,
+      "graph_edges_before_forget": 2,
       "ledger_edges_before_forget": 1,
       "notice_entries": {
         "groundtruth_memory": {
-          "data_id": "7de422b8-8606-50c3-951a-17a00330ff96",
+          "data_id": "8129f5bb-c4dd-5ba4-96e8-c64bfda8929d",
           "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
         },
         "naive_memory": {
-          "data_id": "7de422b8-8606-50c3-951a-17a00330ff96",
+          "data_id": "8129f5bb-c4dd-5ba4-96e8-c64bfda8929d",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+        }
+      }
+    }
+  },
+  {
+    "action": "processed",
+    "claim_id": "R017",
+    "doi": "10.3389/fnut.2022.803913",
+    "result": {
+      "claim_id": "R017",
+      "decision": {
+        "confidence": 1.0,
+        "contradicts": true,
+        "rationale": "Retraction Watch links original DOI 10.3389/fnut.2022.803913 to this claim; reason: Concerns/Issues about Data;Investigation by Journal/Publisher;Lack of Approval from Company/Institution;",
+        "superseded_doi": "10.3389/fnut.2022.803913"
+      },
+      "doi": "10.3389/fnut.2022.803913",
+      "edge_result": {
+        "memify_result": {
+          "1870baaf-b8c5-5b21-87dd-f40ef9024f1f": {
+            "data_ingestion_info": [
+              {
+                "run_info": {
+                  "data_ingestion_info": null,
+                  "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+                  "dataset_name": "groundtruth_memory",
+                  "payload": null,
+                  "pipeline_run_id": "99de7835-d3c3-4b99-bf80-8183c20166c6",
+                  "status": "PipelineRunCompleted"
+                }
+              }
+            ],
+            "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+            "dataset_name": "groundtruth_memory",
+            "payload": null,
+            "pipeline_run_id": "99de7835-d3c3-4b99-bf80-8183c20166c6",
+            "status": "PipelineRunCompleted"
+          }
+        },
+        "properties": {
+          "confidence": 1.0,
+          "edge_text": "Retraction notice for 10.3389/fnut.2022.803913 contradicts the original claim",
+          "ontology_valid": false,
+          "rationale": "Retraction Watch links original DOI 10.3389/fnut.2022.803913 to this claim; reason: Concerns/Issues about Data;Investigation by Journal/Publisher;Lack of Approval from Company/Institution;",
+          "relationship_name": "contradicts",
+          "source_data_id": "93692e6f-5787-54b3-913a-c3d1fc8808cd",
+          "superseded_doi": "10.3389/fnut.2022.803913",
+          "target_data_id": "13481387-d756-5462-ab6e-d8a3dbe08581"
+        },
+        "source_node_id": "d82c26ec-e0d1-5b15-a368-771f9b27687c",
+        "target_node_id": "b8265c1f-9fff-5613-a9af-fc4e5a073cdf"
+      },
+      "forget_result": {
+        "data_id": "13481387-d756-5462-ab6e-d8a3dbe08581",
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+        "status": "success"
+      },
+      "graph_edges_after_forget": 1,
+      "graph_edges_before_forget": 2,
+      "ledger_edges_before_forget": 1,
+      "notice_entries": {
+        "groundtruth_memory": {
+          "data_id": "93692e6f-5787-54b3-913a-c3d1fc8808cd",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+        },
+        "naive_memory": {
+          "data_id": "93692e6f-5787-54b3-913a-c3d1fc8808cd",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+        }
+      }
+    }
+  },
+  {
+    "action": "processed",
+    "claim_id": "R018",
+    "doi": "10.1016/j.heliyon.2024.e37293",
+    "result": {
+      "claim_id": "R018",
+      "decision": {
+        "confidence": 1.0,
+        "contradicts": true,
+        "rationale": "Retraction Watch links original DOI 10.1016/j.heliyon.2024.e37293 to this claim; reason: Author Unresponsive;Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Unreliable Results and/or Conclusions;",
+        "superseded_doi": "10.1016/j.heliyon.2024.e37293"
+      },
+      "doi": "10.1016/j.heliyon.2024.e37293",
+      "edge_result": {
+        "memify_result": {
+          "1870baaf-b8c5-5b21-87dd-f40ef9024f1f": {
+            "data_ingestion_info": [
+              {
+                "run_info": {
+                  "data_ingestion_info": null,
+                  "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+                  "dataset_name": "groundtruth_memory",
+                  "payload": null,
+                  "pipeline_run_id": "c81d807c-6754-4c89-8d60-57aae3269347",
+                  "status": "PipelineRunCompleted"
+                }
+              }
+            ],
+            "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+            "dataset_name": "groundtruth_memory",
+            "payload": null,
+            "pipeline_run_id": "c81d807c-6754-4c89-8d60-57aae3269347",
+            "status": "PipelineRunCompleted"
+          }
+        },
+        "properties": {
+          "confidence": 1.0,
+          "edge_text": "Retraction notice for 10.1016/j.heliyon.2024.e37293 contradicts the original claim",
+          "ontology_valid": false,
+          "rationale": "Retraction Watch links original DOI 10.1016/j.heliyon.2024.e37293 to this claim; reason: Author Unresponsive;Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Unreliable Results and/or Conclusions;",
+          "relationship_name": "contradicts",
+          "source_data_id": "5c55498c-b1e0-5849-a775-90619c77163b",
+          "superseded_doi": "10.1016/j.heliyon.2024.e37293",
+          "target_data_id": "b66cdeb7-f924-54e8-90fc-14104c2dd908"
+        },
+        "source_node_id": "52c896d5-9e7e-5be7-9636-2ebd76e680fd",
+        "target_node_id": "c18fb749-794b-5bec-8de6-7e4f239f891b"
+      },
+      "forget_result": {
+        "data_id": "b66cdeb7-f924-54e8-90fc-14104c2dd908",
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+        "status": "success"
+      },
+      "graph_edges_after_forget": 1,
+      "graph_edges_before_forget": 2,
+      "ledger_edges_before_forget": 1,
+      "notice_entries": {
+        "groundtruth_memory": {
+          "data_id": "5c55498c-b1e0-5849-a775-90619c77163b",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+        },
+        "naive_memory": {
+          "data_id": "5c55498c-b1e0-5849-a775-90619c77163b",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+        }
+      }
+    }
+  },
+  {
+    "action": "processed",
+    "claim_id": "R019",
+    "doi": "10.1016/j.jogc.2023.102264",
+    "result": {
+      "claim_id": "R019",
+      "decision": {
+        "confidence": 1.0,
+        "contradicts": true,
+        "rationale": "Retraction Watch links original DOI 10.1016/j.jogc.2023.102264 to this claim; reason: Concerns/Issues about Data;Investigation by Journal/Publisher;Investigation by Third Party;Notice - Limited or No Information;",
+        "superseded_doi": "10.1016/j.jogc.2023.102264"
+      },
+      "doi": "10.1016/j.jogc.2023.102264",
+      "edge_result": {
+        "memify_result": {
+          "1870baaf-b8c5-5b21-87dd-f40ef9024f1f": {
+            "data_ingestion_info": [
+              {
+                "run_info": {
+                  "data_ingestion_info": null,
+                  "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+                  "dataset_name": "groundtruth_memory",
+                  "payload": null,
+                  "pipeline_run_id": "92c82547-f3f0-4711-af0a-bbb00d1c0862",
+                  "status": "PipelineRunCompleted"
+                }
+              }
+            ],
+            "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+            "dataset_name": "groundtruth_memory",
+            "payload": null,
+            "pipeline_run_id": "92c82547-f3f0-4711-af0a-bbb00d1c0862",
+            "status": "PipelineRunCompleted"
+          }
+        },
+        "properties": {
+          "confidence": 1.0,
+          "edge_text": "Retraction notice for 10.1016/j.jogc.2023.102264 contradicts the original claim",
+          "ontology_valid": false,
+          "rationale": "Retraction Watch links original DOI 10.1016/j.jogc.2023.102264 to this claim; reason: Concerns/Issues about Data;Investigation by Journal/Publisher;Investigation by Third Party;Notice - Limited or No Information;",
+          "relationship_name": "contradicts",
+          "source_data_id": "56cb288a-2ea0-558d-8fb8-0b4faab233b3",
+          "superseded_doi": "10.1016/j.jogc.2023.102264",
+          "target_data_id": "862102b8-eb18-5287-9414-11adfd4c7430"
+        },
+        "source_node_id": "57340ca5-b984-53ab-9306-24fb2849a101",
+        "target_node_id": "57340ca5-b984-53ab-9306-24fb2849a101"
+      },
+      "forget_result": {
+        "data_id": "862102b8-eb18-5287-9414-11adfd4c7430",
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+        "status": "success"
+      },
+      "graph_edges_after_forget": 2,
+      "graph_edges_before_forget": 2,
+      "ledger_edges_before_forget": 1,
+      "notice_entries": {
+        "groundtruth_memory": {
+          "data_id": "56cb288a-2ea0-558d-8fb8-0b4faab233b3",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+        },
+        "naive_memory": {
+          "data_id": "56cb288a-2ea0-558d-8fb8-0b4faab233b3",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+        }
+      }
+    }
+  },
+  {
+    "action": "processed",
+    "claim_id": "R020",
+    "doi": "10.1007/s00500-021-06668-3",
+    "result": {
+      "claim_id": "R020",
+      "decision": {
+        "confidence": 1.0,
+        "contradicts": true,
+        "rationale": "Retraction Watch links original DOI 10.1007/s00500-021-06668-3 to this claim; reason: Compromised Peer Review;Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Objections by Author(s);Rogue Editor;Unreliable Results and/or Conclusions;",
+        "superseded_doi": "10.1007/s00500-021-06668-3"
+      },
+      "doi": "10.1007/s00500-021-06668-3",
+      "edge_result": {
+        "memify_result": {
+          "1870baaf-b8c5-5b21-87dd-f40ef9024f1f": {
+            "data_ingestion_info": [
+              {
+                "run_info": {
+                  "data_ingestion_info": null,
+                  "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+                  "dataset_name": "groundtruth_memory",
+                  "payload": null,
+                  "pipeline_run_id": "558c1304-7f36-489b-911c-dfd16dcc6380",
+                  "status": "PipelineRunCompleted"
+                }
+              }
+            ],
+            "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+            "dataset_name": "groundtruth_memory",
+            "payload": null,
+            "pipeline_run_id": "558c1304-7f36-489b-911c-dfd16dcc6380",
+            "status": "PipelineRunCompleted"
+          }
+        },
+        "properties": {
+          "confidence": 1.0,
+          "edge_text": "Retraction notice for 10.1007/s00500-021-06668-3 contradicts the original claim",
+          "ontology_valid": false,
+          "rationale": "Retraction Watch links original DOI 10.1007/s00500-021-06668-3 to this claim; reason: Compromised Peer Review;Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Objections by Author(s);Rogue Editor;Unreliable Results and/or Conclusions;",
+          "relationship_name": "contradicts",
+          "source_data_id": "01e7a371-dbe1-566b-9e19-94bc48e5ab29",
+          "superseded_doi": "10.1007/s00500-021-06668-3",
+          "target_data_id": "eb56d69a-6313-5dd0-93d8-1d73c161dd3e"
+        },
+        "source_node_id": "8ca18c7e-ee28-5ca7-8392-484c295e5e60",
+        "target_node_id": "90c2b614-9291-588b-8035-5e4e8c38bf59"
+      },
+      "forget_result": {
+        "data_id": "eb56d69a-6313-5dd0-93d8-1d73c161dd3e",
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+        "status": "success"
+      },
+      "graph_edges_after_forget": 2,
+      "graph_edges_before_forget": 3,
+      "ledger_edges_before_forget": 1,
+      "notice_entries": {
+        "groundtruth_memory": {
+          "data_id": "01e7a371-dbe1-566b-9e19-94bc48e5ab29",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+        },
+        "naive_memory": {
+          "data_id": "01e7a371-dbe1-566b-9e19-94bc48e5ab29",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+        }
+      }
+    }
+  },
+  {
+    "action": "processed",
+    "claim_id": "R021",
+    "doi": "10.1534/genetics.120.303481",
+    "result": {
+      "claim_id": "R021",
+      "decision": {
+        "confidence": 1.0,
+        "contradicts": true,
+        "rationale": "Retraction Watch links original DOI 10.1534/genetics.120.303481 to this claim; reason: Error in Data;Retract and Replace;",
+        "superseded_doi": "10.1534/genetics.120.303481"
+      },
+      "doi": "10.1534/genetics.120.303481",
+      "edge_result": {
+        "memify_result": {
+          "1870baaf-b8c5-5b21-87dd-f40ef9024f1f": {
+            "data_ingestion_info": [
+              {
+                "run_info": {
+                  "data_ingestion_info": null,
+                  "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+                  "dataset_name": "groundtruth_memory",
+                  "payload": null,
+                  "pipeline_run_id": "6ad0590c-f337-44b9-8a8e-182f95f296e7",
+                  "status": "PipelineRunCompleted"
+                }
+              }
+            ],
+            "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+            "dataset_name": "groundtruth_memory",
+            "payload": null,
+            "pipeline_run_id": "6ad0590c-f337-44b9-8a8e-182f95f296e7",
+            "status": "PipelineRunCompleted"
+          }
+        },
+        "properties": {
+          "confidence": 1.0,
+          "edge_text": "Retraction notice for 10.1534/genetics.120.303481 contradicts the original claim",
+          "ontology_valid": false,
+          "rationale": "Retraction Watch links original DOI 10.1534/genetics.120.303481 to this claim; reason: Error in Data;Retract and Replace;",
+          "relationship_name": "contradicts",
+          "source_data_id": "5a1af7d0-fa90-5f24-bebf-fe8d24c80ada",
+          "superseded_doi": "10.1534/genetics.120.303481",
+          "target_data_id": "0b3c61b5-688d-5161-8739-a8795964101f"
+        },
+        "source_node_id": "b54ef7f0-27bc-58a5-87a6-af3ab067058d",
+        "target_node_id": "61ddd47b-469e-5167-9bb3-f993b31cb0a2"
+      },
+      "forget_result": {
+        "data_id": "0b3c61b5-688d-5161-8739-a8795964101f",
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+        "status": "success"
+      },
+      "graph_edges_after_forget": 2,
+      "graph_edges_before_forget": 3,
+      "ledger_edges_before_forget": 1,
+      "notice_entries": {
+        "groundtruth_memory": {
+          "data_id": "5a1af7d0-fa90-5f24-bebf-fe8d24c80ada",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+        },
+        "naive_memory": {
+          "data_id": "5a1af7d0-fa90-5f24-bebf-fe8d24c80ada",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+        }
+      }
+    }
+  },
+  {
+    "action": "processed",
+    "claim_id": "R022",
+    "doi": "10.1080/14767058.2020.1814239",
+    "result": {
+      "claim_id": "R022",
+      "decision": {
+        "confidence": 1.0,
+        "contradicts": true,
+        "rationale": "Retraction Watch links original DOI 10.1080/14767058.2020.1814239 to this claim; reason: Concerns/Issues about Data;Investigation by Journal/Publisher;Investigation by Third Party;Unreliable Results and/or Conclusions;",
+        "superseded_doi": "10.1080/14767058.2020.1814239"
+      },
+      "doi": "10.1080/14767058.2020.1814239",
+      "edge_result": {
+        "memify_result": {
+          "1870baaf-b8c5-5b21-87dd-f40ef9024f1f": {
+            "data_ingestion_info": [
+              {
+                "run_info": {
+                  "data_ingestion_info": null,
+                  "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+                  "dataset_name": "groundtruth_memory",
+                  "payload": null,
+                  "pipeline_run_id": "9c678738-ee05-478f-8aca-9e83c44ef0c2",
+                  "status": "PipelineRunCompleted"
+                }
+              }
+            ],
+            "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+            "dataset_name": "groundtruth_memory",
+            "payload": null,
+            "pipeline_run_id": "9c678738-ee05-478f-8aca-9e83c44ef0c2",
+            "status": "PipelineRunCompleted"
+          }
+        },
+        "properties": {
+          "confidence": 1.0,
+          "edge_text": "Retraction notice for 10.1080/14767058.2020.1814239 contradicts the original claim",
+          "ontology_valid": false,
+          "rationale": "Retraction Watch links original DOI 10.1080/14767058.2020.1814239 to this claim; reason: Concerns/Issues about Data;Investigation by Journal/Publisher;Investigation by Third Party;Unreliable Results and/or Conclusions;",
+          "relationship_name": "contradicts",
+          "source_data_id": "91aa65f3-9c58-520a-9133-a4caa283428e",
+          "superseded_doi": "10.1080/14767058.2020.1814239",
+          "target_data_id": "76a51f40-5e8e-5f6b-bb4a-5587be84fbb9"
+        },
+        "source_node_id": "95fb4352-f9de-58ef-8490-44338612dc60",
+        "target_node_id": "fa299621-17a3-5f06-9df4-63d93c0eda3d"
+      },
+      "forget_result": {
+        "data_id": "76a51f40-5e8e-5f6b-bb4a-5587be84fbb9",
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+        "status": "success"
+      },
+      "graph_edges_after_forget": 2,
+      "graph_edges_before_forget": 3,
+      "ledger_edges_before_forget": 1,
+      "notice_entries": {
+        "groundtruth_memory": {
+          "data_id": "91aa65f3-9c58-520a-9133-a4caa283428e",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+        },
+        "naive_memory": {
+          "data_id": "91aa65f3-9c58-520a-9133-a4caa283428e",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+        }
+      }
+    }
+  },
+  {
+    "action": "processed",
+    "claim_id": "R023",
+    "doi": "10.1080/14767058.2019.1678132",
+    "result": {
+      "claim_id": "R023",
+      "decision": {
+        "confidence": 1.0,
+        "contradicts": true,
+        "rationale": "Retraction Watch links original DOI 10.1080/14767058.2019.1678132 to this claim; reason: Author Unresponsive;Concerns/Issues about Data;Concerns/Issues about Results and/or Conclusions;Investigation by Journal/Publisher;Original Data and/or Images not Provided and/or not Available;Unreliable Results and/or Conclusions;",
+        "superseded_doi": "10.1080/14767058.2019.1678132"
+      },
+      "doi": "10.1080/14767058.2019.1678132",
+      "edge_result": {
+        "memify_result": {
+          "1870baaf-b8c5-5b21-87dd-f40ef9024f1f": {
+            "data_ingestion_info": [
+              {
+                "run_info": {
+                  "data_ingestion_info": null,
+                  "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+                  "dataset_name": "groundtruth_memory",
+                  "payload": null,
+                  "pipeline_run_id": "9901e6ae-003b-4f51-b6f2-04a27ce31fd4",
+                  "status": "PipelineRunCompleted"
+                }
+              }
+            ],
+            "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+            "dataset_name": "groundtruth_memory",
+            "payload": null,
+            "pipeline_run_id": "9901e6ae-003b-4f51-b6f2-04a27ce31fd4",
+            "status": "PipelineRunCompleted"
+          }
+        },
+        "properties": {
+          "confidence": 1.0,
+          "edge_text": "Retraction notice for 10.1080/14767058.2019.1678132 contradicts the original claim",
+          "ontology_valid": false,
+          "rationale": "Retraction Watch links original DOI 10.1080/14767058.2019.1678132 to this claim; reason: Author Unresponsive;Concerns/Issues about Data;Concerns/Issues about Results and/or Conclusions;Investigation by Journal/Publisher;Original Data and/or Images not Provided and/or not Available;Unreliable Results and/or Conclusions;",
+          "relationship_name": "contradicts",
+          "source_data_id": "0da65837-1f72-5bfc-b521-42bf55eedbf9",
+          "superseded_doi": "10.1080/14767058.2019.1678132",
+          "target_data_id": "ceb8698f-0cd6-5114-8ba5-e098418bd9b2"
+        },
+        "source_node_id": "d0710821-16bc-58dc-8d2d-4a714f252c5e",
+        "target_node_id": "e77c42e5-d795-5e45-83bb-5aa903084ac1"
+      },
+      "forget_result": {
+        "data_id": "ceb8698f-0cd6-5114-8ba5-e098418bd9b2",
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+        "status": "success"
+      },
+      "graph_edges_after_forget": 2,
+      "graph_edges_before_forget": 3,
+      "ledger_edges_before_forget": 1,
+      "notice_entries": {
+        "groundtruth_memory": {
+          "data_id": "0da65837-1f72-5bfc-b521-42bf55eedbf9",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+        },
+        "naive_memory": {
+          "data_id": "0da65837-1f72-5bfc-b521-42bf55eedbf9",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+        }
+      }
+    }
+  },
+  {
+    "action": "processed",
+    "claim_id": "R024",
+    "doi": "10.1080/14767058.2018.1491030",
+    "result": {
+      "claim_id": "R024",
+      "decision": {
+        "confidence": 1.0,
+        "contradicts": true,
+        "rationale": "Retraction Watch links original DOI 10.1080/14767058.2018.1491030 to this claim; reason: Concerns/Issues about Data;Concerns/Issues about Results and/or Conclusions;Investigation by Journal/Publisher;Unreliable Results and/or Conclusions;Upgrade/Update of Prior Notice(s);",
+        "superseded_doi": "10.1080/14767058.2018.1491030"
+      },
+      "doi": "10.1080/14767058.2018.1491030",
+      "edge_result": {
+        "memify_result": {
+          "1870baaf-b8c5-5b21-87dd-f40ef9024f1f": {
+            "data_ingestion_info": [
+              {
+                "run_info": {
+                  "data_ingestion_info": null,
+                  "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+                  "dataset_name": "groundtruth_memory",
+                  "payload": null,
+                  "pipeline_run_id": "76c29a2a-ff9c-4ce6-9030-5cdb6d17b5cf",
+                  "status": "PipelineRunCompleted"
+                }
+              }
+            ],
+            "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+            "dataset_name": "groundtruth_memory",
+            "payload": null,
+            "pipeline_run_id": "76c29a2a-ff9c-4ce6-9030-5cdb6d17b5cf",
+            "status": "PipelineRunCompleted"
+          }
+        },
+        "properties": {
+          "confidence": 1.0,
+          "edge_text": "Retraction notice for 10.1080/14767058.2018.1491030 contradicts the original claim",
+          "ontology_valid": false,
+          "rationale": "Retraction Watch links original DOI 10.1080/14767058.2018.1491030 to this claim; reason: Concerns/Issues about Data;Concerns/Issues about Results and/or Conclusions;Investigation by Journal/Publisher;Unreliable Results and/or Conclusions;Upgrade/Update of Prior Notice(s);",
+          "relationship_name": "contradicts",
+          "source_data_id": "2d282f1a-c086-5d39-b1c1-047ec5d00e5f",
+          "superseded_doi": "10.1080/14767058.2018.1491030",
+          "target_data_id": "859fb844-7a20-5938-9d2c-fec6e18ed93d"
+        },
+        "source_node_id": "42464504-3bc8-58d0-a9c6-89a004fd5a32",
+        "target_node_id": "1f9e7f95-2583-5061-9e59-42185a2559d0"
+      },
+      "forget_result": {
+        "data_id": "859fb844-7a20-5938-9d2c-fec6e18ed93d",
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+        "status": "success"
+      },
+      "graph_edges_after_forget": 2,
+      "graph_edges_before_forget": 3,
+      "ledger_edges_before_forget": 1,
+      "notice_entries": {
+        "groundtruth_memory": {
+          "data_id": "2d282f1a-c086-5d39-b1c1-047ec5d00e5f",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+        },
+        "naive_memory": {
+          "data_id": "2d282f1a-c086-5d39-b1c1-047ec5d00e5f",
+          "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+        }
+      }
+    }
+  },
+  {
+    "action": "processed",
+    "claim_id": "R025",
+    "doi": "10.3109/14767058.2016.1154526",
+    "result": {
+      "claim_id": "R025",
+      "decision": {
+        "confidence": 1.0,
+        "contradicts": true,
+        "rationale": "Retraction Watch links original DOI 10.3109/14767058.2016.1154526 to this claim; reason: Concerns/Issues about Data;Concerns/Issues about Results and/or Conclusions;Investigation by Journal/Publisher;Unreliable Results and/or Conclusions;Upgrade/Update of Prior Notice(s);",
+        "superseded_doi": "10.3109/14767058.2016.1154526"
+      },
+      "doi": "10.3109/14767058.2016.1154526",
+      "edge_result": {
+        "memify_result": {
+          "1870baaf-b8c5-5b21-87dd-f40ef9024f1f": {
+            "data_ingestion_info": [
+              {
+                "run_info": {
+                  "data_ingestion_info": null,
+                  "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+                  "dataset_name": "groundtruth_memory",
+                  "payload": null,
+                  "pipeline_run_id": "ce5663ef-785b-42ad-917b-79cfc46b2111",
+                  "status": "PipelineRunCompleted"
+                }
+              }
+            ],
+            "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+            "dataset_name": "groundtruth_memory",
+            "payload": null,
+            "pipeline_run_id": "ce5663ef-785b-42ad-917b-79cfc46b2111",
+            "status": "PipelineRunCompleted"
+          }
+        },
+        "properties": {
+          "confidence": 1.0,
+          "edge_text": "Retraction notice for 10.3109/14767058.2016.1154526 contradicts the original claim",
+          "ontology_valid": false,
+          "rationale": "Retraction Watch links original DOI 10.3109/14767058.2016.1154526 to this claim; reason: Concerns/Issues about Data;Concerns/Issues about Results and/or Conclusions;Investigation by Journal/Publisher;Unreliable Results and/or Conclusions;Upgrade/Update of Prior Notice(s);",
+          "relationship_name": "contradicts",
+          "source_data_id": "818fd588-396d-50cf-8cb7-7f38c268eb42",
+          "superseded_doi": "10.3109/14767058.2016.1154526",
+          "target_data_id": "65ffea2b-248b-5e27-b82f-c74fa1c8eeb6"
+        },
+        "source_node_id": "abc1502d-b677-5f30-9531-79ac9f6564cf",
+        "target_node_id": "0d5ba7e9-bfde-5896-9333-81a788ba5bfe"
+      },
+      "forget_result": {
+        "data_id": "65ffea2b-248b-5e27-b82f-c74fa1c8eeb6",
+        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
+        "status": "success"
+      },
+      "graph_edges_after_forget": 2,
+      "graph_edges_before_forget": 3,
+      "ledger_edges_before_forget": 1,
+      "notice_entries": {
+        "groundtruth_memory": {
+          "data_id": "818fd588-396d-50cf-8cb7-7f38c268eb42",
+          "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+        },
+        "naive_memory": {
+          "data_id": "818fd588-396d-50cf-8cb7-7f38c268eb42",
           "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
         }
       }
@@ -654,48 +933,48 @@ $env:PYTHONIOENCODING='utf-8'; .\.venv\Scripts\python.exe -m groundtruth.benchma
 
 ## Results
 
-| Q | Kind | Dataset | Cites Retracted | Control Retained | Correctness | References |
+| Q | Kind | Dataset | Retrieves Retracted Original | Control Retained | Correctness | Retrieved References |
 |---|---|---|---:|---:|---|---|
-| Q01 | retracted | naive_memory | True | False | skipped_gemini_quota_fallback | R001, R001, R011, R012, R015 |
-| Q01 | retracted | groundtruth_memory | False | False | skipped_gemini_quota_fallback | R001, R015, R018, R020, R022 |
-| Q02 | retracted | naive_memory | True | False | skipped_gemini_quota_fallback | R002, R002 |
-| Q02 | retracted | groundtruth_memory | False | False | skipped_gemini_quota_fallback | R002 |
-| Q03 | retracted | naive_memory | True | False | skipped_gemini_quota_fallback | R003, R003, C003, C012, R015 |
-| Q03 | retracted | groundtruth_memory | False | False | skipped_gemini_quota_fallback | R003, C003, C012, R015, R019 |
-| Q04 | retracted | naive_memory | True | False | skipped_gemini_quota_fallback | R004, R004, R022, R023, C002 |
-| Q04 | retracted | groundtruth_memory | False | False | skipped_gemini_quota_fallback | R004, R022, R023, C002, C011 |
-| Q05 | retracted | naive_memory | True | False | skipped_gemini_quota_fallback | R005, R005, R012, R024, C002 |
-| Q05 | retracted | groundtruth_memory | False | False | skipped_gemini_quota_fallback | R005, R024, C002, R012 |
-| Q06 | retracted | naive_memory | True | False | skipped_gemini_quota_fallback | R006, R006, R012, R019, R022 |
-| Q06 | retracted | groundtruth_memory | False | False | skipped_gemini_quota_fallback | R006, R019, R022, R023, C007 |
-| Q07 | retracted | naive_memory | True | False | skipped_gemini_quota_fallback | R007, R007, R008, R008 |
-| Q07 | retracted | groundtruth_memory | False | False | skipped_gemini_quota_fallback | R007, R008 |
-| Q08 | retracted | naive_memory | True | False | skipped_gemini_quota_fallback | R008, R008, R016, R018 |
-| Q08 | retracted | groundtruth_memory | False | False | skipped_gemini_quota_fallback | R008, R016, R018 |
-| Q09 | retracted | naive_memory | True | False | skipped_gemini_quota_fallback | R009, R009 |
-| Q09 | retracted | groundtruth_memory | False | False | skipped_gemini_quota_fallback | R009 |
-| Q10 | retracted | naive_memory | True | False | skipped_gemini_quota_fallback | R010, R010, R003, C007, C011 |
-| Q10 | retracted | groundtruth_memory | False | False | skipped_gemini_quota_fallback | R010, C007, C011, R003 |
-| Q11 | retracted | naive_memory | True | False | skipped_gemini_quota_fallback | R011, R011, R018, R020, R001 |
-| Q11 | retracted | groundtruth_memory | False | False | skipped_gemini_quota_fallback | R011, R018, R020, R015, R022 |
-| Q12 | retracted | naive_memory | True | False | skipped_gemini_quota_fallback | R012, R012 |
-| Q12 | retracted | groundtruth_memory | False | False | skipped_gemini_quota_fallback | R012 |
-| Q13 | control | naive_memory | False | True | skipped_gemini_quota_fallback | C001, C013, C004, C005, C012 |
-| Q13 | control | groundtruth_memory | False | True | skipped_gemini_quota_fallback | C001, C013, C004, C005, C012 |
-| Q14 | control | naive_memory | False | True | skipped_gemini_quota_fallback | C002, C004, C010, C008, C011 |
-| Q14 | control | groundtruth_memory | False | True | skipped_gemini_quota_fallback | C002, C004, C010, C008, C011 |
-| Q15 | control | naive_memory | True | False | skipped_gemini_quota_fallback | C003, R003, C012, R003, R006 |
-| Q15 | control | groundtruth_memory | False | True | skipped_gemini_quota_fallback | C003, C012, R003, R019, R021 |
-| Q16 | control | naive_memory | False | True | skipped_gemini_quota_fallback | C004, C002, C010, C015, C001 |
-| Q16 | control | groundtruth_memory | False | True | skipped_gemini_quota_fallback | C004, C002, C010, C015, C001 |
-| Q17 | control | naive_memory | True | False | skipped_gemini_quota_fallback | C005, C001, C013, R006, R021 |
-| Q17 | control | groundtruth_memory | False | True | skipped_gemini_quota_fallback | C005, C001, C013, R021, C003 |
-| Q18 | mixed | naive_memory | True | False | skipped_gemini_quota_fallback | C003, R001, R003, C012, R001 |
-| Q18 | mixed | groundtruth_memory | False | False | skipped_gemini_quota_fallback | C003, C012, R001, R003, R019 |
-| Q19 | mixed | naive_memory | True | False | skipped_gemini_quota_fallback | C004, R005, C002, C008, C010 |
-| Q19 | mixed | groundtruth_memory | False | False | skipped_gemini_quota_fallback | C004, C002, C008, C010, C011 |
-| Q20 | mixed | naive_memory | True | False | skipped_gemini_quota_fallback | R003, C001, R003, C013, R006 |
-| Q20 | mixed | groundtruth_memory | False | False | skipped_gemini_quota_fallback | C001, R003, C013, R015, C002 |
+| Q01 | retracted | naive_memory | True | False | skipped_quota_disclosed | R001, R001, R009, R008, R014, R005, R007, R012, C003, R015 |
+| Q01 | retracted | groundtruth_memory | False | False | skipped_quota_disclosed | R001, R009, R008, R014, R015, R021, R025, R019, C001, R007 |
+| Q02 | retracted | naive_memory | True | False | skipped_quota_disclosed | C003, R016, R007, C013, R021, R008, C002, R017, C010, R002 |
+| Q02 | retracted | groundtruth_memory | False | False | skipped_quota_disclosed | C003, C013, C012, R009, C014, R002, C001, C002, C010, C005 |
+| Q03 | retracted | naive_memory | True | False | skipped_quota_disclosed | C003, R001, C009, C001, C011, R025, R023, R021, C002, R003, R003, R009 |
+| Q03 | retracted | groundtruth_memory | False | False | skipped_quota_disclosed | C003, R003, R009, C009, C001, C011, R021, C014, C002, C012, R005 |
+| Q04 | retracted | naive_memory | True | False | skipped_quota_disclosed | C003, R012, R013, R001, R004, R011, R020, C013, C009, R010, R017 |
+| Q04 | retracted | groundtruth_memory | False | False | skipped_quota_disclosed | C003, R008, R009, C013, C009, C008, C011, C014, R004, R021, R011 |
+| Q05 | retracted | naive_memory | True | False | skipped_quota_disclosed | C002, C001, C003, R001, C012, C009, C004, R005, R009, R021, C008 |
+| Q05 | retracted | groundtruth_memory | False | False | skipped_quota_disclosed | C002, C001, C003, C012, R005, R009, R008, C009, C004, C008, C011 |
+| Q06 | retracted | naive_memory | True | False | skipped_quota_disclosed | R017, C003, R001, C011, R012, R013, R006, C014, R006, R009, R025, R023, C008 |
+| Q06 | retracted | groundtruth_memory | False | False | skipped_quota_disclosed | C003, C011, R006, R009, C015, C012, R008, C014, C008, C010, C005 |
+| Q07 | retracted | naive_memory | True | False | skipped_quota_disclosed | C001, R007, R016, C003, R001, C002, R025, R023, C008, C009, R003 |
+| Q07 | retracted | groundtruth_memory | False | False | skipped_quota_disclosed | C001, C003, R007, R009, C002, C008, C010, C013, C011, R025, R001 |
+| Q08 | retracted | naive_memory | True | False | skipped_quota_disclosed | C003, R001, R021, C014, R008, R016, R008, R009, C013, C008, R021, R004 |
+| Q08 | retracted | groundtruth_memory | False | False | skipped_quota_disclosed | C003, R008, R009, C014, R021, C001, R015, C013, C008, C011, C002 |
+| Q09 | retracted | naive_memory | True | False | skipped_quota_disclosed | R007, R009, R017, R001, R012, R025, R009, R016, R016, R010, R022 |
+| Q09 | retracted | groundtruth_memory | False | False | skipped_quota_disclosed | R009, R006, C002, R001, R017, R007, R005, R008, R002, R012 |
+| Q10 | retracted | naive_memory | True | False | skipped_quota_disclosed | C003, R001, C009, C001, C002, R014, C011, C008, C013, C004 |
+| Q10 | retracted | groundtruth_memory | False | False | skipped_quota_disclosed | C003, C009, C001, C002, C012, R008, R009, C011, C008, C013, C004 |
+| Q11 | retracted | naive_memory | True | False | skipped_quota_disclosed | C003, R012, R013, C001, R011, R020, C013, R010, R001, C008 |
+| Q11 | retracted | groundtruth_memory | False | False | skipped_quota_disclosed | C003, R021, R009, C001, R008, C013, R011, C008, C009, R001, C011 |
+| Q12 | retracted | naive_memory | False | False | skipped_quota_disclosed | R012, R009, R008, R005, R013, R016, R011, R006, R007, R002 |
+| Q12 | retracted | groundtruth_memory | False | False | skipped_quota_disclosed | R012, R009, R006, R005, R013, R008, R007, R002, R016, R015 |
+| Q13 | control | naive_memory | True | False | skipped_quota_disclosed | C003, C002, C013, C001, R021, C004, C010, C005, C009, C006 |
+| Q13 | control | groundtruth_memory | False | True | skipped_quota_disclosed | C003, C002, C013, C001, C012, C011, R021, R009, C004, C010, C005 |
+| Q14 | control | naive_memory | True | False | skipped_quota_disclosed | C002, C003, C013, C010, C001, C011, R021, C004, C005, C014 |
+| Q14 | control | groundtruth_memory | False | True | skipped_quota_disclosed | C002, C003, C013, C010, C001, C011, C012, C015, R008, R009, C004 |
+| Q15 | control | naive_memory | True | False | skipped_quota_disclosed | C003, C002, C013, C001, R001, R021, R009, C010, C004, C012, C009 |
+| Q15 | control | groundtruth_memory | False | True | skipped_quota_disclosed | C003, C002, C013, C010, C001, C012, R021, R009, C011, C004, C009 |
+| Q16 | control | naive_memory | True | False | skipped_quota_disclosed | C002, C003, C013, R021, C001, C011, C004, C010, C005, R017 |
+| Q16 | control | groundtruth_memory | False | True | skipped_quota_disclosed | C002, C003, C013, C001, C011, C014, C012, C015, R008, R009, C004 |
+| Q17 | control | naive_memory | True | False | skipped_quota_disclosed | C013, C003, C002, C010, R017, R021, C001, C005, C004, C009 |
+| Q17 | control | groundtruth_memory | False | True | skipped_quota_disclosed | C013, C003, C002, C010, C001, C011, R021, R009, C012, C005, C004 |
+| Q18 | mixed | naive_memory | True | False | skipped_quota_disclosed | R001, C003, C002, C001, C010, R001, R009, R021, C009, C013, R021 |
+| Q18 | mixed | groundtruth_memory | False | False | skipped_quota_disclosed | C003, C001, R001, R009, C010, R021, R008, C002, C009, C013, C008 |
+| Q19 | mixed | naive_memory | True | False | skipped_quota_disclosed | C003, R001, R021, R004, C014, C011, C004, C008, C002, C013 |
+| Q19 | mixed | groundtruth_memory | False | False | skipped_quota_disclosed | C003, C014, R021, R009, C012, C015, C004, C008, C002, C013, C010 |
+| Q20 | mixed | naive_memory | True | False | skipped_quota_disclosed | C003, C013, R001, C001, C002, R021, R003, C009, C008, C012 |
+| Q20 | mixed | groundtruth_memory | False | False | skipped_quota_disclosed | C003, C013, C009, C001, C002, R021, R009, C014, C012, R008, C008 |
 
 ## Raw Results
 

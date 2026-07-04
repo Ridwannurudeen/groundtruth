@@ -16,6 +16,7 @@ from groundtruth.contradictions import (
     graph_contradiction_edges,
     judge_retraction_contradiction,
     ledger_edges,
+    memory_data_ids,
 )
 from groundtruth.ingest import normalize_doi, parse_year, store_claim_deterministic
 from groundtruth.registry import (
@@ -158,6 +159,16 @@ async def process_retraction(
         raise RuntimeError(f"No held-back retraction found for DOI: {doi}")
 
     claim = find_claim(claims, doi)
+    groundtruth_entry = claim["datasets"][groundtruth_dataset]
+    groundtruth_dataset_id = UUID(groundtruth_entry["dataset_id"])
+    if claim.get("status") == "retracted_forgotten":
+        return {
+            "claim_id": claim["claim_id"],
+            "doi": claim["doi"],
+            "action": "already_forgotten",
+            "status": claim["status"],
+        }
+
     append_audit(
         audit_log_path,
         {
@@ -182,6 +193,7 @@ async def process_retraction(
         dataset_entry["retraction_notice_data_id"] = notice_entry["data_id"]
         dataset_entry["retraction_notice_doi"] = notice_claim["source"]["doi"]
         notice_entries[dataset_name] = notice_entry
+        save_registry(claims, registry_path)
         append_audit(
             audit_log_path,
             {
@@ -207,8 +219,21 @@ async def process_retraction(
         save_registry(claims, registry_path)
         return {"claim_id": claim["claim_id"], "decision": decision.model_dump(mode="json")}
 
-    groundtruth_entry = claim["datasets"][groundtruth_dataset]
-    groundtruth_dataset_id = UUID(groundtruth_entry["dataset_id"])
+    if groundtruth_entry["data_id"] not in await memory_data_ids(groundtruth_dataset_id):
+        claim["status"] = "retracted_forgotten"
+        claim["retraction"] = retraction
+        claim["datasets"][groundtruth_dataset]["status"] = "retracted_forgotten"
+        if naive_dataset in claim["datasets"]:
+            claim["datasets"][naive_dataset]["status"] = "retracted_retained"
+        save_registry(claims, registry_path)
+        return {
+            "claim_id": claim["claim_id"],
+            "doi": claim["doi"],
+            "action": "already_absent_from_groundtruth_memory",
+            "decision": decision.model_dump(mode="json"),
+            "notice_entries": notice_entries,
+        }
+
     edge_result = await add_contradiction_edge(
         cognee,
         dataset_id=groundtruth_dataset_id,

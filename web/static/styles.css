@@ -55,7 +55,8 @@ body::after {
 
 button,
 textarea,
-select {
+select,
+input {
   font: inherit;
 }
 
@@ -84,6 +85,7 @@ button:disabled {
 button:focus-visible,
 textarea:focus-visible,
 select:focus-visible,
+input:focus-visible,
 .graph-link:focus-visible {
   outline: 2px solid rgba(212, 168, 95, 0.45);
   outline-offset: 2px;
@@ -162,7 +164,8 @@ main {
 .wire-panel,
 .graph-panel,
 .contest-panel,
-.briefing-panel {
+.briefing-panel,
+.timeline-panel {
   border: 1px solid var(--night-line);
   border-radius: 8px;
   background: rgba(20, 16, 11, 0.82);
@@ -186,7 +189,8 @@ label {
 }
 
 textarea,
-select {
+select,
+input {
   width: 100%;
   border: 1px solid var(--night-line);
   border-radius: 6px;
@@ -210,6 +214,14 @@ select {
   font-size: 12px;
 }
 
+input {
+  min-height: 40px;
+  padding: 0 10px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color-scheme: dark;
+}
+
 .answer-grid,
 .control-grid {
   display: grid;
@@ -221,7 +233,8 @@ select {
 .wire-panel,
 .graph-panel,
 .contest-panel,
-.briefing-panel {
+.briefing-panel,
+.timeline-panel {
   min-width: 0;
   padding: 16px;
 }
@@ -403,11 +416,37 @@ select {
   margin: 14px 0;
 }
 
-.briefing-grid article {
+.timeline-controls {
+  display: grid;
+  grid-template-columns: minmax(0, 180px) minmax(0, 180px) auto;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.timeline-answer-grid,
+.timeline-grid {
+  display: grid;
+  gap: 12px;
+  margin: 14px 0 0;
+}
+
+.timeline-answer-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.timeline-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.briefing-grid article,
+.timeline-answer-grid article,
+.timeline-grid article {
   min-width: 0;
 }
 
-.briefing-grid h2 {
+.briefing-grid h2,
+.timeline-answer-grid h2,
+.timeline-grid h2 {
   margin: 0 0 8px;
   color: var(--gilt);
   font-family: var(--mono);
@@ -417,12 +456,23 @@ select {
   text-transform: uppercase;
 }
 
-.briefing-list {
+.briefing-list,
+.timeline-list {
   display: grid;
   gap: 8px;
 }
 
-.briefing-item {
+.timeline-answer-text {
+  min-height: 92px;
+  margin: 0 0 10px;
+  color: var(--paper);
+  font-family: var(--display);
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+.briefing-item,
+.timeline-item {
   min-height: 112px;
   padding: 10px;
   border: 1px solid var(--night-line);
@@ -435,7 +485,10 @@ select {
   .query-row,
   .answer-grid,
   .control-grid,
-  .briefing-grid {
+  .briefing-grid,
+  .timeline-controls,
+  .timeline-answer-grid,
+  .timeline-grid {
     grid-template-columns: 1fr;
   }
 

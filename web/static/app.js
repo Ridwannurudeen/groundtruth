@@ -5,6 +5,7 @@ const state = {
   mutationConfirmation: null,
   contestedItems: [],
   briefing: null,
+  timeline: null,
 };
 
 const el = {
@@ -33,6 +34,18 @@ const el = {
   briefingContested: document.querySelector("#briefingContested"),
   briefingRevised: document.querySelector("#briefingRevised"),
   briefingPurged: document.querySelector("#briefingPurged"),
+  beliefTimelineRange: document.querySelector("#beliefTimelineRange"),
+  timelineFrom: document.querySelector("#timelineFrom"),
+  timelineTo: document.querySelector("#timelineTo"),
+  timelineButton: document.querySelector("#timelineButton"),
+  timelineAnswerThen: document.querySelector("#timelineAnswerThen"),
+  timelineAnswerNow: document.querySelector("#timelineAnswerNow"),
+  timelineThenRefs: document.querySelector("#timelineThenRefs"),
+  timelineNowRefs: document.querySelector("#timelineNowRefs"),
+  timelineAdded: document.querySelector("#timelineAdded"),
+  timelineContested: document.querySelector("#timelineContested"),
+  timelineRevised: document.querySelector("#timelineRevised"),
+  timelinePurged: document.querySelector("#timelinePurged"),
 };
 
 function setBusy(button, busy) {
@@ -214,6 +227,23 @@ async function loadBriefing() {
   renderBriefing(payload);
 }
 
+async function loadTimeline() {
+  const fromDate = el.timelineFrom.value || "2023-01-01";
+  const toDate = el.timelineTo.value || "2026-07-04";
+  const params = new URLSearchParams({ from: fromDate, to: toDate });
+  const question = el.question.value.trim();
+  if (question) {
+    params.set("question", question);
+  }
+  const response = await fetch(`/timeline?${params.toString()}`);
+  if (!response.ok) {
+    throw new Error(await response.text());
+  }
+  const payload = await response.json();
+  state.timeline = payload;
+  renderTimeline(payload);
+}
+
 function renderBriefingItem(item) {
   const card = document.createElement("div");
   card.className = "briefing-item";
@@ -257,6 +287,54 @@ function renderBriefing(payload) {
   renderBriefingList(el.briefingContested, payload.now_contested || []);
   renderBriefingList(el.briefingRevised, payload.revised || []);
   renderBriefingList(el.briefingPurged, payload.purged || []);
+}
+
+function renderTimelineItem(item) {
+  const card = document.createElement("div");
+  card.className = "timeline-item";
+
+  const meta = document.createElement("div");
+  meta.className = "ref-meta";
+  meta.textContent = `${item.claim_id} / ${item.from_state || "new"} -> ${item.to_state}`;
+
+  const title = document.createElement("p");
+  title.className = "ref-title";
+  title.textContent = item.title || item.doi;
+
+  const basis = document.createElement("p");
+  basis.className = "ref-basis";
+  basis.textContent = item.basis || item.evidence_ref;
+
+  card.append(meta, title, basis);
+  return card;
+}
+
+function renderTimelineList(target, items) {
+  target.replaceChildren();
+  if (!items.length) {
+    const empty = document.createElement("p");
+    empty.className = "contest-empty";
+    empty.textContent = "None.";
+    target.append(empty);
+    return;
+  }
+  for (const item of items) {
+    target.append(renderTimelineItem(item));
+  }
+}
+
+function renderTimeline(payload) {
+  el.beliefTimelineRange.textContent = `${payload.from.slice(0, 10)} -> ${payload.to.slice(0, 10)}`;
+  if (payload.before && payload.after) {
+    el.timelineAnswerThen.textContent = payload.before.text;
+    el.timelineAnswerNow.textContent = payload.after.text;
+    renderRefs(el.timelineThenRefs, payload.before.references || []);
+    renderRefs(el.timelineNowRefs, payload.after.references || []);
+  }
+  renderTimelineList(el.timelineAdded, payload.changes.added || []);
+  renderTimelineList(el.timelineContested, payload.changes.contested || []);
+  renderTimelineList(el.timelineRevised, payload.changes.revised || []);
+  renderTimelineList(el.timelinePurged, payload.changes.purged || []);
 }
 
 function renderContested(items) {
@@ -319,6 +397,7 @@ async function adjudicate(pair, verdict) {
     addTimeline("adjudicated", `${result.pair} -> ${result.verdict}`);
     await loadContested();
     await loadBriefing();
+    await loadTimeline();
     if (state.lastQuestion) {
       await askBoth();
     }
@@ -375,6 +454,7 @@ async function retractSelected() {
     await loadState(false);
     await loadContested();
     await loadBriefing();
+    await loadTimeline();
     if (selectedQuestion) {
       el.question.value = selectedQuestion;
     }
@@ -428,9 +508,11 @@ el.retractButton.addEventListener("click", retractSelected);
 el.downvoteButton.addEventListener("click", () => sendFeedback(1));
 el.upvoteButton.addEventListener("click", () => sendFeedback(5));
 el.improveButton.addEventListener("click", improve);
+el.timelineButton.addEventListener("click", loadTimeline);
 
 loadState(true)
   .then(() => loadContested())
   .then(() => loadBriefing())
+  .then(() => loadTimeline())
   .then(() => askBoth())
   .catch((error) => addTimeline("error", error.message));

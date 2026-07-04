@@ -6,7 +6,7 @@ from pathlib import Path
 from typing import Any, Literal
 from uuid import UUID, uuid4
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Query
 from fastapi.responses import HTMLResponse, Response, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
@@ -18,6 +18,7 @@ from groundtruth.feedback import add_feedback, improve_from_feedback
 from groundtruth.ingest import normalize_doi
 from groundtruth.registry import DATASETS, load_claims, load_json, load_seed
 from groundtruth.runtime import DATA_DIR, LOCAL_RUNTIME_ROOT, import_cognee
+from groundtruth.timeline import answer_as_of, timeline_diff
 from groundtruth.watcher import process_retraction, retraction_index
 
 
@@ -242,6 +243,22 @@ async def briefing_markdown() -> Response:
         render_briefing_markdown(build_briefing()),
         media_type="text/markdown; charset=utf-8",
     )
+
+
+@app.get("/timeline")
+async def timeline(
+    from_date: str = Query("2023-01-01", alias="from"),
+    to_date: str = Query("2026-07-04", alias="to"),
+    question: str | None = None,
+) -> dict[str, Any]:
+    try:
+        payload = timeline_diff(from_date, to_date)
+        if question:
+            payload["before"] = answer_as_of(question, from_date)
+            payload["after"] = answer_as_of(question, to_date)
+        return payload
+    except ValueError as error:
+        raise HTTPException(status_code=422, detail=str(error)) from error
 
 
 @app.post("/ask")

@@ -116,6 +116,52 @@
           >Open Markdown</a
         >
       </section>
+
+      <section class="timeline-panel" aria-label="Belief timeline">
+        <div class="panel-kicker">
+          <span>Belief timeline</span>
+          <strong id="beliefTimelineRange">not loaded</strong>
+        </div>
+        <div class="timeline-controls">
+          <input id="timelineFrom" type="date" value="2023-01-01" />
+          <input id="timelineTo" type="date" value="2026-07-04" />
+          <button id="timelineButton" type="button">Load Diff</button>
+        </div>
+        <div class="timeline-answer-grid" aria-label="Answer then versus now">
+          <article>
+            <h2>Answer then</h2>
+            <p id="timelineAnswerThen" class="timeline-answer-text">
+              No as-of answer loaded.
+            </p>
+            <div id="timelineThenRefs" class="refs"></div>
+          </article>
+          <article>
+            <h2>Answer now</h2>
+            <p id="timelineAnswerNow" class="timeline-answer-text">
+              No as-of answer loaded.
+            </p>
+            <div id="timelineNowRefs" class="refs"></div>
+          </article>
+        </div>
+        <div class="timeline-grid">
+          <article>
+            <h2>Added</h2>
+            <div id="timelineAdded" class="timeline-list"></div>
+          </article>
+          <article>
+            <h2>Contested</h2>
+            <div id="timelineContested" class="timeline-list"></div>
+          </article>
+          <article>
+            <h2>Revised</h2>
+            <div id="timelineRevised" class="timeline-list"></div>
+          </article>
+          <article>
+            <h2>Purged</h2>
+            <div id="timelinePurged" class="timeline-list"></div>
+          </article>
+        </div>
+      </section>
     </main>
 
     <script src="/static/app.js"></script>

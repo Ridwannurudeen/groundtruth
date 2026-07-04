@@ -242,6 +242,77 @@ def test_briefing_markdown_endpoint_serves_markdown(monkeypatch) -> None:
     assert "# Morning Briefing" in response.text
 
 
+def test_timeline_endpoint_uses_timeline_layer(monkeypatch) -> None:
+    def fake_timeline_diff(from_date, to_date):
+        return {
+            "from": f"{from_date}T00:00:00+00:00",
+            "to": f"{to_date}T00:00:00+00:00",
+            "dataset": "groundtruth_memory",
+            "changes": {
+                "added": [],
+                "contested": [],
+                "revised": [
+                    {
+                        "claim_id": "R001",
+                        "from_state": "active",
+                        "to_state": "retracted",
+                        "evidence_class": "authority_feed",
+                        "basis": "Retraction Watch record.",
+                    }
+                ],
+                "purged": [],
+            },
+        }
+
+    monkeypatch.setattr("web.app.timeline_diff", fake_timeline_diff)
+
+    response = client.get("/timeline?from=2023-01-01&to=2026-07-04")
+
+    assert response.status_code == 200
+    payload = response.json()
+    assert payload["changes"]["revised"][0]["claim_id"] == "R001"
+    assert payload["changes"]["revised"][0]["from_state"] == "active"
+    assert payload["changes"]["revised"][0]["to_state"] == "retracted"
+    assert payload["changes"]["revised"][0]["evidence_class"] == "authority_feed"
+    assert payload["changes"]["revised"][0]["basis"] == "Retraction Watch record."
+
+
+def test_timeline_endpoint_can_include_as_of_answers(monkeypatch) -> None:
+    monkeypatch.setattr(
+        "web.app.timeline_diff",
+        lambda from_date, to_date: {
+            "from": f"{from_date}T00:00:00+00:00",
+            "to": f"{to_date}T00:00:00+00:00",
+            "dataset": "groundtruth_memory",
+            "changes": {
+                "added": [],
+                "contested": [],
+                "revised": [],
+                "purged": [],
+            },
+        },
+    )
+
+    def fake_answer_as_of(question, as_of):
+        return {
+            "question": question,
+            "as_of": as_of,
+            "text": f"As of {as_of}, answer for {question}",
+            "references": [],
+        }
+
+    monkeypatch.setattr("web.app.answer_as_of", fake_answer_as_of)
+
+    response = client.get(
+        "/timeline?from=2023-01-01&to=2026-07-04&question=What%20changed%3F"
+    )
+
+    assert response.status_code == 200
+    payload = response.json()
+    assert payload["before"]["text"] == "As of 2023-01-01, answer for What changed?"
+    assert payload["after"]["text"] == "As of 2026-07-04, answer for What changed?"
+
+
 def test_adjudicate_endpoint_requires_mutation_confirmation(monkeypatch) -> None:
     async def fake_adjudicate(*args, **kwargs):
         return {"status": "resolved"}
@@ -302,6 +373,17 @@ def test_index_serves_contested_mount_points() -> None:
     assert 'id="briefingGeneratedAt"' in response.text
     assert 'id="briefingContested"' in response.text
     assert 'href="/briefing.md"' in response.text
+    assert 'id="beliefTimelineRange"' in response.text
+    assert 'id="timelineFrom"' in response.text
+    assert 'id="timelineTo"' in response.text
+    assert 'id="timelineAnswerThen"' in response.text
+    assert 'id="timelineAnswerNow"' in response.text
+    assert 'id="timelineThenRefs"' in response.text
+    assert 'id="timelineNowRefs"' in response.text
+    assert 'id="timelineAdded"' in response.text
+    assert 'id="timelineContested"' in response.text
+    assert 'id="timelineRevised"' in response.text
+    assert 'id="timelinePurged"' in response.text
 
 
 def test_graph_endpoint_serves_html(monkeypatch) -> None:

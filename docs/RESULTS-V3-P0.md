@@ -14,7 +14,7 @@ Command:
 Result:
 
 ```text
-28 passed, 12 warnings in 139.42s (0:02:19)
+29 passed, 12 warnings in 138.58s (0:02:18)
 ```
 
 Verified runtime:
@@ -36,12 +36,12 @@ Command:
 $env:PYTHONIOENCODING='utf-8'; .\.venv\Scripts\python.exe -m groundtruth.v2
 ```
 
-Single-command reproduction window:
+Latest resumable artifact window:
 
 ```text
-Started: 2026-07-04T19:04:06Z
-Artifact generated: 2026-07-04T19:08:28.114967+00:00
-Approx wall-clock: 4m22s
+Started: interrupted live resume before 2026-07-04T20:59:15Z (first new completed-pair timestamp)
+Artifact generated: 2026-07-04T21:03:35.457405+00:00
+Approx wall-clock: not captured for the interrupted resume; artifacts remain resumable.
 ```
 
 Result from `data/v2_results.json`:
@@ -54,13 +54,12 @@ Result from `data/v2_results.json`:
     "all_pair_total": 28,
     "candidate_pairs": 28,
     "claims": 8,
-    "evaluated_pairs": 21,
+    "evaluated_pairs": 22,
     "manifest_pairs": 28,
     "manifest_pairs_not_candidates": [],
     "pending_pairs": [
       "V2C001::V2C007",
       "V2C001::V2C008",
-      "V2C002::V2C007",
       "V2C004::V2C006",
       "V2C005::V2C007",
       "V2C006::V2C007",
@@ -71,12 +70,12 @@ Result from `data/v2_results.json`:
     "unlabeled_candidate_pairs": []
   },
   "semantic_metrics": {
-    "evaluated_pairs": 21,
+    "evaluated_pairs": 22,
     "false_negative": 1,
     "false_positive": 0,
     "precision": 1.0,
     "recall": 0.6666666666666666,
-    "true_negative": 18,
+    "true_negative": 19,
     "true_positive": 2
   },
   "answer_probes": 0
@@ -93,7 +92,7 @@ quotaMetric: generativelanguage.googleapis.com/generate_content_free_tier_reques
 quotaValue: 20
 ```
 
-No pending V2 pair was fabricated. The 21 signed cache entries remain reusable; the 7 pairs above still require live quota.
+No pending V2 pair was fabricated. The 22 evaluated rows remain reusable; the 6 pairs above still require live quota.
 
 ## Retrieval Relevance Fix
 
@@ -190,7 +189,7 @@ ruff format groundtruth tests web -> 21 files left unchanged
 ruff check groundtruth tests web -> All checks passed
 git diff --check -> clean
 rg stale headline scan -> no stale 20/20 or old metric wording
-.\.venv\Scripts\python.exe -m pytest -q -> 29 passed, 12 warnings in 91.81s
+.\.venv\Scripts\python.exe -m pytest -q --durations=10 -> 29 passed, 12 warnings in 138.58s
 .\.venv\Scripts\python.exe -m compileall -q groundtruth web tests -> clean
 .\.venv\Scripts\python.exe -m pip check -> No broken requirements found
 ```

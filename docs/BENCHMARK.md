@@ -16,8 +16,8 @@ The V2 semantic pass is separate from the retraction-forgetting headline metric.
 
 - Status: `partial_quota_stop`.
 - Protocol: `exhaustive_all_pairs_over_committed_v2_claims`.
-- Coverage: 21/28 committed claim pairs evaluated.
-- Confusion matrix: TP 2, TN 18, FP 0, FN 1.
+- Coverage: 22/28 committed claim pairs evaluated.
+- Confusion matrix: TP 2, TN 19, FP 0, FN 1.
 - Precision: 1.00; recall: 0.67.
 - Judge: `LLMGateway.acreate_structured_output`.
 - Graph-aware answer probes: not run; V2 stopped before the answer-probe phase.

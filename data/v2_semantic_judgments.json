@@ -128,6 +128,19 @@
     "judge": "LLMGateway.acreate_structured_output",
     "pair_signature": "839eacec0f1085b165877b634b36f63985f8d846c87a6e72450512e3a64dad1d"
   },
+  "V2C002::V2C007": {
+    "claim_a_id": "V2C007",
+    "claim_b_id": "V2C002",
+    "decision": {
+      "basis": "Claim A discusses the effects of dietary sodium and the DASH diet on blood pressure. Claim B discusses the effect of Vitamin D supplementation on the progression to type 2 diabetes. These claims address entirely different interventions, outcomes, and health conditions, thus they do not conflict.",
+      "confidence": 1.0,
+      "conflicts": false,
+      "direction": "none"
+    },
+    "generated_at": "2026-07-04T20:59:15.709206+00:00",
+    "judge": "LLMGateway.acreate_structured_output",
+    "pair_signature": "a73bb47d12a2ce40d6181ee7b634eb89969688a4490314644326ab32e9df67eb"
+  },
   "V2C002::V2C008": {
     "claim_a_id": "V2C008",
     "claim_b_id": "V2C002",
@@ -285,17 +298,17 @@
     "pair_signature": "383265dace676dbcd9d013977ad8a6f0834eb537e0ea7acca0d3c31935ac934d"
   },
   "_partial_stop": {
-    "completed_pairs": 21,
-    "error": "<failed_attempts>\n\n<generation number=\"1\">\n<exception>\n    litellm.RateLimitError: litellm.RateLimitError: geminiException - {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\\nPlease retry in 32.661290023s.\",\n    \"status\": \"RESOURCE_EXHAUSTED\",\n    \"details\": [\n      {\n        \"@type\": \"type.googleapis.com/google.rpc.Help\",\n        \"links\": [\n          {\n            \"description\": \"Learn more about Gemini API quotas\",\n            \"url\": \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n          }\n        ]\n      },\n      {\n        \"@type\": \"type.googleapis.com/google.rpc.QuotaFailure\",\n        \"violations\": [\n     ",
-    "generated_at": "2026-07-04T19:08:28.111048+00:00",
+    "completed_pairs": 22,
+    "error": "<failed_attempts>\n\n<generation number=\"1\">\n<exception>\n    litellm.RateLimitError: litellm.RateLimitError: geminiException - {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\\nPlease retry in 25.726356185s.\",\n    \"status\": \"RESOURCE_EXHAUSTED\",\n    \"details\": [\n      {\n        \"@type\": \"type.googleapis.com/google.rpc.Help\",\n        \"links\": [\n          {\n            \"description\": \"Learn more about Gemini API quotas\",\n            \"url\": \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n          }\n        ]\n      },\n      {\n        \"@type\": \"type.googleapis.com/google.rpc.QuotaFailure\",\n        \"violations\": [\n     ",
+    "generated_at": "2026-07-04T21:03:35.453758+00:00",
     "judge": "LLMGateway.acreate_structured_output",
     "pair": {
-      "claim_a_id": "V2C007",
-      "claim_b_id": "V2C002",
+      "claim_a_id": "V2C008",
+      "claim_b_id": "V2C001",
       "expected_conflict": false,
-      "similarity": 0.85402
+      "similarity": 0.85231
     },
-    "pair_signature": "a73bb47d12a2ce40d6181ee7b634eb89969688a4490314644326ab32e9df67eb",
+    "pair_signature": "de50c6e8709c84de9d22849b28b4a9eea503007372b8434df79a8adc155086e7",
     "stop_reason": "quota"
   }
 }

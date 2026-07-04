@@ -33,4 +33,4 @@ runtime mutation, not production authentication.
 - Control retention: 5/5 active controls remain available.
 - Retraction coverage: 25/25 retracted-cohort originals are forgotten from GroundTruth.
 - Correctness judge is intentionally skipped because the Gemini free-tier quota is exhausted; the primary metric is relevance-ranked graph references containing a still-present retracted original.
-- V2 semantic conflict detection is an all-pair eval over 8 claims. The current live LLM run is partial because Gemini quota stopped at 21/28 pairs: precision 1.00, recall 0.67, 7 pairs pending.
+- V2 semantic conflict detection is an all-pair eval over 8 claims. The current live LLM run is partial because Gemini quota stopped at 22/28 pairs: precision 1.00, recall 0.67, 6 pairs pending.

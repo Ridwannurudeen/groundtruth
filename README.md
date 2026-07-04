@@ -177,21 +177,21 @@ groundtruth/
 | 4 | [docs/BENCHMARK.md](docs/BENCHMARK.md) | 18/20 naive vs 0/20 GroundTruth |
 | 5 | [docs/DEMO.md](docs/DEMO.md) | local UI, live retraction, graph route |
 | 6 | [docs/RESULTS-P6.md](docs/RESULTS-P6.md) | final tests and package checks |
-| V2 | [docs/RESULTS-V2.md](docs/RESULTS-V2.md) | semantic conflict partial: 21/28 pairs, precision 1.00, recall 0.67 |
+| V2 | [docs/RESULTS-V2.md](docs/RESULTS-V2.md) | semantic conflict partial: 22/28 pairs, precision 1.00, recall 0.67 |
 
 ## Limitations
 
 - The LLM correctness judge is skipped in the benchmark because Gemini free-tier quota was exhausted; the primary metric is relevance-ranked graph references containing a still-present `cohort == "retracted_original"` original. Raw graph references remain in `data/benchmark_results.json` for audit.
 - All 25 retracted-cohort originals are forgotten from GroundTruth memory; all 15 active controls remain present in both memories.
 - The retraction decision path uses the deterministic Retraction Watch DOI match fallback rather than an LLM contradiction judge; semantic conflict detection is reported separately in the V2 results.
-- V2 now labels all 28 unordered claim pairs and fails closed on unlabeled candidates, but the live structured-LLM pass is currently partial: 21/28 pairs judged, 7 pending after Gemini quota exhaustion. The current partial metrics are precision 1.00 and recall 0.67; answer probes did not run in that partial pass.
+- V2 now labels all 28 unordered claim pairs and fails closed on unlabeled candidates, but the live structured-LLM pass is currently partial: 22/28 pairs judged, 6 pending after Gemini quota exhaustion. The current partial metrics are precision 1.00 and recall 0.67; answer probes did not run in that partial pass.
 - `/graph` shows Cognee's global memory-provenance graph, not answer-level provenance. Answer-level provenance is the reference list returned by `/ask`.
 - Live `/retract`, `/feedback`, and `/improve` mutate `data/claims.json` and/or the local Cognee runtime. They now require an explicit mutation confirmation returned by `/state`, but this is a local demo guard, not production authentication. Use a fresh ingest to reset the demo.
 - There is no hosted public demo in this repo; the local FastAPI app is the submission-ready demo surface.
 
 ## Roadmap
 
-- [ ] Finish the remaining 7 V2 semantic pairs with fresh Gemini quota or a paid fallback, then rerun answer probes.
+- [ ] Finish the remaining 6 V2 semantic pairs with fresh Gemini quota or a paid fallback, then rerun answer probes.
 - [ ] Add a second benchmark scorer that runs when paid LLM quota is available.
 - [ ] Add a reset command that restores a named demo checkpoint.
 - [ ] Render answer-specific graph neighborhoods alongside the global Cognee graph.

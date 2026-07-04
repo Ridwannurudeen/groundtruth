@@ -1,5 +1,6 @@
 [
   {
+    "belief_state": "retracted",
     "claim_id": "R001",
     "claim_text": "The paper claimed that avacopan for the Treatment of ANCA-Associated Vasculitis.",
     "cohort": "retracted_original",
@@ -37,9 +38,26 @@
       "title": "Avacopan for the Treatment of ANCA-Associated Vasculitis",
       "year": 2021
     },
+    "state_history": [
+      {
+        "at": "2021-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "10.1056/nejmoa2023386",
+        "state": "active"
+      },
+      {
+        "at": "2026-06-29T00:00:00+00:00",
+        "basis": "Retraction Watch record 10.1056/nejme2608684 supersedes original DOI 10.1056/nejmoa2023386; reason: Investigation by Company/Institution;Manipulation of Results;Upgrade/Update of Prior Notice(s);",
+        "evidence_class": "authority_feed",
+        "evidence_ref": "10.1056/nejme2608684",
+        "state": "retracted"
+      }
+    ],
     "status": "retracted_forgotten"
   },
   {
+    "belief_state": "retracted",
     "claim_id": "R002",
     "claim_text": "The paper claimed that nutritional and bioactive properties and antioxidant potential of Amaranthus tricolor, A. lividus, A viridis, and A. spinosus leafy vegetables.",
     "cohort": "retracted_original",
@@ -77,9 +95,26 @@
       "title": "Nutritional and bioactive properties and antioxidant potential of Amaranthus tricolor, A. lividus, A viridis, and A. spinosus leafy vegetables",
       "year": 2024
     },
+    "state_history": [
+      {
+        "at": "2024-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "10.1016/j.heliyon.2024.e30453",
+        "state": "active"
+      },
+      {
+        "at": "2025-11-24T00:00:00+00:00",
+        "basis": "Retraction Watch record 10.1016/j.heliyon.2025.e44253 supersedes original DOI 10.1016/j.heliyon.2024.e30453; reason: Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
+        "evidence_class": "authority_feed",
+        "evidence_ref": "10.1016/j.heliyon.2025.e44253",
+        "state": "retracted"
+      }
+    ],
     "status": "retracted_forgotten"
   },
   {
+    "belief_state": "retracted",
     "claim_id": "R003",
     "claim_text": "The paper claimed that effects of different antihypertensive drug classes on central and ambulatory blood pressure in resistant hypertension: A randomized clinical trial.",
     "cohort": "retracted_original",
@@ -117,9 +152,26 @@
       "title": "Effects of different antihypertensive drug classes on central and ambulatory blood pressure in resistant hypertension: A randomized clinical trial",
       "year": 2025
     },
+    "state_history": [
+      {
+        "at": "2025-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "10.1002/bcp.70249",
+        "state": "active"
+      },
+      {
+        "at": "2026-01-22T00:00:00+00:00",
+        "basis": "Retraction Watch record 10.1002/bcp.70475 supersedes original DOI 10.1002/bcp.70249; reason: Concerns/Issues about Human Subject Welfare;Concerns/Issues about Methods;Error in Analyses;Investigation by Journal/Publisher;Investigation by Third Party;Unreliable Results and/or Conclusions;",
+        "evidence_class": "authority_feed",
+        "evidence_ref": "10.1002/bcp.70475",
+        "state": "retracted"
+      }
+    ],
     "status": "retracted_forgotten"
   },
   {
+    "belief_state": "retracted",
     "claim_id": "R004",
     "claim_text": "The paper claimed that an effective PO-RSNN and FZCIS based diabetes prediction and stroke analysis in the metaverse environment.",
     "cohort": "retracted_original",
@@ -157,9 +209,26 @@
       "title": "An effective PO-RSNN and FZCIS based diabetes prediction and stroke analysis in the metaverse environment",
       "year": 2025
     },
+    "state_history": [
+      {
+        "at": "2025-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "10.1038/s41598-025-96541-2",
+        "state": "active"
+      },
+      {
+        "at": "2026-06-03T00:00:00+00:00",
+        "basis": "Retraction Watch record 10.1038/s41598-026-55044-4 supersedes original DOI 10.1038/s41598-025-96541-2; reason: Computer-Aided Content or Computer-Generated Content;Concerns/Issues about Data;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
+        "evidence_class": "authority_feed",
+        "evidence_ref": "10.1038/s41598-026-55044-4",
+        "state": "retracted"
+      }
+    ],
     "status": "retracted_forgotten"
   },
   {
+    "belief_state": "retracted",
     "claim_id": "R005",
     "claim_text": "The paper claimed that the interplay between monosodium glutamate (MSG) consumption and metabolic disorders.",
     "cohort": "retracted_original",
@@ -197,9 +266,26 @@
       "title": "The interplay between monosodium glutamate (MSG) consumption and metabolic disorders",
       "year": 2023
     },
+    "state_history": [
+      {
+        "at": "2023-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "10.1016/j.heliyon.2023.e19675",
+        "state": "active"
+      },
+      {
+        "at": "2025-12-16T00:00:00+00:00",
+        "basis": "Retraction Watch record 10.1016/j.heliyon.2025.e44379 supersedes original DOI 10.1016/j.heliyon.2023.e19675; reason: Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
+        "evidence_class": "authority_feed",
+        "evidence_ref": "10.1016/j.heliyon.2025.e44379",
+        "state": "retracted"
+      }
+    ],
     "status": "retracted_forgotten"
   },
   {
+    "belief_state": "retracted",
     "claim_id": "R006",
     "claim_text": "The paper claimed that food insecurity and mental health of women during COVID-19: Evidence from a developing country.",
     "cohort": "retracted_original",
@@ -237,9 +323,26 @@
       "title": "Food insecurity and mental health of women during COVID-19: Evidence from a developing country",
       "year": 2021
     },
+    "state_history": [
+      {
+        "at": "2021-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "10.1371/journal.pone.0255392",
+        "state": "active"
+      },
+      {
+        "at": "2026-05-21T00:00:00+00:00",
+        "basis": "Retraction Watch record 10.1371/journal.pone.0349829 supersedes original DOI 10.1371/journal.pone.0255392; reason: Concerns/Issues about Data;Concerns/Issues about Methods;Concerns/Issues about Results and/or Conclusions;Investigation by Journal/Publisher;Investigation by Third Party;Objections by Author(s);Original Data and/or Images not Provided and/or not Available;Unreliable Results and/or Conclusions;",
+        "evidence_class": "authority_feed",
+        "evidence_ref": "10.1371/journal.pone.0349829",
+        "state": "retracted"
+      }
+    ],
     "status": "retracted_forgotten"
   },
   {
+    "belief_state": "retracted",
     "claim_id": "R007",
     "claim_text": "The paper claimed that phytochemicals, therapeutic benefits and applications of chrysanthemum flower: A review.",
     "cohort": "retracted_original",
@@ -277,9 +380,26 @@
       "title": "Phytochemicals, therapeutic benefits and applications of chrysanthemum flower: A review",
       "year": 2023
     },
+    "state_history": [
+      {
+        "at": "2023-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "10.1016/j.heliyon.2023.e20232",
+        "state": "active"
+      },
+      {
+        "at": "2025-12-16T00:00:00+00:00",
+        "basis": "Retraction Watch record 10.1016/j.heliyon.2025.e44382 supersedes original DOI 10.1016/j.heliyon.2023.e20232; reason: Concerns/Issues about Authorship/Affiliation;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
+        "evidence_class": "authority_feed",
+        "evidence_ref": "10.1016/j.heliyon.2025.e44382",
+        "state": "retracted"
+      }
+    ],
     "status": "retracted_forgotten"
   },
   {
+    "belief_state": "retracted",
     "claim_id": "R008",
     "claim_text": "The paper claimed that nF-\u0138B axis in diabetic neuropathy, cardiomyopathy and nephropathy: A roadmap from molecular intervention to therapeutic strategies.",
     "cohort": "retracted_original",
@@ -317,9 +437,26 @@
       "title": "NF-\u0138B axis in diabetic neuropathy, cardiomyopathy and nephropathy: A roadmap from molecular intervention to therapeutic strategies",
       "year": 2024
     },
+    "state_history": [
+      {
+        "at": "2024-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "10.1016/j.heliyon.2024.e29871",
+        "state": "active"
+      },
+      {
+        "at": "2025-12-16T00:00:00+00:00",
+        "basis": "Retraction Watch record 10.1016/j.heliyon.2025.e44378 supersedes original DOI 10.1016/j.heliyon.2024.e29871; reason: Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
+        "evidence_class": "authority_feed",
+        "evidence_ref": "10.1016/j.heliyon.2025.e44378",
+        "state": "retracted"
+      }
+    ],
     "status": "retracted_forgotten"
   },
   {
+    "belief_state": "retracted",
     "claim_id": "R009",
     "claim_text": "The paper claimed that fenchone and camphor: Main natural compounds from Lavandula stoechas L., expediting multiple in vitro biological activities.",
     "cohort": "retracted_original",
@@ -357,9 +494,26 @@
       "title": "Fenchone and camphor: Main natural compounds from Lavandula stoechas L., expediting multiple in vitro biological activities",
       "year": 2023
     },
+    "state_history": [
+      {
+        "at": "2023-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "10.1016/j.heliyon.2023.e21222",
+        "state": "active"
+      },
+      {
+        "at": "2025-12-21T00:00:00+00:00",
+        "basis": "Retraction Watch record 10.1016/j.heliyon.2025.e44400 supersedes original DOI 10.1016/j.heliyon.2023.e21222; reason: Concerns/Issues about Authorship/Affiliation;Concerns/Issues about Results and/or Conclusions;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
+        "evidence_class": "authority_feed",
+        "evidence_ref": "10.1016/j.heliyon.2025.e44400",
+        "state": "retracted"
+      }
+    ],
     "status": "retracted_forgotten"
   },
   {
+    "belief_state": "retracted",
     "claim_id": "R010",
     "claim_text": "The paper claimed that distribution characteristics of inhalable particulate pollutants and their effects on cardiopulmonary respiratory system of outdoor football players in a smart healthcare system.",
     "cohort": "retracted_original",
@@ -397,9 +551,26 @@
       "title": "Distribution characteristics of inhalable particulate pollutants and their effects on cardiopulmonary respiratory system of outdoor football players in a smart healthcare system",
       "year": 2024
     },
+    "state_history": [
+      {
+        "at": "2024-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "10.1007/s00500-023-09589-5",
+        "state": "active"
+      },
+      {
+        "at": "2025-12-31T00:00:00+00:00",
+        "basis": "Retraction Watch record 10.1007/s00500-025-11084-y supersedes original DOI 10.1007/s00500-023-09589-5; reason: Concerns/Issues about Peer Review;Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Unreliable Results and/or Conclusions;",
+        "evidence_class": "authority_feed",
+        "evidence_ref": "10.1007/s00500-025-11084-y",
+        "state": "retracted"
+      }
+    ],
     "status": "retracted_forgotten"
   },
   {
+    "belief_state": "retracted",
     "claim_id": "R011",
     "claim_text": "The paper claimed that an attention-based dense network model for cardiac image segmentation using learning approaches.",
     "cohort": "retracted_original",
@@ -437,9 +608,26 @@
       "title": "An attention-based dense network model for cardiac image segmentation using learning approaches",
       "year": 2023
     },
+    "state_history": [
+      {
+        "at": "2023-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "10.1007/s00500-023-09482-1",
+        "state": "active"
+      },
+      {
+        "at": "2025-12-31T00:00:00+00:00",
+        "basis": "Retraction Watch record 10.1007/s00500-025-11095-9 supersedes original DOI 10.1007/s00500-023-09482-1; reason: Concerns/Issues about Peer Review;Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
+        "evidence_class": "authority_feed",
+        "evidence_ref": "10.1007/s00500-025-11095-9",
+        "state": "retracted"
+      }
+    ],
     "status": "retracted_forgotten"
   },
   {
+    "belief_state": "retracted",
     "claim_id": "R012",
     "claim_text": "The paper claimed that siloMAS: A MAS for Smart Silos to Optimize Food and Water Consumption on Livestock Holdings.",
     "cohort": "retracted_original",
@@ -477,9 +665,26 @@
       "title": "SiloMAS: A MAS for Smart Silos to Optimize Food and Water Consumption on Livestock Holdings",
       "year": 2019
     },
+    "state_history": [
+      {
+        "at": "2019-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "10.1007/978-3-030-00524-5_6",
+        "state": "active"
+      },
+      {
+        "at": "2024-10-15T00:00:00+00:00",
+        "basis": "Retraction Watch record xx10.1007/978-3-030-00524-5_9 supersedes original DOI 10.1007/978-3-030-00524-5_6; reason: Concerns/Issues about Referencing/Attributions;Conflict of Interest;Date of Article and/or Notice Unknown;Investigation by Journal/Publisher;Objections by Author(s);Rogue Editor;Unreliable Results and/or Conclusions;",
+        "evidence_class": "authority_feed",
+        "evidence_ref": "xx10.1007/978-3-030-00524-5_9",
+        "state": "retracted"
+      }
+    ],
     "status": "retracted_forgotten"
   },
   {
+    "belief_state": "retracted",
     "claim_id": "R013",
     "claim_text": "The paper claimed that intelligent Livestock Feeding System by Means of Silos with IoT Technology.",
     "cohort": "retracted_original",
@@ -517,9 +722,26 @@
       "title": "Intelligent Livestock Feeding System by Means of Silos with IoT Technology",
       "year": 2019
     },
+    "state_history": [
+      {
+        "at": "2019-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "10.1007/978-3-030-00524-5_7",
+        "state": "active"
+      },
+      {
+        "at": "2024-10-15T00:00:00+00:00",
+        "basis": "Retraction Watch record x10.1007/978-3-030-00524-5_9 supersedes original DOI 10.1007/978-3-030-00524-5_7; reason: Concerns/Issues about Referencing/Attributions;Conflict of Interest;Date of Article and/or Notice Unknown;Investigation by Journal/Publisher;Objections by Author(s);Rogue Editor;Unreliable Results and/or Conclusions;",
+        "evidence_class": "authority_feed",
+        "evidence_ref": "x10.1007/978-3-030-00524-5_9",
+        "state": "retracted"
+      }
+    ],
     "status": "retracted_forgotten"
   },
   {
+    "belief_state": "retracted",
     "claim_id": "R014",
     "claim_text": "The paper claimed that longitudinal Data From the KETO-CTA Study: Plaque Predicts Plaque, ApoB Does Not.",
     "cohort": "retracted_original",
@@ -557,9 +779,26 @@
       "title": "Longitudinal Data From the KETO-CTA Study: Plaque Predicts Plaque, ApoB Does Not",
       "year": 2025
     },
+    "state_history": [
+      {
+        "at": "2025-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "10.1016/j.jacadv.2025.101686",
+        "state": "active"
+      },
+      {
+        "at": "2026-03-11T00:00:00+00:00",
+        "basis": "Retraction Watch record 10.1016/j.jacadv.2025.101686 supersedes original DOI 10.1016/j.jacadv.2025.101686; reason: Concerns/Issues about Methods;Unreliable Data;Upgrade/Update of Prior Notice(s);",
+        "evidence_class": "authority_feed",
+        "evidence_ref": "10.1016/j.jacadv.2025.101686",
+        "state": "retracted"
+      }
+    ],
     "status": "retracted_forgotten"
   },
   {
+    "belief_state": "retracted",
     "claim_id": "R015",
     "claim_text": "The paper claimed that targeting epithelial-mesenchymal transition signaling pathways with Dietary Phytocompounds and repurposed drug combinations for overcoming drug resistance in various cancers.",
     "cohort": "retracted_original",
@@ -597,9 +836,26 @@
       "title": "Targeting epithelial-mesenchymal transition signaling pathways with Dietary Phytocompounds and repurposed drug combinations for overcoming drug resistance in various cancers",
       "year": 2025
     },
+    "state_history": [
+      {
+        "at": "2025-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "10.1016/j.heliyon.2025.e41964",
+        "state": "active"
+      },
+      {
+        "at": "2026-02-11T00:00:00+00:00",
+        "basis": "Retraction Watch record 10.1016/j.heliyon.2026.e44613 supersedes original DOI 10.1016/j.heliyon.2025.e41964; reason: Computer-Aided Content or Computer-Generated Content;Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
+        "evidence_class": "authority_feed",
+        "evidence_ref": "10.1016/j.heliyon.2026.e44613",
+        "state": "retracted"
+      }
+    ],
     "status": "retracted_forgotten"
   },
   {
+    "belief_state": "retracted",
     "claim_id": "R016",
     "claim_text": "The paper claimed that efficacy of methanolic extracts of some medicinal plants on wound healing in diabetic rats.",
     "cohort": "retracted_original",
@@ -637,9 +893,26 @@
       "title": "Efficacy of methanolic extracts of some medicinal plants on wound healing in diabetic rats",
       "year": 2022
     },
+    "state_history": [
+      {
+        "at": "2022-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "10.1016/j.heliyon.2022.e10071",
+        "state": "active"
+      },
+      {
+        "at": "2026-02-26T00:00:00+00:00",
+        "basis": "Retraction Watch record 10.1016/j.heliyon.2026.e44645 supersedes original DOI 10.1016/j.heliyon.2022.e10071; reason: Duplication of/in Image;Investigation by Journal/Publisher;Investigation by Third Party;Objections by Author(s);Unreliable Results and/or Conclusions;",
+        "evidence_class": "authority_feed",
+        "evidence_ref": "10.1016/j.heliyon.2026.e44645",
+        "state": "retracted"
+      }
+    ],
     "status": "retracted_forgotten"
   },
   {
+    "belief_state": "retracted",
     "claim_id": "R017",
     "claim_text": "The paper claimed that dietary Patterns in Adults Following the Christian Orthodox Fasting Regime in Greece.",
     "cohort": "retracted_original",
@@ -677,9 +950,26 @@
       "title": "Dietary Patterns in Adults Following the Christian Orthodox Fasting Regime in Greece",
       "year": 2022
     },
+    "state_history": [
+      {
+        "at": "2022-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "10.3389/fnut.2022.803913",
+        "state": "active"
+      },
+      {
+        "at": "2024-11-05T00:00:00+00:00",
+        "basis": "Retraction Watch record 10.3389/fnut.2024.1520555 supersedes original DOI 10.3389/fnut.2022.803913; reason: Concerns/Issues about Data;Investigation by Journal/Publisher;Lack of Approval from Company/Institution;",
+        "evidence_class": "authority_feed",
+        "evidence_ref": "10.3389/fnut.2024.1520555",
+        "state": "retracted"
+      }
+    ],
     "status": "retracted_forgotten"
   },
   {
+    "belief_state": "retracted",
     "claim_id": "R018",
     "claim_text": "The paper claimed that mobileNet-V2 /IFHO model for Accurate Detection of early-stage diabetic retinopathy.",
     "cohort": "retracted_original",
@@ -717,9 +1007,26 @@
       "title": "MobileNet-V2 /IFHO model for Accurate Detection of early-stage diabetic retinopathy",
       "year": 2024
     },
+    "state_history": [
+      {
+        "at": "2024-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "10.1016/j.heliyon.2024.e37293",
+        "state": "active"
+      },
+      {
+        "at": "2026-03-17T00:00:00+00:00",
+        "basis": "Retraction Watch record 10.1016/j.heliyon.2026.e44757 supersedes original DOI 10.1016/j.heliyon.2024.e37293; reason: Author Unresponsive;Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Unreliable Results and/or Conclusions;",
+        "evidence_class": "authority_feed",
+        "evidence_ref": "10.1016/j.heliyon.2026.e44757",
+        "state": "retracted"
+      }
+    ],
     "status": "retracted_forgotten"
   },
   {
+    "belief_state": "retracted",
     "claim_id": "R019",
     "claim_text": "The paper claimed that the Effect of Preoperative Intravenous Tranexamic Acid Versus Rectal Misoprostol in Reducing Blood Loss During and After Elective Cesarean Delivery in Primigravida: A Double-Blinded, Randomized, Comparative-Placebo Trial.",
     "cohort": "retracted_original",
@@ -757,9 +1064,26 @@
       "title": "The Effect of Preoperative Intravenous Tranexamic Acid Versus Rectal Misoprostol in Reducing Blood Loss During and After Elective Cesarean Delivery in Primigravida: A Double-Blinded, Randomized, Comparative-Placebo Trial",
       "year": 2023
     },
+    "state_history": [
+      {
+        "at": "2023-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "10.1016/j.jogc.2023.102264",
+        "state": "active"
+      },
+      {
+        "at": "2024-09-26T00:00:00+00:00",
+        "basis": "Retraction Watch record 10.1016/j.jogc.2023.102264 supersedes original DOI 10.1016/j.jogc.2023.102264; reason: Concerns/Issues about Data;Investigation by Journal/Publisher;Investigation by Third Party;Notice - Limited or No Information;",
+        "evidence_class": "authority_feed",
+        "evidence_ref": "10.1016/j.jogc.2023.102264",
+        "state": "retracted"
+      }
+    ],
     "status": "retracted_forgotten"
   },
   {
+    "belief_state": "retracted",
     "claim_id": "R020",
     "claim_text": "The paper claimed that fat-based studies for computer-assisted screening of child obesity using thermal imaging based on deep learning techniques: a comparison with quantum machine learning approach.",
     "cohort": "retracted_original",
@@ -797,9 +1121,26 @@
       "title": "Fat-based studies for computer-assisted screening of child obesity using thermal imaging based on deep learning techniques: a comparison with quantum machine learning approach",
       "year": 2022
     },
+    "state_history": [
+      {
+        "at": "2022-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "10.1007/s00500-021-06668-3",
+        "state": "active"
+      },
+      {
+        "at": "2026-01-21T00:00:00+00:00",
+        "basis": "Retraction Watch record 10.1007/s00500-026-11208-y supersedes original DOI 10.1007/s00500-021-06668-3; reason: Compromised Peer Review;Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Objections by Author(s);Rogue Editor;Unreliable Results and/or Conclusions;",
+        "evidence_class": "authority_feed",
+        "evidence_ref": "10.1007/s00500-026-11208-y",
+        "state": "retracted"
+      }
+    ],
     "status": "retracted_forgotten"
   },
   {
+    "belief_state": "retracted",
     "claim_id": "R021",
     "claim_text": "The paper claimed that genetic Architecture Modulates Diet-Induced Hepatic mRNA and miRNA Expression Profiles in Diversity Outbred Mice.",
     "cohort": "retracted_original",
@@ -837,9 +1178,26 @@
       "title": "Genetic Architecture Modulates Diet-Induced Hepatic mRNA and miRNA Expression Profiles in Diversity Outbred Mice",
       "year": 2020
     },
+    "state_history": [
+      {
+        "at": "2020-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "10.1534/genetics.120.303481",
+        "state": "active"
+      },
+      {
+        "at": "2021-07-14T00:00:00+00:00",
+        "basis": "Retraction Watch record 10.1093/genetics/iyab067 supersedes original DOI 10.1534/genetics.120.303481; reason: Error in Data;Retract and Replace;",
+        "evidence_class": "authority_feed",
+        "evidence_ref": "10.1093/genetics/iyab067",
+        "state": "retracted"
+      }
+    ],
     "status": "retracted_forgotten"
   },
   {
+    "belief_state": "retracted",
     "claim_id": "R022",
     "claim_text": "The paper claimed that omega-3 fatty acids plus vitamin for women with gestational diabetes or prediabetes: a meta-analysis of randomized controlled studies.",
     "cohort": "retracted_original",
@@ -877,9 +1235,26 @@
       "title": "Omega-3 fatty acids plus vitamin for women with gestational diabetes or prediabetes: a meta-analysis of randomized controlled studies",
       "year": 2020
     },
+    "state_history": [
+      {
+        "at": "2020-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "10.1080/14767058.2020.1814239",
+        "state": "active"
+      },
+      {
+        "at": "2025-05-08T00:00:00+00:00",
+        "basis": "Retraction Watch record 10.1080/14767058.2025.2501451 supersedes original DOI 10.1080/14767058.2020.1814239; reason: Concerns/Issues about Data;Investigation by Journal/Publisher;Investigation by Third Party;Unreliable Results and/or Conclusions;",
+        "evidence_class": "authority_feed",
+        "evidence_ref": "10.1080/14767058.2025.2501451",
+        "state": "retracted"
+      }
+    ],
     "status": "retracted_forgotten"
   },
   {
+    "belief_state": "retracted",
     "claim_id": "R023",
     "claim_text": "The paper claimed that ultrasound markers for prediction of gestational diabetes mellitus in early pregnancy in Egyptian women: observational study.",
     "cohort": "retracted_original",
@@ -917,9 +1292,26 @@
       "title": "Ultrasound markers for prediction of gestational diabetes mellitus in early pregnancy in Egyptian women: observational study",
       "year": 2020
     },
+    "state_history": [
+      {
+        "at": "2020-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "10.1080/14767058.2019.1678132",
+        "state": "active"
+      },
+      {
+        "at": "2026-01-07T00:00:00+00:00",
+        "basis": "Retraction Watch record 10.1080/14767058.2026.2607752 supersedes original DOI 10.1080/14767058.2019.1678132; reason: Author Unresponsive;Concerns/Issues about Data;Concerns/Issues about Results and/or Conclusions;Investigation by Journal/Publisher;Original Data and/or Images not Provided and/or not Available;Unreliable Results and/or Conclusions;",
+        "evidence_class": "authority_feed",
+        "evidence_ref": "10.1080/14767058.2026.2607752",
+        "state": "retracted"
+      }
+    ],
     "status": "retracted_forgotten"
   },
   {
+    "belief_state": "retracted",
     "claim_id": "R024",
     "claim_text": "The paper claimed that maternal, fetal, and neonatal outcomes among different types of hypertensive disorders associating pregnancy needing intensive care management.",
     "cohort": "retracted_original",
@@ -957,9 +1349,26 @@
       "title": "Maternal, fetal, and neonatal outcomes among different types of hypertensive disorders associating pregnancy needing intensive care management",
       "year": 2018
     },
+    "state_history": [
+      {
+        "at": "2018-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "10.1080/14767058.2018.1491030",
+        "state": "active"
+      },
+      {
+        "at": "2026-04-07T00:00:00+00:00",
+        "basis": "Retraction Watch record 10.1080/14767058.2026.2654284 supersedes original DOI 10.1080/14767058.2018.1491030; reason: Concerns/Issues about Data;Concerns/Issues about Results and/or Conclusions;Investigation by Journal/Publisher;Unreliable Results and/or Conclusions;Upgrade/Update of Prior Notice(s);",
+        "evidence_class": "authority_feed",
+        "evidence_ref": "10.1080/14767058.2026.2654284",
+        "state": "retracted"
+      }
+    ],
     "status": "retracted_forgotten"
   },
   {
+    "belief_state": "retracted",
     "claim_id": "R025",
     "claim_text": "The paper claimed that role of antioxidants in gestational diabetes mellitus and relation to fetal outcome: a randomized controlled trial.",
     "cohort": "retracted_original",
@@ -997,9 +1406,26 @@
       "title": "Role of antioxidants in gestational diabetes mellitus and relation to fetal outcome: a randomized controlled trial",
       "year": 2016
     },
+    "state_history": [
+      {
+        "at": "2016-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "10.3109/14767058.2016.1154526",
+        "state": "active"
+      },
+      {
+        "at": "2026-04-09T00:00:00+00:00",
+        "basis": "Retraction Watch record 10.1080/14767058.2026.2654275 supersedes original DOI 10.3109/14767058.2016.1154526; reason: Concerns/Issues about Data;Concerns/Issues about Results and/or Conclusions;Investigation by Journal/Publisher;Unreliable Results and/or Conclusions;Upgrade/Update of Prior Notice(s);",
+        "evidence_class": "authority_feed",
+        "evidence_ref": "10.1080/14767058.2026.2654275",
+        "state": "retracted"
+      }
+    ],
     "status": "retracted_forgotten"
   },
   {
+    "belief_state": "active",
     "claim_id": "C001",
     "claim_text": "The active control paper reports that dietary Sodium Intake and Risk of Cardiovascular Disease.",
     "cohort": "active_control",
@@ -1023,9 +1449,19 @@
       "title": "Dietary Sodium Intake and Risk of Cardiovascular Disease",
       "year": 2015
     },
+    "state_history": [
+      {
+        "at": "2015-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "10.1001/jamainternmed.2015.2558",
+        "state": "active"
+      }
+    ],
     "status": "active"
   },
   {
+    "belief_state": "active",
     "claim_id": "C002",
     "claim_text": "The active control paper reports that coffee consumption and reduced risk of developing type 2 diabetes: a systematic review with meta-analysis.",
     "cohort": "active_control",
@@ -1049,9 +1485,19 @@
       "title": "Coffee consumption and reduced risk of developing type 2 diabetes: a systematic review with meta-analysis",
       "year": 2018
     },
+    "state_history": [
+      {
+        "at": "2018-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "10.1093/nutrit/nuy014",
+        "state": "active"
+      }
+    ],
     "status": "active"
   },
   {
+    "belief_state": "active",
     "claim_id": "C003",
     "claim_text": "The active control paper reports that role Of Dash Diet In Blood Pressure.",
     "cohort": "active_control",
@@ -1075,9 +1521,19 @@
       "title": "Role Of Dash Diet In Blood Pressure",
       "year": 2022
     },
+    "state_history": [
+      {
+        "at": "2022-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "10.18137/cardiometry.2022.24.10191021",
+        "state": "active"
+      }
+    ],
     "status": "active"
   },
   {
+    "belief_state": "active",
     "claim_id": "C004",
     "claim_text": "The active control paper reports that whole-grain intake and risk of type 2 diabetes.",
     "cohort": "active_control",
@@ -1101,9 +1557,19 @@
       "title": "Whole-grain intake and risk of type 2 diabetes",
       "year": 2016
     },
+    "state_history": [
+      {
+        "at": "2016-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "10.3945/ajcn.116.143180",
+        "state": "active"
+      }
+    ],
     "status": "active"
   },
   {
+    "belief_state": "active",
     "claim_id": "C005",
     "claim_text": "The active control paper reports that mediterranean Diet and Prevention of Cardiovascular Disease.",
     "cohort": "active_control",
@@ -1127,9 +1593,19 @@
       "title": "Mediterranean Diet and Prevention of Cardiovascular Disease",
       "year": 2022
     },
+    "state_history": [
+      {
+        "at": "2022-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "10.1097/nt.0000000000000561",
+        "state": "active"
+      }
+    ],
     "status": "active"
   },
   {
+    "belief_state": "active",
     "claim_id": "C006",
     "claim_text": "The active control paper reports that beyond sugar-sweetened beverages.",
     "cohort": "active_control",
@@ -1153,9 +1629,19 @@
       "title": "Beyond sugar-sweetened beverages",
       "year": 2025
     },
+    "state_history": [
+      {
+        "at": "2025-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "10.1016/j.adaj.2024.12.004",
+        "state": "active"
+      }
+    ],
     "status": "active"
   },
   {
+    "belief_state": "active",
     "claim_id": "C007",
     "claim_text": "The active control paper reports that effects of a low carbohydrate diet on energy expenditure during weight loss maintenance: randomized trial.",
     "cohort": "active_control",
@@ -1179,9 +1665,19 @@
       "title": "Effects of a low carbohydrate diet on energy expenditure during weight loss maintenance: randomized trial",
       "year": 2018
     },
+    "state_history": [
+      {
+        "at": "2018-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "10.1136/bmj.k4583",
+        "state": "active"
+      }
+    ],
     "status": "active"
   },
   {
+    "belief_state": "active",
     "claim_id": "C008",
     "claim_text": "The active control paper reports that vitamin D Supplementation and Prevention of Type 2 Diabetes.",
     "cohort": "active_control",
@@ -1205,9 +1701,19 @@
       "title": "Vitamin D Supplementation and Prevention of Type 2 Diabetes",
       "year": 2019
     },
+    "state_history": [
+      {
+        "at": "2019-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "10.1056/nejmc1912185",
+        "state": "active"
+      }
+    ],
     "status": "active"
   },
   {
+    "belief_state": "active",
     "claim_id": "C009",
     "claim_text": "The active control paper reports that lipoprotein(a) Cholesterol, Randomized Omega-3 Fatty Acid Supplementation, and Cardiovascular Events: Extended Follow-up in the VITamin D and OmegA 3 TriaL.",
     "cohort": "active_control",
@@ -1231,9 +1737,19 @@
       "title": "Lipoprotein(a) Cholesterol, Randomized Omega-3 Fatty Acid Supplementation, and Cardiovascular Events: Extended Follow-up in the VITamin D and OmegA 3 TriaL",
       "year": 2025
     },
+    "state_history": [
+      {
+        "at": "2025-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "10.1016/j.jacl.2025.04.092",
+        "state": "active"
+      }
+    ],
     "status": "active"
   },
   {
+    "belief_state": "active",
     "claim_id": "C010",
     "claim_text": "The active control paper reports that plant-Based Diet Adherence and Type 2 Diabetes Risk Factors.",
     "cohort": "active_control",
@@ -1257,9 +1773,19 @@
       "title": "Plant-Based Diet Adherence and Type 2 Diabetes Risk Factors",
       "year": 2025
     },
+    "state_history": [
+      {
+        "at": "2025-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "10.54393/df.v6i2.187",
+        "state": "active"
+      }
+    ],
     "status": "active"
   },
   {
+    "belief_state": "active",
     "claim_id": "C011",
     "claim_text": "The active control paper reports that effects of probiotic supplementation on glycemic control in children with type 1 diabetes: A systematic review and meta-analysis.",
     "cohort": "active_control",
@@ -1283,9 +1809,19 @@
       "title": "Effects of probiotic supplementation on glycemic control in children with type 1 diabetes: A systematic review and meta-analysis",
       "year": 2026
     },
+    "state_history": [
+      {
+        "at": "2026-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "10.1177/03000605261443077",
+        "state": "active"
+      }
+    ],
     "status": "active"
   },
   {
+    "belief_state": "active",
     "claim_id": "C012",
     "claim_text": "The active control paper reports that dietary Sodium and Blood Pressure.",
     "cohort": "active_control",
@@ -1309,9 +1845,19 @@
       "title": "Dietary Sodium and Blood Pressure",
       "year": 2024
     },
+    "state_history": [
+      {
+        "at": "2024-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "10.1001/jama.2024.1907",
+        "state": "active"
+      }
+    ],
     "status": "active"
   },
   {
+    "belief_state": "active",
     "claim_id": "C013",
     "claim_text": "The active control paper reports that nuts reduce risk of cardiovascular disease.",
     "cohort": "active_control",
@@ -1335,9 +1881,19 @@
       "title": "Nuts reduce risk of cardiovascular disease",
       "year": 2018
     },
+    "state_history": [
+      {
+        "at": "2018-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "10.1038/nrcardio.2017.196",
+        "state": "active"
+      }
+    ],
     "status": "active"
   },
   {
+    "belief_state": "active",
     "claim_id": "C014",
     "claim_text": "The active control paper reports that intermittent Fasting in Weight Loss and Cardiometabolic Risk Reduction: A Randomized Controlled Trial.",
     "cohort": "active_control",
@@ -1361,9 +1917,19 @@
       "title": "Intermittent Fasting in Weight Loss and Cardiometabolic Risk Reduction: A Randomized Controlled Trial",
       "year": 2022
     },
+    "state_history": [
+      {
+        "at": "2022-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "10.1097/jnr.0000000000000469",
+        "state": "active"
+      }
+    ],
     "status": "active"
   },
   {
+    "belief_state": "active",
     "claim_id": "C015",
     "claim_text": "The active control paper reports that dietary Fat and Protein Intake and Their Impact on Glycemic Control in Pediatric Type 1 Diabetes: A Narrative Review.",
     "cohort": "active_control",
@@ -1387,6 +1953,15 @@
       "title": "Dietary Fat and Protein Intake and Their Impact on Glycemic Control in Pediatric Type 1 Diabetes: A Narrative Review",
       "year": 2025
     },
+    "state_history": [
+      {
+        "at": "2025-01-01T00:00:00+00:00",
+        "basis": "Seed corpus imported this claim as an active memory claim.",
+        "evidence_class": "user_assertion",
+        "evidence_ref": "10.3390/children12121664",
+        "state": "active"
+      }
+    ],
     "status": "active"
   }
 ]

@@ -22,6 +22,9 @@ def test_claims_registry_is_complete_and_unique() -> None:
     ]
     assert len(data_items) == 80
     assert len(set(data_items)) == 80
+    assert {claim["belief_state"] for claim in claims} == {"active", "retracted"}
+    assert all(claim["state_history"] for claim in claims)
+    assert sum(claim["belief_state"] == "retracted" for claim in claims) == 25
 
 
 @pytest.mark.asyncio

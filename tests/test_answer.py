@@ -26,6 +26,8 @@ def test_reference_for_claim_uses_ground_truth_cohort() -> None:
 
     assert reference["retracted"] is True
     assert reference["cohort"] == "retracted_original"
+    assert reference["belief_state"] == "active"
+    assert reference["belief_evidence_class"] == "user_assertion"
 
 
 def test_rank_graph_references_filters_full_graph_noise() -> None:
@@ -82,12 +84,14 @@ async def test_answer_flags_retracted_sources(retraction_lifecycle):
     )
 
     assert naive["cites_retracted"] is True
+    assert naive["cites_by_state"]["retracted"] >= 1
     assert any(
         reference["kind"] == "original_claim" for reference in naive["references"]
     )
     assert naive["retracted_dois"] == [context["claim"]["source"]["doi"]]
 
     assert groundtruth["cites_retracted"] is False
+    assert groundtruth["cites_by_state"]["retracted"] >= 1
     assert any(
         reference["kind"] == "retraction_notice"
         for reference in groundtruth["references"]

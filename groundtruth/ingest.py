@@ -13,6 +13,11 @@ from typing import Any
 from uuid import UUID
 
 import httpx
+from groundtruth.beliefs import (
+    belief_nodeset_name,
+    belief_state_for_claim,
+    migrate_claim_belief,
+)
 from groundtruth.registry import (
     CLAIMS_PATH,
     DATASETS,
@@ -406,15 +411,26 @@ async def remember_claim(
 
 def claim_datapoint(claim: dict[str, Any]) -> Any:
     from groundtruth.ontology import ScientificClaim, Source
+    from cognee.modules.engine.models import NodeSet
+    from cognee.modules.engine.utils.generate_node_id import generate_node_id
 
     source = claim["source"]
+    belief_state = belief_state_for_claim(claim)
+    node_set_name = belief_nodeset_name(belief_state)
     return ScientificClaim(
         text=claim["claim_text"],
         doi=source["doi"],
         journal=source["journal"],
         year=int(source["year"]),
         status=claim["status_at_seed"],
+        belief_state=belief_state,
         supersedes_doi=claim.get("supersedes_doi"),
+        belongs_to_set=[
+            NodeSet(
+                id=generate_node_id(f"NodeSet:{node_set_name}"),
+                name=node_set_name,
+            )
+        ],
         made_by=Source(
             name=source["journal"],
             source_type=source.get("source_type", "journal"),
@@ -555,24 +571,26 @@ async def ingest_seed(reset: bool, llm_ingest: bool) -> list[dict[str, Any]]:
                     dataset_name,
                 )
         registry_entries.append(
-            {
-                "claim_id": claim["claim_id"],
-                "doi": claim["source"]["doi"],
-                "claim_text": claim["claim_text"],
-                "source": claim["source"],
-                "status": "active",
-                "cohort": claim["cohort"],
-                "ingestion_mode": ingestion_mode,
-                "retraction_doi": next(
-                    (
-                        item["retraction_doi"]
-                        for item in corpus["held_back_retractions"]
-                        if item["claim_id"] == claim["claim_id"]
+            migrate_claim_belief(
+                {
+                    "claim_id": claim["claim_id"],
+                    "doi": claim["source"]["doi"],
+                    "claim_text": claim["claim_text"],
+                    "source": claim["source"],
+                    "status": "active",
+                    "cohort": claim["cohort"],
+                    "ingestion_mode": ingestion_mode,
+                    "retraction_doi": next(
+                        (
+                            item["retraction_doi"]
+                            for item in corpus["held_back_retractions"]
+                            if item["claim_id"] == claim["claim_id"]
+                        ),
+                        None,
                     ),
-                    None,
-                ),
-                "datasets": datasets,
-            }
+                    "datasets": datasets,
+                }
+            )
         )
     validate_claims(registry_entries)
     save_claims(registry_entries)

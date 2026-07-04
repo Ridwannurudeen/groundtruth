@@ -11,6 +11,7 @@ from typing import Any
 from uuid import UUID
 
 from groundtruth.answer import answer
+from groundtruth.beliefs import parse_evidence_time, transition_belief
 from groundtruth.contradictions import (
     add_contradiction_edge,
     graph_contradiction_edges,
@@ -60,6 +61,24 @@ def append_audit(path: Path, event: dict[str, Any]) -> None:
     event = {"timestamp": now(), **event}
     with path.open("a", encoding="utf-8") as audit_file:
         audit_file.write(json.dumps(compact_json(event), sort_keys=True) + "\n")
+
+
+def apply_retracted_state(claim: dict[str, Any], retraction: dict[str, Any]) -> None:
+    retraction_doi = normalize_doi(retraction.get("retraction_doi")) or str(
+        claim.get("retraction_doi") or f"retraction:{claim['doi']}"
+    )
+    reason = str(retraction.get("reason") or "No reason supplied").strip()
+    transition_belief(
+        claim,
+        "retracted",
+        "authority_feed",
+        retraction_doi,
+        (
+            f"Retraction Watch record {retraction_doi} supersedes original DOI "
+            f"{claim['doi']}; reason: {reason}"
+        ),
+        at=parse_evidence_time(retraction.get("retraction_date")),
+    )
 
 
 def load_registry(path: Path = CLAIMS_PATH) -> list[dict[str, Any]]:
@@ -232,6 +251,7 @@ async def process_retraction(
     ):
         claim["status"] = "retracted_forgotten"
         claim["retraction"] = retraction
+        apply_retracted_state(claim, retraction)
         claim["datasets"][groundtruth_dataset]["status"] = "retracted_forgotten"
         if naive_dataset in claim["datasets"]:
             claim["datasets"][naive_dataset]["status"] = "retracted_retained"
@@ -278,6 +298,7 @@ async def process_retraction(
     graph_edges_after_forget = await graph_contradiction_edges(groundtruth_dataset_id)
     claim["status"] = "retracted_forgotten"
     claim["retraction"] = retraction
+    apply_retracted_state(claim, retraction)
     claim["datasets"][groundtruth_dataset]["status"] = "retracted_forgotten"
     if naive_dataset in claim["datasets"]:
         claim["datasets"][naive_dataset]["status"] = "retracted_retained"

@@ -23,6 +23,12 @@ async def test_watcher_retraction_lifecycle(retraction_lifecycle):
     registry = json.loads(context["registry_path"].read_text(encoding="utf-8"))
     claim = registry[0]
     assert claim["status"] == "retracted_forgotten"
+    assert claim["belief_state"] == "retracted"
+    assert claim["state_history"][-1]["evidence_class"] == "authority_feed"
+    assert (
+        claim["state_history"][-1]["evidence_ref"]
+        == "10.5555/test-blood-pressure-retraction"
+    )
     assert claim["datasets"][groundtruth_dataset]["status"] == "retracted_forgotten"
     assert claim["datasets"][naive_dataset]["status"] == "retracted_retained"
 

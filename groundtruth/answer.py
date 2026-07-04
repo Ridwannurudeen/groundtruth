@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import Any
 from uuid import UUID
 
+from groundtruth.beliefs import belief_reference_fields, cites_by_state
 from groundtruth.contradictions import (
     ledger_edges_for_node,
     ledger_nodes,
@@ -109,6 +110,7 @@ def reference_for_claim(
         "cohort": claim.get("cohort"),
         "retracted": is_retracted_original,
         "score": score,
+        **belief_reference_fields(claim),
     }
 
 
@@ -544,6 +546,7 @@ async def answer(
         "deterministic_references": deterministic_references,
         "reference_cross_check": reference_cross_check,
         "cites_retracted": bool(retracted_dois),
+        "cites_by_state": cites_by_state(references),
         "cites_superseded": bool(superseded_dois),
         "superseded_dois": superseded_dois,
         "superseded_references": superseded,

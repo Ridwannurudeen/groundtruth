@@ -5,6 +5,7 @@ from pathlib import Path
 from typing import Any
 from uuid import UUID
 
+from groundtruth.beliefs import BELIEF_STATES, EVIDENCE_CLASSES
 from groundtruth.runtime import DATA_DIR
 
 
@@ -68,6 +69,24 @@ def validate_claims(entries: list[dict[str, Any]]) -> None:
         if claim_id in seen_claim_ids:
             raise ValueError(f"Duplicate claim_id: {claim_id}")
         seen_claim_ids.add(claim_id)
+
+        belief_state = entry.get("belief_state")
+        if belief_state not in BELIEF_STATES:
+            raise ValueError(f"{claim_id} has invalid belief_state: {belief_state}")
+
+        state_history = entry.get("state_history")
+        if not state_history:
+            raise ValueError(f"{claim_id} missing state_history")
+        if state_history[-1].get("state") != belief_state:
+            raise ValueError(f"{claim_id} latest state_history does not match state")
+        for event in state_history:
+            if event.get("state") not in BELIEF_STATES:
+                raise ValueError(f"{claim_id} has invalid history state: {event}")
+            if event.get("evidence_class") not in EVIDENCE_CLASSES:
+                raise ValueError(f"{claim_id} has invalid evidence class: {event}")
+            for field in ("at", "evidence_ref", "basis"):
+                if not event.get(field):
+                    raise ValueError(f"{claim_id} history event missing {field}")
 
         datasets = entry.get("datasets") or {}
         for dataset_name in DATASETS:

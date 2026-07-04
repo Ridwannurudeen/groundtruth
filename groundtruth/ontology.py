@@ -28,10 +28,11 @@ class ScientificClaim(DataPoint):
     journal: str
     year: int
     status: str
+    belief_state: str = "active"
     made_by: Source
     supersedes_doi: str | None = None
     metadata: dict = {
-        "index_fields": ["text", "doi"],
+        "index_fields": ["text", "doi", "belief_state"],
         "identity_fields": ["doi"],
     }
 

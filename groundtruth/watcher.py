@@ -89,11 +89,15 @@ def find_claim(claims: list[dict[str, Any]], doi: str) -> dict[str, Any]:
     raise RuntimeError(f"Claim not found for DOI: {doi}")
 
 
-def retraction_notice_claim(claim: dict[str, Any], retraction: dict[str, Any]) -> dict[str, Any]:
+def retraction_notice_claim(
+    claim: dict[str, Any], retraction: dict[str, Any]
+) -> dict[str, Any]:
     retraction_doi = normalize_doi(retraction.get("retraction_doi")) or (
         f"retraction:{claim['doi']}"
     )
-    retraction_year = parse_year(retraction.get("retraction_date")) or claim["source"]["year"]
+    retraction_year = (
+        parse_year(retraction.get("retraction_date")) or claim["source"]["year"]
+    )
     reason = str(retraction.get("reason") or "No reason supplied").strip()
     title = claim["source"]["title"]
     return {
@@ -153,7 +157,6 @@ async def process_retraction(
     os.environ["COGNEE_SKIP_CONNECTION_TEST"] = "true"
     cognee = import_cognee()
     claims = load_registry(registry_path)
-    seed = load_seed(seed_path)
     retraction = await check(doi, seed_path=seed_path)
     if retraction is None:
         raise RuntimeError(f"No held-back retraction found for DOI: {doi}")
@@ -189,7 +192,9 @@ async def process_retraction(
                 "data_id": dataset_entry["retraction_notice_data_id"],
             }
             continue
-        notice_entry = await store_claim_deterministic(cognee, notice_claim, dataset_name)
+        notice_entry = await store_claim_deterministic(
+            cognee, notice_claim, dataset_name
+        )
         dataset_entry["retraction_notice_data_id"] = notice_entry["data_id"]
         dataset_entry["retraction_notice_doi"] = notice_claim["source"]["doi"]
         notice_entries[dataset_name] = notice_entry
@@ -217,9 +222,14 @@ async def process_retraction(
             },
         )
         save_registry(claims, registry_path)
-        return {"claim_id": claim["claim_id"], "decision": decision.model_dump(mode="json")}
+        return {
+            "claim_id": claim["claim_id"],
+            "decision": decision.model_dump(mode="json"),
+        }
 
-    if groundtruth_entry["data_id"] not in await memory_data_ids(groundtruth_dataset_id):
+    if groundtruth_entry["data_id"] not in await memory_data_ids(
+        groundtruth_dataset_id
+    ):
         claim["status"] = "retracted_forgotten"
         claim["retraction"] = retraction
         claim["datasets"][groundtruth_dataset]["status"] = "retracted_forgotten"
@@ -308,11 +318,13 @@ async def scripted_run(count: int = 3) -> list[dict[str, Any]]:
     for claim in selected:
         question = f"what does the research say about {claim_topic(claim)}?"
         before = {
-            dataset_name: await answer(question, dataset_name) for dataset_name in DATASETS
+            dataset_name: await answer(question, dataset_name)
+            for dataset_name in DATASETS
         }
         watcher_result = await process_retraction(claim["doi"])
         after = {
-            dataset_name: await answer(question, dataset_name) for dataset_name in DATASETS
+            dataset_name: await answer(question, dataset_name)
+            for dataset_name in DATASETS
         }
         runs.append(
             {
@@ -372,9 +384,15 @@ def write_results_p2(runs: list[dict[str, Any]]) -> None:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="GroundTruth Phase 2 watcher")
-    parser.add_argument("--doi", help="Trigger one held-back retraction by original DOI")
-    parser.add_argument("--count", type=int, default=0, help="Trigger N active held-back retractions")
-    parser.add_argument("--results-p2", action="store_true", help="Write docs/RESULTS-P2.md")
+    parser.add_argument(
+        "--doi", help="Trigger one held-back retraction by original DOI"
+    )
+    parser.add_argument(
+        "--count", type=int, default=0, help="Trigger N active held-back retractions"
+    )
+    parser.add_argument(
+        "--results-p2", action="store_true", help="Write docs/RESULTS-P2.md"
+    )
     return parser.parse_args()
 
 

@@ -2,7 +2,13 @@ from __future__ import annotations
 
 import pytest
 
-from groundtruth.benchmark import load_questions, memory_integrity_report, summarize
+from groundtruth.registry import write_json
+from groundtruth.benchmark import (
+    load_questions,
+    memory_integrity_report,
+    summarize,
+    v2_addendum_lines,
+)
 
 
 def test_benchmark_question_manifest_shape() -> None:
@@ -51,6 +57,42 @@ def test_benchmark_summary_counts() -> None:
     assert summary["groundtruth_cites_retracted"] == 0
     assert summary["control_claim_retention"] == 1
     assert summary["control_claim_total"] == 1
+
+
+def test_v2_addendum_lines_uses_results_payload(tmp_path) -> None:
+    path = tmp_path / "v2_results.json"
+    write_json(
+        path,
+        {
+            "status": "complete",
+            "judge": "heuristic_test_mode",
+            "evaluation_coverage": {
+                "protocol": "exhaustive_all_pairs_over_committed_v2_claims",
+                "all_pair_total": 28,
+                "evaluated_pairs": 28,
+            },
+            "semantic_metrics": {
+                "evaluated_pairs": 28,
+                "true_positive": 3,
+                "true_negative": 25,
+                "false_positive": 0,
+                "false_negative": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+            },
+            "answer_probes": [
+                {"status": "completed", "cites_superseded": True},
+                {"status": "skipped_quota_error"},
+            ],
+            "quota_error": None,
+        },
+    )
+
+    lines = "\n".join(v2_addendum_lines(path))
+
+    assert "28/28 committed claim pairs evaluated" in lines
+    assert "TP 3, TN 25, FP 0, FN 0" in lines
+    assert "1/2 completed; 1/2 surfaced conflicted graph references" in lines
 
 
 @pytest.mark.asyncio

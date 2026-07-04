@@ -9,7 +9,6 @@ import os
 import re
 import time
 from datetime import datetime, timezone
-from pathlib import Path
 from typing import Any
 from uuid import UUID
 
@@ -25,7 +24,13 @@ from groundtruth.registry import (
     validate_claims,
     write_json,
 )
-from groundtruth.runtime import DATA_DIR, DOCS_DIR, configure_runtime, import_cognee, reset_runtime_dirs
+from groundtruth.runtime import (
+    DATA_DIR,
+    DOCS_DIR,
+    configure_runtime,
+    import_cognee,
+    reset_runtime_dirs,
+)
 
 
 RW_URL = "https://api.labs.crossref.org/data/retractionwatch"
@@ -65,7 +70,9 @@ RETRACTED_KEYWORDS = (
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="GroundTruth Phase 1 ingestion")
-    parser.add_argument("--curate", action="store_true", help="Build data/seed_corpus.json")
+    parser.add_argument(
+        "--curate", action="store_true", help="Build data/seed_corpus.json"
+    )
     parser.add_argument(
         "--check-extraction",
         action="store_true",
@@ -76,9 +83,15 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="Use remember() for full ingest instead of the deterministic quota fallback",
     )
-    parser.add_argument("--ingest", action="store_true", help="Ingest seed claims into Cognee")
-    parser.add_argument("--reset", action="store_true", help="Delete prior GroundTruth runtime")
-    parser.add_argument("--recall-proof", action="store_true", help="Write docs/RESULTS-P1.md")
+    parser.add_argument(
+        "--ingest", action="store_true", help="Ingest seed claims into Cognee"
+    )
+    parser.add_argument(
+        "--reset", action="store_true", help="Delete prior GroundTruth runtime"
+    )
+    parser.add_argument(
+        "--recall-proof", action="store_true", help="Write docs/RESULTS-P1.md"
+    )
     return parser.parse_args()
 
 
@@ -92,7 +105,9 @@ def get_with_retries(
     last_error: Exception | None = None
     for attempt in range(1, attempts + 1):
         try:
-            response = httpx.get(url, params=params, timeout=timeout, follow_redirects=True)
+            response = httpx.get(
+                url, params=params, timeout=timeout, follow_redirects=True
+            )
             response.raise_for_status()
             return response
         except httpx.HTTPError as error:
@@ -100,7 +115,9 @@ def get_with_retries(
             if attempt == attempts:
                 break
             time.sleep(float(attempt * 2))
-    raise RuntimeError(f"GET {url} failed after {attempts} attempts: {last_error}") from last_error
+    raise RuntimeError(
+        f"GET {url} failed after {attempts} attempts: {last_error}"
+    ) from last_error
 
 
 def download_retraction_watch() -> str:
@@ -169,7 +186,9 @@ def is_relevant_retracted(row: dict[str, str], used_dois: set[str]) -> bool:
     if not any(keyword in haystack for keyword in RETRACTED_KEYWORDS):
         return False
     reason = clean_text(row.get("Reason")).lower()
-    return any(marker in reason for marker in ["unreliable", "data", "results", "fabrication"])
+    return any(
+        marker in reason for marker in ["unreliable", "data", "results", "fabrication"]
+    )
 
 
 def retracted_claim(row: dict[str, str], index: int) -> dict[str, Any]:
@@ -202,14 +221,18 @@ def held_back_retraction(row: dict[str, str], claim_id: str) -> dict[str, Any]:
     }
 
 
-async def crossref_control(query: str, retracted_dois: set[str], used_dois: set[str]) -> dict[str, Any]:
+async def crossref_control(
+    query: str, retracted_dois: set[str], used_dois: set[str]
+) -> dict[str, Any]:
     params = {
         "query.title": query,
         "filter": "type:journal-article,from-pub-date:2015-01-01",
         "rows": "8",
         "select": "DOI,title,container-title,published-print,published-online,issued",
     }
-    response = get_with_retries("https://api.crossref.org/works", params=params, timeout=60.0)
+    response = get_with_retries(
+        "https://api.crossref.org/works", params=params, timeout=60.0
+    )
     items = response.json()["message"]["items"]
     for item in items:
         doi = normalize_doi(item.get("DOI"))
@@ -227,12 +250,19 @@ async def crossref_control(query: str, retracted_dois: set[str], used_dois: set[
         ):
             continue
         journal_names = item.get("container-title") or []
-        issued = item.get("published-print") or item.get("published-online") or item.get("issued") or {}
+        issued = (
+            item.get("published-print")
+            or item.get("published-online")
+            or item.get("issued")
+            or {}
+        )
         date_parts = issued.get("date-parts") or [[]]
         year = int(date_parts[0][0]) if date_parts and date_parts[0] else 0
         return {
             "title": title,
-            "journal": clean_text(journal_names[0] if journal_names else "Unknown journal"),
+            "journal": clean_text(
+                journal_names[0] if journal_names else "Unknown journal"
+            ),
             "year": year,
             "doi": doi,
             "subject": "nutrition/metabolic medicine control",
@@ -335,11 +365,15 @@ async def data_item_by_id(cognee: Any, dataset: UUID, data_id: UUID) -> Any:
     raise RuntimeError(f"Data item {data_id} not found in dataset {dataset}")
 
 
-async def remember_claim(cognee: Any, claim: dict[str, Any], dataset_name: str) -> dict[str, str]:
+async def remember_claim(
+    cognee: Any, claim: dict[str, Any], dataset_name: str
+) -> dict[str, str]:
     from groundtruth.ontology import CLAIM_EXTRACTION_PROMPT, ScientificClaim
 
     before_dataset_id = await dataset_id(cognee, dataset_name)
-    before_ids = await list_data_ids(cognee, before_dataset_id) if before_dataset_id else set()
+    before_ids = (
+        await list_data_ids(cognee, before_dataset_id) if before_dataset_id else set()
+    )
     result = await cognee.remember(
         claim_document(claim),
         dataset_name=dataset_name,
@@ -363,7 +397,9 @@ async def remember_claim(cognee: Any, claim: dict[str, Any], dataset_name: str) 
 
     all_ids = await list_data_ids(cognee, current_dataset_id)
     if resolved_data_id not in all_ids:
-        raise RuntimeError(f"Resolved data_id {resolved_data_id} not present in {dataset_name}")
+        raise RuntimeError(
+            f"Resolved data_id {resolved_data_id} not present in {dataset_name}"
+        )
 
     return {"dataset_id": str(current_dataset_id), "data_id": str(resolved_data_id)}
 
@@ -390,7 +426,9 @@ async def store_claim_deterministic(
     cognee: Any, claim: dict[str, Any], dataset_name: str
 ) -> dict[str, str]:
     before_dataset_id = await dataset_id(cognee, dataset_name)
-    before_ids = await list_data_ids(cognee, before_dataset_id) if before_dataset_id else set()
+    before_ids = (
+        await list_data_ids(cognee, before_dataset_id) if before_dataset_id else set()
+    )
     await cognee.add(
         claim_document(claim),
         dataset_name=dataset_name,
@@ -452,7 +490,9 @@ async def check_extraction_quality() -> list[dict[str, Any]]:
     checks: list[dict[str, Any]] = []
     try:
         for claim in claims:
-            dataset_entry = await remember_claim(cognee, claim, EXTRACTION_CHECK_DATASET)
+            dataset_entry = await remember_claim(
+                cognee, claim, EXTRACTION_CHECK_DATASET
+            )
             nodes = await ledger_nodes(
                 UUID(dataset_entry["dataset_id"]),
                 UUID(dataset_entry["data_id"]),
@@ -500,9 +540,14 @@ async def ingest_seed(reset: bool, llm_ingest: bool) -> list[dict[str, Any]]:
     for claim_index, claim in enumerate(claims, start=1):
         datasets: dict[str, dict[str, str]] = {}
         for dataset_name in DATASETS:
-            print(f"[{claim_index:02d}/40] ingest {claim['claim_id']} -> {dataset_name}", flush=True)
+            print(
+                f"[{claim_index:02d}/40] ingest {claim['claim_id']} -> {dataset_name}",
+                flush=True,
+            )
             if llm_ingest:
-                datasets[dataset_name] = await remember_claim(cognee, claim, dataset_name)
+                datasets[dataset_name] = await remember_claim(
+                    cognee, claim, dataset_name
+                )
             else:
                 datasets[dataset_name] = await store_claim_deterministic(
                     cognee,
@@ -628,7 +673,7 @@ async def recall_proof() -> dict[str, Any]:
         "",
         "Reference:",
         "",
-        f"- Dataset: `groundtruth_memory`",
+        "- Dataset: `groundtruth_memory`",
         f"- Dataset ID: `{dataset_entry['dataset_id']}`",
         f"- Data ID: `{dataset_entry['data_id']}`",
         f"- DOI: `{target['doi']}`",
@@ -674,7 +719,9 @@ async def main() -> int:
 
     if args.recall_proof:
         payload = await recall_proof()
-        print(f"Wrote {DOCS_DIR / 'RESULTS-P1.md'} with {payload['result_count']} recall results")
+        print(
+            f"Wrote {DOCS_DIR / 'RESULTS-P1.md'} with {payload['result_count']} recall results"
+        )
 
     elapsed = time.monotonic() - started
     print(f"Done in {elapsed:.1f}s")

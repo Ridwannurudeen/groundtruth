@@ -24,6 +24,7 @@ STATIC_DIR = WEB_DIR / "static"
 BENCHMARK_RESULTS_PATH = DATA_DIR / "benchmark_results.json"
 BENCHMARK_QUESTIONS_PATH = DATA_DIR / "benchmark_questions.json"
 GRAPH_HTML_PATH = LOCAL_RUNTIME_ROOT / "memory_provenance.html"
+MUTATION_CONFIRMATION = "I understand this mutates local GroundTruth demo state"
 DEMO_RETRACTION_ORDER = {
     "R014": 0,
     "R015": 1,
@@ -51,6 +52,7 @@ class AskRequest(BaseModel):
 
 class RetractionRequest(BaseModel):
     doi: str = Field(min_length=1)
+    confirm_mutation: str | None = None
 
 
 class FeedbackRequest(BaseModel):
@@ -58,12 +60,14 @@ class FeedbackRequest(BaseModel):
     qa_id: str = Field(min_length=1)
     score: int = Field(ge=1, le=5)
     text: str | None = None
+    confirm_mutation: str | None = None
 
 
 class ImproveRequest(BaseModel):
     dataset: Literal["groundtruth_memory"] = "groundtruth_memory"
     session_ids: list[str] = Field(min_length=1)
     feedback_alpha: float = 1.0
+    confirm_mutation: str | None = None
 
 
 app = FastAPI(title="GroundTruth Demo", version="0.1.0")
@@ -147,6 +151,26 @@ def ndjson(event: str, payload: dict[str, Any]) -> str:
     return json.dumps({"event": event, **compact_json(payload)}, sort_keys=True) + "\n"
 
 
+def mutation_confirmation_bypassed() -> bool:
+    return os.environ.get("GROUNDTRUTH_DEMO_ALLOW_MUTATIONS", "").lower() in {
+        "1",
+        "true",
+        "yes",
+    }
+
+
+def require_mutation_confirmation(value: str | None) -> None:
+    if mutation_confirmation_bypassed() or value == MUTATION_CONFIRMATION:
+        return
+    raise HTTPException(
+        status_code=409,
+        detail=(
+            "Mutation confirmation required. This endpoint changes local GroundTruth "
+            "demo state."
+        ),
+    )
+
+
 async def render_graph_html() -> str:
     os.environ["COGNEE_SKIP_CONNECTION_TEST"] = "true"
     import_cognee()
@@ -187,6 +211,8 @@ async def state() -> dict[str, Any]:
         "processed_retractions": processed,
         "default_question": default_question(options),
         "default_doi": active[0]["doi"] if active else options[0]["doi"],
+        "mutations_require_confirmation": not mutation_confirmation_bypassed(),
+        "mutation_confirmation": MUTATION_CONFIRMATION,
     }
 
 
@@ -203,10 +229,14 @@ async def ask(request: AskRequest) -> dict[str, Any]:
 
 @app.post("/retract")
 async def retract(request: RetractionRequest) -> StreamingResponse:
+    require_mutation_confirmation(request.confirm_mutation)
+
     async def stream():
         claim = claim_for_doi(request.doi)
         if claim is None:
-            yield ndjson("error", {"message": f"No held-back retraction for DOI {request.doi}"})
+            yield ndjson(
+                "error", {"message": f"No held-back retraction for DOI {request.doi}"}
+            )
             return
         if claim["status"] != "active":
             yield ndjson("already_prepared", claim)
@@ -248,6 +278,7 @@ async def retract(request: RetractionRequest) -> StreamingResponse:
 
 @app.post("/feedback")
 async def feedback(request: FeedbackRequest) -> dict[str, Any]:
+    require_mutation_confirmation(request.confirm_mutation)
     return await add_feedback(
         request.session_id,
         request.qa_id,
@@ -258,6 +289,7 @@ async def feedback(request: FeedbackRequest) -> dict[str, Any]:
 
 @app.post("/improve")
 async def improve(request: ImproveRequest) -> dict[str, Any]:
+    require_mutation_confirmation(request.confirm_mutation)
     return await improve_from_feedback(
         request.dataset,
         request.session_ids,

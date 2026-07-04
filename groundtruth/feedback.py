@@ -42,7 +42,9 @@ async def add_feedback(
         feedback_score=feedback_score,
     )
     if not updated:
-        raise RuntimeError(f"Could not add feedback for QA {qa_id} in session {session_id}")
+        raise RuntimeError(
+            f"Could not add feedback for QA {qa_id} in session {session_id}"
+        )
 
     return {
         "session_id": session_id,
@@ -125,9 +127,10 @@ async def scripted_run() -> dict[str, Any]:
         record_session=False,
         feedback_influence=1.0,
     )
-    changed = before["recall_context"] != after["recall_context"] or before[
-        "references"
-    ] != after["references"]
+    changed = (
+        before["recall_context"] != after["recall_context"]
+        or before["references"] != after["references"]
+    )
     entries = await get_session_entries(session_id)
     return {
         "generated_at": now(),
@@ -177,7 +180,9 @@ def write_results_p3(result: dict[str, Any]) -> None:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="GroundTruth Phase 3 feedback loop")
-    parser.add_argument("--results-p3", action="store_true", help="Write docs/RESULTS-P3.md")
+    parser.add_argument(
+        "--results-p3", action="store_true", help="Write docs/RESULTS-P3.md"
+    )
     return parser.parse_args()
 
 

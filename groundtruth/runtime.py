@@ -24,6 +24,15 @@ QUOTA_ERROR_MARKERS = (
     "too many requests",
     "exceeded your current quota",
 )
+RESUMABLE_PROVIDER_ERROR_MARKERS = QUOTA_ERROR_MARKERS + (
+    "apiconnectionerror",
+    "cannot connect to host",
+    "clientconnectordnserror",
+    "getaddrinfo failed",
+    "server disconnected",
+    "timed out",
+    "timeout",
+)
 
 
 def configure_runtime() -> None:
@@ -90,7 +99,9 @@ def configure_gemini_quota_fallback() -> None:
 
 
 def clear_cognee_config_caches() -> None:
-    from cognee.infrastructure.databases.vector.embeddings.config import get_embedding_config
+    from cognee.infrastructure.databases.vector.embeddings.config import (
+        get_embedding_config,
+    )
     from cognee.infrastructure.databases.vector.embeddings.get_embedding_engine import (
         create_embedding_engine,
     )
@@ -106,6 +117,11 @@ def is_quota_error(error: BaseException) -> bool:
     return any(marker in text for marker in QUOTA_ERROR_MARKERS)
 
 
+def is_resumable_provider_error(error: BaseException) -> bool:
+    text = f"{type(error).__name__}: {error}".lower()
+    return any(marker in text for marker in RESUMABLE_PROVIDER_ERROR_MARKERS)
+
+
 def import_cognee() -> Any:
     configure_runtime()
     import cognee
@@ -117,7 +133,11 @@ def import_cognee() -> Any:
 
 def reset_runtime_dirs() -> list[str]:
     removed = []
-    for env_key in ["SYSTEM_ROOT_DIRECTORY", "DATA_ROOT_DIRECTORY", "CACHE_ROOT_DIRECTORY"]:
+    for env_key in [
+        "SYSTEM_ROOT_DIRECTORY",
+        "DATA_ROOT_DIRECTORY",
+        "CACHE_ROOT_DIRECTORY",
+    ]:
         path = Path(os.environ[env_key])
         if path.exists():
             shutil.rmtree(path)

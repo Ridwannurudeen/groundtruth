@@ -6,7 +6,11 @@ from pathlib import Path
 from typing import Any
 from uuid import UUID
 
-from groundtruth.contradictions import ledger_edges_for_node, ledger_nodes, memory_data_ids
+from groundtruth.contradictions import (
+    ledger_edges_for_node,
+    ledger_nodes,
+    memory_data_ids,
+)
 from groundtruth.registry import CLAIMS_PATH, load_claims
 from groundtruth.runtime import import_cognee
 
@@ -216,7 +220,11 @@ async def references_from_graph_edges(
 
     for node_id in edge_node_ids(edges):
         data_id = node_to_data_id.get(node_id)
-        if not data_id or data_id in seen_data_ids or data_id not in data_id_to_reference:
+        if (
+            not data_id
+            or data_id in seen_data_ids
+            or data_id not in data_id_to_reference
+        ):
             continue
         reference = dict(data_id_to_reference[data_id])
         reference["retrieval_rank"] = len(references) + 1
@@ -250,7 +258,9 @@ async def relationship_edges_for_references(
                             "origin": "graph_engine.get_edges",
                         }
                     )
-            for ledger_edge in await ledger_edges_for_node(dataset_id, node.slug, relationships):
+            for ledger_edge in await ledger_edges_for_node(
+                dataset_id, node.slug, relationships
+            ):
                 reference_edges.append(
                     {
                         "source_node_id": str(ledger_edge.source_node_id),
@@ -277,7 +287,10 @@ def superseded_references(
             attributes = edge.get("attributes") or {}
             reference_data_id = reference["data_id"]
             target_data_id = attributes.get("target_data_id")
-            if relationship_name == "supersedes" and target_data_id == reference_data_id:
+            if (
+                relationship_name == "supersedes"
+                and target_data_id == reference_data_id
+            ):
                 superseded.append(
                     {
                         "reference": reference,
@@ -285,7 +298,10 @@ def superseded_references(
                         "basis": attributes.get("basis") or attributes.get("rationale"),
                     }
                 )
-            elif relationship_name in {"contradicts", "superseded_by"} and target_data_id == reference_data_id:
+            elif (
+                relationship_name in {"contradicts", "superseded_by"}
+                and target_data_id == reference_data_id
+            ):
                 superseded.append(
                     {
                         "reference": reference,
@@ -384,7 +400,11 @@ def answer_text(
         return synthesized_text
 
     cited_retracted = [reference for reference in references if reference["retracted"]]
-    notices = [reference for reference in references if reference["kind"] == "retraction_notice"]
+    notices = [
+        reference
+        for reference in references
+        if reference["kind"] == "retraction_notice"
+    ]
     primary = references[0]
 
     if cited_retracted:
@@ -467,12 +487,19 @@ async def answer(
     reference_cross_check = {
         "retrieved_graph_references": reference_ids(references),
         "deterministic_membership_references": reference_ids(deterministic_references),
-        "disagreement": reference_ids(references) != reference_ids(deterministic_references),
+        "disagreement": reference_ids(references)
+        != reference_ids(deterministic_references),
     }
-    reference_edges = await relationship_edges_for_references(resolved_dataset_id, references)
+    reference_edges = await relationship_edges_for_references(
+        resolved_dataset_id, references
+    )
     superseded = superseded_references(references, reference_edges)
     superseded_dois = sorted(
-        {item["reference"]["doi"] for item in superseded if item["reference"].get("doi")}
+        {
+            item["reference"]["doi"]
+            for item in superseded
+            if item["reference"].get("doi")
+        }
     )
     payload = {
         "question": question,

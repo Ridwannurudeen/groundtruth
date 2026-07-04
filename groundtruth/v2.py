@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import asyncio
+import hashlib
 import json
 import math
 import os
@@ -19,7 +20,13 @@ from groundtruth.contradictions import (
 )
 from groundtruth.ingest import dataset_id, store_claim_deterministic
 from groundtruth.registry import load_json, write_json
-from groundtruth.runtime import DATA_DIR, DOCS_DIR, import_cognee, is_quota_error
+from groundtruth.runtime import (
+    DATA_DIR,
+    DOCS_DIR,
+    import_cognee,
+    is_quota_error,
+    is_resumable_provider_error,
+)
 
 
 V2_DATASET = "groundtruth_v2_semantic_memory"
@@ -29,6 +36,7 @@ V2_RESULTS_PATH = DATA_DIR / "v2_results.json"
 V2_DOC_PATH = DOCS_DIR / "RESULTS-V2.md"
 V2_JUDGE_CACHE_PATH = DATA_DIR / "v2_semantic_judgments.json"
 CONFIDENCE_THRESHOLD = 0.7
+EVALUATION_PROTOCOL = "exhaustive_all_pairs_over_committed_v2_claims"
 
 
 BASELINE_NOTES = [
@@ -36,6 +44,13 @@ BASELINE_NOTES = [
     "Split baseline before code changes: `tests/test_benchmark.py -q` passed 3 tests; `tests/test_web.py -q` passed 5 tests.",
     "Split baseline `tests/test_watcher.py -q` timed out at 240s even after stopping stale pytest/uvicorn workers.",
 ]
+
+
+class V2JudgeStop(RuntimeError):
+    def __init__(self, rows: list[dict[str, Any]], error: BaseException):
+        super().__init__(str(error))
+        self.rows = rows
+        self.error = error
 
 
 def now() -> str:
@@ -72,9 +87,13 @@ def claim_index(claims: list[dict[str, Any]]) -> dict[str, dict[str, Any]]:
     return {claim["claim_id"]: claim for claim in claims}
 
 
-def spot_check_claims(claims: list[dict[str, Any]], count: int = 5) -> list[dict[str, Any]]:
+def spot_check_claims(
+    claims: list[dict[str, Any]],
+    count: int | None = None,
+) -> list[dict[str, Any]]:
     checks = []
-    for claim in claims[:count]:
+    selected = claims if count is None else claims[:count]
+    for claim in selected:
         text = claim["claim_text"]
         checks.append(
             {
@@ -123,7 +142,7 @@ def lexical_similarity(left: str, right: str) -> float:
 def vector_candidate_pairs(
     claims: list[dict[str, Any]],
     *,
-    neighbors_per_claim: int = 3,
+    neighbors_per_claim: int | None = None,
 ) -> dict[str, Any]:
     texts = [claim["claim_text"] for claim in claims]
     try:
@@ -134,11 +153,21 @@ def vector_candidate_pairs(
         embedder = TextEmbedding(model_name="BAAI/bge-small-en")
         vectors = [list(map(float, vector)) for vector in embedder.embed(texts)]
         method = "fastembed:BAAI/bge-small-en cosine"
-        score = lambda a, b: cosine(vectors[a], vectors[b])
-    except Exception as error:
-        method = f"lexical fallback after FastEmbed error: {type(error).__name__}: {error}"
-        score = lambda a, b: lexical_similarity(texts[a], texts[b])
 
+        def score(a: int, b: int) -> float:
+            return cosine(vectors[a], vectors[b])
+
+    except Exception as error:
+        method = (
+            f"lexical fallback after FastEmbed error: {type(error).__name__}: {error}"
+        )
+
+        def score(a: int, b: int) -> float:
+            return lexical_similarity(texts[a], texts[b])
+
+    neighbor_count = (
+        len(claims) - 1 if neighbors_per_claim is None else neighbors_per_claim
+    )
     candidates: dict[str, dict[str, Any]] = {}
     for index, claim in enumerate(claims):
         scored = []
@@ -147,7 +176,7 @@ def vector_candidate_pairs(
                 continue
             scored.append((score(index, other_index), other["claim_id"]))
         scored.sort(reverse=True)
-        for similarity, other_id in scored[:neighbors_per_claim]:
+        for similarity, other_id in scored[:neighbor_count]:
             key = pair_key(claim["claim_id"], other_id)
             candidates[key] = {
                 "claim_a_id": claim["claim_id"],
@@ -157,7 +186,69 @@ def vector_candidate_pairs(
 
     return {
         "method": method,
-        "pairs": sorted(candidates.values(), key=lambda item: item["similarity"], reverse=True),
+        "pairs": sorted(
+            candidates.values(), key=lambda item: item["similarity"], reverse=True
+        ),
+    }
+
+
+def all_pair_total(claims: list[dict[str, Any]]) -> int:
+    return len(claims) * (len(claims) - 1) // 2
+
+
+def labeled_candidate_pairs(
+    candidate_pairs: list[dict[str, Any]],
+    evaluation_pairs: list[dict[str, Any]],
+) -> list[dict[str, Any]]:
+    labels = {
+        pair_key(pair["claim_a_id"], pair["claim_b_id"]): bool(
+            pair["expected_conflict"]
+        )
+        for pair in evaluation_pairs
+    }
+    unlabeled = [
+        pair_key(pair["claim_a_id"], pair["claim_b_id"])
+        for pair in candidate_pairs
+        if pair_key(pair["claim_a_id"], pair["claim_b_id"]) not in labels
+    ]
+    if unlabeled:
+        raise ValueError(
+            f"Missing V2 evaluation labels for candidate pairs: {unlabeled}"
+        )
+    return [
+        {
+            **pair,
+            "expected_conflict": labels[
+                pair_key(pair["claim_a_id"], pair["claim_b_id"])
+            ],
+        }
+        for pair in candidate_pairs
+    ]
+
+
+def evaluation_coverage(
+    claims: list[dict[str, Any]],
+    candidate_pairs: list[dict[str, Any]],
+    evaluation_pairs: list[dict[str, Any]],
+    labeled_pairs: list[dict[str, Any]],
+    *,
+    protocol: str,
+) -> dict[str, Any]:
+    candidate_keys = {
+        pair_key(pair["claim_a_id"], pair["claim_b_id"]) for pair in candidate_pairs
+    }
+    manifest_keys = {
+        pair_key(pair["claim_a_id"], pair["claim_b_id"]) for pair in evaluation_pairs
+    }
+    return {
+        "protocol": protocol,
+        "claims": len(claims),
+        "all_pair_total": all_pair_total(claims),
+        "candidate_pairs": len(candidate_pairs),
+        "manifest_pairs": len(evaluation_pairs),
+        "planned_pairs": len(labeled_pairs),
+        "unlabeled_candidate_pairs": sorted(candidate_keys - manifest_keys),
+        "manifest_pairs_not_candidates": sorted(manifest_keys - candidate_keys),
     }
 
 
@@ -167,14 +258,48 @@ def load_judge_cache() -> dict[str, Any]:
     return {}
 
 
+def claim_signature_payload(claim: dict[str, Any]) -> dict[str, Any]:
+    source = claim["source"]
+    return {
+        "claim_id": claim["claim_id"],
+        "claim_text": claim["claim_text"],
+        "cohort": claim["cohort"],
+        "source": {
+            "doi": source["doi"],
+            "journal": source.get("journal"),
+            "subject": source.get("subject"),
+            "title": source["title"],
+            "url": source.get("url"),
+            "year": source["year"],
+        },
+    }
+
+
+def claim_pair_signature(
+    claim_a: dict[str, Any],
+    claim_b: dict[str, Any],
+) -> str:
+    payload = sorted(
+        [claim_signature_payload(claim_a), claim_signature_payload(claim_b)],
+        key=lambda claim: claim["claim_id"],
+    )
+    serialized = json.dumps(payload, sort_keys=True, separators=(",", ":"))
+    return hashlib.sha256(serialized.encode("utf-8")).hexdigest()
+
+
 def heuristic_judge(
     claim_a: dict[str, Any],
     claim_b: dict[str, Any],
 ) -> SemanticConflictDecision:
     subject_match = claim_a["source"]["subject"] == claim_b["source"]["subject"]
     text = f"{claim_a['claim_text']} {claim_b['claim_text']}".lower()
-    has_negative = any(marker in text for marker in ["does not", "no beneficial", "not significantly"])
-    has_positive = any(marker in text for marker in ["lowers", "reduce", "positively", "appears to reduce"])
+    has_negative = any(
+        marker in text for marker in ["does not", "no beneficial", "not significantly"]
+    )
+    has_positive = any(
+        marker in text
+        for marker in ["lowers", "reduce", "positively", "appears to reduce"]
+    )
     conflicts = subject_match and has_negative and has_positive
     return SemanticConflictDecision(
         conflicts=conflicts,
@@ -197,18 +322,30 @@ async def judge_pairs(
     claims_by_id = claim_index(claims)
     cache = load_judge_cache()
     rows = []
+    expected_judge = (
+        "LLMGateway.acreate_structured_output" if use_llm else "heuristic_test_mode"
+    )
     for pair in pairs:
         key = pair_key(pair["claim_a_id"], pair["claim_b_id"])
+        claim_a = claims_by_id[pair["claim_a_id"]]
+        claim_b = claims_by_id[pair["claim_b_id"]]
+        signature = claim_pair_signature(claim_a, claim_b)
         cached = cache.get(key)
-        expected_judge = "LLMGateway.acreate_structured_output" if use_llm else "heuristic_test_mode"
-        if cached and cached.get("judge") == expected_judge:
+        if (
+            cached
+            and cached.get("judge") == expected_judge
+            and cached.get("pair_signature") == signature
+        ):
             decision = SemanticConflictDecision(**cache[key]["decision"])
-            row = {**pair, "decision": decision.model_dump(), "cached": True}
+            row = {
+                **pair,
+                "pair_signature": signature,
+                "decision": decision.model_dump(),
+                "cached": True,
+            }
             rows.append(row)
             continue
 
-        claim_a = claims_by_id[pair["claim_a_id"]]
-        claim_b = claims_by_id[pair["claim_b_id"]]
         try:
             decision = (
                 await judge_semantic_conflict(claim_a, claim_b)
@@ -216,29 +353,45 @@ async def judge_pairs(
                 else heuristic_judge(claim_a, claim_b)
             )
         except Exception as error:
-            if is_quota_error(error):
+            if is_resumable_provider_error(error):
                 write_json(
                     V2_JUDGE_CACHE_PATH,
                     {
                         **cache,
                         "_partial_stop": {
                             "pair": pair,
+                            "pair_signature": signature,
+                            "completed_pairs": len(rows),
+                            "judge": expected_judge,
+                            "stop_reason": (
+                                "quota" if is_quota_error(error) else "provider_error"
+                            ),
                             "error": str(error)[:1000],
                             "generated_at": now(),
                         },
                     },
                 )
+                raise V2JudgeStop(rows, error) from error
             raise
 
         cache[key] = {
             "claim_a_id": pair["claim_a_id"],
             "claim_b_id": pair["claim_b_id"],
+            "pair_signature": signature,
             "decision": decision.model_dump(),
             "generated_at": now(),
-            "judge": "LLMGateway.acreate_structured_output" if use_llm else "heuristic_test_mode",
+            "judge": expected_judge,
         }
+        cache.pop("_partial_stop", None)
         write_json(V2_JUDGE_CACHE_PATH, cache)
-        rows.append({**pair, "decision": decision.model_dump(), "cached": False})
+        rows.append(
+            {
+                **pair,
+                "pair_signature": signature,
+                "decision": decision.model_dump(),
+                "cached": False,
+            }
+        )
     return rows
 
 
@@ -271,7 +424,9 @@ def semantic_metrics(rows: list[dict[str, Any]]) -> dict[str, Any]:
     }
 
 
-async def ensure_v2_registry(claims: list[dict[str, Any]], *, skip_ingest: bool) -> list[dict[str, Any]]:
+async def ensure_v2_registry(
+    claims: list[dict[str, Any]], *, skip_ingest: bool
+) -> list[dict[str, Any]]:
     registry = load_v2_registry()
     registry_by_id = claim_index(registry)
     if all(claim["claim_id"] in registry_by_id for claim in claims):
@@ -391,12 +546,16 @@ async def answer_probes(
                 synthesize=True,
             )
         except Exception as error:
-            if is_quota_error(error):
+            if is_resumable_provider_error(error):
                 rows.append(
                     {
                         "question_id": question["id"],
                         "question": question["question"],
-                        "status": "skipped_quota_error",
+                        "status": (
+                            "skipped_quota_error"
+                            if is_quota_error(error)
+                            else "skipped_provider_error"
+                        ),
                         "error": str(error)[:1000],
                     }
                 )
@@ -418,6 +577,34 @@ async def answer_probes(
             }
         )
     return rows
+
+
+def answer_probe_summary(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    summary = []
+    for row in rows:
+        item = {
+            "question_id": row["question_id"],
+            "question": row["question"],
+            "status": row["status"],
+        }
+        if row["status"] != "completed":
+            item["error"] = row.get("error")
+            summary.append(item)
+            continue
+        item.update(
+            {
+                "synthesis_mode": row["synthesis_mode"],
+                "cites_retracted": row["cites_retracted"],
+                "cites_superseded": row["cites_superseded"],
+                "superseded_dois": row["superseded_dois"],
+                "reference_claim_ids": [
+                    reference["claim_id"] for reference in row.get("references", [])
+                ],
+                "text_excerpt": row["text"][:700],
+            }
+        )
+        summary.append(item)
+    return summary
 
 
 def write_results_doc(payload: dict[str, Any]) -> None:
@@ -446,6 +633,12 @@ def write_results_doc(payload: dict[str, Any]) -> None:
             f"- Candidate method: `{payload['candidate_method']}`",
             f"- Judge: `{payload['judge']}`",
             "",
+            "Coverage:",
+            "",
+            "```json",
+            json.dumps(payload.get("evaluation_coverage"), indent=2, sort_keys=True),
+            "```",
+            "",
             "Metrics:",
             "",
             "```json",
@@ -461,8 +654,14 @@ def write_results_doc(payload: dict[str, Any]) -> None:
             "## V2-2 Graph-Aware Answer Probes",
             "",
             "```json",
-            json.dumps(payload.get("answer_probes"), indent=2, sort_keys=True),
+            json.dumps(
+                answer_probe_summary(payload.get("answer_probes") or []),
+                indent=2,
+                sort_keys=True,
+            ),
             "```",
+            "",
+            f"Full raw V2 JSON: `{V2_RESULTS_PATH.as_posix()}`",
             "",
             "## Edge Writes",
             "",
@@ -485,6 +684,19 @@ def write_results_doc(payload: dict[str, Any]) -> None:
                 "",
             ]
         )
+    if payload.get("provider_error"):
+        lines.extend(
+            [
+                "## Provider Stop",
+                "",
+                "The pass stopped on a provider/API connectivity error. Cached judgments and ingested claims were preserved for resume.",
+                "",
+                "```text",
+                payload["provider_error"],
+                "```",
+                "",
+            ]
+        )
     V2_DOC_PATH.write_text("\n".join(lines), encoding="utf-8")
 
 
@@ -499,12 +711,23 @@ async def run_v2(
     claims = corpus["claims"]
     spot_checks = spot_check_claims(claims)
     candidates = vector_candidate_pairs(claims)
-    eval_pairs = corpus["evaluation_pairs"]
+    eval_pairs = labeled_candidate_pairs(
+        candidates["pairs"], corpus["evaluation_pairs"]
+    )
+    coverage = evaluation_coverage(
+        claims,
+        candidates["pairs"],
+        corpus["evaluation_pairs"],
+        eval_pairs,
+        protocol=corpus.get("evaluation_protocol", EVALUATION_PROTOCOL),
+    )
     if reset_v2:
         await reset_v2_dataset()
     registry = await ensure_v2_registry(claims, skip_ingest=skip_ingest)
     status = "complete"
     quota_error = None
+    provider_error = None
+    stop_reason = None
     semantic_rows: list[dict[str, Any]] = []
     edge_writes: list[dict[str, Any]] = []
     answer_rows: list[dict[str, Any]] = []
@@ -515,12 +738,42 @@ async def run_v2(
             semantic_rows,
             skip_ingest=skip_ingest,
         )
-        answer_rows = await answer_probes(corpus["question_probes"], skip_answers=skip_answers)
+        answer_rows = await answer_probes(
+            corpus["question_probes"], skip_answers=skip_answers
+        )
+    except V2JudgeStop as stop:
+        semantic_rows = stop.rows
+        stop_reason = "quota" if is_quota_error(stop.error) else "provider_error"
+        status = (
+            "partial_quota_stop" if stop_reason == "quota" else "partial_provider_stop"
+        )
+        if stop_reason == "quota":
+            quota_error = str(stop.error)[:1000]
+        else:
+            provider_error = str(stop.error)[:1000]
     except Exception as error:
-        if not is_quota_error(error):
+        if not is_resumable_provider_error(error):
             raise
-        status = "partial_quota_stop"
-        quota_error = str(error)[:1000]
+        stop_reason = "quota" if is_quota_error(error) else "provider_error"
+        status = (
+            "partial_quota_stop" if stop_reason == "quota" else "partial_provider_stop"
+        )
+        if stop_reason == "quota":
+            quota_error = str(error)[:1000]
+        else:
+            provider_error = str(error)[:1000]
+
+    planned_keys = {
+        pair_key(pair["claim_a_id"], pair["claim_b_id"]) for pair in eval_pairs
+    }
+    evaluated_keys = {
+        pair_key(row["claim_a_id"], row["claim_b_id"]) for row in semantic_rows
+    }
+    coverage = {
+        **coverage,
+        "evaluated_pairs": len(semantic_rows),
+        "pending_pairs": sorted(planned_keys - evaluated_keys),
+    }
 
     payload = {
         "generated_at": now(),
@@ -531,12 +784,17 @@ async def run_v2(
         "spot_checks": spot_checks,
         "candidate_method": candidates["method"],
         "candidate_pairs": candidates["pairs"],
-        "judge": "LLMGateway.acreate_structured_output" if use_llm else "heuristic_test_mode",
+        "evaluation_coverage": coverage,
+        "judge": "LLMGateway.acreate_structured_output"
+        if use_llm
+        else "heuristic_test_mode",
         "semantic_rows": semantic_rows,
         "semantic_metrics": semantic_metrics(semantic_rows) if semantic_rows else None,
         "edge_writes": edge_writes,
         "answer_probes": answer_rows,
+        "stop_reason": stop_reason,
         "quota_error": quota_error,
+        "provider_error": provider_error,
     }
     write_v2_json(V2_RESULTS_PATH, payload)
     write_results_doc(payload)
@@ -545,9 +803,15 @@ async def run_v2(
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="GroundTruth V2 semantic memory pass")
-    parser.add_argument("--no-llm", action="store_true", help="Use deterministic test heuristic")
-    parser.add_argument("--skip-ingest", action="store_true", help="Do not ingest V2 claims")
-    parser.add_argument("--skip-answers", action="store_true", help="Do not run synthesized answers")
+    parser.add_argument(
+        "--no-llm", action="store_true", help="Use deterministic test heuristic"
+    )
+    parser.add_argument(
+        "--skip-ingest", action="store_true", help="Do not ingest V2 claims"
+    )
+    parser.add_argument(
+        "--skip-answers", action="store_true", help="Do not run synthesized answers"
+    )
     parser.add_argument(
         "--reset-v2",
         action="store_true",

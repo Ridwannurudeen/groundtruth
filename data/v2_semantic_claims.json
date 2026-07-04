@@ -113,6 +113,7 @@
       "status_at_seed": "active"
     }
   ],
+  "evaluation_protocol": "exhaustive_all_pairs_over_committed_v2_claims",
   "evaluation_pairs": [
     {
       "claim_a_id": "V2C001",
@@ -120,14 +121,24 @@
       "expected_conflict": true
     },
     {
-      "claim_a_id": "V2C003",
-      "claim_b_id": "V2C004",
-      "expected_conflict": true
+      "claim_a_id": "V2C001",
+      "claim_b_id": "V2C003",
+      "expected_conflict": false
     },
     {
-      "claim_a_id": "V2C005",
+      "claim_a_id": "V2C001",
+      "claim_b_id": "V2C004",
+      "expected_conflict": false
+    },
+    {
+      "claim_a_id": "V2C001",
+      "claim_b_id": "V2C005",
+      "expected_conflict": false
+    },
+    {
+      "claim_a_id": "V2C001",
       "claim_b_id": "V2C006",
-      "expected_conflict": true
+      "expected_conflict": false
     },
     {
       "claim_a_id": "V2C001",
@@ -135,7 +146,107 @@
       "expected_conflict": false
     },
     {
+      "claim_a_id": "V2C001",
+      "claim_b_id": "V2C008",
+      "expected_conflict": false
+    },
+    {
+      "claim_a_id": "V2C002",
+      "claim_b_id": "V2C003",
+      "expected_conflict": false
+    },
+    {
+      "claim_a_id": "V2C002",
+      "claim_b_id": "V2C004",
+      "expected_conflict": false
+    },
+    {
+      "claim_a_id": "V2C002",
+      "claim_b_id": "V2C005",
+      "expected_conflict": false
+    },
+    {
+      "claim_a_id": "V2C002",
+      "claim_b_id": "V2C006",
+      "expected_conflict": false
+    },
+    {
+      "claim_a_id": "V2C002",
+      "claim_b_id": "V2C007",
+      "expected_conflict": false
+    },
+    {
+      "claim_a_id": "V2C002",
+      "claim_b_id": "V2C008",
+      "expected_conflict": false
+    },
+    {
+      "claim_a_id": "V2C003",
+      "claim_b_id": "V2C004",
+      "expected_conflict": true
+    },
+    {
+      "claim_a_id": "V2C003",
+      "claim_b_id": "V2C005",
+      "expected_conflict": false
+    },
+    {
+      "claim_a_id": "V2C003",
+      "claim_b_id": "V2C006",
+      "expected_conflict": false
+    },
+    {
+      "claim_a_id": "V2C003",
+      "claim_b_id": "V2C007",
+      "expected_conflict": false
+    },
+    {
+      "claim_a_id": "V2C003",
+      "claim_b_id": "V2C008",
+      "expected_conflict": false
+    },
+    {
       "claim_a_id": "V2C004",
+      "claim_b_id": "V2C005",
+      "expected_conflict": false
+    },
+    {
+      "claim_a_id": "V2C004",
+      "claim_b_id": "V2C006",
+      "expected_conflict": false
+    },
+    {
+      "claim_a_id": "V2C004",
+      "claim_b_id": "V2C007",
+      "expected_conflict": false
+    },
+    {
+      "claim_a_id": "V2C004",
+      "claim_b_id": "V2C008",
+      "expected_conflict": false
+    },
+    {
+      "claim_a_id": "V2C005",
+      "claim_b_id": "V2C006",
+      "expected_conflict": true
+    },
+    {
+      "claim_a_id": "V2C005",
+      "claim_b_id": "V2C007",
+      "expected_conflict": false
+    },
+    {
+      "claim_a_id": "V2C005",
+      "claim_b_id": "V2C008",
+      "expected_conflict": false
+    },
+    {
+      "claim_a_id": "V2C006",
+      "claim_b_id": "V2C007",
+      "expected_conflict": false
+    },
+    {
+      "claim_a_id": "V2C006",
       "claim_b_id": "V2C008",
       "expected_conflict": false
     },

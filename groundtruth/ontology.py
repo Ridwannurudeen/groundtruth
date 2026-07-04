@@ -7,7 +7,7 @@ from groundtruth.runtime import configure_runtime
 
 configure_runtime()
 
-from cognee.low_level import DataPoint
+from cognee.low_level import DataPoint  # noqa: E402
 
 
 class Source(DataPoint):

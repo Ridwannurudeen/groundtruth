@@ -152,7 +152,9 @@ async def pass_through(data: Any, ctx=None) -> Any:
 
 async def write_relationship_edge(data: dict[str, Any], ctx=None) -> dict[str, Any]:
     if isinstance(data, list):
-        candidates = [item for item in data if isinstance(item, dict) and "source_node_id" in item]
+        candidates = [
+            item for item in data if isinstance(item, dict) and "source_node_id" in item
+        ]
         if len(candidates) != 1:
             raise TypeError("Expected one relationship payload in memify input")
         data = candidates[0]
@@ -337,7 +339,9 @@ async def add_semantic_conflict_edges(
     return results
 
 
-async def graph_contradiction_edges(dataset_id: UUID) -> list[tuple[str, str, str, dict[str, Any]]]:
+async def graph_contradiction_edges(
+    dataset_id: UUID,
+) -> list[tuple[str, str, str, dict[str, Any]]]:
     from cognee.context_global_variables import set_database_global_context_variables
     from cognee.infrastructure.databases.graph import get_graph_engine
     from cognee.modules.users.methods import get_default_user

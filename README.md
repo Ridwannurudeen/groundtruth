@@ -9,7 +9,7 @@
   <p>
     <a href="#quickstart"><img alt="Python" src="https://img.shields.io/badge/python-3.10--3.13-1A1208"></a>
     <a href="https://github.com/topoteretes/cognee"><img alt="Cognee" src="https://img.shields.io/badge/cognee-1.2.2-B8893A"></a>
-    <a href="docs/BENCHMARK.md"><img alt="Benchmark" src="https://img.shields.io/badge/benchmark-19%2F20_vs_0%2F20-B83A3A"></a>
+    <a href="docs/BENCHMARK.md"><img alt="Benchmark" src="https://img.shields.io/badge/benchmark-20%2F20_vs_0%2F20-B83A3A"></a>
     <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/license-MIT-6B5A3D"></a>
   </p>
   <p>
@@ -49,7 +49,7 @@ the superseded claim in Cognee memory.
   </tr>
   <tr>
     <td><strong>Retrieved-reference answer layer</strong><br>One wrapper powers the benchmark and UI, returning answer text, graph-derived references, and retracted-original flags.</td>
-    <td><strong>Measured benchmark</strong><br>On the committed 20-question eval, naive memory retrieves retracted originals in 19/20 answers; GroundTruth retrieves them in 0/20.</td>
+    <td><strong>Measured benchmark</strong><br>On the committed 20-question eval, naive memory retrieves retracted originals in 20/20 answers; GroundTruth retrieves them in 0/20.</td>
   </tr>
 </table>
 
@@ -133,9 +133,9 @@ Invoke-RestMethod http://127.0.0.1:8000/ask `
 |---|---|---|
 | `GET` | `/state` | Demo inventory, benchmark headline, active retractions |
 | `POST` | `/ask` | Return one cited answer for `naive_memory` or `groundtruth_memory` |
-| `POST` | `/retract` | Stream live retraction steps as NDJSON |
-| `POST` | `/feedback` | Attach score feedback to a recorded Cognee QA entry |
-| `POST` | `/improve` | Apply feedback weights through Cognee improve |
+| `POST` | `/retract` | Stream live retraction steps as NDJSON; requires the `/state` mutation confirmation |
+| `POST` | `/feedback` | Attach score feedback to a recorded Cognee QA entry; requires the `/state` mutation confirmation |
+| `POST` | `/improve` | Apply feedback weights through Cognee improve; requires the `/state` mutation confirmation |
 | `GET` | `/graph` | Render Cognee's global memory-provenance graph |
 
 ## Architecture
@@ -174,27 +174,29 @@ groundtruth/
 | 1 | [docs/RESULTS-P1.md](docs/RESULTS-P1.md) | 40 claims in both datasets |
 | 2 | [docs/RESULTS-P2.md](docs/RESULTS-P2.md) | watcher adds edge, forgets original |
 | 3 | [docs/RESULTS-P3.md](docs/RESULTS-P3.md) | feedback stored, improve path completed |
-| 4 | [docs/BENCHMARK.md](docs/BENCHMARK.md) | 19/20 naive vs 0/20 GroundTruth |
+| 4 | [docs/BENCHMARK.md](docs/BENCHMARK.md) | 20/20 naive vs 0/20 GroundTruth |
 | 5 | [docs/DEMO.md](docs/DEMO.md) | local UI, live retraction, graph route |
 | 6 | [docs/RESULTS-P6.md](docs/RESULTS-P6.md) | final tests and package checks |
-| V2 | [docs/RESULTS-V2.md](docs/RESULTS-V2.md) | semantic conflict precision 1.00, recall 1.00 |
+| V2 | [docs/RESULTS-V2.md](docs/RESULTS-V2.md) | semantic conflict partial: 21/28 pairs, precision 1.00, recall 0.67 |
 
 ## Limitations
 
 - The LLM correctness judge is skipped in the benchmark because Gemini free-tier quota was exhausted; the primary metric is retrieved graph context containing a still-present `cohort == "retracted_original"` original.
 - All 25 retracted-cohort originals are forgotten from GroundTruth memory; all 15 active controls remain present in both memories.
 - The retraction decision path uses the deterministic Retraction Watch DOI match fallback rather than an LLM contradiction judge; semantic conflict detection is reported separately in the V2 results.
+- V2 now labels all 28 unordered claim pairs and fails closed on unlabeled candidates, but the live structured-LLM pass is currently partial: 21/28 pairs judged, 7 pending after Gemini quota exhaustion. The current partial metrics are precision 1.00 and recall 0.67; answer probes did not run in that partial pass.
 - `/graph` shows Cognee's global memory-provenance graph, not answer-level provenance. Answer-level provenance is the reference list returned by `/ask`.
-- Live `/retract` mutates `data/claims.json` and the local Cognee runtime. Use a fresh ingest to reset the demo.
+- Live `/retract`, `/feedback`, and `/improve` mutate `data/claims.json` and/or the local Cognee runtime. They now require an explicit mutation confirmation returned by `/state`, but this is a local demo guard, not production authentication. Use a fresh ingest to reset the demo.
 - There is no hosted public demo in this repo; the local FastAPI app is the submission-ready demo surface.
 
 ## Roadmap
 
+- [ ] Finish the remaining 7 V2 semantic pairs with fresh Gemini quota or a paid fallback, then rerun answer probes.
 - [ ] Add a second benchmark scorer that runs when paid LLM quota is available.
 - [ ] Add a reset command that restores a named demo checkpoint.
 - [ ] Render answer-specific graph neighborhoods alongside the global Cognee graph.
 - [ ] Add more non-medical subject cohorts for cross-domain evaluation.
-- [ ] Package the demo as a one-command local runner.
+- [ ] Replace the local mutation-confirmation guard with real auth before hosting the API.
 
 ## Contributing
 

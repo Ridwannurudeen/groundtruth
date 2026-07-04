@@ -45,7 +45,9 @@ async def test_answer_flags_retracted_sources(retraction_lifecycle):
     )
 
     assert naive["cites_retracted"] is True
-    assert any(reference["kind"] == "original_claim" for reference in naive["references"])
+    assert any(
+        reference["kind"] == "original_claim" for reference in naive["references"]
+    )
     assert naive["retracted_dois"] == [context["claim"]["source"]["doi"]]
 
     assert groundtruth["cites_retracted"] is False

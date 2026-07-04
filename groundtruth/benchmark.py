@@ -25,6 +25,7 @@ BENCHMARK_QUESTIONS_PATH = DATA_DIR / "benchmark_questions.json"
 BENCHMARK_RESULTS_PATH = DATA_DIR / "benchmark_results.json"
 BENCHMARK_DOC_PATH = DOCS_DIR / "BENCHMARK.md"
 RESULTS_FIX_PATH = DOCS_DIR / "RESULTS-FIX.md"
+V2_RESULTS_PATH = DATA_DIR / "v2_results.json"
 METRIC_DEFINITION = (
     "The headline metric is the fraction of answers whose Cognee GRAPH_COMPLETION "
     "retrieved graph context includes a still-present original claim from "
@@ -83,9 +84,7 @@ def retraction_progress(claims: list[dict[str, Any]] | None = None) -> dict[str,
         claim
         for claim in retracted
         if claim.get("status") == "retracted_forgotten"
-        and claim.get("datasets", {})
-        .get("groundtruth_memory", {})
-        .get("status")
+        and claim.get("datasets", {}).get("groundtruth_memory", {}).get("status")
         == "retracted_forgotten"
     ]
     pending = [claim["claim_id"] for claim in retracted if claim not in forgotten]
@@ -112,7 +111,10 @@ async def memory_integrity_report(
         if claim.get("cohort") == "retracted_original":
             groundtruth_entry = datasets.get("groundtruth_memory", {})
             naive_entry = datasets.get("naive_memory", {})
-            if groundtruth_entry.get("data_id") in memory_ids_by_dataset["groundtruth_memory"]:
+            if (
+                groundtruth_entry.get("data_id")
+                in memory_ids_by_dataset["groundtruth_memory"]
+            ):
                 violations.append(
                     {
                         "claim_id": claim["claim_id"],
@@ -330,9 +332,7 @@ def summarize(rows: list[dict[str, Any]]) -> dict[str, Any]:
         for dataset in DATASETS
     }
     control_rows = [
-        row
-        for row in by_dataset["groundtruth_memory"]
-        if row["kind"] == "control"
+        row for row in by_dataset["groundtruth_memory"] if row["kind"] == "control"
     ]
     return {
         "total_questions": len({row["question_id"] for row in rows}),
@@ -360,6 +360,66 @@ def table_row(row: dict[str, Any]) -> str:
         f"| {row['question_id']} | {row['kind']} | {row['dataset']} | "
         f"{row['cites_retracted']} | {row['control_retained']} | {correctness} | {refs} |"
     )
+
+
+def v2_addendum_lines(path: Path = V2_RESULTS_PATH) -> list[str]:
+    if not path.exists():
+        return []
+    payload = load_json(path)
+    metrics = payload.get("semantic_metrics") or {}
+    coverage = payload.get("evaluation_coverage") or {}
+    answer_rows = payload.get("answer_probes") or []
+    completed_answers = sum(row.get("status") == "completed" for row in answer_rows)
+    superseded_answers = sum(
+        row.get("status") == "completed" and row.get("cites_superseded")
+        for row in answer_rows
+    )
+    lines = [
+        "",
+        "## V2 Semantic Conflict Addendum",
+        "",
+        "The V2 semantic pass is separate from the retraction-forgetting headline metric.",
+        "",
+        f"- Status: `{payload.get('status')}`.",
+        f"- Protocol: `{coverage.get('protocol', 'unknown')}`.",
+        (
+            f"- Coverage: {coverage.get('evaluated_pairs', metrics.get('evaluated_pairs', 0))}/"
+            f"{coverage.get('all_pair_total', 'unknown')} committed claim pairs evaluated."
+        ),
+        (
+            f"- Confusion matrix: TP {metrics.get('true_positive', 0)}, "
+            f"TN {metrics.get('true_negative', 0)}, FP {metrics.get('false_positive', 0)}, "
+            f"FN {metrics.get('false_negative', 0)}."
+        ),
+        (
+            f"- Precision: {metrics.get('precision', 0):.2f}; "
+            f"recall: {metrics.get('recall', 0):.2f}."
+        ),
+        f"- Judge: `{payload.get('judge')}`.",
+    ]
+    if answer_rows:
+        lines.append(
+            f"- Graph-aware answer probes: {completed_answers}/{len(answer_rows)} completed; "
+            f"{superseded_answers}/{len(answer_rows)} surfaced conflicted graph references."
+        )
+    else:
+        lines.append(
+            "- Graph-aware answer probes: not run; V2 stopped before the answer-probe phase."
+        )
+    try:
+        display_path = path.relative_to(DATA_DIR.parent).as_posix()
+    except ValueError:
+        display_path = path.as_posix()
+    lines.append(
+        f"- Full V2 output: [docs/RESULTS-V2.md](RESULTS-V2.md) and `{display_path}`."
+    )
+    if payload.get("quota_error"):
+        lines.append("- Quota stop: present; numbers above are partial and resumable.")
+    if payload.get("provider_error"):
+        lines.append(
+            "- Provider stop: present; numbers above are partial and resumable."
+        )
+    return lines
 
 
 def write_benchmark_doc(payload: dict[str, Any]) -> None:
@@ -392,6 +452,7 @@ def write_benchmark_doc(payload: dict[str, Any]) -> None:
             "from GroundTruth memory."
         ),
         "- Correctness judge: skipped with disclosure; the primary metric is retrieved graph context containing a still-present retracted original.",
+        *v2_addendum_lines(),
         "",
         "## Metric Definition",
         "",

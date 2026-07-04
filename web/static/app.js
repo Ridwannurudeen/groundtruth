@@ -2,6 +2,7 @@ const state = {
   sessionId: null,
   groundtruthQaId: null,
   lastQuestion: "",
+  mutationConfirmation: null,
 };
 
 const el = {
@@ -153,6 +154,7 @@ async function loadState(resetQuestion = false) {
   }
   const payload = await response.json();
   state.sessionId = payload.session_id;
+  state.mutationConfirmation = payload.mutation_confirmation;
   if (resetQuestion || !el.question.value.trim()) {
     el.question.value = payload.default_question;
   }
@@ -178,14 +180,19 @@ async function retractSelected() {
     return;
   }
   const selectedOption = el.doiSelect.selectedOptions[0];
-  const selectedQuestion = selectedOption ? selectedOption.dataset.question : null;
+  const selectedQuestion = selectedOption
+    ? selectedOption.dataset.question
+    : null;
   setBusy(el.retractButton, true);
   addTimeline("request", doi);
   try {
     const response = await fetch("/retract", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ doi }),
+      body: JSON.stringify({
+        doi,
+        confirm_mutation: state.mutationConfirmation,
+      }),
     });
     if (!response.ok || !response.body) {
       throw new Error(await response.text());
@@ -207,7 +214,8 @@ async function retractSelected() {
           continue;
         }
         const message = JSON.parse(line);
-        const detail = message.doi || message.message || message.claim_id || "updated";
+        const detail =
+          message.doi || message.message || message.claim_id || "updated";
         addTimeline(message.event, detail);
       }
     }
@@ -232,7 +240,9 @@ async function sendFeedback(score) {
     session_id: state.sessionId,
     qa_id: state.groundtruthQaId,
     score,
-    text: score < 3 ? "Answer should lean harder on post-retraction memory." : null,
+    text:
+      score < 3 ? "Answer should lean harder on post-retraction memory." : null,
+    confirm_mutation: state.mutationConfirmation,
   });
   addTimeline("feedback", `${result.qa_id} score ${result.feedback_score}`);
 }
@@ -247,6 +257,7 @@ async function improve() {
       dataset: "groundtruth_memory",
       session_ids: [state.sessionId],
       feedback_alpha: 1,
+      confirm_mutation: state.mutationConfirmation,
     });
     addTimeline("improve", result.session_bridge);
     await askBoth(1);

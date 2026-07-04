@@ -4,7 +4,7 @@ import json
 
 from fastapi.testclient import TestClient
 
-from web.app import app
+from web.app import MUTATION_CONFIRMATION, app
 
 
 client = TestClient(app)
@@ -16,11 +16,13 @@ def test_state_exposes_demo_inventory() -> None:
 
     payload = response.json()
     assert payload["datasets"] == ["naive_memory", "groundtruth_memory"]
-    assert payload["benchmark"]["naive_cites_retracted"] == 19
+    assert payload["benchmark"]["naive_cites_retracted"] == 20
     assert payload["benchmark"]["groundtruth_cites_retracted"] == 0
     assert payload["active_retractions"] == []
     assert len(payload["processed_retractions"]) == 25
     assert payload["default_question"]
+    assert payload["mutations_require_confirmation"] is True
+    assert payload["mutation_confirmation"] == MUTATION_CONFIRMATION
 
 
 def test_ask_endpoint_uses_answer_layer(monkeypatch) -> None:
@@ -52,6 +54,17 @@ def test_ask_endpoint_uses_answer_layer(monkeypatch) -> None:
     assert payload["session_id"] == "session-1"
 
 
+def test_retract_endpoint_requires_mutation_confirmation(monkeypatch) -> None:
+    def fake_claim_for_doi(doi):
+        return {"claim_id": "R999", "doi": doi, "status": "active"}
+
+    monkeypatch.setattr("web.app.claim_for_doi", fake_claim_for_doi)
+    response = client.post("/retract", json={"doi": "10.5555/demo-active"})
+
+    assert response.status_code == 409
+    assert "Mutation confirmation required" in response.text
+
+
 def test_retract_endpoint_streams_timeline(monkeypatch) -> None:
     active_doi = "10.5555/demo-active"
 
@@ -69,7 +82,13 @@ def test_retract_endpoint_streams_timeline(monkeypatch) -> None:
 
     monkeypatch.setattr("web.app.claim_for_doi", fake_claim_for_doi)
     monkeypatch.setattr("web.app.process_retraction", fake_process_retraction)
-    response = client.post("/retract", json={"doi": active_doi})
+    response = client.post(
+        "/retract",
+        json={
+            "doi": active_doi,
+            "confirm_mutation": MUTATION_CONFIRMATION,
+        },
+    )
 
     assert response.status_code == 200
     events = [json.loads(line)["event"] for line in response.text.splitlines()]
@@ -105,11 +124,20 @@ def test_feedback_and_improve_endpoints(monkeypatch) -> None:
 
     feedback = client.post(
         "/feedback",
-        json={"session_id": "session-1", "qa_id": "qa-1", "score": 1},
+        json={
+            "session_id": "session-1",
+            "qa_id": "qa-1",
+            "score": 1,
+            "confirm_mutation": MUTATION_CONFIRMATION,
+        },
     )
     improve = client.post(
         "/improve",
-        json={"dataset": "groundtruth_memory", "session_ids": ["session-1"]},
+        json={
+            "dataset": "groundtruth_memory",
+            "session_ids": ["session-1"],
+            "confirm_mutation": MUTATION_CONFIRMATION,
+        },
     )
 
     assert feedback.status_code == 200

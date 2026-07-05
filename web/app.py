@@ -203,13 +203,38 @@ async def index() -> HTMLResponse:
     return HTMLResponse((STATIC_DIR / "index.html").read_text(encoding="utf-8"))
 
 
+@app.get("/ask", response_class=HTMLResponse)
+async def ask_page() -> HTMLResponse:
+    return HTMLResponse((STATIC_DIR / "ask.html").read_text(encoding="utf-8"))
+
+
+@app.get("/briefing", response_class=HTMLResponse)
+async def briefing_page() -> HTMLResponse:
+    return HTMLResponse((STATIC_DIR / "briefing.html").read_text(encoding="utf-8"))
+
+
+@app.get("/contested", response_class=HTMLResponse)
+async def contested_page() -> HTMLResponse:
+    return HTMLResponse((STATIC_DIR / "contested.html").read_text(encoding="utf-8"))
+
+
+@app.get("/timeline", response_class=HTMLResponse)
+async def timeline_page() -> HTMLResponse:
+    return HTMLResponse((STATIC_DIR / "timeline.html").read_text(encoding="utf-8"))
+
+
+@app.get("/evidence", response_class=HTMLResponse)
+async def evidence_page() -> HTMLResponse:
+    return HTMLResponse((STATIC_DIR / "evidence.html").read_text(encoding="utf-8"))
+
+
 @app.get("/favicon.ico", include_in_schema=False)
 async def favicon() -> Response:
     return Response(status_code=204)
 
 
-@app.get("/state")
-async def state() -> dict[str, Any]:
+@app.get("/api/state")
+async def api_state() -> dict[str, Any]:
     options = retraction_options()
     active = [option for option in options if option["status"] == "active"]
     processed = [option for option in options if option["status"] != "active"]
@@ -226,18 +251,18 @@ async def state() -> dict[str, Any]:
     }
 
 
-@app.get("/contested")
-async def contested() -> dict[str, Any]:
+@app.get("/api/contested")
+async def api_contested() -> dict[str, Any]:
     items = list_contested_pairs()
     return {"count": len(items), "items": items}
 
 
-@app.get("/briefing")
-async def briefing() -> dict[str, Any]:
+@app.get("/api/briefing")
+async def api_briefing() -> dict[str, Any]:
     return build_briefing()
 
 
-@app.get("/briefing.md")
+@app.get("/api/briefing.md")
 async def briefing_markdown() -> Response:
     return Response(
         render_briefing_markdown(build_briefing()),
@@ -245,7 +270,7 @@ async def briefing_markdown() -> Response:
     )
 
 
-@app.get("/timeline")
+@app.get("/api/timeline")
 async def timeline(
     from_date: str = Query("2023-01-01", alias="from"),
     to_date: str = Query("2026-07-04", alias="to"),
@@ -261,8 +286,8 @@ async def timeline(
         raise HTTPException(status_code=422, detail=str(error)) from error
 
 
-@app.post("/ask")
-async def ask(request: AskRequest) -> dict[str, Any]:
+@app.post("/api/ask")
+async def api_ask(request: AskRequest) -> dict[str, Any]:
     return await answer_question(
         request.question,
         request.dataset,
@@ -272,8 +297,8 @@ async def ask(request: AskRequest) -> dict[str, Any]:
     )
 
 
-@app.post("/retract")
-async def retract(request: RetractionRequest) -> StreamingResponse:
+@app.post("/api/retract")
+async def api_retract(request: RetractionRequest) -> StreamingResponse:
     require_mutation_confirmation(request.confirm_mutation)
 
     async def stream():
@@ -321,8 +346,8 @@ async def retract(request: RetractionRequest) -> StreamingResponse:
     return StreamingResponse(stream(), media_type="application/x-ndjson")
 
 
-@app.post("/feedback")
-async def feedback(request: FeedbackRequest) -> dict[str, Any]:
+@app.post("/api/feedback")
+async def api_feedback(request: FeedbackRequest) -> dict[str, Any]:
     require_mutation_confirmation(request.confirm_mutation)
     return await add_feedback(
         request.session_id,
@@ -332,8 +357,8 @@ async def feedback(request: FeedbackRequest) -> dict[str, Any]:
     )
 
 
-@app.post("/improve")
-async def improve(request: ImproveRequest) -> dict[str, Any]:
+@app.post("/api/improve")
+async def api_improve(request: ImproveRequest) -> dict[str, Any]:
     require_mutation_confirmation(request.confirm_mutation)
     return await improve_from_feedback(
         request.dataset,
@@ -342,8 +367,8 @@ async def improve(request: ImproveRequest) -> dict[str, Any]:
     )
 
 
-@app.post("/adjudicate")
-async def adjudicate(request: AdjudicateRequest) -> dict[str, Any]:
+@app.post("/api/adjudicate")
+async def api_adjudicate(request: AdjudicateRequest) -> dict[str, Any]:
     require_mutation_confirmation(request.confirm_mutation)
     try:
         return await adjudicate_pair(
@@ -355,7 +380,7 @@ async def adjudicate(request: AdjudicateRequest) -> dict[str, Any]:
         raise HTTPException(status_code=404, detail=str(error)) from error
 
 
-@app.get("/graph", response_class=HTMLResponse)
+@app.get("/api/graph", response_class=HTMLResponse)
 async def graph() -> HTMLResponse:
     try:
         html = await render_graph_html()

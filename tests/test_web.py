@@ -11,7 +11,7 @@ client = TestClient(app)
 
 
 def test_state_exposes_demo_inventory() -> None:
-    response = client.get("/state")
+    response = client.get("/api/state")
     assert response.status_code == 200
 
     payload = response.json()
@@ -40,7 +40,7 @@ def test_ask_endpoint_uses_answer_layer(monkeypatch) -> None:
 
     monkeypatch.setattr("web.app.answer_question", fake_answer)
     response = client.post(
-        "/ask",
+        "/api/ask",
         json={
             "question": "What should the memory cite?",
             "dataset": "groundtruth_memory",
@@ -59,7 +59,7 @@ def test_retract_endpoint_requires_mutation_confirmation(monkeypatch) -> None:
         return {"claim_id": "R999", "doi": doi, "status": "active"}
 
     monkeypatch.setattr("web.app.claim_for_doi", fake_claim_for_doi)
-    response = client.post("/retract", json={"doi": "10.5555/demo-active"})
+    response = client.post("/api/retract", json={"doi": "10.5555/demo-active"})
 
     assert response.status_code == 409
     assert "Mutation confirmation required" in response.text
@@ -83,7 +83,7 @@ def test_retract_endpoint_streams_timeline(monkeypatch) -> None:
     monkeypatch.setattr("web.app.claim_for_doi", fake_claim_for_doi)
     monkeypatch.setattr("web.app.process_retraction", fake_process_retraction)
     response = client.post(
-        "/retract",
+        "/api/retract",
         json={
             "doi": active_doi,
             "confirm_mutation": MUTATION_CONFIRMATION,
@@ -123,7 +123,7 @@ def test_feedback_and_improve_endpoints(monkeypatch) -> None:
     monkeypatch.setattr("web.app.improve_from_feedback", fake_improve)
 
     feedback = client.post(
-        "/feedback",
+        "/api/feedback",
         json={
             "session_id": "session-1",
             "qa_id": "qa-1",
@@ -132,7 +132,7 @@ def test_feedback_and_improve_endpoints(monkeypatch) -> None:
         },
     )
     improve = client.post(
-        "/improve",
+        "/api/improve",
         json={
             "dataset": "groundtruth_memory",
             "session_ids": ["session-1"],
@@ -177,7 +177,7 @@ def test_contested_endpoint_lists_open_pairs(monkeypatch) -> None:
         ],
     )
 
-    response = client.get("/contested")
+    response = client.get("/api/contested")
 
     assert response.status_code == 200
     payload = response.json()
@@ -216,7 +216,7 @@ def test_briefing_endpoint_uses_briefing_layer(monkeypatch) -> None:
 
     monkeypatch.setattr("web.app.build_briefing", fake_build_briefing)
 
-    response = client.get("/briefing")
+    response = client.get("/api/briefing")
 
     assert response.status_code == 200
     payload = response.json()
@@ -235,7 +235,7 @@ def test_briefing_markdown_endpoint_serves_markdown(monkeypatch) -> None:
         lambda briefing: "# Morning Briefing\n\nGenerated.",
     )
 
-    response = client.get("/briefing.md")
+    response = client.get("/api/briefing.md")
 
     assert response.status_code == 200
     assert response.headers["content-type"].startswith("text/markdown")
@@ -266,7 +266,7 @@ def test_timeline_endpoint_uses_timeline_layer(monkeypatch) -> None:
 
     monkeypatch.setattr("web.app.timeline_diff", fake_timeline_diff)
 
-    response = client.get("/timeline?from=2023-01-01&to=2026-07-04")
+    response = client.get("/api/timeline?from=2023-01-01&to=2026-07-04")
 
     assert response.status_code == 200
     payload = response.json()
@@ -304,7 +304,7 @@ def test_timeline_endpoint_can_include_as_of_answers(monkeypatch) -> None:
     monkeypatch.setattr("web.app.answer_as_of", fake_answer_as_of)
 
     response = client.get(
-        "/timeline?from=2023-01-01&to=2026-07-04&question=What%20changed%3F"
+        "/api/timeline?from=2023-01-01&to=2026-07-04&question=What%20changed%3F"
     )
 
     assert response.status_code == 200
@@ -319,7 +319,7 @@ def test_adjudicate_endpoint_requires_mutation_confirmation(monkeypatch) -> None
 
     monkeypatch.setattr("web.app.adjudicate_pair", fake_adjudicate)
     response = client.post(
-        "/adjudicate",
+        "/api/adjudicate",
         json={"pair": "V2C003::V2C004", "verdict": "none"},
     )
 
@@ -348,7 +348,7 @@ def test_adjudicate_endpoint_resolves_pair(monkeypatch) -> None:
 
     monkeypatch.setattr("web.app.adjudicate_pair", fake_adjudicate)
     response = client.post(
-        "/adjudicate",
+        "/api/adjudicate",
         json={
             "pair": "V2C003::V2C004",
             "verdict": "none",
@@ -368,22 +368,12 @@ def test_index_serves_contested_mount_points() -> None:
     response = client.get("/")
 
     assert response.status_code == 200
-    assert 'id="contestedCount"' in response.text
-    assert 'id="contestedList"' in response.text
-    assert 'id="briefingGeneratedAt"' in response.text
-    assert 'id="briefingContested"' in response.text
-    assert 'href="/briefing.md"' in response.text
-    assert 'id="beliefTimelineRange"' in response.text
-    assert 'id="timelineFrom"' in response.text
-    assert 'id="timelineTo"' in response.text
-    assert 'id="timelineAnswerThen"' in response.text
-    assert 'id="timelineAnswerNow"' in response.text
-    assert 'id="timelineThenRefs"' in response.text
-    assert 'id="timelineNowRefs"' in response.text
-    assert 'id="timelineAdded"' in response.text
-    assert 'id="timelineContested"' in response.text
-    assert 'id="timelineRevised"' in response.text
-    assert 'id="timelinePurged"' in response.text
+    assert 'data-page="landing"' in response.text
+    assert 'href="/ask"' in response.text
+    assert 'href="/briefing"' in response.text
+    assert 'href="/contested"' in response.text
+    assert 'href="/timeline"' in response.text
+    assert 'href="/evidence"' in response.text
 
 
 def test_graph_endpoint_serves_html(monkeypatch) -> None:
@@ -391,7 +381,14 @@ def test_graph_endpoint_serves_html(monkeypatch) -> None:
         return "<html><body>graph</body></html>"
 
     monkeypatch.setattr("web.app.render_graph_html", fake_render_graph_html)
-    response = client.get("/graph")
+    response = client.get("/api/graph")
 
     assert response.status_code == 200
     assert "graph" in response.text
+
+
+def test_multi_page_routes_return_html_shells() -> None:
+    for path in ("/ask", "/briefing", "/contested", "/timeline", "/evidence"):
+        response = client.get(path)
+        assert response.status_code == 200
+        assert '<body data-page="' in response.text

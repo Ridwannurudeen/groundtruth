@@ -164,7 +164,7 @@ def mark_contested(
         "pair": pair,
         "status": "open",
         "dataset": dataset,
-        "registry_path": str(registry_path),
+        "registry_path": registry_path.name,
         "claim_a_id": row["claim_a_id"],
         "claim_b_id": row["claim_b_id"],
         "claim_a_data_id": claim_a["datasets"][dataset]["data_id"],
@@ -278,7 +278,7 @@ def list_contested_pairs(
     ]
     enriched = []
     for record in records:
-        path = registry_path or Path(record["registry_path"])
+        path = registry_path or queue_path.parent / Path(record["registry_path"]).name
         registry = claims_by_id(load_json(path)) if path.exists() else {}
         item = dict(record)
         item["claims"] = [
@@ -314,7 +314,7 @@ async def adjudicate_pair(
     record = next((item for item in queue if item["pair"] == pair), None)
     if record is None:
         raise ValueError(f"Unknown contested pair: {pair}")
-    path = registry_path or Path(record["registry_path"])
+    path = registry_path or queue_path.parent / Path(record["registry_path"]).name
     registry = load_json(path)
     indexed = claims_by_id(registry)
     state_a, state_b = adjudication_states(verdict)

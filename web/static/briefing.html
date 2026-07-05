@@ -25,54 +25,59 @@
       <nav id="primary-nav" class="main-nav" aria-label="Primary">
         <a href="/#how-it-works" class="nav-link">How it works</a>
         <a href="/ask" class="nav-link">Ask</a>
-        <a href="/briefing" class="nav-link is-active">Briefing</a>
+        <a href="/briefing" class="nav-link is-active" aria-current="page">Briefing</a>
         <a href="/contested" class="nav-link">Contested</a>
         <a href="/timeline" class="nav-link">Timeline</a>
         <a href="/evidence" class="nav-link">Evidence</a>
-        <a href="https://github.com" class="nav-link" rel="noreferrer" target="_blank">GitHub</a>
+        <a href="https://github.com/Ridwannurudeen/groundtruth" class="nav-link" rel="noreferrer" target="_blank">GitHub</a>
       </nav>
       <a href="/ask" class="btn btn-primary">Open the app</a>
     </header>
 
     <main id="main" class="page-shell">
-      <section class="section-shell">
-        <div class="section-heading">
-          <p class="eyebrow">Morning briefing</p>
-          <h1>Current belief state summary</h1>
-          <p>
-            The briefing maps the latest run of learned, contested, revised, and purged beliefs with
-            evidence sources.
-          </p>
-          <p class="muted">Generated at <strong id="briefingGeneratedAt">not loaded</strong></p>
+      <section class="section-heading reveal">
+        <p class="eyebrow">Morning briefing</p>
+        <h1>Current belief state summary</h1>
+        <p>
+          The briefing maps the latest run of learned, contested, revised, and purged beliefs
+          alongside the evidence that moved them.
+        </p>
+        <p class="muted">Generated at <strong id="briefingGeneratedAt">not loaded</strong></p>
+        <div class="hero-actions">
           <button id="runBriefing" class="btn btn-secondary" type="button">
             Generate from latest projection
           </button>
+          <a href="/api/briefing.md" class="inline-link" id="briefingMarkdownLink" target="_blank" rel="noreferrer">
+            Open briefing markdown →
+          </a>
         </div>
-
-        <div class="briefing-grid">
-          <article class="panel">
-            <h2>Learned last night</h2>
-            <div id="briefingLearned" class="briefing-list"></div>
-          </article>
-          <article class="panel">
-            <h2>Now contested</h2>
-            <div id="briefingContested" class="briefing-list"></div>
-          </article>
-          <article class="panel">
-            <h2>Revised</h2>
-            <div id="briefingRevised" class="briefing-list"></div>
-          </article>
-          <article class="panel">
-            <h2>Purged</h2>
-            <div id="briefingPurged" class="briefing-list"></div>
-          </article>
-        </div>
-
-        <a href="/api/briefing.md" class="inline-link" id="briefingMarkdownLink" target="_blank" rel="noreferrer">Open briefing markdown</a>
       </section>
+
+      <div class="briefing-grid reveal">
+        <article class="panel">
+          <h2>Learned last night</h2>
+          <div id="briefingLearned" class="briefing-list"></div>
+        </article>
+        <article class="panel">
+          <h2>Now contested</h2>
+          <div id="briefingContested" class="briefing-list"></div>
+        </article>
+        <article class="panel">
+          <h2>Revised</h2>
+          <div id="briefingRevised" class="briefing-list"></div>
+        </article>
+        <article class="panel">
+          <h2>Purged</h2>
+          <div id="briefingPurged" class="briefing-list"></div>
+        </article>
+      </div>
     </main>
+
     <footer class="site-footer">
-      <p>GroundTruth — ETHGlobal project · <a href="https://github.com">GitHub</a></p>
+      <p>
+        GroundTruth — WeMakeDevs × Cognee hackathon · Built on Cognee —
+        <a href="https://github.com/Ridwannurudeen/groundtruth" rel="noreferrer" target="_blank">GitHub</a>
+      </p>
     </footer>
     <script src="/static/app.js"></script>
   </body>

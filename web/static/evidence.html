@@ -32,58 +32,85 @@
         <a href="/contested" class="nav-link">Contested</a>
         <a href="/timeline" class="nav-link">Timeline</a>
         <a href="/evidence" class="nav-link is-active">Evidence</a>
-        <a href="https://github.com" class="nav-link" rel="noreferrer" target="_blank">GitHub</a>
+        <a href="https://github.com/Ridwannurudeen/groundtruth" class="nav-link" rel="noreferrer" target="_blank">GitHub</a>
       </nav>
       <a href="/ask" class="btn btn-primary">Open the app</a>
     </header>
 
-    <main id="main" class="page-shell">
-      <section class="section-shell">
-        <div class="section-heading">
+    <main id="main">
+      <section class="hero" style="grid-template-columns: 1fr; padding-block: 128px 32px;">
+        <div class="hero-copy reveal">
           <p class="eyebrow">Evidence and benchmarks</p>
-          <h1>Public artifacts</h1>
-          <p>All numbers shown in the header and demo cards come from committed artifacts in this branch.</p>
+          <h1>The numbers, straight from committed artifacts.</h1>
+          <p>
+            Every figure in the header and demo cards is populated live from committed
+            artifacts in this branch — no marketing rounding, just the benchmark sheet.
+          </p>
         </div>
+      </section>
 
+      <section class="section reveal">
+        <div class="section-heading">
+          <p class="eyebrow">Benchmark headline</p>
+          <h2>Retraction-cited answers, side by side</h2>
+        </div>
         <div class="metric-grid">
           <article class="metric-card">
             <p class="muted">Naive cited retractions</p>
             <p id="metricNaive" class="metric">0/20</p>
+            <p class="muted tiny">retracted originals cited</p>
           </article>
           <article class="metric-card">
             <p class="muted">GroundTruth cited retractions</p>
             <p id="metricGroundtruth" class="metric">0/20</p>
+            <p class="muted tiny">retracted originals cited</p>
           </article>
           <article class="metric-card">
             <p class="muted">Control claims retained</p>
             <p id="metricControl" class="metric">0/5</p>
+            <p class="muted tiny">control retention</p>
           </article>
           <article class="metric-card">
             <p class="muted">Retraction coverage</p>
             <p id="metricCoverage" class="metric">0/25</p>
+            <p class="muted tiny">retractions covered</p>
           </article>
         </div>
+      </section>
 
+      <section class="section section--divider reveal">
         <div class="section-heading">
-          <h2>Links</h2>
+          <p class="eyebrow">Source artifacts</p>
+          <h2>Read the raw evidence</h2>
         </div>
         <div class="link-list">
-          <a href="docs/BENCHMARK.md" class="inline-link">docs/BENCHMARK.md</a>
-          <a href="/api/graph" class="inline-link" target="_blank" rel="noreferrer">Provenance graph HTML</a>
-          <a href="/api/briefing.md" class="inline-link" target="_blank" rel="noreferrer">Current briefing markdown</a>
-          <a href="docs/RESULTS-V2.md" class="inline-link">V2 results</a>
-          <a href="docs/RESULTS-REDESIGN.md" class="inline-link">Redesign report</a>
+          <a href="docs/BENCHMARK.md" class="inline-link">docs/BENCHMARK.md →</a>
+          <a href="/api/graph" class="inline-link" target="_blank" rel="noreferrer">Provenance graph HTML →</a>
+          <a href="/api/briefing.md" class="inline-link" target="_blank" rel="noreferrer">Current briefing markdown →</a>
+          <a href="docs/RESULTS-V2.md" class="inline-link">V2 results →</a>
+          <a href="docs/RESULTS-REDESIGN.md" class="inline-link">Redesign report →</a>
         </div>
+      </section>
 
+      <section class="section section--divider reveal">
+        <div class="section-heading">
+          <p class="eyebrow">Live snapshot</p>
+          <h2>Current queue</h2>
+        </div>
         <article class="panel">
-          <h2>Current queue snapshot</h2>
+          <div class="panel-kicker">
+            <h2>Contested queue snapshot</h2>
+          </div>
           <p id="evidenceContestedCount" class="muted">loading</p>
         </article>
       </section>
     </main>
 
     <footer class="site-footer">
-      <p>GroundTruth — ETHGlobal project · <a href="https://github.com">GitHub</a></p>
+      <p>
+        GroundTruth — WeMakeDevs × Cognee hackathon · Built on Cognee —
+        <a href="https://github.com/Ridwannurudeen/groundtruth" rel="noreferrer" target="_blank">GitHub</a>
+      </p>
     </footer>
     <script src="/static/app.js"></script>
   </body>

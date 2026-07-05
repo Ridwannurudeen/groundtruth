@@ -25,6 +25,35 @@ function setMenuState() {
   });
 }
 
+function initReveal() {
+  const prefersReduced = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
+  const targets = document.querySelectorAll(".reveal");
+  if (
+    prefersReduced ||
+    !("IntersectionObserver" in window) ||
+    !targets.length
+  ) {
+    return;
+  }
+  document.documentElement.classList.add("reveal-ready");
+  const observer = new IntersectionObserver(
+    (entries, obs) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          obs.unobserve(entry.target);
+        }
+      }
+    },
+    { rootMargin: "0px 0px -10% 0px", threshold: 0.1 },
+  );
+  for (const target of targets) {
+    observer.observe(target);
+  }
+}
+
 function byId(id) {
   return document.getElementById(id);
 }
@@ -96,7 +125,7 @@ function renderRef(reference) {
   title.textContent = `${reference.doi} / ${reference.source}`;
   const badge = stateBadge(
     (reference.belief_state || "pending").toLowerCase(),
-    String(reference.belief_state || "pending")
+    String(reference.belief_state || "pending"),
   );
   const basis = document.createElement("p");
   basis.className = "result-text";
@@ -192,8 +221,8 @@ async function initAsk() {
     activeCount.append(
       stateBadge(
         payload.active_retractions.length > 0 ? "active" : "ok",
-        `${payload.active_retractions.length} active`
-      )
+        `${payload.active_retractions.length} active`,
+      ),
     );
     doiSelect.replaceChildren();
     for (const item of payload.active_retractions) {
@@ -207,7 +236,9 @@ async function initAsk() {
   } catch (error) {
     const eventLog = byId("eventLog");
     if (eventLog) {
-      eventLog.replaceChildren(errorPanel(`Unable to load state. ${error.message}`, initAsk));
+      eventLog.replaceChildren(
+        errorPanel(`Unable to load state. ${error.message}`, initAsk),
+      );
     }
     return;
   }
@@ -219,7 +250,8 @@ async function initAsk() {
       body: JSON.stringify({
         question: question.value.trim(),
         dataset: requestDataset,
-        session_id: requestDataset === "groundtruth_memory" ? state.sessionId : null,
+        session_id:
+          requestDataset === "groundtruth_memory" ? state.sessionId : null,
         record_session: requestDataset === "groundtruth_memory",
       }),
     });
@@ -233,7 +265,10 @@ async function initAsk() {
     setSkeleton(naiveRefs);
     setSkeleton(gtRefs);
     try {
-      const [naive, grounded] = await Promise.all([ask("naive_memory"), ask("groundtruth_memory")]);
+      const [naive, grounded] = await Promise.all([
+        ask("naive_memory"),
+        ask("groundtruth_memory"),
+      ]);
       askNaiveText.textContent = naive.text;
       askGtText.textContent = grounded.text;
       state.groundtruthQaId = grounded.qa_id || null;
@@ -244,11 +279,16 @@ async function initAsk() {
       naiveBadge.append(
         stateBadge(
           naiveState,
-          naive.cites_retracted ? "cites retracted" : "clean citations"
-        )
+          naive.cites_retracted ? "cites retracted" : "clean citations",
+        ),
       );
       gtBadge.replaceChildren();
-      gtBadge.append(stateBadge(grounded.cites_retracted ? "retracted" : "active", grounded.cites_retracted ? "cites retracted" : "clean citations"));
+      gtBadge.append(
+        stateBadge(
+          grounded.cites_retracted ? "retracted" : "active",
+          grounded.cites_retracted ? "cites retracted" : "clean citations",
+        ),
+      );
       if (naive.references?.length) {
         for (const item of naive.references) {
           naiveRefs.append(renderRef(item));
@@ -287,7 +327,10 @@ async function initAsk() {
       const response = await fetchStream(`/retract`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ doi, confirm_mutation: state.mutationConfirmation }),
+        body: JSON.stringify({
+          doi,
+          confirm_mutation: state.mutationConfirmation,
+        }),
       });
       if (!response.body) {
         throw new Error("Streaming response unavailable");
@@ -306,7 +349,9 @@ async function initAsk() {
         for (const line of lines) {
           if (!line.trim()) continue;
           const event = JSON.parse(line);
-          addEvent(`${event.event}: ${event.doi || event.message || event.claim_id || event.result?.claim_id || "updated"}`);
+          addEvent(
+            `${event.event}: ${event.doi || event.message || event.claim_id || event.result?.claim_id || "updated"}`,
+          );
         }
       }
       addEvent("retraction stream complete");
@@ -377,13 +422,18 @@ function renderItem(item) {
   header.className = "ref-title mono small";
   header.textContent = `${item.pair || item.claim_id || "item"} / ${item.evidence_class || "evidence"}`;
   const title = document.createElement("p");
-  title.textContent = item.basis || item.evidence_ref || item.title || "No detail";
+  title.textContent =
+    item.basis || item.evidence_ref || item.title || "No detail";
   const basis = document.createElement("p");
   basis.className = "ref-basis";
-  basis.textContent = item.claim_id && item.claim_id !== item.pair ? `${item.claim_id}` : "";
+  basis.textContent =
+    item.claim_id && item.claim_id !== item.pair ? `${item.claim_id}` : "";
   node.append(header, title);
   if (basis.textContent) node.append(basis);
-  const badge = stateBadge(item.evidence_class === "user_assertion" ? "active" : "ok", item.evidence_class || "evidence");
+  const badge = stateBadge(
+    item.evidence_class === "user_assertion" ? "active" : "ok",
+    item.evidence_class || "evidence",
+  );
   node.prepend(badge);
   return node;
 }
@@ -428,7 +478,7 @@ function initBriefing() {
         container.replaceChildren();
         container.append(
           stateBadge("retracted", "load failed"),
-          document.createTextNode(` ${error.message}`)
+          document.createTextNode(` ${error.message}`),
         );
       }
     }
@@ -453,7 +503,11 @@ function renderContested(items) {
     header.className = "ref-title mono small";
     header.textContent = `${item.pair} / ${item.decision.direction} / ${item.decision.confidence}`;
     const claims = document.createElement("p");
-    claims.textContent = (item.claims || []).map((claim) => `${claim.claim_id} (${claim.evidence_class || "unknown"})`).join(" vs ");
+    claims.textContent = (item.claims || [])
+      .map(
+        (claim) => `${claim.claim_id} (${claim.evidence_class || "unknown"})`,
+      )
+      .join(" vs ");
     const basis = document.createElement("p");
     basis.className = "muted";
     basis.textContent = item.basis || "No basis provided.";
@@ -484,9 +538,9 @@ function renderContested(items) {
               confirm_mutation: state.mutationConfirmation,
             }),
           });
-        await loadContested();
-        await loadBriefingForInvalidation();
-      } catch (error) {
+          await loadContested();
+          await loadBriefingForInvalidation();
+        } catch (error) {
           basis.textContent = error.message;
         } finally {
           setBusy(button, false);
@@ -522,8 +576,10 @@ async function initContested() {
 }
 
 function renderTimeline(payload) {
-  byId("timelineAnswerThen").textContent = payload.before?.text || "No answer for start date.";
-  byId("timelineAnswerNow").textContent = payload.after?.text || "No answer for end date.";
+  byId("timelineAnswerThen").textContent =
+    payload.before?.text || "No answer for start date.";
+  byId("timelineAnswerNow").textContent =
+    payload.after?.text || "No answer for end date.";
   const thenRefs = byId("timelineThenRefs");
   const nowRefs = byId("timelineNowRefs");
   thenRefs.replaceChildren();
@@ -603,9 +659,10 @@ function renderBenchmarks(payload) {
       : "18/20";
   }
   if (metricGroundtruth) {
-    metricGroundtruth.textContent = payload?.benchmark?.groundtruth_cites_retracted !== undefined
-      ? `${payload.benchmark.groundtruth_cites_retracted}/20`
-      : "0/20";
+    metricGroundtruth.textContent =
+      payload?.benchmark?.groundtruth_cites_retracted !== undefined
+        ? `${payload.benchmark.groundtruth_cites_retracted}/20`
+        : "0/20";
   }
   if (metricControl) {
     const controlTotal = payload?.benchmark?.control_claim_total || 5;
@@ -621,9 +678,11 @@ async function initEvidence() {
   try {
     const payload = await fetchJson(`/state`);
     renderBenchmarks(payload);
-    byId("evidenceContestedCount").textContent = "No pending contested queue snapshot in this page.";
+    byId("evidenceContestedCount").textContent =
+      "No pending contested queue snapshot in this page.";
     const contested = await fetchJson(`/contested`);
-    byId("evidenceContestedCount").textContent = `${contested.count || 0} open contested pairs`;
+    byId("evidenceContestedCount").textContent =
+      `${contested.count || 0} open contested pairs`;
   } catch (error) {
     const target = byId("evidenceContestedCount");
     if (target) {
@@ -633,13 +692,16 @@ async function initEvidence() {
 }
 
 function initLanding() {
-  const links = document.querySelectorAll("[href*='ask'], [href*='briefing'], [href*='contested'], [href*='timeline'], [href*='evidence']");
+  const links = document.querySelectorAll(
+    "[href*='ask'], [href*='briefing'], [href*='contested'], [href*='timeline'], [href*='evidence']",
+  );
   for (const link of links) {
     link.setAttribute("role", "link");
   }
 }
 
 async function main() {
+  initReveal();
   setMenuState();
   loadBriefingForInvalidation = initBriefing;
 

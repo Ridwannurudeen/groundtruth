@@ -6,6 +6,7 @@ Most agents wake up with amnesia. Ours wakes up knowing what it learned last nig
 
 - **Demo video:** https://www.youtube.com/watch?v=I7YnU_0Y-ps
 - **Live demo:** https://groundtruth.gudman.xyz
+- **AI usage disclosure:** [AI_USAGE.md](AI_USAGE.md)
 
 ## Benchmark Headlines
 

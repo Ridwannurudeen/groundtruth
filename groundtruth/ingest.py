@@ -368,21 +368,25 @@ def data_id_from_result(result: Any) -> UUID | None:
 async def find_existing_claim_data_id(
     cognee: Any, dataset_id: UUID, claim_id: str
 ) -> UUID | None:
-    claim_prefix = f"GROUNDTRUTH CLAIM ID: {claim_id}"
+    claim_line = f"GROUNDTRUTH CLAIM ID: {claim_id}"
     for item in await cognee.datasets.list_data(dataset_id):
         raw_path = getattr(item, "raw_data_location", None)
         if not isinstance(raw_path, str) or not raw_path.startswith("file://"):
             continue
         parsed = urlparse(raw_path)
-        path = Path(parsed.path)
-        if path.as_posix().startswith("/"):
+        # Windows file URIs parse as "/C:/..." — strip the leading slash only for
+        # drive-letter paths; on POSIX the leading slash is the real root.
+        if re.match(r"^/[A-Za-z]:/", parsed.path):
             path = Path(parsed.path[1:])
+        else:
+            path = Path(parsed.path)
         try:
             text = path.read_text(encoding="utf-8", errors="replace")
         except OSError:
             continue
+        # Exact line match: a prefix match would also hit "R013-NOTICE" documents.
         for line in text.splitlines()[:4]:
-            if line.startswith(claim_prefix):
+            if line.strip() == claim_line:
                 return item.id
     return None
 

@@ -33,6 +33,18 @@ def pair_key(claim_a_id: str, claim_b_id: str) -> str:
     return "::".join(sorted([claim_a_id, claim_b_id]))
 
 
+def resolve_registry_path(
+    record: dict[str, Any], queue_path: Path, override: Path | None
+) -> Path:
+    """Resolve a queue record's registry file. Historical records may hold a full
+    path (from either OS); normalize backslashes so ``.name`` works on POSIX too,
+    and resolve it next to the queue file where the registry always lives."""
+    if override is not None:
+        return override
+    stored = str(record.get("registry_path", "")).replace("\\", "/")
+    return queue_path.parent / Path(stored).name
+
+
 def evidence_ref(pair: str) -> str:
     return f"pair:{pair}"
 
@@ -278,13 +290,15 @@ def list_contested_pairs(
     ]
     enriched = []
     for record in records:
-        path = registry_path or queue_path.parent / Path(record["registry_path"]).name
+        path = resolve_registry_path(record, queue_path, registry_path)
         registry = claims_by_id(load_json(path)) if path.exists() else {}
+        claim_a = registry.get(record["claim_a_id"])
+        claim_b = registry.get(record["claim_b_id"])
+        if claim_a is None or claim_b is None:
+            # Registry unresolved or a claim id is missing — skip rather than 500.
+            continue
         item = dict(record)
-        item["claims"] = [
-            claim_summary(registry[record["claim_a_id"]]),
-            claim_summary(registry[record["claim_b_id"]]),
-        ]
+        item["claims"] = [claim_summary(claim_a), claim_summary(claim_b)]
         enriched.append(item)
     return sorted(enriched, key=lambda item: item["pair"])
 
@@ -314,7 +328,9 @@ async def adjudicate_pair(
     record = next((item for item in queue if item["pair"] == pair), None)
     if record is None:
         raise ValueError(f"Unknown contested pair: {pair}")
-    path = registry_path or queue_path.parent / Path(record["registry_path"]).name
+    path = resolve_registry_path(record, queue_path, registry_path)
+    if not path.exists():
+        raise ValueError(f"Registry for contested pair not found: {pair}")
     registry = load_json(path)
     indexed = claims_by_id(registry)
     state_a, state_b = adjudication_states(verdict)

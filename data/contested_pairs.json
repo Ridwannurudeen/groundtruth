@@ -15,7 +15,7 @@
     },
     "evidence_ref": "pair:V2C003::V2C004",
     "pair": "V2C003::V2C004",
-    "registry_path": "C:\\Users\\gudma\\OneDrive\\Desktop\\GITHUB-FILES\\groundtruth\\data\\v2_claims.json",
+    "registry_path": "v2_claims.json",
     "state_changes": [
       {
         "basis": "Semantic inference for V2C003::V2C004 landed in the contested band (confidence 1.00, direction mutual); basis: Both claims evaluate the effect of marine omega-3 (n-3) fatty acid supplementation on cardiovascular events. Claim A asserts that supplementation lowers the risk for several cardiovascular outcomes (myocardial infarction, coronary heart disease death, cardiovascular disease death, and total cardiovascular disease). Claim B, conversely, states that marine n-3 fatty acid supplementation does not lower the incidence of major cardiovascular events compared with placebo. These are directly contradictory findings regarding the efficacy of marine omega-3 supplementation for cardiovascular disease prevention.",

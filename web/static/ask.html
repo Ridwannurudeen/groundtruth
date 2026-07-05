@@ -6,29 +6,102 @@
     <title>Ask — GroundTruth</title>
     <meta
       name="description"
-      content="Ask naïve versus GroundTruth memory side by side and compare citation quality."
+      content="Compare naïve and GroundTruth answers side by side and trigger memory retractions."
     />
     <link rel="stylesheet" href="/static/styles.css" />
     <meta property="og:title" content="GroundTruth Ask" />
-    <meta property="og:description" content="Side-by-side answer comparison with belief-aware citations." />
+    <meta property="og:description" content="Side-by-side belief-aware answer comparison." />
   </head>
   <body data-page="ask">
+    <a class="skip-link" href="#main">Skip to main</a>
     <header class="site-nav">
-      <div class="site-brand">GroundTruth</div>
-      <nav aria-label="Primary">
-        <a href="/">Home</a>
-        <a href="/ask" class="active">Ask</a>
-        <a href="/briefing">Briefing</a>
-        <a href="/contested">Contested</a>
-        <a href="/timeline">Timeline</a>
-        <a href="/evidence">Evidence</a>
-        <a href="https://github.com" rel="noreferrer" target="_blank">GitHub</a>
+      <div class="nav-brand">GroundTruth</div>
+      <button id="menuToggle" class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+        <span class="sr-only">Toggle navigation</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16" />
+        </svg>
+      </button>
+      <nav id="primary-nav" class="main-nav" aria-label="Primary">
+        <a href="/#how-it-works" class="nav-link">How it works</a>
+        <a href="/ask" class="nav-link is-active">Ask</a>
+        <a href="/briefing" class="nav-link">Briefing</a>
+        <a href="/contested" class="nav-link">Contested</a>
+        <a href="/timeline" class="nav-link">Timeline</a>
+        <a href="/evidence" class="nav-link">Evidence</a>
+        <a href="https://github.com" class="nav-link" rel="noreferrer" target="_blank">GitHub</a>
       </nav>
+      <a href="/ask" class="btn btn-primary">Open the app</a>
     </header>
-    <main class="page-main">Ask shell</main>
+
+    <main id="main" class="page-shell">
+      <section class="section-shell">
+        <div class="section-heading">
+          <p class="eyebrow">Ask / compare</p>
+          <h1>Ask both memories</h1>
+          <p>Compare naïve versus GroundTruth answers on the same question and inspect cited beliefs.</p>
+        </div>
+
+        <div class="ask-grid">
+          <div class="panel">
+            <label for="question" class="eyebrow mono small">Question</label>
+            <textarea id="question" rows="3" class="question-box" placeholder="What should the memory say about this topic?"></textarea>
+            <button id="askButton" class="btn btn-primary" type="button">Ask both</button>
+          </div>
+
+          <article class="panel">
+            <div class="panel-kicker">
+              <h2>Naive memory</h2>
+              <span id="naiveBadge" class="state-badge state-badge--muted">waiting</span>
+            </div>
+            <p id="naiveText" class="result-text">No answer loaded.</p>
+            <div id="naiveRefs" class="refs"></div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-kicker">
+              <h2>GroundTruth memory</h2>
+              <span id="groundtruthBadge" class="state-badge state-badge--muted">waiting</span>
+            </div>
+            <p id="groundtruthText" class="result-text">No answer loaded.</p>
+            <div id="groundtruthRefs" class="refs"></div>
+            <div class="feedback-row">
+              <button id="downvoteButton" class="btn btn-secondary" type="button">Downvote</button>
+              <button id="upvoteButton" class="btn btn-secondary" type="button">Upvote</button>
+              <button id="improveButton" class="btn btn-secondary" type="button">Improve</button>
+            </div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-kicker">
+              <h2>Retraction wire</h2>
+              <span id="activeCount" class="state-badge state-badge--muted">loading</span>
+            </div>
+            <div class="retract-row">
+              <select id="doiSelect"></select>
+              <button id="retractButton" class="btn btn-secondary" type="button">Retract</button>
+            </div>
+            <div id="timeline" class="timeline" aria-live="polite">
+              <div class="skeleton-line"></div>
+              <div class="skeleton-line"></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-shell" aria-label="Runtime event timeline">
+        <div class="section-heading">
+          <p class="eyebrow">Runtime events</p>
+          <h2>Action log</h2>
+        </div>
+        <div id="eventLog" class="event-log">
+          <div class="empty">No events yet.</div>
+        </div>
+      </section>
+    </main>
+
     <footer class="site-footer">
-      GroundTruth · ETHGlobal x Cognee ·
-      <a href="https://github.com">GitHub</a>
+      <p>GroundTruth — ETHGlobal project · <a href="https://github.com">GitHub</a></p>
     </footer>
     <script src="/static/app.js"></script>
   </body>

@@ -4,171 +4,195 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>GroundTruth</title>
+    <meta
+      name="description"
+      content="Most agents wake up with amnesia. Ours wakes up knowing what it learned last night, and what it must unlearn."
+    />
     <link rel="stylesheet" href="/static/styles.css" />
+    <meta property="og:title" content="GroundTruth" />
+    <meta property="og:description" content="Belief-maintenance memory that can forget." />
   </head>
   <body data-page="landing">
-    <a class="nav-link" href="/ask">Ask</a>
-    <a class="nav-link" href="/briefing">Briefing</a>
-    <a class="nav-link" href="/contested">Contested</a>
-    <a class="nav-link" href="/timeline">Timeline</a>
-    <a class="nav-link" href="/evidence">Evidence</a>
-    <header class="masthead">
-      <div>
-        <p class="eyebrow">Retraction memory desk</p>
-        <h1>GroundTruth</h1>
-      </div>
-      <div class="headline">
-        <span id="metricNaive">18/20 naive</span>
-        <span id="metricGroundtruth">0/20 GroundTruth</span>
-        <span id="metricControl">5/5 controls</span>
-      </div>
+    <a class="skip-link" href="#main">Skip to main</a>
+    <header class="site-nav">
+      <div class="nav-brand">GroundTruth</div>
+      <button id="menuToggle" class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+        <span class="sr-only">Toggle navigation</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16" />
+        </svg>
+      </button>
+      <nav id="primary-nav" class="main-nav" aria-label="Primary">
+        <a href="/#how-it-works" class="nav-link">How it works</a>
+        <a href="/ask" class="nav-link">Ask</a>
+        <a href="/briefing" class="nav-link">Briefing</a>
+        <a href="/contested" class="nav-link">Contested</a>
+        <a href="/timeline" class="nav-link">Timeline</a>
+        <a href="/evidence" class="nav-link">Evidence</a>
+        <a href="https://github.com" class="nav-link" rel="noreferrer" target="_blank">GitHub</a>
+      </nav>
+      <a href="/ask" class="btn btn-primary">Open the app</a>
     </header>
 
-    <main>
-      <section class="query-band" aria-label="Ask both memories">
-        <label for="question">Question</label>
-        <div class="query-row">
-          <textarea id="question" rows="3"></textarea>
-          <button id="askButton" type="button">Ask Both</button>
-        </div>
-      </section>
-
-      <section class="answer-grid" aria-label="Side by side answers">
-        <article class="answer-panel naive">
-          <div class="panel-kicker">
-            <span>Naive memory</span>
-            <strong id="naiveBadge">waiting</strong>
-          </div>
-          <p id="naiveText" class="answer-text">No answer loaded.</p>
-          <div id="naiveRefs" class="refs"></div>
-        </article>
-
-        <article class="answer-panel groundtruth">
-          <div class="panel-kicker">
-            <span>GroundTruth memory</span>
-            <strong id="groundtruthBadge">waiting</strong>
-          </div>
-          <p id="groundtruthText" class="answer-text">No answer loaded.</p>
-          <div id="groundtruthRefs" class="refs"></div>
-          <div class="feedback-row">
-            <button id="downvoteButton" type="button">Downvote</button>
-            <button id="upvoteButton" type="button">Upvote</button>
-            <button id="improveButton" type="button">Improve</button>
-          </div>
-        </article>
-      </section>
-
-      <section class="control-grid">
-        <article class="wire-panel">
-          <div class="panel-kicker">
-            <span>Retraction wire</span>
-            <strong id="activeCount">0 active</strong>
-          </div>
-          <div class="retract-row">
-            <select id="doiSelect"></select>
-            <button id="retractButton" type="button">Retract</button>
-          </div>
-          <div id="timeline" class="timeline" aria-live="polite"></div>
-        </article>
-
-        <article class="graph-panel">
-          <div class="panel-kicker">
-            <span>Provenance graph</span>
-            <strong>global memory view</strong>
-          </div>
+    <main id="main">
+      <section class="hero section-shell">
+        <div class="hero-copy">
+          <p class="eyebrow">Belief-aware memory at runtime</p>
+          <h1>Most agents wake up with amnesia. Ours wakes up knowing what it must unlearn.</h1>
           <p>
-            Global file-to-entity memory graph. Answer citations remain in the
-            panels above.
+            GroundTruth is a belief-maintenance memory layer built on Cognee — beliefs carry
+            evidence, get contested, are superseded, and can be surgically forgotten.
           </p>
-          <a class="graph-link" href="/graph" target="_blank" rel="noreferrer"
-            >Open Graph</a
-          >
-        </article>
-
-        <article class="contest-panel">
-          <div class="panel-kicker">
-            <span>Contested beliefs</span>
-            <strong id="contestedCount">0 open</strong>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="/ask">See it unlearn →</a>
+            <a class="btn btn-ghost" href="/evidence">Read the evidence</a>
           </div>
-          <div id="contestedList" class="contest-list" aria-live="polite"></div>
-        </article>
+        </div>
+        <div class="hero-teaser">
+          <article class="result-panel">
+            <header class="result-panel__header">
+              <h2>Naive memory</h2>
+              <span class="state-badge state-badge--danger">retracted citation</span>
+            </header>
+            <p class="result-text">The therapy trial showed sustained benefit across patients in all cohorts.</p>
+            <p class="result-ref mono">10.5555/retracted-example</p>
+          </article>
+          <article class="result-panel">
+            <header class="result-panel__header">
+              <h2>GroundTruth memory</h2>
+              <span class="state-badge state-badge--ok">clean citations</span>
+            </header>
+            <p class="result-text">Current memory cites the retraction notice and excludes the withdrawn claim.</p>
+            <p class="result-ref mono">10.5555/retraction-notice</p>
+          </article>
+        </div>
       </section>
 
-      <section class="briefing-panel" aria-label="Morning briefing">
-        <div class="panel-kicker">
-          <span>Morning briefing</span>
-          <strong id="briefingGeneratedAt">not loaded</strong>
-        </div>
-        <div class="briefing-grid">
-          <article>
-            <h2>Learned last night</h2>
-            <div id="briefingLearned" class="briefing-list"></div>
+      <section class="section-shell strip" id="how-it-works">
+        <h2>Why this exists</h2>
+        <div class="feature-grid">
+          <article class="card">
+            <h3>Memory only grows</h3>
+            <p>Long-running agents accumulate stale facts by default.</p>
           </article>
-          <article>
-            <h2>Now contested</h2>
-            <div id="briefingContested" class="briefing-list"></div>
+          <article class="card">
+            <h3>Facts rot</h3>
+            <p>Retractions, CVEs, and reversals happen faster than rebuild cycles.</p>
           </article>
-          <article>
-            <h2>Revised</h2>
-            <div id="briefingRevised" class="briefing-list"></div>
-          </article>
-          <article>
-            <h2>Purged</h2>
-            <div id="briefingPurged" class="briefing-list"></div>
+          <article class="card">
+            <h3>Your agent keeps citing them</h3>
+            <p>Downstream answers stay stale until the memory is actively corrected.</p>
           </article>
         </div>
-        <a class="graph-link" href="/briefing.md" target="_blank" rel="noreferrer"
-          >Open Markdown</a
-        >
       </section>
 
-      <section class="timeline-panel" aria-label="Belief timeline">
-        <div class="panel-kicker">
-          <span>Belief timeline</span>
-          <strong id="beliefTimelineRange">not loaded</strong>
+      <section class="section-shell">
+        <div class="section-heading">
+          <p class="eyebrow">How it works</p>
+          <h2>The 4-verb cycle</h2>
         </div>
-        <div class="timeline-controls">
-          <input id="timelineFrom" type="date" value="2023-01-01" />
-          <input id="timelineTo" type="date" value="2026-07-04" />
-          <button id="timelineButton" type="button">Load Diff</button>
+        <div class="verb-grid">
+          <article class="card">
+            <p class="eyebrow mono small">remember</p>
+            <h3>Evidence in</h3>
+            <p>Ingest claim data and source evidence into grounded memory.</p>
+            <p class="mono tiny muted">groundtruth/ingest.py</p>
+          </article>
+          <article class="card">
+            <p class="eyebrow mono small">recall</p>
+            <h3>Evidence-annotated answers</h3>
+            <p>Answering surfaces belief states and evidence classes.</p>
+            <p class="mono tiny muted">groundtruth/answer.py</p>
+          </article>
+          <article class="card">
+            <p class="eyebrow mono small">improve</p>
+            <h3>Contested to adjudicated</h3>
+            <p>Session + semantic evidence flow into resolve or revision actions.</p>
+            <p class="mono tiny muted">groundtruth/feedback.py, groundtruth/contest.py</p>
+          </article>
+          <article class="card">
+            <p class="eyebrow mono small">forget</p>
+            <h3>Surgical removal</h3>
+            <p>Session/authoritative revocations retire or supersede stale facts.</p>
+            <p class="mono tiny muted">groundtruth/watcher.py</p>
+          </article>
         </div>
-        <div class="timeline-answer-grid" aria-label="Answer then versus now">
-          <article>
-            <h2>Answer then</h2>
-            <p id="timelineAnswerThen" class="timeline-answer-text">
-              No as-of answer loaded.
-            </p>
-            <div id="timelineThenRefs" class="refs"></div>
+      </section>
+
+      <section class="section-shell">
+        <div class="section-heading">
+          <p class="eyebrow">Evidence ladder</p>
+          <h2>Where belief changes come from</h2>
+        </div>
+        <ol class="ladder">
+          <li><strong>authority feed:</strong> deterministic updates from external signal</li>
+          <li><strong>semantic inference:</strong> conflict and alignment scoring</li>
+          <li><strong>user assertion:</strong> adjudication and explicit feedback</li>
+        </ol>
+      </section>
+
+      <section class="section-shell proof-band">
+        <div class="section-heading">
+          <p class="eyebrow">Benchmark headline</p>
+          <h2>Proven committed numbers</h2>
+        </div>
+        <div class="metric-grid">
+          <article class="metric-card">
+            <p class="muted">Naive</p>
+            <p class="metric">18/20</p>
+            <p class="muted">retracted originals cited</p>
           </article>
-          <article>
-            <h2>Answer now</h2>
-            <p id="timelineAnswerNow" class="timeline-answer-text">
-              No as-of answer loaded.
-            </p>
-            <div id="timelineNowRefs" class="refs"></div>
+          <article class="metric-card">
+            <p class="muted">GroundTruth</p>
+            <p class="metric">0/20</p>
+            <p class="muted">retracted originals cited</p>
+          </article>
+          <article class="metric-card">
+            <p class="muted">Controls</p>
+            <p class="metric">5/5</p>
+            <p class="muted">control retention</p>
+          </article>
+          <article class="metric-card">
+            <p class="muted">V2</p>
+            <p class="metric">22/28</p>
+            <p class="muted">semantic coverage (quota-stop)</p>
           </article>
         </div>
-        <div class="timeline-grid">
-          <article>
-            <h2>Added</h2>
-            <div id="timelineAdded" class="timeline-list"></div>
-          </article>
-          <article>
-            <h2>Contested</h2>
-            <div id="timelineContested" class="timeline-list"></div>
-          </article>
-          <article>
-            <h2>Revised</h2>
-            <div id="timelineRevised" class="timeline-list"></div>
-          </article>
-          <article>
-            <h2>Purged</h2>
-            <div id="timelinePurged" class="timeline-list"></div>
-          </article>
+        <a href="/evidence" class="inline-link">See full evidence sheet</a>
+      </section>
+
+      <section class="section-shell">
+        <div class="section-heading">
+          <p class="eyebrow">Live demo pages</p>
+          <h2>Explore the product</h2>
+        </div>
+        <div class="feature-grid">
+          <a class="card tile-link" href="/ask">
+            <h3>Ask</h3>
+            <p>Side-by-side naïve and belief-maintained answers plus retraction control.</p>
+          </a>
+          <a class="card tile-link" href="/briefing">
+            <h3>Briefing</h3>
+            <p>Learned, contested, revised, and purged belief queues.</p>
+          </a>
+          <a class="card tile-link" href="/contested">
+            <h3>Contested</h3>
+            <p>Review conflicts and resolve them into explicit state transitions.</p>
+          </a>
+          <a class="card tile-link" href="/timeline">
+            <h3>Timeline</h3>
+            <p>Time-travel diff for what changed and why.</p>
+          </a>
         </div>
       </section>
     </main>
 
+    <footer class="site-footer">
+      <p>
+        GroundTruth — ETHGlobal project · Built on Cognee —
+        <a href="https://github.com">GitHub</a>
+      </p>
+    </footer>
     <script src="/static/app.js"></script>
   </body>
 </html>

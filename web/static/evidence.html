@@ -6,32 +6,84 @@
     <title>Evidence — GroundTruth</title>
     <meta
       name="description"
-      content="Benchmark evidence, provenance graph, and audit trail links for GroundTruth."
+      content="Benchmark evidence, corpus integrity checks, and timeline endpoints for GroundTruth."
     />
     <link rel="stylesheet" href="/static/styles.css" />
     <meta property="og:title" content="GroundTruth Evidence" />
     <meta
       property="og:description"
-      content="Benchmark results and evidence artifacts powering belief maintenance."
+      content="Benchmarks and artifacts behind belief-maintenance behavior."
     />
   </head>
   <body data-page="evidence">
+    <a class="skip-link" href="#main">Skip to main</a>
     <header class="site-nav">
-      <div class="site-brand">GroundTruth</div>
-      <nav aria-label="Primary">
-        <a href="/">Home</a>
-        <a href="/ask">Ask</a>
-        <a href="/briefing">Briefing</a>
-        <a href="/contested">Contested</a>
-        <a href="/timeline">Timeline</a>
-        <a href="/evidence" class="active">Evidence</a>
-        <a href="https://github.com" rel="noreferrer" target="_blank">GitHub</a>
+      <div class="nav-brand">GroundTruth</div>
+      <button id="menuToggle" class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+        <span class="sr-only">Toggle navigation</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16" />
+        </svg>
+      </button>
+      <nav id="primary-nav" class="main-nav" aria-label="Primary">
+        <a href="/#how-it-works" class="nav-link">How it works</a>
+        <a href="/ask" class="nav-link">Ask</a>
+        <a href="/briefing" class="nav-link">Briefing</a>
+        <a href="/contested" class="nav-link">Contested</a>
+        <a href="/timeline" class="nav-link">Timeline</a>
+        <a href="/evidence" class="nav-link is-active">Evidence</a>
+        <a href="https://github.com" class="nav-link" rel="noreferrer" target="_blank">GitHub</a>
       </nav>
+      <a href="/ask" class="btn btn-primary">Open the app</a>
     </header>
-    <main class="page-main">Evidence shell</main>
+
+    <main id="main" class="page-shell">
+      <section class="section-shell">
+        <div class="section-heading">
+          <p class="eyebrow">Evidence and benchmarks</p>
+          <h1>Public artifacts</h1>
+          <p>All numbers shown in the header and demo cards come from committed artifacts in this branch.</p>
+        </div>
+
+        <div class="metric-grid">
+          <article class="metric-card">
+            <p class="muted">Naive cited retractions</p>
+            <p id="metricNaive" class="metric">0/20</p>
+          </article>
+          <article class="metric-card">
+            <p class="muted">GroundTruth cited retractions</p>
+            <p id="metricGroundtruth" class="metric">0/20</p>
+          </article>
+          <article class="metric-card">
+            <p class="muted">Control claims retained</p>
+            <p id="metricControl" class="metric">0/5</p>
+          </article>
+          <article class="metric-card">
+            <p class="muted">Retraction coverage</p>
+            <p id="metricCoverage" class="metric">0/25</p>
+          </article>
+        </div>
+
+        <div class="section-heading">
+          <h2>Links</h2>
+        </div>
+        <div class="link-list">
+          <a href="docs/BENCHMARK.md" class="inline-link">docs/BENCHMARK.md</a>
+          <a href="/api/graph" class="inline-link" target="_blank" rel="noreferrer">Provenance graph HTML</a>
+          <a href="/api/briefing.md" class="inline-link" target="_blank" rel="noreferrer">Current briefing markdown</a>
+          <a href="docs/RESULTS-V2.md" class="inline-link">V2 results</a>
+          <a href="docs/RESULTS-REDESIGN.md" class="inline-link">Redesign report</a>
+        </div>
+
+        <article class="panel">
+          <h2>Current queue snapshot</h2>
+          <p id="evidenceContestedCount" class="muted">loading</p>
+        </article>
+      </section>
+    </main>
+
     <footer class="site-footer">
-      GroundTruth · ETHGlobal x Cognee ·
-      <a href="https://github.com">GitHub</a>
+      <p>GroundTruth — ETHGlobal project · <a href="https://github.com">GitHub</a></p>
     </footer>
     <script src="/static/app.js"></script>
   </body>

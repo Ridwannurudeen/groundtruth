@@ -6,32 +6,73 @@
     <title>Briefing — GroundTruth</title>
     <meta
       name="description"
-      content="Morning briefing for new evidence, contested claims, revised claims, and purged beliefs."
+      content="Morning briefing for learned, contested, revised, and purged beliefs."
     />
     <link rel="stylesheet" href="/static/styles.css" />
     <meta property="og:title" content="GroundTruth Briefing" />
-    <meta
-      property="og:description"
-      content="Morning briefing for new evidence, contested claims, and revised beliefs."
-    />
+    <meta property="og:description" content="Morning briefing for daily belief-state changes." />
   </head>
   <body data-page="briefing">
+    <a class="skip-link" href="#main">Skip to main</a>
     <header class="site-nav">
-      <div class="site-brand">GroundTruth</div>
-      <nav aria-label="Primary">
-        <a href="/">Home</a>
-        <a href="/ask">Ask</a>
-        <a href="/briefing" class="active">Briefing</a>
-        <a href="/contested">Contested</a>
-        <a href="/timeline">Timeline</a>
-        <a href="/evidence">Evidence</a>
-        <a href="https://github.com" rel="noreferrer" target="_blank">GitHub</a>
+      <div class="nav-brand">GroundTruth</div>
+      <button id="menuToggle" class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+        <span class="sr-only">Toggle navigation</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16" />
+        </svg>
+      </button>
+      <nav id="primary-nav" class="main-nav" aria-label="Primary">
+        <a href="/#how-it-works" class="nav-link">How it works</a>
+        <a href="/ask" class="nav-link">Ask</a>
+        <a href="/briefing" class="nav-link is-active">Briefing</a>
+        <a href="/contested" class="nav-link">Contested</a>
+        <a href="/timeline" class="nav-link">Timeline</a>
+        <a href="/evidence" class="nav-link">Evidence</a>
+        <a href="https://github.com" class="nav-link" rel="noreferrer" target="_blank">GitHub</a>
       </nav>
+      <a href="/ask" class="btn btn-primary">Open the app</a>
     </header>
-    <main class="page-main">Briefing shell</main>
+
+    <main id="main" class="page-shell">
+      <section class="section-shell">
+        <div class="section-heading">
+          <p class="eyebrow">Morning briefing</p>
+          <h1>Current belief state summary</h1>
+          <p>
+            The briefing maps the latest run of learned, contested, revised, and purged beliefs with
+            evidence sources.
+          </p>
+          <p class="muted">Generated at <strong id="briefingGeneratedAt">not loaded</strong></p>
+          <button id="runBriefing" class="btn btn-secondary" type="button">
+            Generate from latest projection
+          </button>
+        </div>
+
+        <div class="briefing-grid">
+          <article class="panel">
+            <h2>Learned last night</h2>
+            <div id="briefingLearned" class="briefing-list"></div>
+          </article>
+          <article class="panel">
+            <h2>Now contested</h2>
+            <div id="briefingContested" class="briefing-list"></div>
+          </article>
+          <article class="panel">
+            <h2>Revised</h2>
+            <div id="briefingRevised" class="briefing-list"></div>
+          </article>
+          <article class="panel">
+            <h2>Purged</h2>
+            <div id="briefingPurged" class="briefing-list"></div>
+          </article>
+        </div>
+
+        <a href="/api/briefing.md" class="inline-link" id="briefingMarkdownLink" target="_blank" rel="noreferrer">Open briefing markdown</a>
+      </section>
+    </main>
     <footer class="site-footer">
-      GroundTruth · ETHGlobal x Cognee ·
-      <a href="https://github.com">GitHub</a>
+      <p>GroundTruth — ETHGlobal project · <a href="https://github.com">GitHub</a></p>
     </footer>
     <script src="/static/app.js"></script>
   </body>

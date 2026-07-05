@@ -4,34 +4,46 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Contested — GroundTruth</title>
-    <meta
-      name="description"
-      content="Contested belief queue and adjudication actions for unresolved conflicts."
-    />
+    <meta name="description" content="Contested claim queue and adjudication actions." />
     <link rel="stylesheet" href="/static/styles.css" />
     <meta property="og:title" content="GroundTruth Contested" />
-    <meta
-      property="og:description"
-      content="Manage contested belief pairs and resolve with adjudication actions."
-    />
+    <meta property="og:description" content="Resolve contested claim pairs with explicit adjudication." />
   </head>
   <body data-page="contested">
+    <a class="skip-link" href="#main">Skip to main</a>
     <header class="site-nav">
-      <div class="site-brand">GroundTruth</div>
-      <nav aria-label="Primary">
-        <a href="/">Home</a>
-        <a href="/ask">Ask</a>
-        <a href="/briefing">Briefing</a>
-        <a href="/contested" class="active">Contested</a>
-        <a href="/timeline">Timeline</a>
-        <a href="/evidence">Evidence</a>
-        <a href="https://github.com" rel="noreferrer" target="_blank">GitHub</a>
+      <div class="nav-brand">GroundTruth</div>
+      <button id="menuToggle" class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+        <span class="sr-only">Toggle navigation</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16" />
+        </svg>
+      </button>
+      <nav id="primary-nav" class="main-nav" aria-label="Primary">
+        <a href="/#how-it-works" class="nav-link">How it works</a>
+        <a href="/ask" class="nav-link">Ask</a>
+        <a href="/briefing" class="nav-link">Briefing</a>
+        <a href="/contested" class="nav-link is-active">Contested</a>
+        <a href="/timeline" class="nav-link">Timeline</a>
+        <a href="/evidence" class="nav-link">Evidence</a>
+        <a href="https://github.com" class="nav-link" rel="noreferrer" target="_blank">GitHub</a>
       </nav>
+      <a href="/ask" class="btn btn-primary">Open the app</a>
     </header>
-    <main class="page-main">Contested shell</main>
+
+    <main id="main" class="page-shell">
+      <section class="section-shell">
+        <div class="section-heading">
+          <p class="eyebrow">Contested queue</p>
+          <h1>Open contested pairs</h1>
+          <p id="contestedCount" class="muted">0 open</p>
+        </div>
+        <div id="contestedList" class="contested-list"></div>
+      </section>
+    </main>
+
     <footer class="site-footer">
-      GroundTruth · ETHGlobal x Cognee ·
-      <a href="https://github.com">GitHub</a>
+      <p>GroundTruth — ETHGlobal project · <a href="https://github.com">GitHub</a></p>
     </footer>
     <script src="/static/app.js"></script>
   </body>

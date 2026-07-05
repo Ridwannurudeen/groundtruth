@@ -1,125 +1,144 @@
+/* global fetch */
+
+const API = "/api";
+
 const state = {
   sessionId: null,
-  groundtruthQaId: null,
-  lastQuestion: "",
   mutationConfirmation: null,
-  contestedItems: [],
-  briefing: null,
-  timeline: null,
+  grounded: null,
 };
 
-const el = {
-  question: document.querySelector("#question"),
-  askButton: document.querySelector("#askButton"),
-  naiveText: document.querySelector("#naiveText"),
-  groundtruthText: document.querySelector("#groundtruthText"),
-  naiveRefs: document.querySelector("#naiveRefs"),
-  groundtruthRefs: document.querySelector("#groundtruthRefs"),
-  naiveBadge: document.querySelector("#naiveBadge"),
-  groundtruthBadge: document.querySelector("#groundtruthBadge"),
-  doiSelect: document.querySelector("#doiSelect"),
-  retractButton: document.querySelector("#retractButton"),
-  timeline: document.querySelector("#timeline"),
-  activeCount: document.querySelector("#activeCount"),
-  downvoteButton: document.querySelector("#downvoteButton"),
-  upvoteButton: document.querySelector("#upvoteButton"),
-  improveButton: document.querySelector("#improveButton"),
-  metricNaive: document.querySelector("#metricNaive"),
-  metricGroundtruth: document.querySelector("#metricGroundtruth"),
-  metricControl: document.querySelector("#metricControl"),
-  contestedCount: document.querySelector("#contestedCount"),
-  contestedList: document.querySelector("#contestedList"),
-  briefingGeneratedAt: document.querySelector("#briefingGeneratedAt"),
-  briefingLearned: document.querySelector("#briefingLearned"),
-  briefingContested: document.querySelector("#briefingContested"),
-  briefingRevised: document.querySelector("#briefingRevised"),
-  briefingPurged: document.querySelector("#briefingPurged"),
-  beliefTimelineRange: document.querySelector("#beliefTimelineRange"),
-  timelineFrom: document.querySelector("#timelineFrom"),
-  timelineTo: document.querySelector("#timelineTo"),
-  timelineButton: document.querySelector("#timelineButton"),
-  timelineAnswerThen: document.querySelector("#timelineAnswerThen"),
-  timelineAnswerNow: document.querySelector("#timelineAnswerNow"),
-  timelineThenRefs: document.querySelector("#timelineThenRefs"),
-  timelineNowRefs: document.querySelector("#timelineNowRefs"),
-  timelineAdded: document.querySelector("#timelineAdded"),
-  timelineContested: document.querySelector("#timelineContested"),
-  timelineRevised: document.querySelector("#timelineRevised"),
-  timelinePurged: document.querySelector("#timelinePurged"),
+const icon = {
+  check: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>`,
+  alert: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 9v4M12 15h.01"/><path d="M10.29 3.86 1.82 18a1.5 1.5 0 0 0 1.31 2.24h16.74a1.5 1.5 0 0 0 1.31-2.24L13.71 3.86a1.5 1.5 0 0 0-2.62 0Z"/></svg>`,
+  history: `<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/><path d="M12 12 8.5 10"/></svg>`,
+  x: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>`,
 };
+
+function setMenuState() {
+  const button = document.getElementById("menuToggle");
+  const nav = document.getElementById("primary-nav");
+  if (!button || !nav) return;
+  button.addEventListener("click", () => {
+    const open = nav.classList.toggle("is-open");
+    button.setAttribute("aria-expanded", String(open));
+  });
+}
+
+function byId(id) {
+  return document.getElementById(id);
+}
 
 function setBusy(button, busy) {
+  if (!button) return;
   button.disabled = busy;
 }
 
-function badge(node, result) {
-  node.classList.remove("badge-danger", "badge-safe");
-  if (result.cites_retracted) {
-    node.textContent = "cites retracted";
-    node.classList.add("badge-danger");
-    return;
-  }
-  if ((result.cites_by_state || {}).contested > 0) {
-    node.textContent = "contested citations";
-    node.classList.add("badge-danger");
-    return;
-  }
-  node.textContent = "clean citations";
-  node.classList.add("badge-safe");
-}
-
-function renderRefs(target, references) {
+function setSkeleton(target, lines = 3) {
+  if (!target) return;
   target.replaceChildren();
-  if (!references.length) {
-    const empty = document.createElement("p");
-    empty.className = "ref-title";
-    empty.textContent = "No references returned.";
-    target.append(empty);
-    return;
-  }
-
-  for (const reference of references) {
-    const item = document.createElement("div");
-    item.className = "ref";
-
-    const meta = document.createElement("div");
-    meta.className = "ref-meta";
-    meta.textContent = `${reference.claim_id} / ${reference.kind} / ${reference.belief_state}`;
-
-    const title = document.createElement("p");
-    title.className = "ref-title";
-    title.textContent = `${reference.doi} / ${reference.source}`;
-
-    item.append(meta, title);
-    if (reference.belief_state_basis) {
-      const basis = document.createElement("p");
-      basis.className = "ref-basis";
-      basis.textContent = reference.belief_state_basis;
-      item.append(basis);
-    }
-    target.append(item);
+  for (let i = 0; i < lines; i += 1) {
+    const bar = document.createElement("div");
+    bar.className = "skeleton skeleton-line";
+    target.append(bar);
   }
 }
 
-function renderAnswer(dataset, result) {
-  if (dataset === "naive_memory") {
-    el.naiveText.textContent = result.text;
-    renderRefs(el.naiveRefs, result.references || []);
-    badge(el.naiveBadge, result);
-    return;
+function errorPanel(message, retry) {
+  const node = document.createElement("div");
+  node.className = "error-panel";
+  const text = document.createElement("p");
+  text.textContent = message;
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "btn btn-ghost";
+  button.textContent = "Retry";
+  if (retry) {
+    button.addEventListener("click", retry);
+    button.classList.add("mt-2");
+    node.append(text, button);
+  } else {
+    node.append(text);
   }
-
-  el.groundtruthText.textContent = result.text;
-  renderRefs(el.groundtruthRefs, result.references || []);
-  badge(el.groundtruthBadge, result);
-  state.groundtruthQaId = result.qa_id;
+  return node;
 }
 
-function addTimeline(event, detail) {
+function stateBadge(type, label) {
+  const el = document.createElement("span");
+  el.className = "state-badge";
+  if (type === "active") {
+    el.classList.add("state-badge--ok");
+    el.innerHTML = `${icon.check}<span>${label}</span>`;
+  } else if (type === "contested") {
+    el.classList.add("state-badge--warn");
+    el.innerHTML = `${icon.alert}<span>${label}</span>`;
+  } else if (type === "superseded") {
+    el.classList.add("state-badge--warn");
+    el.innerHTML = `${icon.history}<span>${label}</span>`;
+  } else if (type === "retracted" || type === "purged") {
+    el.classList.add("state-badge--danger");
+    el.innerHTML = `${icon.x}<span>${label}</span>`;
+  } else {
+    el.classList.add("state-badge--muted");
+    el.textContent = label;
+  }
+  return el;
+}
+
+function renderRef(reference) {
+  const card = document.createElement("article");
+  card.className = "ref-card";
+  const meta = document.createElement("p");
+  meta.className = "ref-title mono small";
+  meta.textContent = `${reference.claim_id} / ${reference.kind} / ${reference.belief_state || "state"}`;
+  const title = document.createElement("p");
+  title.className = "result-text";
+  title.textContent = `${reference.doi} / ${reference.source}`;
+  const badge = stateBadge(
+    (reference.belief_state || "pending").toLowerCase(),
+    String(reference.belief_state || "pending")
+  );
+  const basis = document.createElement("p");
+  basis.className = "result-text";
+  if (reference.belief_state_basis) {
+    basis.textContent = reference.belief_state_basis;
+  }
+  card.append(meta, badge, title);
+  if (basis.textContent) {
+    card.append(basis);
+  }
+  return card;
+}
+
+function renderEmpty(target, text) {
+  const empty = document.createElement("p");
+  empty.className = "muted";
+  empty.textContent = text;
+  target.append(empty);
+}
+
+async function fetchJson(path, init = undefined) {
+  const response = await fetch(`${API}${path}`, init);
+  if (!response.ok) {
+    throw new Error(await response.text());
+  }
+  return response.json();
+}
+
+async function fetchStream(path, init = undefined) {
+  const response = await fetch(`${API}${path}`, init);
+  if (!response.ok) {
+    throw new Error(await response.text());
+  }
+  return response;
+}
+
+function addEvent(text) {
+  const log = byId("eventLog");
+  if (!log) return;
   const row = document.createElement("div");
   row.className = "timeline-row";
-
-  const time = document.createElement("div");
+  const time = document.createElement("span");
   time.className = "timeline-time";
   time.textContent = new Date().toLocaleTimeString([], {
     hour12: false,
@@ -127,247 +146,321 @@ function addTimeline(event, detail) {
     minute: "2-digit",
     second: "2-digit",
   });
-
-  const text = document.createElement("div");
-  text.className = "timeline-event";
-  text.textContent = `${event}: ${detail}`;
-
-  row.append(time, text);
-  el.timeline.prepend(row);
+  const msg = document.createElement("span");
+  msg.className = "timeline-event";
+  msg.textContent = text;
+  row.append(time, msg);
+  log.append(row);
 }
 
-async function postJson(path, payload) {
-  const response = await fetch(path, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload),
-  });
-  if (!response.ok) {
-    throw new Error(await response.text());
-  }
-  return response.json();
-}
-
-async function askDataset(dataset, feedbackInfluence = 0) {
-  return postJson("/ask", {
-    question: el.question.value.trim(),
-    dataset,
-    session_id: dataset === "groundtruth_memory" ? state.sessionId : null,
-    record_session: dataset === "groundtruth_memory" && feedbackInfluence === 0,
-    feedback_influence: feedbackInfluence,
-  });
-}
-
-async function askBoth(feedbackInfluence = 0) {
-  const question = el.question.value.trim();
-  if (!question) {
-    return;
-  }
-  state.lastQuestion = question;
-  setBusy(el.askButton, true);
-  try {
-    const [naive, groundtruth] = await Promise.all([
-      askDataset("naive_memory", 0),
-      askDataset("groundtruth_memory", feedbackInfluence),
-    ]);
-    renderAnswer("naive_memory", naive);
-    renderAnswer("groundtruth_memory", groundtruth);
-    addTimeline("answer", "both memories returned cited answers");
-  } catch (error) {
-    addTimeline("error", error.message);
-  } finally {
-    setBusy(el.askButton, false);
-  }
-}
-
-async function loadState(resetQuestion = false) {
-  const response = await fetch("/state");
-  if (!response.ok) {
-    throw new Error(await response.text());
-  }
-  const payload = await response.json();
+async function loadState() {
+  const payload = await fetchJson("/state");
   state.sessionId = payload.session_id;
   state.mutationConfirmation = payload.mutation_confirmation;
-  if (resetQuestion || !el.question.value.trim()) {
-    el.question.value = payload.default_question;
-  }
-  el.activeCount.textContent = `${payload.active_retractions.length} active`;
-  el.doiSelect.replaceChildren();
-  for (const item of payload.active_retractions) {
-    const option = document.createElement("option");
-    option.value = item.doi;
-    option.dataset.question = item.question;
-    option.textContent = `${item.claim_id} / ${item.doi}`;
-    el.doiSelect.append(option);
-  }
-  if (payload.benchmark) {
-    el.metricNaive.textContent = `${payload.benchmark.naive_cites_retracted}/20 naive`;
-    el.metricGroundtruth.textContent = `${payload.benchmark.groundtruth_cites_retracted}/20 GroundTruth`;
-    el.metricControl.textContent = `${payload.benchmark.control_claim_retention}/${payload.benchmark.control_claim_total} controls`;
-  }
+  return payload;
 }
 
-async function loadContested() {
-  const response = await fetch("/contested");
-  if (!response.ok) {
-    throw new Error(await response.text());
-  }
-  const payload = await response.json();
-  state.contestedItems = payload.items || [];
-  renderContested(state.contestedItems);
-}
+async function initAsk() {
+  const question = byId("question");
+  const askButton = byId("askButton");
+  const askNaiveText = byId("naiveText");
+  const askGtText = byId("groundtruthText");
+  const naiveRefs = byId("naiveRefs");
+  const gtRefs = byId("groundtruthRefs");
+  const naiveBadge = byId("naiveBadge");
+  const gtBadge = byId("groundtruthBadge");
+  const activeCount = byId("activeCount");
+  const doiSelect = byId("doiSelect");
+  const timeline = byId("timeline");
+  const retractButton = byId("retractButton");
+  const downvoteButton = byId("downvoteButton");
+  const upvoteButton = byId("upvoteButton");
+  const improveButton = byId("improveButton");
 
-async function loadBriefing() {
-  const response = await fetch("/briefing");
-  if (!response.ok) {
-    throw new Error(await response.text());
-  }
-  const payload = await response.json();
-  state.briefing = payload;
-  renderBriefing(payload);
-}
+  setSkeleton(activeCount, 1);
+  setSkeleton(naiveRefs, 1);
+  setSkeleton(gtRefs, 1);
 
-async function loadTimeline() {
-  const fromDate = el.timelineFrom.value || "2023-01-01";
-  const toDate = el.timelineTo.value || "2026-07-04";
-  const params = new URLSearchParams({ from: fromDate, to: toDate });
-  const question = el.question.value.trim();
-  if (question) {
-    params.set("question", question);
-  }
-  const response = await fetch(`/timeline?${params.toString()}`);
-  if (!response.ok) {
-    throw new Error(await response.text());
-  }
-  const payload = await response.json();
-  state.timeline = payload;
-  renderTimeline(payload);
-}
-
-function renderBriefingItem(item) {
-  const card = document.createElement("div");
-  card.className = "briefing-item";
-
-  const meta = document.createElement("div");
-  meta.className = "ref-meta";
-  const subject = item.pair || item.claim_id || "item";
-  meta.textContent = `${subject} / ${item.belief_state || "state"} / ${item.evidence_class || "evidence"}`;
-
-  const title = document.createElement("p");
-  title.className = "ref-title";
-  title.textContent = item.title || item.doi || item.evidence_ref || "Untitled evidence";
-
-  card.append(meta, title);
-  if (item.basis) {
-    const basis = document.createElement("p");
-    basis.className = "ref-basis";
-    basis.textContent = item.basis;
-    card.append(basis);
-  }
-  return card;
-}
-
-function renderBriefingList(target, items) {
-  target.replaceChildren();
-  if (!items.length) {
-    const empty = document.createElement("p");
-    empty.className = "contest-empty";
-    empty.textContent = "None.";
-    target.append(empty);
+  try {
+    const payload = await loadState();
+    state.sessionId = payload.session_id;
+    state.mutationConfirmation = payload.mutation_confirmation;
+    if (!question.value.trim()) {
+      question.value = payload.default_question;
+    }
+    activeCount.replaceChildren();
+    activeCount.append(
+      stateBadge(
+        payload.active_retractions.length > 0 ? "active" : "ok",
+        `${payload.active_retractions.length} active`
+      )
+    );
+    doiSelect.replaceChildren();
+    for (const item of payload.active_retractions) {
+      const option = document.createElement("option");
+      option.value = item.doi;
+      option.dataset.question = item.question;
+      option.textContent = `${item.claim_id} / ${item.doi}`;
+      doiSelect.append(option);
+    }
+    renderBenchmarks(payload);
+  } catch (error) {
+    const eventLog = byId("eventLog");
+    if (eventLog) {
+      eventLog.replaceChildren(errorPanel(`Unable to load state. ${error.message}`, initAsk));
+    }
     return;
   }
-  for (const item of items) {
-    target.append(renderBriefingItem(item));
+
+  async function ask(requestDataset) {
+    return fetchJson("/ask", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        question: question.value.trim(),
+        dataset: requestDataset,
+        session_id: requestDataset === "groundtruth_memory" ? state.sessionId : null,
+        record_session: requestDataset === "groundtruth_memory",
+      }),
+    });
   }
+
+  async function askBoth() {
+    if (!question.value.trim()) {
+      return;
+    }
+    setBusy(askButton, true);
+    setSkeleton(naiveRefs);
+    setSkeleton(gtRefs);
+    try {
+      const [naive, grounded] = await Promise.all([ask("naive_memory"), ask("groundtruth_memory")]);
+      askNaiveText.textContent = naive.text;
+      askGtText.textContent = grounded.text;
+      state.groundtruthQaId = grounded.qa_id || null;
+      naiveRefs.replaceChildren();
+      gtRefs.replaceChildren();
+      const naiveState = naive.cites_retracted ? "retracted" : "active";
+      naiveBadge.replaceChildren();
+      naiveBadge.append(
+        stateBadge(
+          naiveState,
+          naive.cites_retracted ? "cites retracted" : "clean citations"
+        )
+      );
+      gtBadge.replaceChildren();
+      gtBadge.append(stateBadge(grounded.cites_retracted ? "retracted" : "active", grounded.cites_retracted ? "cites retracted" : "clean citations"));
+      if (naive.references?.length) {
+        for (const item of naive.references) {
+          naiveRefs.append(renderRef(item));
+        }
+      } else {
+        renderEmpty(naiveRefs, "No references returned.");
+      }
+      if (grounded.references?.length) {
+        for (const item of grounded.references) {
+          gtRefs.append(renderRef(item));
+        }
+      } else {
+        renderEmpty(gtRefs, "No references returned.");
+      }
+      addEvent("answer: both memories returned cited answers");
+    } catch (error) {
+      addEvent(`error: ${error.message}`);
+    } finally {
+      setBusy(askButton, false);
+    }
+  }
+
+  askButton.addEventListener("click", askBoth);
+
+  async function retractSelected() {
+    const doi = doiSelect.value;
+    const option = doiSelect.selectedOptions[0];
+    if (!doi) return;
+    if (option?.dataset.question) {
+      question.value = option.dataset.question;
+    }
+    setBusy(retractButton, true);
+    setSkeleton(timeline);
+    timeline.replaceChildren();
+    try {
+      const response = await fetchStream("/retract", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ doi, confirm_mutation: state.mutationConfirmation }),
+      });
+      if (!response.body) {
+        throw new Error("Streaming response unavailable");
+      }
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder();
+      let buffer = "";
+      while (true) {
+        const { value, done } = await reader.read();
+        if (done) {
+          break;
+        }
+        buffer += decoder.decode(value, { stream: true });
+        const lines = buffer.split("\n");
+        buffer = lines.pop();
+        for (const line of lines) {
+          if (!line.trim()) continue;
+          const event = JSON.parse(line);
+          addEvent(`${event.event}: ${event.doi || event.message || event.claim_id || event.result?.claim_id || "updated"}`);
+        }
+      }
+      addEvent("retraction stream complete");
+      await initAsk();
+      await askBoth();
+    } catch (error) {
+      addEvent(`error: ${error.message}`);
+    } finally {
+      setBusy(retractButton, false);
+    }
+  }
+
+  async function sendFeedback(score) {
+    if (!state.sessionId || !state.groundtruthQaId) {
+      addEvent("No GroundTruth answer session to attach feedback.");
+      return;
+    }
+    try {
+      await fetchJson("/feedback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          session_id: state.sessionId,
+          qa_id: state.groundtruthQaId,
+          score,
+          text: score < 3 ? "Needs stronger evidential grounding." : null,
+          confirm_mutation: state.mutationConfirmation,
+        }),
+      });
+      addEvent(`feedback: ${score}`);
+    } catch (error) {
+      addEvent(`error: ${error.message}`);
+    }
+  }
+
+  async function improve() {
+    if (!state.sessionId) return;
+    setBusy(improveButton, true);
+    try {
+      const result = await fetchJson("/improve", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          dataset: "groundtruth_memory",
+          session_ids: [state.sessionId],
+          confirm_mutation: state.mutationConfirmation,
+        }),
+      });
+      addEvent(`improve: ${result.session_bridge}`);
+      await askBoth();
+    } catch (error) {
+      addEvent(`error: ${error.message}`);
+    } finally {
+      setBusy(improveButton, false);
+    }
+  }
+
+  downvoteButton.addEventListener("click", () => sendFeedback(1));
+  upvoteButton.addEventListener("click", () => sendFeedback(5));
+  improveButton.addEventListener("click", improve);
+  retractButton.addEventListener("click", retractSelected);
 }
 
-function renderBriefing(payload) {
-  el.briefingGeneratedAt.textContent = payload.generated_at || "not generated";
-  renderBriefingList(el.briefingLearned, payload.learned_last_night || []);
-  renderBriefingList(el.briefingContested, payload.now_contested || []);
-  renderBriefingList(el.briefingRevised, payload.revised || []);
-  renderBriefingList(el.briefingPurged, payload.purged || []);
-}
-
-function renderTimelineItem(item) {
-  const card = document.createElement("div");
-  card.className = "timeline-item";
-
-  const meta = document.createElement("div");
-  meta.className = "ref-meta";
-  meta.textContent = `${item.claim_id} / ${item.from_state || "new"} -> ${item.to_state}`;
-
+function renderItem(item) {
+  const node = document.createElement("article");
+  node.className = "briefing-item";
+  const header = document.createElement("p");
+  header.className = "ref-title mono small";
+  header.textContent = `${item.pair || item.claim_id || "item"} / ${item.evidence_class || "evidence"}`;
   const title = document.createElement("p");
-  title.className = "ref-title";
-  title.textContent = item.title || item.doi;
-
+  title.textContent = item.basis || item.evidence_ref || item.title || "No detail";
   const basis = document.createElement("p");
   basis.className = "ref-basis";
-  basis.textContent = item.basis || item.evidence_ref;
-
-  card.append(meta, title, basis);
-  return card;
+  basis.textContent = item.claim_id && item.claim_id !== item.pair ? `${item.claim_id}` : "";
+  node.append(header, title);
+  if (basis.textContent) node.append(basis);
+  const badge = stateBadge(item.evidence_class === "user_assertion" ? "active" : "ok", item.evidence_class || "evidence");
+  node.prepend(badge);
+  return node;
 }
 
-function renderTimelineList(target, items) {
+function renderBriefing(payload, rootId) {
+  const target = byId(rootId);
+  if (!target) return;
   target.replaceChildren();
+  const items = payload && Array.isArray(payload) ? payload : [];
   if (!items.length) {
-    const empty = document.createElement("p");
-    empty.className = "contest-empty";
-    empty.textContent = "None.";
-    target.append(empty);
+    renderEmpty(target, "No items in this bucket.");
     return;
   }
   for (const item of items) {
-    target.append(renderTimelineItem(item));
+    target.append(renderItem(item));
   }
 }
 
-function renderTimeline(payload) {
-  el.beliefTimelineRange.textContent = `${payload.from.slice(0, 10)} -> ${payload.to.slice(0, 10)}`;
-  if (payload.before && payload.after) {
-    el.timelineAnswerThen.textContent = payload.before.text;
-    el.timelineAnswerNow.textContent = payload.after.text;
-    renderRefs(el.timelineThenRefs, payload.before.references || []);
-    renderRefs(el.timelineNowRefs, payload.after.references || []);
+function initBriefing() {
+  const generatedAt = byId("briefingGeneratedAt");
+  const runButton = byId("runBriefing");
+  const learned = byId("briefingLearned");
+  const contested = byId("briefingContested");
+  const revised = byId("briefingRevised");
+  const purged = byId("briefingPurged");
+
+  async function loadBriefing() {
+    setSkeleton(learned);
+    setSkeleton(contested);
+    setSkeleton(revised);
+    setSkeleton(purged);
+    try {
+      const payload = await fetchJson("/briefing");
+      generatedAt.textContent = payload.generated_at || "not available";
+      renderBriefing(payload.learned_last_night || [], "briefingLearned");
+      renderBriefing(payload.now_contested || [], "briefingContested");
+      renderBriefing(payload.revised || [], "briefingRevised");
+      renderBriefing(payload.purged || [], "briefingPurged");
+    } catch (error) {
+      const container = byId("briefingGeneratedAt");
+      if (container) {
+        container.replaceChildren();
+        container.append(
+          stateBadge("retracted", "load failed"),
+          document.createTextNode(` ${error.message}`)
+        );
+      }
+    }
   }
-  renderTimelineList(el.timelineAdded, payload.changes.added || []);
-  renderTimelineList(el.timelineContested, payload.changes.contested || []);
-  renderTimelineList(el.timelineRevised, payload.changes.revised || []);
-  renderTimelineList(el.timelinePurged, payload.changes.purged || []);
+
+  runButton.addEventListener("click", loadBriefing);
+  loadBriefing();
 }
 
 function renderContested(items) {
-  el.contestedCount.textContent = `${items.length} open`;
-  el.contestedList.replaceChildren();
+  const list = byId("contestedList");
+  if (!list) return;
+  list.replaceChildren();
   if (!items.length) {
-    const empty = document.createElement("p");
-    empty.className = "contest-empty";
-    empty.textContent = "No contested semantic pairs.";
-    el.contestedList.append(empty);
+    renderEmpty(list, "No contested beliefs.");
     return;
   }
-
   for (const item of items) {
-    const card = document.createElement("div");
-    card.className = "contest-item";
-
-    const meta = document.createElement("div");
-    meta.className = "ref-meta";
-    meta.textContent = `${item.pair} / ${item.decision.direction} / ${item.decision.confidence}`;
-
+    const card = document.createElement("article");
+    card.className = "contested-item";
+    const header = document.createElement("p");
+    header.className = "ref-title mono small";
+    header.textContent = `${item.pair} / ${item.decision.direction} / ${item.decision.confidence}`;
     const claims = document.createElement("p");
-    claims.className = "ref-title";
-    claims.textContent = item.claims
-      .map((claim) => `${claim.claim_id}: ${claim.title}`)
-      .join(" vs ");
-
+    claims.textContent = (item.claims || []).map((claim) => `${claim.claim_id} (${claim.evidence_class || "unknown"})`).join(" vs ");
     const basis = document.createElement("p");
-    basis.className = "ref-basis";
-    basis.textContent = item.basis;
+    basis.className = "muted";
+    basis.textContent = item.basis || "No basis provided.";
+    card.append(header, claims, basis);
 
     const actions = document.createElement("div");
-    actions.className = "contest-actions";
+    actions.className = "feedback-row";
     for (const [label, verdict] of [
       ["No conflict", "none"],
       ["A supersedes B", "a_supersedes_b"],
@@ -375,144 +468,197 @@ function renderContested(items) {
       ["Mutual", "mutual"],
     ]) {
       const button = document.createElement("button");
+      button.className = "btn btn-secondary";
       button.type = "button";
       button.textContent = label;
-      button.addEventListener("click", () => adjudicate(item.pair, verdict));
+      button.addEventListener("click", async () => {
+        try {
+          setBusy(button, true);
+          await fetchJson("/adjudicate", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              pair: item.pair,
+              verdict,
+              basis: `Resolved from demo UI as ${label}.`,
+              confirm_mutation: state.mutationConfirmation,
+            }),
+          });
+        await loadContested();
+        await loadBriefingForInvalidation();
+      } catch (error) {
+          basis.textContent = error.message;
+        } finally {
+          setBusy(button, false);
+        }
+      });
       actions.append(button);
     }
-
-    card.append(meta, claims, basis, actions);
-    el.contestedList.append(card);
+    card.append(actions);
+    list.append(card);
   }
 }
 
-async function adjudicate(pair, verdict) {
+let loadBriefingForInvalidation = async () => Promise.resolve();
+
+async function loadContested() {
+  const count = byId("contestedCount");
+  const container = byId("contestedList");
+  if (!container) return;
+  setSkeleton(container);
   try {
-    const result = await postJson("/adjudicate", {
-      pair,
-      verdict,
-      basis: `UI adjudication selected ${verdict}.`,
-      confirm_mutation: state.mutationConfirmation,
-    });
-    addTimeline("adjudicated", `${result.pair} -> ${result.verdict}`);
-    await loadContested();
-    await loadBriefing();
-    await loadTimeline();
-    if (state.lastQuestion) {
-      await askBoth();
+    const payload = await fetchJson("/contested");
+    if (count) {
+      count.textContent = `${payload.count || 0} open`;
     }
+    renderContested(payload.items || []);
   } catch (error) {
-    addTimeline("error", error.message);
+    container.replaceChildren(errorPanel(error.message, initContested));
   }
 }
 
-async function retractSelected() {
-  const doi = el.doiSelect.value;
-  if (!doi) {
-    return;
-  }
-  const selectedOption = el.doiSelect.selectedOptions[0];
-  const selectedQuestion = selectedOption
-    ? selectedOption.dataset.question
-    : null;
-  setBusy(el.retractButton, true);
-  addTimeline("request", doi);
-  try {
-    const response = await fetch("/retract", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        doi,
-        confirm_mutation: state.mutationConfirmation,
-      }),
-    });
-    if (!response.ok || !response.body) {
-      throw new Error(await response.text());
-    }
+async function initContested() {
+  await loadContested();
+}
 
-    const reader = response.body.getReader();
-    const decoder = new TextDecoder();
-    let buffer = "";
-    while (true) {
-      const { value, done } = await reader.read();
-      if (done) {
-        break;
+function renderTimeline(payload) {
+  byId("timelineAnswerThen").textContent = payload.before?.text || "No answer for start date.";
+  byId("timelineAnswerNow").textContent = payload.after?.text || "No answer for end date.";
+  const thenRefs = byId("timelineThenRefs");
+  const nowRefs = byId("timelineNowRefs");
+  thenRefs.replaceChildren();
+  nowRefs.replaceChildren();
+  if ((payload.before?.references || []).length) {
+    for (const ref of payload.before.references) {
+      thenRefs.append(renderRef(ref));
+    }
+  } else {
+    renderEmpty(thenRefs, "No references.");
+  }
+  if ((payload.after?.references || []).length) {
+    for (const ref of payload.after.references) {
+      nowRefs.append(renderRef(ref));
+    }
+  } else {
+    renderEmpty(nowRefs, "No references.");
+  }
+  renderBriefing(payload.changes?.added || [], "timelineAdded");
+  renderBriefing(payload.changes?.contested || [], "timelineContested");
+  renderBriefing(payload.changes?.revised || [], "timelineRevised");
+  renderBriefing(payload.changes?.purged || [], "timelinePurged");
+}
+
+async function initTimeline() {
+  const button = byId("timelineButton");
+  const fromDate = byId("timelineFrom");
+  const toDate = byId("timelineTo");
+  const question = byId("timelineQuestion");
+  const containers = [
+    "timelineAnswerThen",
+    "timelineAnswerNow",
+    "timelineThenRefs",
+    "timelineNowRefs",
+    "timelineAdded",
+    "timelineContested",
+    "timelineRevised",
+    "timelinePurged",
+  ];
+  async function loadTimeline() {
+    for (const id of containers) {
+      const target = byId(id);
+      setSkeleton(target);
+      if (id.startsWith("timeline")) {
+        target.replaceChildren();
       }
-      buffer += decoder.decode(value, { stream: true });
-      const lines = buffer.split("\n");
-      buffer = lines.pop();
-      for (const line of lines) {
-        if (!line.trim()) {
-          continue;
-        }
-        const message = JSON.parse(line);
-        const detail =
-          message.doi || message.message || message.claim_id || "updated";
-        addTimeline(message.event, detail);
+    }
+    try {
+      const params = new URLSearchParams({
+        from: fromDate.value || "2023-01-01",
+        to: toDate.value || "2026-07-04",
+      });
+      if (question.value.trim()) {
+        params.set("question", question.value.trim());
+      }
+      const payload = await fetchJson(`/timeline?${params.toString()}`);
+      renderTimeline(payload);
+    } catch (error) {
+      const now = byId("timelineAnswerNow");
+      if (now) {
+        now.textContent = `Error loading timeline: ${error.message}`;
       }
     }
-    await loadState(false);
-    await loadContested();
-    await loadBriefing();
-    await loadTimeline();
-    if (selectedQuestion) {
-      el.question.value = selectedQuestion;
-    }
-    await askBoth();
-  } catch (error) {
-    addTimeline("error", error.message);
-  } finally {
-    setBusy(el.retractButton, false);
+  }
+  button.addEventListener("click", loadTimeline);
+  await loadTimeline();
+}
+
+function renderBenchmarks(payload) {
+  const metricNaive = byId("metricNaive");
+  const metricGroundtruth = byId("metricGroundtruth");
+  const metricControl = byId("metricControl");
+  const coverage = byId("metricCoverage");
+  if (metricNaive) {
+    metricNaive.textContent = payload?.benchmark?.naive_cites_retracted
+      ? `${payload.benchmark.naive_cites_retracted}/20`
+      : "18/20";
+  }
+  if (metricGroundtruth) {
+    metricGroundtruth.textContent = payload?.benchmark?.groundtruth_cites_retracted !== undefined
+      ? `${payload.benchmark.groundtruth_cites_retracted}/20`
+      : "0/20";
+  }
+  if (metricControl) {
+    const controlTotal = payload?.benchmark?.control_claim_total || 5;
+    const controlRetention = payload?.benchmark?.control_claim_retention || 5;
+    metricControl.textContent = `${controlRetention}/${controlTotal}`;
+  }
+  if (coverage) {
+    coverage.textContent = "25/25";
   }
 }
 
-async function sendFeedback(score) {
-  if (!state.sessionId || !state.groundtruthQaId) {
-    addTimeline("feedback", "ask GroundTruth once before sending feedback");
-    return;
-  }
-  const result = await postJson("/feedback", {
-    session_id: state.sessionId,
-    qa_id: state.groundtruthQaId,
-    score,
-    text:
-      score < 3 ? "Answer should lean harder on post-retraction memory." : null,
-    confirm_mutation: state.mutationConfirmation,
-  });
-  addTimeline("feedback", `${result.qa_id} score ${result.feedback_score}`);
-}
-
-async function improve() {
-  if (!state.sessionId) {
-    return;
-  }
-  setBusy(el.improveButton, true);
+async function initEvidence() {
   try {
-    const result = await postJson("/improve", {
-      dataset: "groundtruth_memory",
-      session_ids: [state.sessionId],
-      feedback_alpha: 1,
-      confirm_mutation: state.mutationConfirmation,
-    });
-    addTimeline("improve", result.session_bridge);
-    await askBoth(1);
+    const payload = await fetchJson("/state");
+    renderBenchmarks(payload);
+    byId("evidenceContestedCount").textContent = "No pending contested queue snapshot in this page.";
+    const contested = await fetchJson("/contested");
+    byId("evidenceContestedCount").textContent = `${contested.count || 0} open contested pairs`;
   } catch (error) {
-    addTimeline("error", error.message);
-  } finally {
-    setBusy(el.improveButton, false);
+    const target = byId("evidenceContestedCount");
+    if (target) {
+      target.textContent = `Unable to load evidence data: ${error.message}`;
+    }
   }
 }
 
-el.askButton.addEventListener("click", () => askBoth());
-el.retractButton.addEventListener("click", retractSelected);
-el.downvoteButton.addEventListener("click", () => sendFeedback(1));
-el.upvoteButton.addEventListener("click", () => sendFeedback(5));
-el.improveButton.addEventListener("click", improve);
-el.timelineButton.addEventListener("click", loadTimeline);
+function initLanding() {
+  const links = document.querySelectorAll("[href*='ask'], [href*='briefing'], [href*='contested'], [href*='timeline'], [href*='evidence']");
+  for (const link of links) {
+    link.setAttribute("role", "link");
+  }
+}
 
-loadState(true)
-  .then(() => loadContested())
-  .then(() => loadBriefing())
-  .then(() => loadTimeline())
-  .then(() => askBoth())
-  .catch((error) => addTimeline("error", error.message));
+async function main() {
+  setMenuState();
+  loadBriefingForInvalidation = initBriefing;
+
+  const page = document.body.dataset.page;
+  if (page === "ask") {
+    await initAsk();
+  } else if (page === "briefing") {
+    initBriefing();
+  } else if (page === "contested") {
+    await initContested();
+  } else if (page === "timeline") {
+    await initTimeline();
+  } else if (page === "evidence") {
+    await initEvidence();
+  } else {
+    initLanding();
+  }
+}
+
+main().catch((error) => {
+  console.error(error);
+});

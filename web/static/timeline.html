@@ -4,34 +4,86 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Timeline — GroundTruth</title>
-    <meta
-      name="description"
-      content="Track belief changes over time with time-travel diff and as-of answers."
-    />
+    <meta name="description" content="Review belief changes between two timepoints with as-of answers." />
     <link rel="stylesheet" href="/static/styles.css" />
     <meta property="og:title" content="GroundTruth Timeline" />
-    <meta
-      property="og:description"
-      content="Time-travel diff for belief additions, contestation, revisions, and purges."
-    />
+    <meta property="og:description" content="Time-travel diff across added, contested, revised, and purged beliefs." />
   </head>
   <body data-page="timeline">
+    <a class="skip-link" href="#main">Skip to main</a>
     <header class="site-nav">
-      <div class="site-brand">GroundTruth</div>
-      <nav aria-label="Primary">
-        <a href="/">Home</a>
-        <a href="/ask">Ask</a>
-        <a href="/briefing">Briefing</a>
-        <a href="/contested">Contested</a>
-        <a href="/timeline" class="active">Timeline</a>
-        <a href="/evidence">Evidence</a>
-        <a href="https://github.com" rel="noreferrer" target="_blank">GitHub</a>
+      <div class="nav-brand">GroundTruth</div>
+      <button id="menuToggle" class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+        <span class="sr-only">Toggle navigation</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16" />
+        </svg>
+      </button>
+      <nav id="primary-nav" class="main-nav" aria-label="Primary">
+        <a href="/#how-it-works" class="nav-link">How it works</a>
+        <a href="/ask" class="nav-link">Ask</a>
+        <a href="/briefing" class="nav-link">Briefing</a>
+        <a href="/contested" class="nav-link">Contested</a>
+        <a href="/timeline" class="nav-link is-active">Timeline</a>
+        <a href="/evidence" class="nav-link">Evidence</a>
+        <a href="https://github.com" class="nav-link" rel="noreferrer" target="_blank">GitHub</a>
       </nav>
+      <a href="/ask" class="btn btn-primary">Open the app</a>
     </header>
-    <main class="page-main">Timeline shell</main>
+
+    <main id="main" class="page-shell">
+      <section class="section-shell">
+        <div class="section-heading">
+          <p class="eyebrow">Belief timeline</p>
+          <h1>Time-travel diff</h1>
+          <p>Compare answers and belief changes between two dates.</p>
+        </div>
+        <div class="timeline-controls">
+          <label for="timelineFrom" class="inline-label">From</label>
+          <input id="timelineFrom" type="date" value="2023-01-01" />
+          <label for="timelineTo" class="inline-label">To</label>
+          <input id="timelineTo" type="date" value="2026-07-04" />
+          <label for="timelineQuestion" class="inline-label">Question</label>
+          <input id="timelineQuestion" type="text" placeholder="Optional question" />
+          <button id="timelineButton" class="btn btn-secondary" type="button">Load diff</button>
+        </div>
+
+        <div class="timeline-grid">
+          <article class="panel">
+            <h2>Answer then</h2>
+            <p id="timelineAnswerThen" class="result-text">No as-of answer loaded.</p>
+            <div id="timelineThenRefs" class="refs"></div>
+          </article>
+          <article class="panel">
+            <h2>Answer now</h2>
+            <p id="timelineAnswerNow" class="result-text">No as-of answer loaded.</p>
+            <div id="timelineNowRefs" class="refs"></div>
+          </article>
+        </div>
+
+        <div class="timeline-grid timeline-grid--four">
+          <article class="panel">
+            <h2>Added</h2>
+            <div id="timelineAdded" class="briefing-list"></div>
+          </article>
+          <article class="panel">
+            <h2>Contested</h2>
+            <div id="timelineContested" class="briefing-list"></div>
+          </article>
+          <article class="panel">
+            <h2>Revised</h2>
+            <div id="timelineRevised" class="briefing-list"></div>
+          </article>
+          <article class="panel">
+            <h2>Purged</h2>
+            <div id="timelinePurged" class="briefing-list"></div>
+          </article>
+        </div>
+      </section>
+    </main>
+
     <footer class="site-footer">
-      GroundTruth · ETHGlobal x Cognee ·
-      <a href="https://github.com">GitHub</a>
+      <p>GroundTruth — ETHGlobal project · <a href="https://github.com">GitHub</a></p>
     </footer>
     <script src="/static/app.js"></script>
   </body>

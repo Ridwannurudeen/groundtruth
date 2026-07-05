@@ -154,7 +154,7 @@ function addEvent(text) {
 }
 
 async function loadState() {
-  const payload = await fetchJson(`${API}/state`);
+  const payload = await fetchJson(`/state`);
   state.sessionId = payload.session_id;
   state.mutationConfirmation = payload.mutation_confirmation;
   return payload;
@@ -213,7 +213,7 @@ async function initAsk() {
   }
 
   async function ask(requestDataset) {
-    return fetchJson(`${API}/ask`, {
+    return fetchJson(`/ask`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -284,7 +284,7 @@ async function initAsk() {
     setSkeleton(timeline);
     timeline.replaceChildren();
     try {
-      const response = await fetchStream(`${API}/retract`, {
+      const response = await fetchStream(`/retract`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ doi, confirm_mutation: state.mutationConfirmation }),
@@ -325,7 +325,7 @@ async function initAsk() {
       return;
     }
     try {
-      await fetchJson(`${API}/feedback`, {
+      await fetchJson(`/feedback`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -346,7 +346,7 @@ async function initAsk() {
     if (!state.sessionId) return;
     setBusy(improveButton, true);
     try {
-      const result = await fetchJson(`${API}/improve`, {
+      const result = await fetchJson(`/improve`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -416,7 +416,7 @@ function initBriefing() {
     setSkeleton(revised);
     setSkeleton(purged);
     try {
-      const payload = await fetchJson(`${API}/briefing`);
+      const payload = await fetchJson(`/briefing`);
       generatedAt.textContent = payload.generated_at || "not available";
       renderBriefing(payload.learned_last_night || [], "briefingLearned");
       renderBriefing(payload.now_contested || [], "briefingContested");
@@ -474,7 +474,7 @@ function renderContested(items) {
       button.addEventListener("click", async () => {
         try {
           setBusy(button, true);
-          await fetchJson(`${API}/adjudicate`, {
+          await fetchJson(`/adjudicate`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -507,7 +507,7 @@ async function loadContested() {
   if (!container) return;
   setSkeleton(container);
   try {
-    const payload = await fetchJson(`${API}/contested`);
+    const payload = await fetchJson(`/contested`);
     if (count) {
       count.textContent = `${payload.count || 0} open`;
     }
@@ -579,7 +579,7 @@ async function initTimeline() {
       if (question.value.trim()) {
         params.set("question", question.value.trim());
       }
-      const payload = await fetchJson(`${API}/timeline?${params.toString()}`);
+      const payload = await fetchJson(`/timeline?${params.toString()}`);
       renderTimeline(payload);
     } catch (error) {
       const now = byId("timelineAnswerNow");
@@ -619,10 +619,10 @@ function renderBenchmarks(payload) {
 
 async function initEvidence() {
   try {
-    const payload = await fetchJson(`${API}/state`);
+    const payload = await fetchJson(`/state`);
     renderBenchmarks(payload);
     byId("evidenceContestedCount").textContent = "No pending contested queue snapshot in this page.";
-    const contested = await fetchJson(`${API}/contested`);
+    const contested = await fetchJson(`/contested`);
     byId("evidenceContestedCount").textContent = `${contested.count || 0} open contested pairs`;
   } catch (error) {
     const target = byId("evidenceContestedCount");

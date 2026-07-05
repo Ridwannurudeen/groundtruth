@@ -1,6 +1,6 @@
 # GroundTruth V2 Results
 
-Generated: 2026-07-04T21:03:35.457405+00:00
+Generated: 2026-07-05T00:31:58.535327+00:00
 Status: `partial_quota_stop`
 
 ## Baseline Before V2
@@ -68,12 +68,11 @@ Coverage:
   "all_pair_total": 28,
   "candidate_pairs": 28,
   "claims": 8,
-  "evaluated_pairs": 22,
+  "evaluated_pairs": 23,
   "manifest_pairs": 28,
   "manifest_pairs_not_candidates": [],
   "pending_pairs": [
     "V2C001::V2C007",
-    "V2C001::V2C008",
     "V2C004::V2C006",
     "V2C005::V2C007",
     "V2C006::V2C007",
@@ -89,12 +88,12 @@ Metrics:
 
 ```json
 {
-  "evaluated_pairs": 22,
+  "evaluated_pairs": 23,
   "false_negative": 1,
   "false_positive": 0,
   "precision": 1.0,
   "recall": 0.6666666666666666,
-  "true_negative": 19,
+  "true_negative": 20,
   "true_positive": 2
 }
 ```
@@ -398,7 +397,7 @@ Pairs:
     "similarity": 0.85586
   },
   {
-    "cached": false,
+    "cached": true,
     "claim_a_id": "V2C007",
     "claim_b_id": "V2C002",
     "decision": {
@@ -410,6 +409,20 @@ Pairs:
     "expected_conflict": false,
     "pair_signature": "a73bb47d12a2ce40d6181ee7b634eb89969688a4490314644326ab32e9df67eb",
     "similarity": 0.85402
+  },
+  {
+    "cached": false,
+    "claim_a_id": "V2C008",
+    "claim_b_id": "V2C001",
+    "decision": {
+      "basis": "Claim A discusses the effect of a low-fat dietary pattern on cardiovascular disease risk, while Claim B discusses the effect of vitamin D3 supplementation on diabetes risk. These claims concern different interventions/exposures and different health outcomes, so they do not conflict.",
+      "confidence": 1.0,
+      "conflicts": false,
+      "direction": "none"
+    },
+    "expected_conflict": false,
+    "pair_signature": "de50c6e8709c84de9d22849b28b4a9eea503007372b8434df79a8adc155086e7",
+    "similarity": 0.85231
   }
 ]
 ```
@@ -440,7 +453,7 @@ The pass stopped on a quota/rate-limit error. Cached judgments and ingested clai
     litellm.RateLimitError: litellm.RateLimitError: geminiException - {
   "error": {
     "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 25.726356185s.",
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 1.818243547s.",
     "status": "RESOURCE_EXHAUSTED",
     "details": [
       {

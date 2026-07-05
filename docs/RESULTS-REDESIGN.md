@@ -2,7 +2,7 @@
 
 Generated: 2026-07-05
 
-Status: `implemented_with_known_global_failures`
+Status: `implemented_and_tested`
 
 ## Scope
 
@@ -94,18 +94,10 @@ cd C:\Users\gudma\OneDrive\Desktop\GITHUB-FILES\groundtruth
 Output:
 
 ```text
-3 failed, 63 passed, 13 warnings in 88.15s (0:01:28)
+66 passed, 13 warnings in 70.75s (0:01:10)
 ```
 
-Failures:
-
-1. `tests/test_benchmark.py::test_committed_corpus_memory_integrity_guard`
-2. `tests/test_registry.py::test_claims_registry_is_complete_and_unique`
-3. `tests/test_web.py::test_state_exposes_demo_inventory`
-
-These are pre-existing cross-system state expectations and not regressions from the web redesign
-(the web API route migration and route shells are validated by `tests/test_web.py` aside from the
-existing active-retraction baseline expectation).
+No failures.
 
 ## Notes
 

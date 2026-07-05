@@ -1,35 +1,21 @@
 [
   {
-    "belief_state": "retracted",
+    "belief_state": "active",
     "claim_id": "R001",
     "claim_text": "The paper claimed that avacopan for the Treatment of ANCA-Associated Vasculitis.",
     "cohort": "retracted_original",
     "datasets": {
       "groundtruth_memory": {
-        "data_id": "033e8c14-5e6e-5dbf-8a50-a7b850015cf2",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
-        "retraction_notice_data_id": "4b2daf7b-0340-572d-adde-ce491af50f5d",
-        "retraction_notice_doi": "10.1056/nejme2608684",
-        "status": "retracted_forgotten"
+        "data_id": "99950f89-006f-5490-947a-1245ca4f5da4",
+        "dataset_id": "454b2be9-b555-551f-b66d-88f86fbc716d"
       },
       "naive_memory": {
-        "data_id": "033e8c14-5e6e-5dbf-8a50-a7b850015cf2",
-        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
-        "retraction_notice_data_id": "4b2daf7b-0340-572d-adde-ce491af50f5d",
-        "retraction_notice_doi": "10.1056/nejme2608684",
-        "status": "retracted_retained"
+        "data_id": "99950f89-006f-5490-947a-1245ca4f5da4",
+        "dataset_id": "ee9bde98-c06b-5dc3-84b9-04009a649023"
       }
     },
     "doi": "10.1056/nejmoa2023386",
     "ingestion_mode": "deterministic_graph_fallback",
-    "retraction": {
-      "claim_id": "R001",
-      "nature": "Retraction",
-      "original_doi": "10.1056/nejmoa2023386",
-      "reason": "Investigation by Company/Institution;Manipulation of Results;Upgrade/Update of Prior Notice(s);",
-      "retraction_date": "6/29/2026 0:00",
-      "retraction_doi": "10.1056/nejme2608684"
-    },
     "retraction_doi": "10.1056/nejme2608684",
     "source": {
       "doi": "10.1056/nejmoa2023386",
@@ -45,48 +31,27 @@
         "evidence_class": "user_assertion",
         "evidence_ref": "10.1056/nejmoa2023386",
         "state": "active"
-      },
-      {
-        "at": "2026-06-29T00:00:00+00:00",
-        "basis": "Retraction Watch record 10.1056/nejme2608684 supersedes original DOI 10.1056/nejmoa2023386; reason: Investigation by Company/Institution;Manipulation of Results;Upgrade/Update of Prior Notice(s);",
-        "evidence_class": "authority_feed",
-        "evidence_ref": "10.1056/nejme2608684",
-        "state": "retracted"
       }
     ],
-    "status": "retracted_forgotten"
+    "status": "active"
   },
   {
-    "belief_state": "retracted",
+    "belief_state": "active",
     "claim_id": "R002",
     "claim_text": "The paper claimed that nutritional and bioactive properties and antioxidant potential of Amaranthus tricolor, A. lividus, A viridis, and A. spinosus leafy vegetables.",
     "cohort": "retracted_original",
     "datasets": {
       "groundtruth_memory": {
-        "data_id": "0d01068c-5f25-56aa-943a-63b1cd4a05ba",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
-        "retraction_notice_data_id": "8f967623-fbe5-5104-bad6-53b3f7f6d931",
-        "retraction_notice_doi": "10.1016/j.heliyon.2025.e44253",
-        "status": "retracted_forgotten"
+        "data_id": "cfe51a00-1c01-56cb-b321-4d6b4ff64cf6",
+        "dataset_id": "454b2be9-b555-551f-b66d-88f86fbc716d"
       },
       "naive_memory": {
-        "data_id": "0d01068c-5f25-56aa-943a-63b1cd4a05ba",
-        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
-        "retraction_notice_data_id": "8f967623-fbe5-5104-bad6-53b3f7f6d931",
-        "retraction_notice_doi": "10.1016/j.heliyon.2025.e44253",
-        "status": "retracted_retained"
+        "data_id": "cfe51a00-1c01-56cb-b321-4d6b4ff64cf6",
+        "dataset_id": "ee9bde98-c06b-5dc3-84b9-04009a649023"
       }
     },
     "doi": "10.1016/j.heliyon.2024.e30453",
     "ingestion_mode": "deterministic_graph_fallback",
-    "retraction": {
-      "claim_id": "R002",
-      "nature": "Retraction",
-      "original_doi": "10.1016/j.heliyon.2024.e30453",
-      "reason": "Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
-      "retraction_date": "11/24/2025 0:00",
-      "retraction_doi": "10.1016/j.heliyon.2025.e44253"
-    },
     "retraction_doi": "10.1016/j.heliyon.2025.e44253",
     "source": {
       "doi": "10.1016/j.heliyon.2024.e30453",
@@ -102,48 +67,27 @@
         "evidence_class": "user_assertion",
         "evidence_ref": "10.1016/j.heliyon.2024.e30453",
         "state": "active"
-      },
-      {
-        "at": "2025-11-24T00:00:00+00:00",
-        "basis": "Retraction Watch record 10.1016/j.heliyon.2025.e44253 supersedes original DOI 10.1016/j.heliyon.2024.e30453; reason: Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
-        "evidence_class": "authority_feed",
-        "evidence_ref": "10.1016/j.heliyon.2025.e44253",
-        "state": "retracted"
       }
     ],
-    "status": "retracted_forgotten"
+    "status": "active"
   },
   {
-    "belief_state": "retracted",
+    "belief_state": "active",
     "claim_id": "R003",
     "claim_text": "The paper claimed that effects of different antihypertensive drug classes on central and ambulatory blood pressure in resistant hypertension: A randomized clinical trial.",
     "cohort": "retracted_original",
     "datasets": {
       "groundtruth_memory": {
-        "data_id": "e21ca4ca-0fc0-59bc-a3d4-7025db76c675",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
-        "retraction_notice_data_id": "99e5a7e4-1f8d-588b-8317-c7a32aa727ce",
-        "retraction_notice_doi": "10.1002/bcp.70475",
-        "status": "retracted_forgotten"
+        "data_id": "47670cde-9fad-5fcf-99a7-cc3df4aead7b",
+        "dataset_id": "454b2be9-b555-551f-b66d-88f86fbc716d"
       },
       "naive_memory": {
-        "data_id": "e21ca4ca-0fc0-59bc-a3d4-7025db76c675",
-        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
-        "retraction_notice_data_id": "99e5a7e4-1f8d-588b-8317-c7a32aa727ce",
-        "retraction_notice_doi": "10.1002/bcp.70475",
-        "status": "retracted_retained"
+        "data_id": "47670cde-9fad-5fcf-99a7-cc3df4aead7b",
+        "dataset_id": "ee9bde98-c06b-5dc3-84b9-04009a649023"
       }
     },
     "doi": "10.1002/bcp.70249",
     "ingestion_mode": "deterministic_graph_fallback",
-    "retraction": {
-      "claim_id": "R003",
-      "nature": "Retraction",
-      "original_doi": "10.1002/bcp.70249",
-      "reason": "Concerns/Issues about Human Subject Welfare;Concerns/Issues about Methods;Error in Analyses;Investigation by Journal/Publisher;Investigation by Third Party;Unreliable Results and/or Conclusions;",
-      "retraction_date": "1/22/2026 0:00",
-      "retraction_doi": "10.1002/bcp.70475"
-    },
     "retraction_doi": "10.1002/bcp.70475",
     "source": {
       "doi": "10.1002/bcp.70249",
@@ -159,48 +103,27 @@
         "evidence_class": "user_assertion",
         "evidence_ref": "10.1002/bcp.70249",
         "state": "active"
-      },
-      {
-        "at": "2026-01-22T00:00:00+00:00",
-        "basis": "Retraction Watch record 10.1002/bcp.70475 supersedes original DOI 10.1002/bcp.70249; reason: Concerns/Issues about Human Subject Welfare;Concerns/Issues about Methods;Error in Analyses;Investigation by Journal/Publisher;Investigation by Third Party;Unreliable Results and/or Conclusions;",
-        "evidence_class": "authority_feed",
-        "evidence_ref": "10.1002/bcp.70475",
-        "state": "retracted"
       }
     ],
-    "status": "retracted_forgotten"
+    "status": "active"
   },
   {
-    "belief_state": "retracted",
+    "belief_state": "active",
     "claim_id": "R004",
     "claim_text": "The paper claimed that an effective PO-RSNN and FZCIS based diabetes prediction and stroke analysis in the metaverse environment.",
     "cohort": "retracted_original",
     "datasets": {
       "groundtruth_memory": {
-        "data_id": "ea8722b5-a8b9-57f4-89e0-e18772ff635c",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
-        "retraction_notice_data_id": "33d7feae-c703-5a0a-8607-eae01f51ffff",
-        "retraction_notice_doi": "10.1038/s41598-026-55044-4",
-        "status": "retracted_forgotten"
+        "data_id": "b69f1e68-223e-5378-80aa-e3fac8ce79b6",
+        "dataset_id": "454b2be9-b555-551f-b66d-88f86fbc716d"
       },
       "naive_memory": {
-        "data_id": "ea8722b5-a8b9-57f4-89e0-e18772ff635c",
-        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
-        "retraction_notice_data_id": "33d7feae-c703-5a0a-8607-eae01f51ffff",
-        "retraction_notice_doi": "10.1038/s41598-026-55044-4",
-        "status": "retracted_retained"
+        "data_id": "b69f1e68-223e-5378-80aa-e3fac8ce79b6",
+        "dataset_id": "ee9bde98-c06b-5dc3-84b9-04009a649023"
       }
     },
     "doi": "10.1038/s41598-025-96541-2",
     "ingestion_mode": "deterministic_graph_fallback",
-    "retraction": {
-      "claim_id": "R004",
-      "nature": "Retraction",
-      "original_doi": "10.1038/s41598-025-96541-2",
-      "reason": "Computer-Aided Content or Computer-Generated Content;Concerns/Issues about Data;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
-      "retraction_date": "6/3/2026 0:00",
-      "retraction_doi": "10.1038/s41598-026-55044-4"
-    },
     "retraction_doi": "10.1038/s41598-026-55044-4",
     "source": {
       "doi": "10.1038/s41598-025-96541-2",
@@ -216,48 +139,27 @@
         "evidence_class": "user_assertion",
         "evidence_ref": "10.1038/s41598-025-96541-2",
         "state": "active"
-      },
-      {
-        "at": "2026-06-03T00:00:00+00:00",
-        "basis": "Retraction Watch record 10.1038/s41598-026-55044-4 supersedes original DOI 10.1038/s41598-025-96541-2; reason: Computer-Aided Content or Computer-Generated Content;Concerns/Issues about Data;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
-        "evidence_class": "authority_feed",
-        "evidence_ref": "10.1038/s41598-026-55044-4",
-        "state": "retracted"
       }
     ],
-    "status": "retracted_forgotten"
+    "status": "active"
   },
   {
-    "belief_state": "retracted",
+    "belief_state": "active",
     "claim_id": "R005",
     "claim_text": "The paper claimed that the interplay between monosodium glutamate (MSG) consumption and metabolic disorders.",
     "cohort": "retracted_original",
     "datasets": {
       "groundtruth_memory": {
-        "data_id": "79f37376-cbd9-5566-80dc-1ad63e27bb39",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
-        "retraction_notice_data_id": "26a06040-1641-5fb4-b618-aac0a99829ec",
-        "retraction_notice_doi": "10.1016/j.heliyon.2025.e44379",
-        "status": "retracted_forgotten"
+        "data_id": "900adecf-5642-5894-a236-1f9626420e41",
+        "dataset_id": "454b2be9-b555-551f-b66d-88f86fbc716d"
       },
       "naive_memory": {
-        "data_id": "79f37376-cbd9-5566-80dc-1ad63e27bb39",
-        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
-        "retraction_notice_data_id": "26a06040-1641-5fb4-b618-aac0a99829ec",
-        "retraction_notice_doi": "10.1016/j.heliyon.2025.e44379",
-        "status": "retracted_retained"
+        "data_id": "900adecf-5642-5894-a236-1f9626420e41",
+        "dataset_id": "ee9bde98-c06b-5dc3-84b9-04009a649023"
       }
     },
     "doi": "10.1016/j.heliyon.2023.e19675",
     "ingestion_mode": "deterministic_graph_fallback",
-    "retraction": {
-      "claim_id": "R005",
-      "nature": "Retraction",
-      "original_doi": "10.1016/j.heliyon.2023.e19675",
-      "reason": "Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
-      "retraction_date": "12/16/2025 0:00",
-      "retraction_doi": "10.1016/j.heliyon.2025.e44379"
-    },
     "retraction_doi": "10.1016/j.heliyon.2025.e44379",
     "source": {
       "doi": "10.1016/j.heliyon.2023.e19675",
@@ -273,48 +175,27 @@
         "evidence_class": "user_assertion",
         "evidence_ref": "10.1016/j.heliyon.2023.e19675",
         "state": "active"
-      },
-      {
-        "at": "2025-12-16T00:00:00+00:00",
-        "basis": "Retraction Watch record 10.1016/j.heliyon.2025.e44379 supersedes original DOI 10.1016/j.heliyon.2023.e19675; reason: Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
-        "evidence_class": "authority_feed",
-        "evidence_ref": "10.1016/j.heliyon.2025.e44379",
-        "state": "retracted"
       }
     ],
-    "status": "retracted_forgotten"
+    "status": "active"
   },
   {
-    "belief_state": "retracted",
+    "belief_state": "active",
     "claim_id": "R006",
     "claim_text": "The paper claimed that food insecurity and mental health of women during COVID-19: Evidence from a developing country.",
     "cohort": "retracted_original",
     "datasets": {
       "groundtruth_memory": {
-        "data_id": "c37c62bc-a612-58be-af2c-2aab5c468c08",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
-        "retraction_notice_data_id": "eddb95b1-729c-5dc0-8905-78d2dbfe26fa",
-        "retraction_notice_doi": "10.1371/journal.pone.0349829",
-        "status": "retracted_forgotten"
+        "data_id": "edbae114-1ee1-55a7-853b-d10a8d9a8af0",
+        "dataset_id": "454b2be9-b555-551f-b66d-88f86fbc716d"
       },
       "naive_memory": {
-        "data_id": "c37c62bc-a612-58be-af2c-2aab5c468c08",
-        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
-        "retraction_notice_data_id": "eddb95b1-729c-5dc0-8905-78d2dbfe26fa",
-        "retraction_notice_doi": "10.1371/journal.pone.0349829",
-        "status": "retracted_retained"
+        "data_id": "edbae114-1ee1-55a7-853b-d10a8d9a8af0",
+        "dataset_id": "ee9bde98-c06b-5dc3-84b9-04009a649023"
       }
     },
     "doi": "10.1371/journal.pone.0255392",
     "ingestion_mode": "deterministic_graph_fallback",
-    "retraction": {
-      "claim_id": "R006",
-      "nature": "Retraction",
-      "original_doi": "10.1371/journal.pone.0255392",
-      "reason": "Concerns/Issues about Data;Concerns/Issues about Methods;Concerns/Issues about Results and/or Conclusions;Investigation by Journal/Publisher;Investigation by Third Party;Objections by Author(s);Original Data and/or Images not Provided and/or not Available;Unreliable Results and/or Conclusions;",
-      "retraction_date": "5/21/2026 0:00",
-      "retraction_doi": "10.1371/journal.pone.0349829"
-    },
     "retraction_doi": "10.1371/journal.pone.0349829",
     "source": {
       "doi": "10.1371/journal.pone.0255392",
@@ -330,48 +211,27 @@
         "evidence_class": "user_assertion",
         "evidence_ref": "10.1371/journal.pone.0255392",
         "state": "active"
-      },
-      {
-        "at": "2026-05-21T00:00:00+00:00",
-        "basis": "Retraction Watch record 10.1371/journal.pone.0349829 supersedes original DOI 10.1371/journal.pone.0255392; reason: Concerns/Issues about Data;Concerns/Issues about Methods;Concerns/Issues about Results and/or Conclusions;Investigation by Journal/Publisher;Investigation by Third Party;Objections by Author(s);Original Data and/or Images not Provided and/or not Available;Unreliable Results and/or Conclusions;",
-        "evidence_class": "authority_feed",
-        "evidence_ref": "10.1371/journal.pone.0349829",
-        "state": "retracted"
       }
     ],
-    "status": "retracted_forgotten"
+    "status": "active"
   },
   {
-    "belief_state": "retracted",
+    "belief_state": "active",
     "claim_id": "R007",
     "claim_text": "The paper claimed that phytochemicals, therapeutic benefits and applications of chrysanthemum flower: A review.",
     "cohort": "retracted_original",
     "datasets": {
       "groundtruth_memory": {
-        "data_id": "2d49a0d2-69a4-50b4-99ca-b13c3f8243a9",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
-        "retraction_notice_data_id": "e0b8a838-2d0b-5eb6-b05b-22bbacb7b6a6",
-        "retraction_notice_doi": "10.1016/j.heliyon.2025.e44382",
-        "status": "retracted_forgotten"
+        "data_id": "e5d29ab1-21ae-5ae7-b01c-382c40da753b",
+        "dataset_id": "454b2be9-b555-551f-b66d-88f86fbc716d"
       },
       "naive_memory": {
-        "data_id": "2d49a0d2-69a4-50b4-99ca-b13c3f8243a9",
-        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
-        "retraction_notice_data_id": "e0b8a838-2d0b-5eb6-b05b-22bbacb7b6a6",
-        "retraction_notice_doi": "10.1016/j.heliyon.2025.e44382",
-        "status": "retracted_retained"
+        "data_id": "e5d29ab1-21ae-5ae7-b01c-382c40da753b",
+        "dataset_id": "ee9bde98-c06b-5dc3-84b9-04009a649023"
       }
     },
     "doi": "10.1016/j.heliyon.2023.e20232",
     "ingestion_mode": "deterministic_graph_fallback",
-    "retraction": {
-      "claim_id": "R007",
-      "nature": "Retraction",
-      "original_doi": "10.1016/j.heliyon.2023.e20232",
-      "reason": "Concerns/Issues about Authorship/Affiliation;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
-      "retraction_date": "12/16/2025 0:00",
-      "retraction_doi": "10.1016/j.heliyon.2025.e44382"
-    },
     "retraction_doi": "10.1016/j.heliyon.2025.e44382",
     "source": {
       "doi": "10.1016/j.heliyon.2023.e20232",
@@ -387,48 +247,27 @@
         "evidence_class": "user_assertion",
         "evidence_ref": "10.1016/j.heliyon.2023.e20232",
         "state": "active"
-      },
-      {
-        "at": "2025-12-16T00:00:00+00:00",
-        "basis": "Retraction Watch record 10.1016/j.heliyon.2025.e44382 supersedes original DOI 10.1016/j.heliyon.2023.e20232; reason: Concerns/Issues about Authorship/Affiliation;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
-        "evidence_class": "authority_feed",
-        "evidence_ref": "10.1016/j.heliyon.2025.e44382",
-        "state": "retracted"
       }
     ],
-    "status": "retracted_forgotten"
+    "status": "active"
   },
   {
-    "belief_state": "retracted",
+    "belief_state": "active",
     "claim_id": "R008",
     "claim_text": "The paper claimed that nF-\u0138B axis in diabetic neuropathy, cardiomyopathy and nephropathy: A roadmap from molecular intervention to therapeutic strategies.",
     "cohort": "retracted_original",
     "datasets": {
       "groundtruth_memory": {
-        "data_id": "87da7153-d003-5008-8c6a-7e7cfacb7e5c",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
-        "retraction_notice_data_id": "7f4d9085-c721-5aa6-b59d-f07faec035f1",
-        "retraction_notice_doi": "10.1016/j.heliyon.2025.e44378",
-        "status": "retracted_forgotten"
+        "data_id": "a900e5bd-e1e0-5947-acdb-16e37ea1122c",
+        "dataset_id": "454b2be9-b555-551f-b66d-88f86fbc716d"
       },
       "naive_memory": {
-        "data_id": "87da7153-d003-5008-8c6a-7e7cfacb7e5c",
-        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
-        "retraction_notice_data_id": "7f4d9085-c721-5aa6-b59d-f07faec035f1",
-        "retraction_notice_doi": "10.1016/j.heliyon.2025.e44378",
-        "status": "retracted_retained"
+        "data_id": "a900e5bd-e1e0-5947-acdb-16e37ea1122c",
+        "dataset_id": "ee9bde98-c06b-5dc3-84b9-04009a649023"
       }
     },
     "doi": "10.1016/j.heliyon.2024.e29871",
     "ingestion_mode": "deterministic_graph_fallback",
-    "retraction": {
-      "claim_id": "R008",
-      "nature": "Retraction",
-      "original_doi": "10.1016/j.heliyon.2024.e29871",
-      "reason": "Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
-      "retraction_date": "12/16/2025 0:00",
-      "retraction_doi": "10.1016/j.heliyon.2025.e44378"
-    },
     "retraction_doi": "10.1016/j.heliyon.2025.e44378",
     "source": {
       "doi": "10.1016/j.heliyon.2024.e29871",
@@ -444,48 +283,27 @@
         "evidence_class": "user_assertion",
         "evidence_ref": "10.1016/j.heliyon.2024.e29871",
         "state": "active"
-      },
-      {
-        "at": "2025-12-16T00:00:00+00:00",
-        "basis": "Retraction Watch record 10.1016/j.heliyon.2025.e44378 supersedes original DOI 10.1016/j.heliyon.2024.e29871; reason: Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
-        "evidence_class": "authority_feed",
-        "evidence_ref": "10.1016/j.heliyon.2025.e44378",
-        "state": "retracted"
       }
     ],
-    "status": "retracted_forgotten"
+    "status": "active"
   },
   {
-    "belief_state": "retracted",
+    "belief_state": "active",
     "claim_id": "R009",
     "claim_text": "The paper claimed that fenchone and camphor: Main natural compounds from Lavandula stoechas L., expediting multiple in vitro biological activities.",
     "cohort": "retracted_original",
     "datasets": {
       "groundtruth_memory": {
-        "data_id": "36eae4ae-b0f1-519b-8ea1-d50c2e60bd5f",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
-        "retraction_notice_data_id": "fd06d41a-718c-5980-aa6d-1c99ee176224",
-        "retraction_notice_doi": "10.1016/j.heliyon.2025.e44400",
-        "status": "retracted_forgotten"
+        "data_id": "3da1904d-b275-5759-9472-225eaa17a690",
+        "dataset_id": "454b2be9-b555-551f-b66d-88f86fbc716d"
       },
       "naive_memory": {
-        "data_id": "36eae4ae-b0f1-519b-8ea1-d50c2e60bd5f",
-        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
-        "retraction_notice_data_id": "fd06d41a-718c-5980-aa6d-1c99ee176224",
-        "retraction_notice_doi": "10.1016/j.heliyon.2025.e44400",
-        "status": "retracted_retained"
+        "data_id": "3da1904d-b275-5759-9472-225eaa17a690",
+        "dataset_id": "ee9bde98-c06b-5dc3-84b9-04009a649023"
       }
     },
     "doi": "10.1016/j.heliyon.2023.e21222",
     "ingestion_mode": "deterministic_graph_fallback",
-    "retraction": {
-      "claim_id": "R009",
-      "nature": "Retraction",
-      "original_doi": "10.1016/j.heliyon.2023.e21222",
-      "reason": "Concerns/Issues about Authorship/Affiliation;Concerns/Issues about Results and/or Conclusions;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
-      "retraction_date": "12/21/2025 0:00",
-      "retraction_doi": "10.1016/j.heliyon.2025.e44400"
-    },
     "retraction_doi": "10.1016/j.heliyon.2025.e44400",
     "source": {
       "doi": "10.1016/j.heliyon.2023.e21222",
@@ -501,48 +319,27 @@
         "evidence_class": "user_assertion",
         "evidence_ref": "10.1016/j.heliyon.2023.e21222",
         "state": "active"
-      },
-      {
-        "at": "2025-12-21T00:00:00+00:00",
-        "basis": "Retraction Watch record 10.1016/j.heliyon.2025.e44400 supersedes original DOI 10.1016/j.heliyon.2023.e21222; reason: Concerns/Issues about Authorship/Affiliation;Concerns/Issues about Results and/or Conclusions;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
-        "evidence_class": "authority_feed",
-        "evidence_ref": "10.1016/j.heliyon.2025.e44400",
-        "state": "retracted"
       }
     ],
-    "status": "retracted_forgotten"
+    "status": "active"
   },
   {
-    "belief_state": "retracted",
+    "belief_state": "active",
     "claim_id": "R010",
     "claim_text": "The paper claimed that distribution characteristics of inhalable particulate pollutants and their effects on cardiopulmonary respiratory system of outdoor football players in a smart healthcare system.",
     "cohort": "retracted_original",
     "datasets": {
       "groundtruth_memory": {
-        "data_id": "d13dc0ac-adf9-536e-9b7b-ee57b4bc6066",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
-        "retraction_notice_data_id": "ceee7f78-b013-5352-93e7-084b83127a61",
-        "retraction_notice_doi": "10.1007/s00500-025-11084-y",
-        "status": "retracted_forgotten"
+        "data_id": "0de34659-b24a-5fd6-a250-78b49652c5b7",
+        "dataset_id": "454b2be9-b555-551f-b66d-88f86fbc716d"
       },
       "naive_memory": {
-        "data_id": "d13dc0ac-adf9-536e-9b7b-ee57b4bc6066",
-        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
-        "retraction_notice_data_id": "ceee7f78-b013-5352-93e7-084b83127a61",
-        "retraction_notice_doi": "10.1007/s00500-025-11084-y",
-        "status": "retracted_retained"
+        "data_id": "0de34659-b24a-5fd6-a250-78b49652c5b7",
+        "dataset_id": "ee9bde98-c06b-5dc3-84b9-04009a649023"
       }
     },
     "doi": "10.1007/s00500-023-09589-5",
     "ingestion_mode": "deterministic_graph_fallback",
-    "retraction": {
-      "claim_id": "R010",
-      "nature": "Retraction",
-      "original_doi": "10.1007/s00500-023-09589-5",
-      "reason": "Concerns/Issues about Peer Review;Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Unreliable Results and/or Conclusions;",
-      "retraction_date": "12/31/2025 0:00",
-      "retraction_doi": "10.1007/s00500-025-11084-y"
-    },
     "retraction_doi": "10.1007/s00500-025-11084-y",
     "source": {
       "doi": "10.1007/s00500-023-09589-5",
@@ -558,48 +355,27 @@
         "evidence_class": "user_assertion",
         "evidence_ref": "10.1007/s00500-023-09589-5",
         "state": "active"
-      },
-      {
-        "at": "2025-12-31T00:00:00+00:00",
-        "basis": "Retraction Watch record 10.1007/s00500-025-11084-y supersedes original DOI 10.1007/s00500-023-09589-5; reason: Concerns/Issues about Peer Review;Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Unreliable Results and/or Conclusions;",
-        "evidence_class": "authority_feed",
-        "evidence_ref": "10.1007/s00500-025-11084-y",
-        "state": "retracted"
       }
     ],
-    "status": "retracted_forgotten"
+    "status": "active"
   },
   {
-    "belief_state": "retracted",
+    "belief_state": "active",
     "claim_id": "R011",
     "claim_text": "The paper claimed that an attention-based dense network model for cardiac image segmentation using learning approaches.",
     "cohort": "retracted_original",
     "datasets": {
       "groundtruth_memory": {
-        "data_id": "be4527b6-ee58-5b79-88a2-6a776a1aad92",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
-        "retraction_notice_data_id": "7ee50471-5eca-5da5-9a46-98f60e8c6d87",
-        "retraction_notice_doi": "10.1007/s00500-025-11095-9",
-        "status": "retracted_forgotten"
+        "data_id": "e4eb7cc4-8530-5608-b048-71621647e135",
+        "dataset_id": "454b2be9-b555-551f-b66d-88f86fbc716d"
       },
       "naive_memory": {
-        "data_id": "be4527b6-ee58-5b79-88a2-6a776a1aad92",
-        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
-        "retraction_notice_data_id": "7ee50471-5eca-5da5-9a46-98f60e8c6d87",
-        "retraction_notice_doi": "10.1007/s00500-025-11095-9",
-        "status": "retracted_retained"
+        "data_id": "e4eb7cc4-8530-5608-b048-71621647e135",
+        "dataset_id": "ee9bde98-c06b-5dc3-84b9-04009a649023"
       }
     },
     "doi": "10.1007/s00500-023-09482-1",
     "ingestion_mode": "deterministic_graph_fallback",
-    "retraction": {
-      "claim_id": "R011",
-      "nature": "Retraction",
-      "original_doi": "10.1007/s00500-023-09482-1",
-      "reason": "Concerns/Issues about Peer Review;Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
-      "retraction_date": "12/31/2025 0:00",
-      "retraction_doi": "10.1007/s00500-025-11095-9"
-    },
     "retraction_doi": "10.1007/s00500-025-11095-9",
     "source": {
       "doi": "10.1007/s00500-023-09482-1",
@@ -615,48 +391,27 @@
         "evidence_class": "user_assertion",
         "evidence_ref": "10.1007/s00500-023-09482-1",
         "state": "active"
-      },
-      {
-        "at": "2025-12-31T00:00:00+00:00",
-        "basis": "Retraction Watch record 10.1007/s00500-025-11095-9 supersedes original DOI 10.1007/s00500-023-09482-1; reason: Concerns/Issues about Peer Review;Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
-        "evidence_class": "authority_feed",
-        "evidence_ref": "10.1007/s00500-025-11095-9",
-        "state": "retracted"
       }
     ],
-    "status": "retracted_forgotten"
+    "status": "active"
   },
   {
-    "belief_state": "retracted",
+    "belief_state": "active",
     "claim_id": "R012",
     "claim_text": "The paper claimed that siloMAS: A MAS for Smart Silos to Optimize Food and Water Consumption on Livestock Holdings.",
     "cohort": "retracted_original",
     "datasets": {
       "groundtruth_memory": {
-        "data_id": "8b310b31-aecd-5a18-8fd5-06e67dcfe8bb",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
-        "retraction_notice_data_id": "7de422b8-8606-50c3-951a-17a00330ff96",
-        "retraction_notice_doi": "xx10.1007/978-3-030-00524-5_9",
-        "status": "retracted_forgotten"
+        "data_id": "ef970f96-c543-5856-9147-51bff1a5f281",
+        "dataset_id": "454b2be9-b555-551f-b66d-88f86fbc716d"
       },
       "naive_memory": {
-        "data_id": "8b310b31-aecd-5a18-8fd5-06e67dcfe8bb",
-        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
-        "retraction_notice_data_id": "7de422b8-8606-50c3-951a-17a00330ff96",
-        "retraction_notice_doi": "xx10.1007/978-3-030-00524-5_9",
-        "status": "retracted_retained"
+        "data_id": "ef970f96-c543-5856-9147-51bff1a5f281",
+        "dataset_id": "ee9bde98-c06b-5dc3-84b9-04009a649023"
       }
     },
     "doi": "10.1007/978-3-030-00524-5_6",
     "ingestion_mode": "deterministic_graph_fallback",
-    "retraction": {
-      "claim_id": "R012",
-      "nature": "Retraction",
-      "original_doi": "10.1007/978-3-030-00524-5_6",
-      "reason": "Concerns/Issues about Referencing/Attributions;Conflict of Interest;Date of Article and/or Notice Unknown;Investigation by Journal/Publisher;Objections by Author(s);Rogue Editor;Unreliable Results and/or Conclusions;",
-      "retraction_date": "10/15/2024 0:00",
-      "retraction_doi": "xx10.1007/978-3-030-00524-5_9"
-    },
     "retraction_doi": "xx10.1007/978-3-030-00524-5_9",
     "source": {
       "doi": "10.1007/978-3-030-00524-5_6",
@@ -672,48 +427,27 @@
         "evidence_class": "user_assertion",
         "evidence_ref": "10.1007/978-3-030-00524-5_6",
         "state": "active"
-      },
-      {
-        "at": "2024-10-15T00:00:00+00:00",
-        "basis": "Retraction Watch record xx10.1007/978-3-030-00524-5_9 supersedes original DOI 10.1007/978-3-030-00524-5_6; reason: Concerns/Issues about Referencing/Attributions;Conflict of Interest;Date of Article and/or Notice Unknown;Investigation by Journal/Publisher;Objections by Author(s);Rogue Editor;Unreliable Results and/or Conclusions;",
-        "evidence_class": "authority_feed",
-        "evidence_ref": "xx10.1007/978-3-030-00524-5_9",
-        "state": "retracted"
       }
     ],
-    "status": "retracted_forgotten"
+    "status": "active"
   },
   {
-    "belief_state": "retracted",
+    "belief_state": "active",
     "claim_id": "R013",
     "claim_text": "The paper claimed that intelligent Livestock Feeding System by Means of Silos with IoT Technology.",
     "cohort": "retracted_original",
     "datasets": {
       "groundtruth_memory": {
-        "data_id": "d4b61a3d-722d-5dd8-988f-af173e8ebee1",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
-        "retraction_notice_data_id": "c5783413-5ccc-5877-9d83-049b21dca5a5",
-        "retraction_notice_doi": "x10.1007/978-3-030-00524-5_9",
-        "status": "retracted_forgotten"
+        "data_id": "2c31eb72-afd6-56dc-ba8c-d67955a03967",
+        "dataset_id": "454b2be9-b555-551f-b66d-88f86fbc716d"
       },
       "naive_memory": {
-        "data_id": "d4b61a3d-722d-5dd8-988f-af173e8ebee1",
-        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
-        "retraction_notice_data_id": "c5783413-5ccc-5877-9d83-049b21dca5a5",
-        "retraction_notice_doi": "x10.1007/978-3-030-00524-5_9",
-        "status": "retracted_retained"
+        "data_id": "2c31eb72-afd6-56dc-ba8c-d67955a03967",
+        "dataset_id": "ee9bde98-c06b-5dc3-84b9-04009a649023"
       }
     },
     "doi": "10.1007/978-3-030-00524-5_7",
     "ingestion_mode": "deterministic_graph_fallback",
-    "retraction": {
-      "claim_id": "R013",
-      "nature": "Retraction",
-      "original_doi": "10.1007/978-3-030-00524-5_7",
-      "reason": "Concerns/Issues about Referencing/Attributions;Conflict of Interest;Date of Article and/or Notice Unknown;Investigation by Journal/Publisher;Objections by Author(s);Rogue Editor;Unreliable Results and/or Conclusions;",
-      "retraction_date": "10/15/2024 0:00",
-      "retraction_doi": "x10.1007/978-3-030-00524-5_9"
-    },
     "retraction_doi": "x10.1007/978-3-030-00524-5_9",
     "source": {
       "doi": "10.1007/978-3-030-00524-5_7",
@@ -729,48 +463,27 @@
         "evidence_class": "user_assertion",
         "evidence_ref": "10.1007/978-3-030-00524-5_7",
         "state": "active"
-      },
-      {
-        "at": "2024-10-15T00:00:00+00:00",
-        "basis": "Retraction Watch record x10.1007/978-3-030-00524-5_9 supersedes original DOI 10.1007/978-3-030-00524-5_7; reason: Concerns/Issues about Referencing/Attributions;Conflict of Interest;Date of Article and/or Notice Unknown;Investigation by Journal/Publisher;Objections by Author(s);Rogue Editor;Unreliable Results and/or Conclusions;",
-        "evidence_class": "authority_feed",
-        "evidence_ref": "x10.1007/978-3-030-00524-5_9",
-        "state": "retracted"
       }
     ],
-    "status": "retracted_forgotten"
+    "status": "active"
   },
   {
-    "belief_state": "retracted",
+    "belief_state": "active",
     "claim_id": "R014",
     "claim_text": "The paper claimed that longitudinal Data From the KETO-CTA Study: Plaque Predicts Plaque, ApoB Does Not.",
     "cohort": "retracted_original",
     "datasets": {
       "groundtruth_memory": {
-        "data_id": "a5064084-be81-5ee2-9a52-9a955f1c5683",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
-        "retraction_notice_data_id": "07fce8c0-7a17-5e40-867b-acfcc87d2110",
-        "retraction_notice_doi": "10.1016/j.jacadv.2025.101686",
-        "status": "retracted_forgotten"
+        "data_id": "e14e80c2-e1b7-50b3-a0e8-00fa5712becc",
+        "dataset_id": "454b2be9-b555-551f-b66d-88f86fbc716d"
       },
       "naive_memory": {
-        "data_id": "a5064084-be81-5ee2-9a52-9a955f1c5683",
-        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
-        "retraction_notice_data_id": "07fce8c0-7a17-5e40-867b-acfcc87d2110",
-        "retraction_notice_doi": "10.1016/j.jacadv.2025.101686",
-        "status": "retracted_retained"
+        "data_id": "e14e80c2-e1b7-50b3-a0e8-00fa5712becc",
+        "dataset_id": "ee9bde98-c06b-5dc3-84b9-04009a649023"
       }
     },
     "doi": "10.1016/j.jacadv.2025.101686",
     "ingestion_mode": "deterministic_graph_fallback",
-    "retraction": {
-      "claim_id": "R014",
-      "nature": "Retraction",
-      "original_doi": "10.1016/j.jacadv.2025.101686",
-      "reason": "Concerns/Issues about Methods;Unreliable Data;Upgrade/Update of Prior Notice(s);",
-      "retraction_date": "3/11/2026 0:00",
-      "retraction_doi": "10.1016/j.jacadv.2025.101686"
-    },
     "retraction_doi": "10.1016/j.jacadv.2025.101686",
     "source": {
       "doi": "10.1016/j.jacadv.2025.101686",
@@ -786,48 +499,27 @@
         "evidence_class": "user_assertion",
         "evidence_ref": "10.1016/j.jacadv.2025.101686",
         "state": "active"
-      },
-      {
-        "at": "2026-03-11T00:00:00+00:00",
-        "basis": "Retraction Watch record 10.1016/j.jacadv.2025.101686 supersedes original DOI 10.1016/j.jacadv.2025.101686; reason: Concerns/Issues about Methods;Unreliable Data;Upgrade/Update of Prior Notice(s);",
-        "evidence_class": "authority_feed",
-        "evidence_ref": "10.1016/j.jacadv.2025.101686",
-        "state": "retracted"
       }
     ],
-    "status": "retracted_forgotten"
+    "status": "active"
   },
   {
-    "belief_state": "retracted",
+    "belief_state": "active",
     "claim_id": "R015",
     "claim_text": "The paper claimed that targeting epithelial-mesenchymal transition signaling pathways with Dietary Phytocompounds and repurposed drug combinations for overcoming drug resistance in various cancers.",
     "cohort": "retracted_original",
     "datasets": {
       "groundtruth_memory": {
-        "data_id": "57a0c28a-fb22-579e-ad51-e0d96239ea46",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
-        "retraction_notice_data_id": "10dd0a00-a6f2-533b-a6af-5d4884e532ac",
-        "retraction_notice_doi": "10.1016/j.heliyon.2026.e44613",
-        "status": "retracted_forgotten"
+        "data_id": "9a6e6cd7-f113-567f-8806-0285305d27c1",
+        "dataset_id": "454b2be9-b555-551f-b66d-88f86fbc716d"
       },
       "naive_memory": {
-        "data_id": "57a0c28a-fb22-579e-ad51-e0d96239ea46",
-        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
-        "retraction_notice_data_id": "10dd0a00-a6f2-533b-a6af-5d4884e532ac",
-        "retraction_notice_doi": "10.1016/j.heliyon.2026.e44613",
-        "status": "retracted_retained"
+        "data_id": "9a6e6cd7-f113-567f-8806-0285305d27c1",
+        "dataset_id": "ee9bde98-c06b-5dc3-84b9-04009a649023"
       }
     },
     "doi": "10.1016/j.heliyon.2025.e41964",
     "ingestion_mode": "deterministic_graph_fallback",
-    "retraction": {
-      "claim_id": "R015",
-      "nature": "Retraction",
-      "original_doi": "10.1016/j.heliyon.2025.e41964",
-      "reason": "Computer-Aided Content or Computer-Generated Content;Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
-      "retraction_date": "2/11/2026 0:00",
-      "retraction_doi": "10.1016/j.heliyon.2026.e44613"
-    },
     "retraction_doi": "10.1016/j.heliyon.2026.e44613",
     "source": {
       "doi": "10.1016/j.heliyon.2025.e41964",
@@ -843,48 +535,27 @@
         "evidence_class": "user_assertion",
         "evidence_ref": "10.1016/j.heliyon.2025.e41964",
         "state": "active"
-      },
-      {
-        "at": "2026-02-11T00:00:00+00:00",
-        "basis": "Retraction Watch record 10.1016/j.heliyon.2026.e44613 supersedes original DOI 10.1016/j.heliyon.2025.e41964; reason: Computer-Aided Content or Computer-Generated Content;Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Objections by Author(s);Unreliable Results and/or Conclusions;",
-        "evidence_class": "authority_feed",
-        "evidence_ref": "10.1016/j.heliyon.2026.e44613",
-        "state": "retracted"
       }
     ],
-    "status": "retracted_forgotten"
+    "status": "active"
   },
   {
-    "belief_state": "retracted",
+    "belief_state": "active",
     "claim_id": "R016",
     "claim_text": "The paper claimed that efficacy of methanolic extracts of some medicinal plants on wound healing in diabetic rats.",
     "cohort": "retracted_original",
     "datasets": {
       "groundtruth_memory": {
-        "data_id": "ded0db36-085e-58b9-a93a-0faf32567f2d",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
-        "retraction_notice_data_id": "8129f5bb-c4dd-5ba4-96e8-c64bfda8929d",
-        "retraction_notice_doi": "10.1016/j.heliyon.2026.e44645",
-        "status": "retracted_forgotten"
+        "data_id": "09ee8b37-70ee-59e4-bb92-85c3d511d411",
+        "dataset_id": "454b2be9-b555-551f-b66d-88f86fbc716d"
       },
       "naive_memory": {
-        "data_id": "ded0db36-085e-58b9-a93a-0faf32567f2d",
-        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
-        "retraction_notice_data_id": "8129f5bb-c4dd-5ba4-96e8-c64bfda8929d",
-        "retraction_notice_doi": "10.1016/j.heliyon.2026.e44645",
-        "status": "retracted_retained"
+        "data_id": "09ee8b37-70ee-59e4-bb92-85c3d511d411",
+        "dataset_id": "ee9bde98-c06b-5dc3-84b9-04009a649023"
       }
     },
     "doi": "10.1016/j.heliyon.2022.e10071",
     "ingestion_mode": "deterministic_graph_fallback",
-    "retraction": {
-      "claim_id": "R016",
-      "nature": "Retraction",
-      "original_doi": "10.1016/j.heliyon.2022.e10071",
-      "reason": "Duplication of/in Image;Investigation by Journal/Publisher;Investigation by Third Party;Objections by Author(s);Unreliable Results and/or Conclusions;",
-      "retraction_date": "2/26/2026 0:00",
-      "retraction_doi": "10.1016/j.heliyon.2026.e44645"
-    },
     "retraction_doi": "10.1016/j.heliyon.2026.e44645",
     "source": {
       "doi": "10.1016/j.heliyon.2022.e10071",
@@ -900,48 +571,27 @@
         "evidence_class": "user_assertion",
         "evidence_ref": "10.1016/j.heliyon.2022.e10071",
         "state": "active"
-      },
-      {
-        "at": "2026-02-26T00:00:00+00:00",
-        "basis": "Retraction Watch record 10.1016/j.heliyon.2026.e44645 supersedes original DOI 10.1016/j.heliyon.2022.e10071; reason: Duplication of/in Image;Investigation by Journal/Publisher;Investigation by Third Party;Objections by Author(s);Unreliable Results and/or Conclusions;",
-        "evidence_class": "authority_feed",
-        "evidence_ref": "10.1016/j.heliyon.2026.e44645",
-        "state": "retracted"
       }
     ],
-    "status": "retracted_forgotten"
+    "status": "active"
   },
   {
-    "belief_state": "retracted",
+    "belief_state": "active",
     "claim_id": "R017",
     "claim_text": "The paper claimed that dietary Patterns in Adults Following the Christian Orthodox Fasting Regime in Greece.",
     "cohort": "retracted_original",
     "datasets": {
       "groundtruth_memory": {
-        "data_id": "13481387-d756-5462-ab6e-d8a3dbe08581",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
-        "retraction_notice_data_id": "93692e6f-5787-54b3-913a-c3d1fc8808cd",
-        "retraction_notice_doi": "10.3389/fnut.2024.1520555",
-        "status": "retracted_forgotten"
+        "data_id": "4deed37e-1891-58cf-b87e-2db194cbd443",
+        "dataset_id": "454b2be9-b555-551f-b66d-88f86fbc716d"
       },
       "naive_memory": {
-        "data_id": "13481387-d756-5462-ab6e-d8a3dbe08581",
-        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
-        "retraction_notice_data_id": "93692e6f-5787-54b3-913a-c3d1fc8808cd",
-        "retraction_notice_doi": "10.3389/fnut.2024.1520555",
-        "status": "retracted_retained"
+        "data_id": "4deed37e-1891-58cf-b87e-2db194cbd443",
+        "dataset_id": "ee9bde98-c06b-5dc3-84b9-04009a649023"
       }
     },
     "doi": "10.3389/fnut.2022.803913",
     "ingestion_mode": "deterministic_graph_fallback",
-    "retraction": {
-      "claim_id": "R017",
-      "nature": "Retraction",
-      "original_doi": "10.3389/fnut.2022.803913",
-      "reason": "Concerns/Issues about Data;Investigation by Journal/Publisher;Lack of Approval from Company/Institution;",
-      "retraction_date": "11/5/2024 0:00",
-      "retraction_doi": "10.3389/fnut.2024.1520555"
-    },
     "retraction_doi": "10.3389/fnut.2024.1520555",
     "source": {
       "doi": "10.3389/fnut.2022.803913",
@@ -957,48 +607,27 @@
         "evidence_class": "user_assertion",
         "evidence_ref": "10.3389/fnut.2022.803913",
         "state": "active"
-      },
-      {
-        "at": "2024-11-05T00:00:00+00:00",
-        "basis": "Retraction Watch record 10.3389/fnut.2024.1520555 supersedes original DOI 10.3389/fnut.2022.803913; reason: Concerns/Issues about Data;Investigation by Journal/Publisher;Lack of Approval from Company/Institution;",
-        "evidence_class": "authority_feed",
-        "evidence_ref": "10.3389/fnut.2024.1520555",
-        "state": "retracted"
       }
     ],
-    "status": "retracted_forgotten"
+    "status": "active"
   },
   {
-    "belief_state": "retracted",
+    "belief_state": "active",
     "claim_id": "R018",
     "claim_text": "The paper claimed that mobileNet-V2 /IFHO model for Accurate Detection of early-stage diabetic retinopathy.",
     "cohort": "retracted_original",
     "datasets": {
       "groundtruth_memory": {
-        "data_id": "b66cdeb7-f924-54e8-90fc-14104c2dd908",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
-        "retraction_notice_data_id": "5c55498c-b1e0-5849-a775-90619c77163b",
-        "retraction_notice_doi": "10.1016/j.heliyon.2026.e44757",
-        "status": "retracted_forgotten"
+        "data_id": "8ba8ba26-a745-515f-b7b2-884ab91c6c28",
+        "dataset_id": "454b2be9-b555-551f-b66d-88f86fbc716d"
       },
       "naive_memory": {
-        "data_id": "b66cdeb7-f924-54e8-90fc-14104c2dd908",
-        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
-        "retraction_notice_data_id": "5c55498c-b1e0-5849-a775-90619c77163b",
-        "retraction_notice_doi": "10.1016/j.heliyon.2026.e44757",
-        "status": "retracted_retained"
+        "data_id": "8ba8ba26-a745-515f-b7b2-884ab91c6c28",
+        "dataset_id": "ee9bde98-c06b-5dc3-84b9-04009a649023"
       }
     },
     "doi": "10.1016/j.heliyon.2024.e37293",
     "ingestion_mode": "deterministic_graph_fallback",
-    "retraction": {
-      "claim_id": "R018",
-      "nature": "Retraction",
-      "original_doi": "10.1016/j.heliyon.2024.e37293",
-      "reason": "Author Unresponsive;Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Unreliable Results and/or Conclusions;",
-      "retraction_date": "3/17/2026 0:00",
-      "retraction_doi": "10.1016/j.heliyon.2026.e44757"
-    },
     "retraction_doi": "10.1016/j.heliyon.2026.e44757",
     "source": {
       "doi": "10.1016/j.heliyon.2024.e37293",
@@ -1014,48 +643,27 @@
         "evidence_class": "user_assertion",
         "evidence_ref": "10.1016/j.heliyon.2024.e37293",
         "state": "active"
-      },
-      {
-        "at": "2026-03-17T00:00:00+00:00",
-        "basis": "Retraction Watch record 10.1016/j.heliyon.2026.e44757 supersedes original DOI 10.1016/j.heliyon.2024.e37293; reason: Author Unresponsive;Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Unreliable Results and/or Conclusions;",
-        "evidence_class": "authority_feed",
-        "evidence_ref": "10.1016/j.heliyon.2026.e44757",
-        "state": "retracted"
       }
     ],
-    "status": "retracted_forgotten"
+    "status": "active"
   },
   {
-    "belief_state": "retracted",
+    "belief_state": "active",
     "claim_id": "R019",
     "claim_text": "The paper claimed that the Effect of Preoperative Intravenous Tranexamic Acid Versus Rectal Misoprostol in Reducing Blood Loss During and After Elective Cesarean Delivery in Primigravida: A Double-Blinded, Randomized, Comparative-Placebo Trial.",
     "cohort": "retracted_original",
     "datasets": {
       "groundtruth_memory": {
-        "data_id": "862102b8-eb18-5287-9414-11adfd4c7430",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
-        "retraction_notice_data_id": "56cb288a-2ea0-558d-8fb8-0b4faab233b3",
-        "retraction_notice_doi": "10.1016/j.jogc.2023.102264",
-        "status": "retracted_forgotten"
+        "data_id": "f8e4f311-e545-5950-a30a-435474fbd378",
+        "dataset_id": "454b2be9-b555-551f-b66d-88f86fbc716d"
       },
       "naive_memory": {
-        "data_id": "862102b8-eb18-5287-9414-11adfd4c7430",
-        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
-        "retraction_notice_data_id": "56cb288a-2ea0-558d-8fb8-0b4faab233b3",
-        "retraction_notice_doi": "10.1016/j.jogc.2023.102264",
-        "status": "retracted_retained"
+        "data_id": "f8e4f311-e545-5950-a30a-435474fbd378",
+        "dataset_id": "ee9bde98-c06b-5dc3-84b9-04009a649023"
       }
     },
     "doi": "10.1016/j.jogc.2023.102264",
     "ingestion_mode": "deterministic_graph_fallback",
-    "retraction": {
-      "claim_id": "R019",
-      "nature": "Retraction",
-      "original_doi": "10.1016/j.jogc.2023.102264",
-      "reason": "Concerns/Issues about Data;Investigation by Journal/Publisher;Investigation by Third Party;Notice - Limited or No Information;",
-      "retraction_date": "9/26/2024 0:00",
-      "retraction_doi": "10.1016/j.jogc.2023.102264"
-    },
     "retraction_doi": "10.1016/j.jogc.2023.102264",
     "source": {
       "doi": "10.1016/j.jogc.2023.102264",
@@ -1071,48 +679,27 @@
         "evidence_class": "user_assertion",
         "evidence_ref": "10.1016/j.jogc.2023.102264",
         "state": "active"
-      },
-      {
-        "at": "2024-09-26T00:00:00+00:00",
-        "basis": "Retraction Watch record 10.1016/j.jogc.2023.102264 supersedes original DOI 10.1016/j.jogc.2023.102264; reason: Concerns/Issues about Data;Investigation by Journal/Publisher;Investigation by Third Party;Notice - Limited or No Information;",
-        "evidence_class": "authority_feed",
-        "evidence_ref": "10.1016/j.jogc.2023.102264",
-        "state": "retracted"
       }
     ],
-    "status": "retracted_forgotten"
+    "status": "active"
   },
   {
-    "belief_state": "retracted",
+    "belief_state": "active",
     "claim_id": "R020",
     "claim_text": "The paper claimed that fat-based studies for computer-assisted screening of child obesity using thermal imaging based on deep learning techniques: a comparison with quantum machine learning approach.",
     "cohort": "retracted_original",
     "datasets": {
       "groundtruth_memory": {
-        "data_id": "eb56d69a-6313-5dd0-93d8-1d73c161dd3e",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
-        "retraction_notice_data_id": "01e7a371-dbe1-566b-9e19-94bc48e5ab29",
-        "retraction_notice_doi": "10.1007/s00500-026-11208-y",
-        "status": "retracted_forgotten"
+        "data_id": "a4273e97-191b-5bd1-89be-b585cde24a15",
+        "dataset_id": "454b2be9-b555-551f-b66d-88f86fbc716d"
       },
       "naive_memory": {
-        "data_id": "eb56d69a-6313-5dd0-93d8-1d73c161dd3e",
-        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
-        "retraction_notice_data_id": "01e7a371-dbe1-566b-9e19-94bc48e5ab29",
-        "retraction_notice_doi": "10.1007/s00500-026-11208-y",
-        "status": "retracted_retained"
+        "data_id": "a4273e97-191b-5bd1-89be-b585cde24a15",
+        "dataset_id": "ee9bde98-c06b-5dc3-84b9-04009a649023"
       }
     },
     "doi": "10.1007/s00500-021-06668-3",
     "ingestion_mode": "deterministic_graph_fallback",
-    "retraction": {
-      "claim_id": "R020",
-      "nature": "Retraction",
-      "original_doi": "10.1007/s00500-021-06668-3",
-      "reason": "Compromised Peer Review;Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Objections by Author(s);Rogue Editor;Unreliable Results and/or Conclusions;",
-      "retraction_date": "1/21/2026 0:00",
-      "retraction_doi": "10.1007/s00500-026-11208-y"
-    },
     "retraction_doi": "10.1007/s00500-026-11208-y",
     "source": {
       "doi": "10.1007/s00500-021-06668-3",
@@ -1128,48 +715,27 @@
         "evidence_class": "user_assertion",
         "evidence_ref": "10.1007/s00500-021-06668-3",
         "state": "active"
-      },
-      {
-        "at": "2026-01-21T00:00:00+00:00",
-        "basis": "Retraction Watch record 10.1007/s00500-026-11208-y supersedes original DOI 10.1007/s00500-021-06668-3; reason: Compromised Peer Review;Concerns/Issues about Referencing/Attributions;Investigation by Journal/Publisher;Objections by Author(s);Rogue Editor;Unreliable Results and/or Conclusions;",
-        "evidence_class": "authority_feed",
-        "evidence_ref": "10.1007/s00500-026-11208-y",
-        "state": "retracted"
       }
     ],
-    "status": "retracted_forgotten"
+    "status": "active"
   },
   {
-    "belief_state": "retracted",
+    "belief_state": "active",
     "claim_id": "R021",
     "claim_text": "The paper claimed that genetic Architecture Modulates Diet-Induced Hepatic mRNA and miRNA Expression Profiles in Diversity Outbred Mice.",
     "cohort": "retracted_original",
     "datasets": {
       "groundtruth_memory": {
-        "data_id": "0b3c61b5-688d-5161-8739-a8795964101f",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
-        "retraction_notice_data_id": "5a1af7d0-fa90-5f24-bebf-fe8d24c80ada",
-        "retraction_notice_doi": "10.1093/genetics/iyab067",
-        "status": "retracted_forgotten"
+        "data_id": "dbf5ea1c-e3ba-5d9b-a838-3adc61eb3027",
+        "dataset_id": "454b2be9-b555-551f-b66d-88f86fbc716d"
       },
       "naive_memory": {
-        "data_id": "0b3c61b5-688d-5161-8739-a8795964101f",
-        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
-        "retraction_notice_data_id": "5a1af7d0-fa90-5f24-bebf-fe8d24c80ada",
-        "retraction_notice_doi": "10.1093/genetics/iyab067",
-        "status": "retracted_retained"
+        "data_id": "dbf5ea1c-e3ba-5d9b-a838-3adc61eb3027",
+        "dataset_id": "ee9bde98-c06b-5dc3-84b9-04009a649023"
       }
     },
     "doi": "10.1534/genetics.120.303481",
     "ingestion_mode": "deterministic_graph_fallback",
-    "retraction": {
-      "claim_id": "R021",
-      "nature": "Retraction",
-      "original_doi": "10.1534/genetics.120.303481",
-      "reason": "Error in Data;Retract and Replace;",
-      "retraction_date": "7/14/2021 0:00",
-      "retraction_doi": "10.1093/genetics/iyab067"
-    },
     "retraction_doi": "10.1093/genetics/iyab067",
     "source": {
       "doi": "10.1534/genetics.120.303481",
@@ -1185,48 +751,27 @@
         "evidence_class": "user_assertion",
         "evidence_ref": "10.1534/genetics.120.303481",
         "state": "active"
-      },
-      {
-        "at": "2021-07-14T00:00:00+00:00",
-        "basis": "Retraction Watch record 10.1093/genetics/iyab067 supersedes original DOI 10.1534/genetics.120.303481; reason: Error in Data;Retract and Replace;",
-        "evidence_class": "authority_feed",
-        "evidence_ref": "10.1093/genetics/iyab067",
-        "state": "retracted"
       }
     ],
-    "status": "retracted_forgotten"
+    "status": "active"
   },
   {
-    "belief_state": "retracted",
+    "belief_state": "active",
     "claim_id": "R022",
     "claim_text": "The paper claimed that omega-3 fatty acids plus vitamin for women with gestational diabetes or prediabetes: a meta-analysis of randomized controlled studies.",
     "cohort": "retracted_original",
     "datasets": {
       "groundtruth_memory": {
-        "data_id": "76a51f40-5e8e-5f6b-bb4a-5587be84fbb9",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
-        "retraction_notice_data_id": "91aa65f3-9c58-520a-9133-a4caa283428e",
-        "retraction_notice_doi": "10.1080/14767058.2025.2501451",
-        "status": "retracted_forgotten"
+        "data_id": "0feae3a9-9708-566a-8311-ec73a0dfe5ce",
+        "dataset_id": "454b2be9-b555-551f-b66d-88f86fbc716d"
       },
       "naive_memory": {
-        "data_id": "76a51f40-5e8e-5f6b-bb4a-5587be84fbb9",
-        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
-        "retraction_notice_data_id": "91aa65f3-9c58-520a-9133-a4caa283428e",
-        "retraction_notice_doi": "10.1080/14767058.2025.2501451",
-        "status": "retracted_retained"
+        "data_id": "0feae3a9-9708-566a-8311-ec73a0dfe5ce",
+        "dataset_id": "ee9bde98-c06b-5dc3-84b9-04009a649023"
       }
     },
     "doi": "10.1080/14767058.2020.1814239",
     "ingestion_mode": "deterministic_graph_fallback",
-    "retraction": {
-      "claim_id": "R022",
-      "nature": "Retraction",
-      "original_doi": "10.1080/14767058.2020.1814239",
-      "reason": "Concerns/Issues about Data;Investigation by Journal/Publisher;Investigation by Third Party;Unreliable Results and/or Conclusions;",
-      "retraction_date": "5/8/2025 0:00",
-      "retraction_doi": "10.1080/14767058.2025.2501451"
-    },
     "retraction_doi": "10.1080/14767058.2025.2501451",
     "source": {
       "doi": "10.1080/14767058.2020.1814239",
@@ -1242,48 +787,27 @@
         "evidence_class": "user_assertion",
         "evidence_ref": "10.1080/14767058.2020.1814239",
         "state": "active"
-      },
-      {
-        "at": "2025-05-08T00:00:00+00:00",
-        "basis": "Retraction Watch record 10.1080/14767058.2025.2501451 supersedes original DOI 10.1080/14767058.2020.1814239; reason: Concerns/Issues about Data;Investigation by Journal/Publisher;Investigation by Third Party;Unreliable Results and/or Conclusions;",
-        "evidence_class": "authority_feed",
-        "evidence_ref": "10.1080/14767058.2025.2501451",
-        "state": "retracted"
       }
     ],
-    "status": "retracted_forgotten"
+    "status": "active"
   },
   {
-    "belief_state": "retracted",
+    "belief_state": "active",
     "claim_id": "R023",
     "claim_text": "The paper claimed that ultrasound markers for prediction of gestational diabetes mellitus in early pregnancy in Egyptian women: observational study.",
     "cohort": "retracted_original",
     "datasets": {
       "groundtruth_memory": {
-        "data_id": "ceb8698f-0cd6-5114-8ba5-e098418bd9b2",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
-        "retraction_notice_data_id": "0da65837-1f72-5bfc-b521-42bf55eedbf9",
-        "retraction_notice_doi": "10.1080/14767058.2026.2607752",
-        "status": "retracted_forgotten"
+        "data_id": "3336f63d-4b90-51e7-9755-e96f00751faa",
+        "dataset_id": "454b2be9-b555-551f-b66d-88f86fbc716d"
       },
       "naive_memory": {
-        "data_id": "ceb8698f-0cd6-5114-8ba5-e098418bd9b2",
-        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
-        "retraction_notice_data_id": "0da65837-1f72-5bfc-b521-42bf55eedbf9",
-        "retraction_notice_doi": "10.1080/14767058.2026.2607752",
-        "status": "retracted_retained"
+        "data_id": "3336f63d-4b90-51e7-9755-e96f00751faa",
+        "dataset_id": "ee9bde98-c06b-5dc3-84b9-04009a649023"
       }
     },
     "doi": "10.1080/14767058.2019.1678132",
     "ingestion_mode": "deterministic_graph_fallback",
-    "retraction": {
-      "claim_id": "R023",
-      "nature": "Retraction",
-      "original_doi": "10.1080/14767058.2019.1678132",
-      "reason": "Author Unresponsive;Concerns/Issues about Data;Concerns/Issues about Results and/or Conclusions;Investigation by Journal/Publisher;Original Data and/or Images not Provided and/or not Available;Unreliable Results and/or Conclusions;",
-      "retraction_date": "1/7/2026 0:00",
-      "retraction_doi": "10.1080/14767058.2026.2607752"
-    },
     "retraction_doi": "10.1080/14767058.2026.2607752",
     "source": {
       "doi": "10.1080/14767058.2019.1678132",
@@ -1299,48 +823,27 @@
         "evidence_class": "user_assertion",
         "evidence_ref": "10.1080/14767058.2019.1678132",
         "state": "active"
-      },
-      {
-        "at": "2026-01-07T00:00:00+00:00",
-        "basis": "Retraction Watch record 10.1080/14767058.2026.2607752 supersedes original DOI 10.1080/14767058.2019.1678132; reason: Author Unresponsive;Concerns/Issues about Data;Concerns/Issues about Results and/or Conclusions;Investigation by Journal/Publisher;Original Data and/or Images not Provided and/or not Available;Unreliable Results and/or Conclusions;",
-        "evidence_class": "authority_feed",
-        "evidence_ref": "10.1080/14767058.2026.2607752",
-        "state": "retracted"
       }
     ],
-    "status": "retracted_forgotten"
+    "status": "active"
   },
   {
-    "belief_state": "retracted",
+    "belief_state": "active",
     "claim_id": "R024",
     "claim_text": "The paper claimed that maternal, fetal, and neonatal outcomes among different types of hypertensive disorders associating pregnancy needing intensive care management.",
     "cohort": "retracted_original",
     "datasets": {
       "groundtruth_memory": {
-        "data_id": "859fb844-7a20-5938-9d2c-fec6e18ed93d",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
-        "retraction_notice_data_id": "2d282f1a-c086-5d39-b1c1-047ec5d00e5f",
-        "retraction_notice_doi": "10.1080/14767058.2026.2654284",
-        "status": "retracted_forgotten"
+        "data_id": "e59aa76b-9637-5ce0-8996-ab45a0018c91",
+        "dataset_id": "454b2be9-b555-551f-b66d-88f86fbc716d"
       },
       "naive_memory": {
-        "data_id": "859fb844-7a20-5938-9d2c-fec6e18ed93d",
-        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
-        "retraction_notice_data_id": "2d282f1a-c086-5d39-b1c1-047ec5d00e5f",
-        "retraction_notice_doi": "10.1080/14767058.2026.2654284",
-        "status": "retracted_retained"
+        "data_id": "e59aa76b-9637-5ce0-8996-ab45a0018c91",
+        "dataset_id": "ee9bde98-c06b-5dc3-84b9-04009a649023"
       }
     },
     "doi": "10.1080/14767058.2018.1491030",
     "ingestion_mode": "deterministic_graph_fallback",
-    "retraction": {
-      "claim_id": "R024",
-      "nature": "Retraction",
-      "original_doi": "10.1080/14767058.2018.1491030",
-      "reason": "Concerns/Issues about Data;Concerns/Issues about Results and/or Conclusions;Investigation by Journal/Publisher;Unreliable Results and/or Conclusions;Upgrade/Update of Prior Notice(s);",
-      "retraction_date": "4/7/2026 0:00",
-      "retraction_doi": "10.1080/14767058.2026.2654284"
-    },
     "retraction_doi": "10.1080/14767058.2026.2654284",
     "source": {
       "doi": "10.1080/14767058.2018.1491030",
@@ -1356,48 +859,27 @@
         "evidence_class": "user_assertion",
         "evidence_ref": "10.1080/14767058.2018.1491030",
         "state": "active"
-      },
-      {
-        "at": "2026-04-07T00:00:00+00:00",
-        "basis": "Retraction Watch record 10.1080/14767058.2026.2654284 supersedes original DOI 10.1080/14767058.2018.1491030; reason: Concerns/Issues about Data;Concerns/Issues about Results and/or Conclusions;Investigation by Journal/Publisher;Unreliable Results and/or Conclusions;Upgrade/Update of Prior Notice(s);",
-        "evidence_class": "authority_feed",
-        "evidence_ref": "10.1080/14767058.2026.2654284",
-        "state": "retracted"
       }
     ],
-    "status": "retracted_forgotten"
+    "status": "active"
   },
   {
-    "belief_state": "retracted",
+    "belief_state": "active",
     "claim_id": "R025",
     "claim_text": "The paper claimed that role of antioxidants in gestational diabetes mellitus and relation to fetal outcome: a randomized controlled trial.",
     "cohort": "retracted_original",
     "datasets": {
       "groundtruth_memory": {
-        "data_id": "65ffea2b-248b-5e27-b82f-c74fa1c8eeb6",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f",
-        "retraction_notice_data_id": "818fd588-396d-50cf-8cb7-7f38c268eb42",
-        "retraction_notice_doi": "10.1080/14767058.2026.2654275",
-        "status": "retracted_forgotten"
+        "data_id": "9f2fdb72-3591-5a68-80d9-0f9bd39c9395",
+        "dataset_id": "454b2be9-b555-551f-b66d-88f86fbc716d"
       },
       "naive_memory": {
-        "data_id": "65ffea2b-248b-5e27-b82f-c74fa1c8eeb6",
-        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d",
-        "retraction_notice_data_id": "818fd588-396d-50cf-8cb7-7f38c268eb42",
-        "retraction_notice_doi": "10.1080/14767058.2026.2654275",
-        "status": "retracted_retained"
+        "data_id": "9f2fdb72-3591-5a68-80d9-0f9bd39c9395",
+        "dataset_id": "ee9bde98-c06b-5dc3-84b9-04009a649023"
       }
     },
     "doi": "10.3109/14767058.2016.1154526",
     "ingestion_mode": "deterministic_graph_fallback",
-    "retraction": {
-      "claim_id": "R025",
-      "nature": "Retraction",
-      "original_doi": "10.3109/14767058.2016.1154526",
-      "reason": "Concerns/Issues about Data;Concerns/Issues about Results and/or Conclusions;Investigation by Journal/Publisher;Unreliable Results and/or Conclusions;Upgrade/Update of Prior Notice(s);",
-      "retraction_date": "4/9/2026 0:00",
-      "retraction_doi": "10.1080/14767058.2026.2654275"
-    },
     "retraction_doi": "10.1080/14767058.2026.2654275",
     "source": {
       "doi": "10.3109/14767058.2016.1154526",
@@ -1413,16 +895,9 @@
         "evidence_class": "user_assertion",
         "evidence_ref": "10.3109/14767058.2016.1154526",
         "state": "active"
-      },
-      {
-        "at": "2026-04-09T00:00:00+00:00",
-        "basis": "Retraction Watch record 10.1080/14767058.2026.2654275 supersedes original DOI 10.3109/14767058.2016.1154526; reason: Concerns/Issues about Data;Concerns/Issues about Results and/or Conclusions;Investigation by Journal/Publisher;Unreliable Results and/or Conclusions;Upgrade/Update of Prior Notice(s);",
-        "evidence_class": "authority_feed",
-        "evidence_ref": "10.1080/14767058.2026.2654275",
-        "state": "retracted"
       }
     ],
-    "status": "retracted_forgotten"
+    "status": "active"
   },
   {
     "belief_state": "active",
@@ -1431,12 +906,12 @@
     "cohort": "active_control",
     "datasets": {
       "groundtruth_memory": {
-        "data_id": "2c13440c-7ff4-59ef-aa40-290685b98ff4",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+        "data_id": "6cae129e-8367-5c6c-a82b-a36655612134",
+        "dataset_id": "454b2be9-b555-551f-b66d-88f86fbc716d"
       },
       "naive_memory": {
-        "data_id": "2c13440c-7ff4-59ef-aa40-290685b98ff4",
-        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+        "data_id": "6cae129e-8367-5c6c-a82b-a36655612134",
+        "dataset_id": "ee9bde98-c06b-5dc3-84b9-04009a649023"
       }
     },
     "doi": "10.1001/jamainternmed.2015.2558",
@@ -1467,12 +942,12 @@
     "cohort": "active_control",
     "datasets": {
       "groundtruth_memory": {
-        "data_id": "7a2b1e21-7196-5b43-95d1-74d837680599",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+        "data_id": "7d230c09-e2f7-5650-b0d9-6d42c809a2a0",
+        "dataset_id": "454b2be9-b555-551f-b66d-88f86fbc716d"
       },
       "naive_memory": {
-        "data_id": "7a2b1e21-7196-5b43-95d1-74d837680599",
-        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+        "data_id": "7d230c09-e2f7-5650-b0d9-6d42c809a2a0",
+        "dataset_id": "ee9bde98-c06b-5dc3-84b9-04009a649023"
       }
     },
     "doi": "10.1093/nutrit/nuy014",
@@ -1503,12 +978,12 @@
     "cohort": "active_control",
     "datasets": {
       "groundtruth_memory": {
-        "data_id": "d3d710dc-228a-5960-bfce-a06ad17503ce",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+        "data_id": "67e303a1-2bc3-548f-b542-1c226f3881b4",
+        "dataset_id": "454b2be9-b555-551f-b66d-88f86fbc716d"
       },
       "naive_memory": {
-        "data_id": "d3d710dc-228a-5960-bfce-a06ad17503ce",
-        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+        "data_id": "67e303a1-2bc3-548f-b542-1c226f3881b4",
+        "dataset_id": "ee9bde98-c06b-5dc3-84b9-04009a649023"
       }
     },
     "doi": "10.18137/cardiometry.2022.24.10191021",
@@ -1539,12 +1014,12 @@
     "cohort": "active_control",
     "datasets": {
       "groundtruth_memory": {
-        "data_id": "41a51fa9-c5fa-5006-b45f-3d6bab8de1f0",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+        "data_id": "862aff6e-ce43-5e86-b670-8cce45d8ca3d",
+        "dataset_id": "454b2be9-b555-551f-b66d-88f86fbc716d"
       },
       "naive_memory": {
-        "data_id": "41a51fa9-c5fa-5006-b45f-3d6bab8de1f0",
-        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+        "data_id": "862aff6e-ce43-5e86-b670-8cce45d8ca3d",
+        "dataset_id": "ee9bde98-c06b-5dc3-84b9-04009a649023"
       }
     },
     "doi": "10.3945/ajcn.116.143180",
@@ -1575,12 +1050,12 @@
     "cohort": "active_control",
     "datasets": {
       "groundtruth_memory": {
-        "data_id": "a43d1581-e8c2-52d3-9317-f339967252c0",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+        "data_id": "56fc77ef-e9ff-5c09-acac-1711e70a3247",
+        "dataset_id": "454b2be9-b555-551f-b66d-88f86fbc716d"
       },
       "naive_memory": {
-        "data_id": "a43d1581-e8c2-52d3-9317-f339967252c0",
-        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+        "data_id": "56fc77ef-e9ff-5c09-acac-1711e70a3247",
+        "dataset_id": "ee9bde98-c06b-5dc3-84b9-04009a649023"
       }
     },
     "doi": "10.1097/nt.0000000000000561",
@@ -1611,12 +1086,12 @@
     "cohort": "active_control",
     "datasets": {
       "groundtruth_memory": {
-        "data_id": "5f0c21e3-3306-511a-889a-3219e07a831e",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+        "data_id": "aa00e978-0d0a-5d39-aa6f-b7b069376b4b",
+        "dataset_id": "454b2be9-b555-551f-b66d-88f86fbc716d"
       },
       "naive_memory": {
-        "data_id": "5f0c21e3-3306-511a-889a-3219e07a831e",
-        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+        "data_id": "aa00e978-0d0a-5d39-aa6f-b7b069376b4b",
+        "dataset_id": "ee9bde98-c06b-5dc3-84b9-04009a649023"
       }
     },
     "doi": "10.1016/j.adaj.2024.12.004",
@@ -1647,12 +1122,12 @@
     "cohort": "active_control",
     "datasets": {
       "groundtruth_memory": {
-        "data_id": "44af11e3-57bd-52eb-955e-7d0177a46f2c",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+        "data_id": "31e9ee51-9585-5bec-a3fb-d0c8d51f286c",
+        "dataset_id": "454b2be9-b555-551f-b66d-88f86fbc716d"
       },
       "naive_memory": {
-        "data_id": "44af11e3-57bd-52eb-955e-7d0177a46f2c",
-        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+        "data_id": "31e9ee51-9585-5bec-a3fb-d0c8d51f286c",
+        "dataset_id": "ee9bde98-c06b-5dc3-84b9-04009a649023"
       }
     },
     "doi": "10.1136/bmj.k4583",
@@ -1683,12 +1158,12 @@
     "cohort": "active_control",
     "datasets": {
       "groundtruth_memory": {
-        "data_id": "c6bfc753-f9c4-5711-b0fd-f46ef3d5ce98",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+        "data_id": "b4452f4f-3bef-5987-afc7-a2b4c210e52e",
+        "dataset_id": "454b2be9-b555-551f-b66d-88f86fbc716d"
       },
       "naive_memory": {
-        "data_id": "c6bfc753-f9c4-5711-b0fd-f46ef3d5ce98",
-        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+        "data_id": "b4452f4f-3bef-5987-afc7-a2b4c210e52e",
+        "dataset_id": "ee9bde98-c06b-5dc3-84b9-04009a649023"
       }
     },
     "doi": "10.1056/nejmc1912185",
@@ -1719,12 +1194,12 @@
     "cohort": "active_control",
     "datasets": {
       "groundtruth_memory": {
-        "data_id": "4d721de0-b238-5daa-afff-6a492dc589bc",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+        "data_id": "7ee2a233-9f48-524f-9c19-1c826137cb2a",
+        "dataset_id": "454b2be9-b555-551f-b66d-88f86fbc716d"
       },
       "naive_memory": {
-        "data_id": "4d721de0-b238-5daa-afff-6a492dc589bc",
-        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+        "data_id": "7ee2a233-9f48-524f-9c19-1c826137cb2a",
+        "dataset_id": "ee9bde98-c06b-5dc3-84b9-04009a649023"
       }
     },
     "doi": "10.1016/j.jacl.2025.04.092",
@@ -1755,12 +1230,12 @@
     "cohort": "active_control",
     "datasets": {
       "groundtruth_memory": {
-        "data_id": "8f1833d6-f1a6-5a17-bab0-53c083976398",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+        "data_id": "9e547630-af98-51b9-819a-039fc752b3c0",
+        "dataset_id": "454b2be9-b555-551f-b66d-88f86fbc716d"
       },
       "naive_memory": {
-        "data_id": "8f1833d6-f1a6-5a17-bab0-53c083976398",
-        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+        "data_id": "9e547630-af98-51b9-819a-039fc752b3c0",
+        "dataset_id": "ee9bde98-c06b-5dc3-84b9-04009a649023"
       }
     },
     "doi": "10.54393/df.v6i2.187",
@@ -1791,12 +1266,12 @@
     "cohort": "active_control",
     "datasets": {
       "groundtruth_memory": {
-        "data_id": "e0feccd5-0f24-515d-9900-32c96ad0be08",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+        "data_id": "a5fbf6ce-d169-50a8-bf3c-e50997f4f23a",
+        "dataset_id": "454b2be9-b555-551f-b66d-88f86fbc716d"
       },
       "naive_memory": {
-        "data_id": "e0feccd5-0f24-515d-9900-32c96ad0be08",
-        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+        "data_id": "a5fbf6ce-d169-50a8-bf3c-e50997f4f23a",
+        "dataset_id": "ee9bde98-c06b-5dc3-84b9-04009a649023"
       }
     },
     "doi": "10.1177/03000605261443077",
@@ -1827,12 +1302,12 @@
     "cohort": "active_control",
     "datasets": {
       "groundtruth_memory": {
-        "data_id": "eec39b26-e7a8-5064-bd34-eca24c47b414",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+        "data_id": "a4276ec7-ba67-5bbd-a971-b2216ccce08b",
+        "dataset_id": "454b2be9-b555-551f-b66d-88f86fbc716d"
       },
       "naive_memory": {
-        "data_id": "eec39b26-e7a8-5064-bd34-eca24c47b414",
-        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+        "data_id": "a4276ec7-ba67-5bbd-a971-b2216ccce08b",
+        "dataset_id": "ee9bde98-c06b-5dc3-84b9-04009a649023"
       }
     },
     "doi": "10.1001/jama.2024.1907",
@@ -1863,12 +1338,12 @@
     "cohort": "active_control",
     "datasets": {
       "groundtruth_memory": {
-        "data_id": "f8069e33-8232-5c12-838d-ec08a41190f6",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+        "data_id": "00de2ff6-3c1a-553e-aaa6-0fad67411f31",
+        "dataset_id": "454b2be9-b555-551f-b66d-88f86fbc716d"
       },
       "naive_memory": {
-        "data_id": "f8069e33-8232-5c12-838d-ec08a41190f6",
-        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+        "data_id": "00de2ff6-3c1a-553e-aaa6-0fad67411f31",
+        "dataset_id": "ee9bde98-c06b-5dc3-84b9-04009a649023"
       }
     },
     "doi": "10.1038/nrcardio.2017.196",
@@ -1899,12 +1374,12 @@
     "cohort": "active_control",
     "datasets": {
       "groundtruth_memory": {
-        "data_id": "9faf49c6-0c18-592c-bd01-65731fa1f5cd",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+        "data_id": "a3eddd16-5ff0-5fe7-a5c7-bb143bcf784e",
+        "dataset_id": "454b2be9-b555-551f-b66d-88f86fbc716d"
       },
       "naive_memory": {
-        "data_id": "9faf49c6-0c18-592c-bd01-65731fa1f5cd",
-        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+        "data_id": "a3eddd16-5ff0-5fe7-a5c7-bb143bcf784e",
+        "dataset_id": "ee9bde98-c06b-5dc3-84b9-04009a649023"
       }
     },
     "doi": "10.1097/jnr.0000000000000469",
@@ -1935,12 +1410,12 @@
     "cohort": "active_control",
     "datasets": {
       "groundtruth_memory": {
-        "data_id": "386a3edb-8fd5-5e04-8d52-c44362b40598",
-        "dataset_id": "1870baaf-b8c5-5b21-87dd-f40ef9024f1f"
+        "data_id": "88a1beed-4b16-5e49-9c7b-a7d011ad04c6",
+        "dataset_id": "454b2be9-b555-551f-b66d-88f86fbc716d"
       },
       "naive_memory": {
-        "data_id": "386a3edb-8fd5-5e04-8d52-c44362b40598",
-        "dataset_id": "4171df75-d3af-5b67-8917-74145f025f5d"
+        "data_id": "88a1beed-4b16-5e49-9c7b-a7d011ad04c6",
+        "dataset_id": "ee9bde98-c06b-5dc3-84b9-04009a649023"
       }
     },
     "doi": "10.3390/children12121664",

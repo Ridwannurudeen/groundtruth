@@ -1,7 +1,7 @@
 # GroundTruth V2 Results
 
-Generated: 2026-07-05T00:31:58.535327+00:00
-Status: `partial_quota_stop`
+Generated: 2026-07-05T07:02:41.184828+00:00
+Status: `complete`
 
 ## Baseline Before V2
 
@@ -68,16 +68,10 @@ Coverage:
   "all_pair_total": 28,
   "candidate_pairs": 28,
   "claims": 8,
-  "evaluated_pairs": 23,
+  "evaluated_pairs": 28,
   "manifest_pairs": 28,
   "manifest_pairs_not_candidates": [],
-  "pending_pairs": [
-    "V2C001::V2C007",
-    "V2C004::V2C006",
-    "V2C005::V2C007",
-    "V2C006::V2C007",
-    "V2C006::V2C008"
-  ],
+  "pending_pairs": [],
   "planned_pairs": 28,
   "protocol": "exhaustive_all_pairs_over_committed_v2_claims",
   "unlabeled_candidate_pairs": []
@@ -88,12 +82,12 @@ Metrics:
 
 ```json
 {
-  "evaluated_pairs": 23,
+  "evaluated_pairs": 28,
   "false_negative": 1,
   "false_positive": 0,
   "precision": 1.0,
   "recall": 0.6666666666666666,
-  "true_negative": 20,
+  "true_negative": 25,
   "true_positive": 2
 }
 ```
@@ -411,7 +405,7 @@ Pairs:
     "similarity": 0.85402
   },
   {
-    "cached": false,
+    "cached": true,
     "claim_a_id": "V2C008",
     "claim_b_id": "V2C001",
     "decision": {
@@ -423,6 +417,76 @@ Pairs:
     "expected_conflict": false,
     "pair_signature": "de50c6e8709c84de9d22849b28b4a9eea503007372b8434df79a8adc155086e7",
     "similarity": 0.85231
+  },
+  {
+    "cached": false,
+    "claim_a_id": "V2C006",
+    "claim_b_id": "V2C004",
+    "decision": {
+      "basis": "Claim A discusses the effect of probiotic interventions on glucose control in type 2 diabetes, while Claim B discusses the effect of marine omega-3 supplementation on cardiovascular disease outcomes. They address different interventions, different outcomes, and potentially different populations, thus there is no conflict.",
+      "confidence": 1.0,
+      "conflicts": false,
+      "direction": "none"
+    },
+    "expected_conflict": false,
+    "pair_signature": "b0014f8a3e032d4645d1d8bf6e283436db721b2f53df5ab20d38158e55b6ff5d",
+    "similarity": 0.847804
+  },
+  {
+    "cached": false,
+    "claim_a_id": "V2C007",
+    "claim_b_id": "V2C001",
+    "decision": {
+      "basis": "Claim A discusses the effect of dietary sodium reduction and the DASH diet on blood pressure. Claim B discusses the effect of Vitamin D3 supplementation on diabetes risk. These claims concern different interventions, different outcomes, and different diseases/conditions. There is no overlap or incompatibility between them.",
+      "confidence": 1.0,
+      "conflicts": false,
+      "direction": "none"
+    },
+    "expected_conflict": false,
+    "pair_signature": "b02111f660deeea68f8a730945872af4333fe9d82633dd85be496025c88e8cfa",
+    "similarity": 0.844868
+  },
+  {
+    "cached": false,
+    "claim_a_id": "V2C007",
+    "claim_b_id": "V2C005",
+    "decision": {
+      "basis": "Claim A discusses the effects of reduced dietary sodium and the DASH diet on blood pressure. Claim B discusses the effects of probiotic supplementation on glycemic control, lipid profiles, and weight in patients with type 2 diabetes. They investigate completely different interventions, populations (general vs. type 2 diabetes patients), and outcomes (blood pressure vs. glycemic control, lipids, and weight). There is no common element to compare for a conflict.",
+      "confidence": 1.0,
+      "conflicts": false,
+      "direction": "none"
+    },
+    "expected_conflict": false,
+    "pair_signature": "9a5674e08b530509c5238b10f67a3aafa9ba2a1a886e2408a2169dc5182a06d1",
+    "similarity": 0.82594
+  },
+  {
+    "cached": false,
+    "claim_a_id": "V2C007",
+    "claim_b_id": "V2C006",
+    "decision": {
+      "basis": "Claim A discusses the effects of reduced dietary sodium and the DASH diet on blood pressure. Claim B discusses the effects of probiotic interventions on glucose control in type 2 diabetes. These claims address entirely different interventions, outcomes, and populations, and therefore do not conflict.",
+      "confidence": 1.0,
+      "conflicts": false,
+      "direction": "none"
+    },
+    "expected_conflict": false,
+    "pair_signature": "9788142f70ed2d773794c53747c62b36690f2213d6e1b494b14e28a3a6d9e3dc",
+    "similarity": 0.825257
+  },
+  {
+    "cached": false,
+    "claim_a_id": "V2C008",
+    "claim_b_id": "V2C006",
+    "decision": {
+      "basis": "The claims discuss entirely different interventions (low-fat diet vs. probiotics), different populations (general population for cardiovascular disease risk vs. patients with type 2 diabetes), and different outcomes (cardiovascular disease risk vs. glucose control). There is no overlap in any of the critical elements to create a conflict.",
+      "confidence": 1.0,
+      "conflicts": false,
+      "direction": "none"
+    },
+    "expected_conflict": false,
+    "pair_signature": "43a3ac79aa77541fe206fc57a8dfffd18c4c01648784f7b442fd79261d9471ff",
+    "similarity": 0.825249
   }
 ]
 ```
@@ -430,7 +494,74 @@ Pairs:
 ## V2-2 Graph-Aware Answer Probes
 
 ```json
-[]
+[
+  {
+    "cites_retracted": false,
+    "cites_superseded": true,
+    "question": "Does vitamin D supplementation prevent type 2 diabetes in adults with prediabetes?",
+    "question_id": "V2Q01",
+    "reference_claim_ids": [
+      "V2C002",
+      "V2C001",
+      "V2C005",
+      "V2C006",
+      "V2C003"
+    ],
+    "status": "completed",
+    "superseded_dois": [
+      "10.1056/NEJMoa1811403",
+      "10.1056/NEJMoa1900906",
+      "10.1210/clinem/dgaa607",
+      "10.3389/fendo.2024.1392306",
+      "10.3389/fendo.2024.1440286"
+    ],
+    "synthesis_mode": "GRAPH_COMPLETION only_context=False include_references=True",
+    "text_excerpt": "Vitamin D supplementation appears to reduce progression to type 2 diabetes in people with prediabetes.\n\ngroundtruth_v2_semantic_memory retrieved 10.1210/clinem/dgaa607, but the graph marks that source as conflicted via `contradicts`. Basis: Claim A states that vitamin D3 supplementation does not significantly lower diabetes risk in high-risk adults, while Claim B suggests that vitamin D supplementation reduces progression to type 2 diabetes in people with prediabetes. The populations (high-risk adults vs. people with prediabetes) and the outcomes (diabetes risk vs. progression to type 2 diabetes) are not identical, leading to a potential conflict in interpretation or specific application of "
+  },
+  {
+    "cites_retracted": false,
+    "cites_superseded": true,
+    "question": "Should omega-3 supplementation be described as reducing cardiovascular events?",
+    "question_id": "V2Q02",
+    "reference_claim_ids": [
+      "V2C004",
+      "V2C003",
+      "V2C002",
+      "V2C008",
+      "V2C001"
+    ],
+    "status": "completed",
+    "superseded_dois": [
+      "10.1056/NEJMoa1811403",
+      "10.1056/NEJMoa1900906",
+      "10.1161/JAHA.119.013543",
+      "10.1210/clinem/dgaa607"
+    ],
+    "synthesis_mode": "GRAPH_COMPLETION only_context=False include_references=True",
+    "text_excerpt": "Marine omega-3 supplementation lowers risk for myocardial infarction, coronary heart disease death, cardiovascular disease death, and total cardiovascular disease. However, marine n-3 fatty acid supplementation does not lower the incidence of major cardiovascular events compared with placebo.\n\ngroundtruth_v2_semantic_memory retrieved 10.1161/JAHA.119.013543, but the graph marks that source as conflicted via `contradicts`. Basis: Claim B states that marine omega-3 supplementation lowers risk for myocardial infarction, coronary heart disease death, cardiovascular disease death, and total cardiovascular disease, directly contradicting Claim A, which states that marine n-3 fatty acid supplementa"
+  },
+  {
+    "cites_retracted": false,
+    "cites_superseded": true,
+    "question": "Do probiotics improve glycemic control in type 2 diabetes?",
+    "question_id": "V2Q03",
+    "reference_claim_ids": [
+      "V2C006",
+      "V2C005",
+      "V2C002",
+      "V2C001"
+    ],
+    "status": "completed",
+    "superseded_dois": [
+      "10.1056/NEJMoa1900906",
+      "10.1210/clinem/dgaa607",
+      "10.3389/fendo.2024.1392306",
+      "10.3389/fendo.2024.1440286"
+    ],
+    "synthesis_mode": "GRAPH_COMPLETION only_context=False include_references=True",
+    "text_excerpt": "Probiotic interventions can positively modulate glucose control in type 2 diabetes, including HbA1c, insulin, and HOMA-IR. However, sixteen weeks of probiotic supplementation shows no beneficial effect on glycemic control in patients with type 2 diabetes.\n\ngroundtruth_v2_semantic_memory retrieved 10.3389/fendo.2024.1392306, but the graph marks that source as conflicted via `contradicts`. Basis: Claim A asserts no beneficial effect of probiotic supplementation on glycemic control in patients with type 2 diabetes, while Claim B states that probiotic interventions can positively modulate glucose control in the same population. The claims directly contradict each other regarding the efficacy of "
+  }
+]
 ```
 
 Full raw V2 JSON: `C:/Users/gudma/OneDrive/Desktop/GITHUB-FILES/groundtruth/data/v2_results.json`
@@ -438,35 +569,83 @@ Full raw V2 JSON: `C:/Users/gudma/OneDrive/Desktop/GITHUB-FILES/groundtruth/data
 ## Edge Writes
 
 ```json
-[]
-```
-
-## Quota Stop
-
-The pass stopped on a quota/rate-limit error. Cached judgments and ingested claims were preserved for resume.
-
-```text
-<failed_attempts>
-
-<generation number="1">
-<exception>
-    litellm.RateLimitError: litellm.RateLimitError: geminiException - {
-  "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 1.818243547s.",
-    "status": "RESOURCE_EXHAUSTED",
-    "details": [
-      {
-        "@type": "type.googleapis.com/google.rpc.Help",
-        "links": [
-          {
-            "description": "Learn more about Gemini API quotas",
-            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
-          }
-        ]
+[
+  {
+    "action": "already_exists",
+    "edges": [],
+    "pair": [
+      "V2C002",
+      "V2C001"
+    ],
+    "semantic_action": "auto_act",
+    "state_result": {
+      "basis": "Semantic inference for V2C001::V2C002 auto-superseded V2C001 with confidence 0.90; basis: Claim A, a systematic review and meta-analysis published in 2020, synthesizes evidence that Vitamin D supplementation appears to reduce progression to type 2 diabetes in people with prediabetes. Claim B, from a 2019 randomized controlled trial (the D2d study), specifically states that Vitamin D3 supplementation at 4000 IU per day does not significantly lower diabetes risk in adults at high risk. Given that Claim A is a more recent meta-analysis, it likely incorporated the findings of the D2d study (Claim B's source) along with other relevant studies to provide a more comprehensive and statistically robust overall estimate of effect. Therefore, its conclusion, representing a broader synthesis of evidence, supersedes the finding of a single trial, even a large one.",
+      "evidence_ref": "pair:V2C001::V2C002",
+      "pair": "V2C001::V2C002",
+      "state_changes": [
+        {
+          "basis": "Semantic inference for V2C001::V2C002 auto-superseded V2C001 with confidence 0.90; basis: Claim A, a systematic review and meta-analysis published in 2020, synthesizes evidence that Vitamin D supplementation appears to reduce progression to type 2 diabetes in people with prediabetes. Claim B, from a 2019 randomized controlled trial (the D2d study), specifically states that Vitamin D3 supplementation at 4000 IU per day does not significantly lower diabetes risk in adults at high risk. Given that Claim A is a more recent meta-analysis, it likely incorporated the findings of the D2d study (Claim B's source) along with other relevant studies to provide a more comprehensive and statistically robust overall estimate of effect. Therefore, its conclusion, representing a broader synthesis of evidence, supersedes the finding of a single trial, even a large one.",
+          "claim_id": "V2C002",
+          "evidence_class": "semantic_inference",
+          "evidence_ref": "pair:V2C001::V2C002",
+          "state": "active"
+        },
+        {
+          "basis": "Semantic inference for V2C001::V2C002 auto-superseded V2C001 with confidence 0.90; basis: Claim A, a systematic review and meta-analysis published in 2020, synthesizes evidence that Vitamin D supplementation appears to reduce progression to type 2 diabetes in people with prediabetes. Claim B, from a 2019 randomized controlled trial (the D2d study), specifically states that Vitamin D3 supplementation at 4000 IU per day does not significantly lower diabetes risk in adults at high risk. Given that Claim A is a more recent meta-analysis, it likely incorporated the findings of the D2d study (Claim B's source) along with other relevant studies to provide a more comprehensive and statistically robust overall estimate of effect. Therefore, its conclusion, representing a broader synthesis of evidence, supersedes the finding of a single trial, even a large one.",
+          "claim_id": "V2C001",
+          "evidence_class": "semantic_inference",
+          "evidence_ref": "pair:V2C001::V2C002",
+          "state": "superseded"
+        }
+      ],
+      "superseded_claim_id": "V2C001",
+      "winner_claim_id": "V2C002"
+    }
+  },
+  {
+    "action": "already_exists",
+    "edges": [],
+    "pair": [
+      "V2C004",
+      "V2C003"
+    ],
+    "semantic_action": "contested",
+    "state_result": {
+      "basis": "Semantic inference for V2C003::V2C004 landed in the contested band (confidence 1.00, direction mutual); basis: Both claims evaluate the effect of marine omega-3 (n-3) fatty acid supplementation on cardiovascular events. Claim A asserts that supplementation lowers the risk for several cardiovascular outcomes (myocardial infarction, coronary heart disease death, cardiovascular disease death, and total cardiovascular disease). Claim B, conversely, states that marine n-3 fatty acid supplementation does not lower the incidence of major cardiovascular events compared with placebo. These are directly contradictory findings regarding the efficacy of marine omega-3 supplementation for cardiovascular disease prevention.",
+      "claim_a_data_id": "f11ad17a-7d73-519d-a3a0-cd63a2f6d047",
+      "claim_a_id": "V2C004",
+      "claim_b_data_id": "c82e05d1-0ba4-596b-bde2-e320488f31e4",
+      "claim_b_id": "V2C003",
+      "created_at": "2026-07-04T21:03:35.457405+00:00",
+      "dataset": "groundtruth_v2_semantic_memory",
+      "decision": {
+        "basis": "Both claims evaluate the effect of marine omega-3 (n-3) fatty acid supplementation on cardiovascular events. Claim A asserts that supplementation lowers the risk for several cardiovascular outcomes (myocardial infarction, coronary heart disease death, cardiovascular disease death, and total cardiovascular disease). Claim B, conversely, states that marine n-3 fatty acid supplementation does not lower the incidence of major cardiovascular events compared with placebo. These are directly contradictory findings regarding the efficacy of marine omega-3 supplementation for cardiovascular disease prevention.",
+        "confidence": 1.0,
+        "conflicts": true,
+        "direction": "mutual"
       },
-      {
-        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
-        "violations": [
-
+      "evidence_ref": "pair:V2C003::V2C004",
+      "pair": "V2C003::V2C004",
+      "registry_path": "C:\\Users\\gudma\\OneDrive\\Desktop\\GITHUB-FILES\\groundtruth\\data\\v2_claims.json",
+      "state_changes": [
+        {
+          "basis": "Semantic inference for V2C003::V2C004 landed in the contested band (confidence 1.00, direction mutual); basis: Both claims evaluate the effect of marine omega-3 (n-3) fatty acid supplementation on cardiovascular events. Claim A asserts that supplementation lowers the risk for several cardiovascular outcomes (myocardial infarction, coronary heart disease death, cardiovascular disease death, and total cardiovascular disease). Claim B, conversely, states that marine n-3 fatty acid supplementation does not lower the incidence of major cardiovascular events compared with placebo. These are directly contradictory findings regarding the efficacy of marine omega-3 supplementation for cardiovascular disease prevention.",
+          "claim_id": "V2C004",
+          "evidence_class": "semantic_inference",
+          "evidence_ref": "pair:V2C003::V2C004",
+          "state": "contested"
+        },
+        {
+          "basis": "Semantic inference for V2C003::V2C004 landed in the contested band (confidence 1.00, direction mutual); basis: Both claims evaluate the effect of marine omega-3 (n-3) fatty acid supplementation on cardiovascular events. Claim A asserts that supplementation lowers the risk for several cardiovascular outcomes (myocardial infarction, coronary heart disease death, cardiovascular disease death, and total cardiovascular disease). Claim B, conversely, states that marine n-3 fatty acid supplementation does not lower the incidence of major cardiovascular events compared with placebo. These are directly contradictory findings regarding the efficacy of marine omega-3 supplementation for cardiovascular disease prevention.",
+          "claim_id": "V2C003",
+          "evidence_class": "semantic_inference",
+          "evidence_ref": "pair:V2C003::V2C004",
+          "state": "contested"
+        }
+      ],
+      "status": "open",
+      "updated_at": "2026-07-05T07:01:38.292549+00:00"
+    }
+  }
+]
 ```

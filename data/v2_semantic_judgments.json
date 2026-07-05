@@ -65,16 +65,17 @@
     "pair_signature": "c002ef7146a570fd5029263efca9131d4f5332ffe8f87bf22e1b07b7a49a09b2"
   },
   "V2C001::V2C007": {
-    "claim_a_id": "V2C001",
-    "claim_b_id": "V2C007",
+    "claim_a_id": "V2C007",
+    "claim_b_id": "V2C001",
     "decision": {
-      "basis": "The claims address completely different interventions (Vitamin D3 supplementation vs. dietary sodium and DASH diet) and outcomes (diabetes risk vs. blood pressure). There is no overlap or contradiction between them.",
+      "basis": "Claim A discusses the effect of dietary sodium reduction and the DASH diet on blood pressure. Claim B discusses the effect of Vitamin D3 supplementation on diabetes risk. These claims concern different interventions, different outcomes, and different diseases/conditions. There is no overlap or incompatibility between them.",
       "confidence": 1.0,
       "conflicts": false,
       "direction": "none"
     },
-    "generated_at": "2026-07-04T15:47:12.668262+00:00",
-    "judge": "LLMGateway.acreate_structured_output"
+    "generated_at": "2026-07-05T07:01:24.476264+00:00",
+    "judge": "LLMGateway.acreate_structured_output",
+    "pair_signature": "b02111f660deeea68f8a730945872af4333fe9d82633dd85be496025c88e8cfa"
   },
   "V2C001::V2C008": {
     "claim_a_id": "V2C008",
@@ -245,6 +246,19 @@
     "judge": "LLMGateway.acreate_structured_output",
     "pair_signature": "24b0343e75f720a3a6c5caca7ca2754ce0fba155d3c3b623bd3d8462f756ae3f"
   },
+  "V2C004::V2C006": {
+    "claim_a_id": "V2C006",
+    "claim_b_id": "V2C004",
+    "decision": {
+      "basis": "Claim A discusses the effect of probiotic interventions on glucose control in type 2 diabetes, while Claim B discusses the effect of marine omega-3 supplementation on cardiovascular disease outcomes. They address different interventions, different outcomes, and potentially different populations, thus there is no conflict.",
+      "confidence": 1.0,
+      "conflicts": false,
+      "direction": "none"
+    },
+    "generated_at": "2026-07-05T06:56:59.555914+00:00",
+    "judge": "LLMGateway.acreate_structured_output",
+    "pair_signature": "b0014f8a3e032d4645d1d8bf6e283436db721b2f53df5ab20d38158e55b6ff5d"
+  },
   "V2C004::V2C007": {
     "claim_a_id": "V2C007",
     "claim_b_id": "V2C004",
@@ -284,6 +298,19 @@
     "judge": "LLMGateway.acreate_structured_output",
     "pair_signature": "ddb9aef2a79a6ac00e1f04ff1bf263d340dc23c2af62ff1de7c47d3e9a4d9535"
   },
+  "V2C005::V2C007": {
+    "claim_a_id": "V2C007",
+    "claim_b_id": "V2C005",
+    "decision": {
+      "basis": "Claim A discusses the effects of reduced dietary sodium and the DASH diet on blood pressure. Claim B discusses the effects of probiotic supplementation on glycemic control, lipid profiles, and weight in patients with type 2 diabetes. They investigate completely different interventions, populations (general vs. type 2 diabetes patients), and outcomes (blood pressure vs. glycemic control, lipids, and weight). There is no common element to compare for a conflict.",
+      "confidence": 1.0,
+      "conflicts": false,
+      "direction": "none"
+    },
+    "generated_at": "2026-07-05T07:01:29.216155+00:00",
+    "judge": "LLMGateway.acreate_structured_output",
+    "pair_signature": "9a5674e08b530509c5238b10f67a3aafa9ba2a1a886e2408a2169dc5182a06d1"
+  },
   "V2C005::V2C008": {
     "claim_a_id": "V2C008",
     "claim_b_id": "V2C005",
@@ -297,6 +324,32 @@
     "judge": "LLMGateway.acreate_structured_output",
     "pair_signature": "095b9502839f1d07ad8608ac497208e07154a843875aa43538dcb4613b2eebb1"
   },
+  "V2C006::V2C007": {
+    "claim_a_id": "V2C007",
+    "claim_b_id": "V2C006",
+    "decision": {
+      "basis": "Claim A discusses the effects of reduced dietary sodium and the DASH diet on blood pressure. Claim B discusses the effects of probiotic interventions on glucose control in type 2 diabetes. These claims address entirely different interventions, outcomes, and populations, and therefore do not conflict.",
+      "confidence": 1.0,
+      "conflicts": false,
+      "direction": "none"
+    },
+    "generated_at": "2026-07-05T07:01:34.675884+00:00",
+    "judge": "LLMGateway.acreate_structured_output",
+    "pair_signature": "9788142f70ed2d773794c53747c62b36690f2213d6e1b494b14e28a3a6d9e3dc"
+  },
+  "V2C006::V2C008": {
+    "claim_a_id": "V2C008",
+    "claim_b_id": "V2C006",
+    "decision": {
+      "basis": "The claims discuss entirely different interventions (low-fat diet vs. probiotics), different populations (general population for cardiovascular disease risk vs. patients with type 2 diabetes), and different outcomes (cardiovascular disease risk vs. glucose control). There is no overlap in any of the critical elements to create a conflict.",
+      "confidence": 1.0,
+      "conflicts": false,
+      "direction": "none"
+    },
+    "generated_at": "2026-07-05T07:01:38.195738+00:00",
+    "judge": "LLMGateway.acreate_structured_output",
+    "pair_signature": "43a3ac79aa77541fe206fc57a8dfffd18c4c01648784f7b442fd79261d9471ff"
+  },
   "V2C007::V2C008": {
     "claim_a_id": "V2C008",
     "claim_b_id": "V2C007",
@@ -309,19 +362,5 @@
     "generated_at": "2026-07-04T17:48:51.930193+00:00",
     "judge": "LLMGateway.acreate_structured_output",
     "pair_signature": "383265dace676dbcd9d013977ad8a6f0834eb537e0ea7acca0d3c31935ac934d"
-  },
-  "_partial_stop": {
-    "completed_pairs": 23,
-    "error": "<failed_attempts>\n\n<generation number=\"1\">\n<exception>\n    litellm.RateLimitError: litellm.RateLimitError: geminiException - {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\\nPlease retry in 1.818243547s.\",\n    \"status\": \"RESOURCE_EXHAUSTED\",\n    \"details\": [\n      {\n        \"@type\": \"type.googleapis.com/google.rpc.Help\",\n        \"links\": [\n          {\n            \"description\": \"Learn more about Gemini API quotas\",\n            \"url\": \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n          }\n        ]\n      },\n      {\n        \"@type\": \"type.googleapis.com/google.rpc.QuotaFailure\",\n        \"violations\": [\n      ",
-    "generated_at": "2026-07-05T00:31:58.533328+00:00",
-    "judge": "LLMGateway.acreate_structured_output",
-    "pair": {
-      "claim_a_id": "V2C006",
-      "claim_b_id": "V2C004",
-      "expected_conflict": false,
-      "similarity": 0.847804
-    },
-    "pair_signature": "b0014f8a3e032d4645d1d8bf6e283436db721b2f53df5ab20d38158e55b6ff5d",
-    "stop_reason": "quota"
   }
 }

@@ -2,6 +2,11 @@
 
 Most agents wake up with amnesia. Ours wakes up knowing what it learned last night, and what it must unlearn.
 
+## Links
+
+- **Demo video:** https://www.youtube.com/watch?v=I7YnU_0Y-ps
+- **Live demo:** https://groundtruth.gudman.xyz
+
 ## Benchmark Headlines
 
 These values are from committed artifacts in this branch:

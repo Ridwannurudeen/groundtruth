@@ -77,6 +77,15 @@ P6 MemoryRot-Bench is intentionally not shipped in this phase; a single required
 - V2 semantic eval is complete and reproducible from `data/v2_results.json`, but it is a narrow eight-claim corpus.
 - P7 (MCP server) is skipped by instruction and is not present in this phase.
 
+## Roadmap
+
+The two changes that would move this from a strong proof-of-concept to a robust system — both deferred here by honest constraints (LLM budget and a Cognee-internals graph-indexing issue on the transplanted store), not by design:
+
+1. **Make semantic contradiction-detection load-bearing at scale.** Today it is evaluated on a narrow curated corpus (precision `1.00` / recall `0.67`). Plan: expand to hundreds of Retraction Watch / Crossref claims with a hand-labeled ground-truth conflict set, run the LLM judge over vector-neighbor pairs to completion (needs a funded LLM key so runs don't truncate on free-tier quota), and report honest precision/recall at scale.
+2. **Restore the live streaming `forget` flow on the deployed memory.** The interactive retract path currently fails deep in Cognee (`index_graph_edges` → `Graph edge indexing error`) on the Windows→Linux transplanted store, so the deployed demo relies on the static before/after. Plan: rebuild the memory natively on the host (re-ingest rather than transplant) or patch the graph-indexing seam so `remember → detect → forget` runs end-to-end in the browser.
+
+Further out: an MCP server (P7), MemoryRot-Bench (P6), and additional evidence-ladder adapters (e.g. OSV.dev CVE supersession) — see `VISION.md`.
+
 ## Primary Artifacts
 
 - `docs/RESULTS-V3-P3.md`

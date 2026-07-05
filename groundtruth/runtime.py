@@ -12,8 +12,15 @@ from dotenv import load_dotenv
 ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "data"
 DOCS_DIR = ROOT / "docs"
+# Set GROUNDTRUTH_RUNTIME_ROOT to an isolated `.tmp_*` directory for destructive
+# ingest/reset experiments. Keep those temporary roots out of git via `.gitignore`.
 LOCAL_RUNTIME_ROOT = (
-    Path(os.environ.get("LOCALAPPDATA", str(ROOT))) / "GroundTruth" / "cognee"
+    Path(
+        os.environ.get(
+            "GROUNDTRUTH_RUNTIME_ROOT",
+            str(Path(os.environ.get("LOCALAPPDATA", str(ROOT))) / "GroundTruth" / "cognee"),
+        )
+    )
 )
 QUOTA_ERROR_MARKERS = (
     "429",

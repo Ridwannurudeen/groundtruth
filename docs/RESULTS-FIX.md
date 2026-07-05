@@ -1,6 +1,6 @@
 # Fix Pass Results
 
-Generated: 2026-07-04T19:15:26.715926+00:00
+Generated: 2026-07-05T14:31:48.233814+00:00
 Status: `complete`
 
 ## Retraction Pass
@@ -40,21 +40,21 @@ The headline metric is the fraction of answers whose relevance-ranked Cognee GRA
   {
     "claim_id": "R001",
     "cohort": "retracted_original",
-    "data_id": "033e8c14-5e6e-5dbf-8a50-a7b850015cf2",
+    "data_id": "99950f89-006f-5490-947a-1245ca4f5da4",
     "kind": "original_claim",
     "retracted": true
   },
   {
     "claim_id": "R001",
     "cohort": "retracted_original",
-    "data_id": "4b2daf7b-0340-572d-adde-ce491af50f5d",
+    "data_id": "c17c7120-afd7-5ed8-b970-7df0452ad41f",
     "kind": "retraction_notice",
     "retracted": false
   },
   {
     "claim_id": "R015",
     "cohort": "retracted_original",
-    "data_id": "10dd0a00-a6f2-533b-a6af-5d4884e532ac",
+    "data_id": "7036b031-b33a-53c1-89f6-abfabcdaf6c5",
     "kind": "retraction_notice",
     "retracted": false
   }
@@ -71,14 +71,14 @@ The headline metric is the fraction of answers whose relevance-ranked Cognee GRA
   {
     "claim_id": "R001",
     "cohort": "retracted_original",
-    "data_id": "4b2daf7b-0340-572d-adde-ce491af50f5d",
+    "data_id": "c17c7120-afd7-5ed8-b970-7df0452ad41f",
     "kind": "retraction_notice",
     "retracted": false
   },
   {
     "claim_id": "R015",
     "cohort": "retracted_original",
-    "data_id": "10dd0a00-a6f2-533b-a6af-5d4884e532ac",
+    "data_id": "7036b031-b33a-53c1-89f6-abfabcdaf6c5",
     "kind": "retraction_notice",
     "retracted": false
   }
@@ -95,36 +95,36 @@ The headline metric is the fraction of answers whose relevance-ranked Cognee GRA
   {
     "claim_id": "C001",
     "cohort": "active_control",
-    "data_id": "2c13440c-7ff4-59ef-aa40-290685b98ff4",
+    "data_id": "6cae129e-8367-5c6c-a82b-a36655612134",
     "kind": "original_claim",
     "retracted": false
   },
   {
     "claim_id": "C013",
     "cohort": "active_control",
-    "data_id": "f8069e33-8232-5c12-838d-ec08a41190f6",
+    "data_id": "00de2ff6-3c1a-553e-aaa6-0fad67411f31",
     "kind": "original_claim",
     "retracted": false
   },
   {
     "claim_id": "C012",
     "cohort": "active_control",
-    "data_id": "eec39b26-e7a8-5064-bd34-eca24c47b414",
+    "data_id": "a4276ec7-ba67-5bbd-a971-b2216ccce08b",
     "kind": "original_claim",
     "retracted": false
   },
   {
     "claim_id": "C015",
     "cohort": "active_control",
-    "data_id": "386a3edb-8fd5-5e04-8d52-c44362b40598",
+    "data_id": "88a1beed-4b16-5e49-9c7b-a7d011ad04c6",
     "kind": "original_claim",
     "retracted": false
   },
   {
-    "claim_id": "C004",
-    "cohort": "active_control",
-    "data_id": "41a51fa9-c5fa-5006-b45f-3d6bab8de1f0",
-    "kind": "original_claim",
+    "claim_id": "R006",
+    "cohort": "retracted_original",
+    "data_id": "fa4b8ca8-6aea-50aa-8a28-f6c5b459a163",
+    "kind": "retraction_notice",
     "retracted": false
   }
 ]
@@ -140,36 +140,36 @@ The headline metric is the fraction of answers whose relevance-ranked Cognee GRA
   {
     "claim_id": "C001",
     "cohort": "active_control",
-    "data_id": "2c13440c-7ff4-59ef-aa40-290685b98ff4",
+    "data_id": "6cae129e-8367-5c6c-a82b-a36655612134",
     "kind": "original_claim",
     "retracted": false
   },
   {
     "claim_id": "C013",
     "cohort": "active_control",
-    "data_id": "f8069e33-8232-5c12-838d-ec08a41190f6",
+    "data_id": "00de2ff6-3c1a-553e-aaa6-0fad67411f31",
     "kind": "original_claim",
     "retracted": false
   },
   {
     "claim_id": "C012",
     "cohort": "active_control",
-    "data_id": "eec39b26-e7a8-5064-bd34-eca24c47b414",
+    "data_id": "a4276ec7-ba67-5bbd-a971-b2216ccce08b",
     "kind": "original_claim",
     "retracted": false
   },
   {
     "claim_id": "C015",
     "cohort": "active_control",
-    "data_id": "386a3edb-8fd5-5e04-8d52-c44362b40598",
+    "data_id": "88a1beed-4b16-5e49-9c7b-a7d011ad04c6",
     "kind": "original_claim",
     "retracted": false
   },
   {
-    "claim_id": "C004",
-    "cohort": "active_control",
-    "data_id": "41a51fa9-c5fa-5006-b45f-3d6bab8de1f0",
-    "kind": "original_claim",
+    "claim_id": "R006",
+    "cohort": "retracted_original",
+    "data_id": "fa4b8ca8-6aea-50aa-8a28-f6c5b459a163",
+    "kind": "retraction_notice",
     "retracted": false
   }
 ]
@@ -185,35 +185,35 @@ The headline metric is the fraction of answers whose relevance-ranked Cognee GRA
   {
     "claim_id": "C003",
     "cohort": "active_control",
-    "data_id": "d3d710dc-228a-5960-bfce-a06ad17503ce",
+    "data_id": "67e303a1-2bc3-548f-b542-1c226f3881b4",
     "kind": "original_claim",
     "retracted": false
   },
   {
     "claim_id": "R001",
     "cohort": "retracted_original",
-    "data_id": "033e8c14-5e6e-5dbf-8a50-a7b850015cf2",
+    "data_id": "99950f89-006f-5490-947a-1245ca4f5da4",
     "kind": "original_claim",
     "retracted": true
   },
   {
     "claim_id": "C012",
     "cohort": "active_control",
-    "data_id": "eec39b26-e7a8-5064-bd34-eca24c47b414",
+    "data_id": "a4276ec7-ba67-5bbd-a971-b2216ccce08b",
     "kind": "original_claim",
     "retracted": false
   },
   {
-    "claim_id": "R001",
+    "claim_id": "R006",
     "cohort": "retracted_original",
-    "data_id": "4b2daf7b-0340-572d-adde-ce491af50f5d",
+    "data_id": "fa4b8ca8-6aea-50aa-8a28-f6c5b459a163",
     "kind": "retraction_notice",
     "retracted": false
   },
   {
     "claim_id": "R021",
     "cohort": "retracted_original",
-    "data_id": "5a1af7d0-fa90-5f24-bebf-fe8d24c80ada",
+    "data_id": "a30802d4-be71-5fc8-afe2-0fa541b7f0eb",
     "kind": "retraction_notice",
     "retracted": false
   }
@@ -230,35 +230,35 @@ The headline metric is the fraction of answers whose relevance-ranked Cognee GRA
   {
     "claim_id": "C003",
     "cohort": "active_control",
-    "data_id": "d3d710dc-228a-5960-bfce-a06ad17503ce",
+    "data_id": "67e303a1-2bc3-548f-b542-1c226f3881b4",
     "kind": "original_claim",
     "retracted": false
   },
   {
     "claim_id": "C012",
     "cohort": "active_control",
-    "data_id": "eec39b26-e7a8-5064-bd34-eca24c47b414",
+    "data_id": "a4276ec7-ba67-5bbd-a971-b2216ccce08b",
     "kind": "original_claim",
     "retracted": false
   },
   {
     "claim_id": "R001",
     "cohort": "retracted_original",
-    "data_id": "4b2daf7b-0340-572d-adde-ce491af50f5d",
+    "data_id": "c17c7120-afd7-5ed8-b970-7df0452ad41f",
     "kind": "retraction_notice",
     "retracted": false
   },
   {
-    "claim_id": "R003",
+    "claim_id": "R006",
     "cohort": "retracted_original",
-    "data_id": "99e5a7e4-1f8d-588b-8317-c7a32aa727ce",
+    "data_id": "fa4b8ca8-6aea-50aa-8a28-f6c5b459a163",
     "kind": "retraction_notice",
     "retracted": false
   },
   {
     "claim_id": "R021",
     "cohort": "retracted_original",
-    "data_id": "5a1af7d0-fa90-5f24-bebf-fe8d24c80ada",
+    "data_id": "a30802d4-be71-5fc8-afe2-0fa541b7f0eb",
     "kind": "retraction_notice",
     "retracted": false
   }

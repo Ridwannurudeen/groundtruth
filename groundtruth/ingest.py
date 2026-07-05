@@ -11,6 +11,8 @@ import time
 from datetime import datetime, timezone
 from typing import Any
 from uuid import UUID
+from urllib.parse import urlparse
+from pathlib import Path
 
 import httpx
 from groundtruth.beliefs import (
@@ -363,6 +365,28 @@ def data_id_from_result(result: Any) -> UUID | None:
     return None
 
 
+async def find_existing_claim_data_id(
+    cognee: Any, dataset_id: UUID, claim_id: str
+) -> UUID | None:
+    claim_prefix = f"GROUNDTRUTH CLAIM ID: {claim_id}"
+    for item in await cognee.datasets.list_data(dataset_id):
+        raw_path = getattr(item, "raw_data_location", None)
+        if not isinstance(raw_path, str) or not raw_path.startswith("file://"):
+            continue
+        parsed = urlparse(raw_path)
+        path = Path(parsed.path)
+        if path.as_posix().startswith("/"):
+            path = Path(parsed.path[1:])
+        try:
+            text = path.read_text(encoding="utf-8", errors="replace")
+        except OSError:
+            continue
+        for line in text.splitlines()[:4]:
+            if line.startswith(claim_prefix):
+                return item.id
+    return None
+
+
 async def data_item_by_id(cognee: Any, dataset: UUID, data_id: UUID) -> Any:
     for item in await cognee.datasets.list_data(dataset):
         if item.id == data_id:
@@ -456,12 +480,25 @@ async def store_claim_deterministic(
 
     after_ids = await list_data_ids(cognee, current_dataset_id)
     created_ids = after_ids - before_ids
-    if len(created_ids) != 1:
+    if len(created_ids) == 0:
+        existing_data_id = await find_existing_claim_data_id(
+            cognee,
+            current_dataset_id,
+            claim["claim_id"],
+        )
+        if existing_data_id is None:
+            raise RuntimeError(
+                f"Could not resolve deterministic data_id for {claim['claim_id']} in "
+                f"{dataset_name}: created_ids={sorted(str(item) for item in created_ids)}"
+            )
+        data_id = existing_data_id
+    elif len(created_ids) != 1:
         raise RuntimeError(
             f"Could not resolve deterministic data_id for {claim['claim_id']} in "
             f"{dataset_name}: created_ids={sorted(str(item) for item in created_ids)}"
         )
-    data_id = next(iter(created_ids))
+    else:
+        data_id = next(iter(created_ids))
     data_item = await data_item_by_id(cognee, current_dataset_id, data_id)
 
     from cognee.context_global_variables import set_database_global_context_variables

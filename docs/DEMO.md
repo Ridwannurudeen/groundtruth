@@ -1,36 +1,63 @@
-# GroundTruth Demo Script
+# Demo Script (90 seconds)
 
-## Run
+## Objective
+
+Show end-to-end belief maintenance: morning brief, contested adjudication, time-travel diff, then benchmark close.
+
+## Script
+
+### 0:00-0:10 | Hangover Open
+
+1. Start the app:
 
 ```powershell
-$env:PYTHONIOENCODING='utf-8'; .\.venv\Scripts\uvicorn.exe web.app:app --host 127.0.0.1 --port 8000
+.\.venv\Scripts\uvicorn.exe web.app:app --host 127.0.0.1 --port 8000
 ```
 
-Open `http://127.0.0.1:8000`.
+2. Open `http://127.0.0.1:8000`.
+3. Point to the top metrics line and read: `0/20` GroundTruth, `18/20` naive, `5/5` controls.
 
-The fixed corpus has already processed all 25 held-back retractions. For the
-live retraction timeline in steps 3-5, start from a fresh ingest/reset where
-`active_retractions` is non-empty.
+### 0:10-0:30 | Morning Briefing
 
-The UI includes the local mutation confirmation returned by `/state` when it
-calls `/retract`, `/feedback`, or `/improve`. Direct API callers must include
-that same confirmation field; it is a demo guard against accidental local
-runtime mutation, not production authentication.
+1. In the page input, ask:
+   `Does avacopan remain supported after retraction?`
+2. Click **Ask Both** once so both memory panels render.
+3. On the briefing panel, open the sections:
+   - learned last night
+   - now revised
+   - now purged
+4. Mention this is the cross-memory narrative: evening/session evidence is bridged and reflected in registry-backed state.
 
-## Click Path
+### 0:30-0:55 | Contested Adjudication
 
-1. Let the default question load and click `Ask Both`.
-2. Point out the side-by-side split: naive memory shows `cites retracted`; GroundTruth shows `clean citations`.
-3. In `Retraction wire`, keep the first active DOI selected and click `Retract`.
-4. Watch the timeline advance through `detected`, `running`, `contradiction_found`, `forgotten`, and `complete`.
-5. After the automatic re-ask, compare the same side-by-side panels again: GroundTruth no longer cites the forgotten original, while naive memory keeps the retracted source.
-6. Click `Open Graph` to show Cognee's global memory-provenance graph. Describe it as the whole memory graph, not answer-level provenance; answer citations are the reference rows in the two panels.
-7. On the GroundTruth panel, click `Downvote`, then `Improve`. The feedback loop stores the session feedback, runs Cognee's improve path, and re-asks with `feedback_influence=1`.
+1. In the briefing, note one contested item is present (`V2C003::V2C004`).
+2. Open the Contested list and select that pair.
+3. Click a verdict path (upvote/downvote path depending on your readout) to resolve it.
+4. Re-run the same omega-3 question.
+5. Confirm the answer text now reflects the resolution and no longer treats the claim as contested only.
 
-## Presenter Notes
+### 0:55-1:25 | Time-Travel Diff
 
-- Benchmark headline: naive memory retrieves retracted originals in 18/20 relevance-ranked answers; GroundTruth retrieves them in 0/20.
-- Control retention: 5/5 active controls remain available.
-- Retraction coverage: 25/25 retracted-cohort originals are forgotten from GroundTruth.
-- Correctness judge is intentionally skipped because the Gemini free-tier quota is exhausted; the primary metric is relevance-ranked graph references containing a still-present retracted original.
-- V2 semantic conflict detection is an all-pair eval over 8 claims. The current live LLM run is partial because Gemini quota stopped at 22/28 pairs: precision 1.00, recall 0.67, 6 pairs pending.
+1. Set timeline range:
+   - `from`: `2026-01-01`
+   - `to`: `2026-07-04`
+2. Click **Timeline diff**.
+3. Read:
+   - timeline headers: added / contested / revised / purged
+   - before-vs-now answer cards
+   - basis lines showing why each transition happened.
+4. Say that each row is derived from registry history and evidence classes.
+
+### 1:25-1:30 | Benchmark Close
+
+1. Ask one short control question again.
+2. Close by reading the metric row:
+   - naive cites retracted in `18/20`
+   - GroundTruth cites retracted in `0/20`
+   - control retention `5/5`
+   - disclosure: correctness judge is quota-disclosed in this phase.
+
+## Recorder Notes
+
+- Keep the session tight and visible: one browser, one screen.
+- Confirm all numbers against `docs/RESULTS-V3-P8.md` before recording.
